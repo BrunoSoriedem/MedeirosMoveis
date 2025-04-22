@@ -10,51 +10,73 @@ body {
     overflow-x: hidden;
 }
 
+.fundo {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(9, 56, 28) 90%, rgb(3, 65, 29) 100%);
+    min-height: 100vh;
+}
 
 .header {
-    background-color: black;
     padding: 10px;
     z-index: 999;
     position: fixed;
     justify-content: space-between;
     width: 100%;
-    background: #000000;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%,
-            rgb(18, 66, 37) 77%, rgb(10, 95, 47) 100%);
+    background: #ffffff;
+}
 
-    div {
-        display: flex;
-        align-items: center;
-    }
+.header div {
+    display: flex;
+    padding: 1px;
+    align-items: center;
+}
 
-    a {
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-        font-size: 20px;
-        align-items: end;
-    }
+.header a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    align-items: end;
+}
 
-    ul {
-        margin-left: 80%;
-    }
+.header img {
+    width: 80px;
+    height: 80px;
+}
 
-    li {
-        display: inline-block;
-        list-style: none;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 16px;
-        background-color: #000000;
-        padding: 20px;
-        top: 20%
-    }
+.nav-desktop {
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+}
 
-    .nome-site {
-        color: white;
-    }
+.header .contato {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(7, 138, 7);
+    padding: 15px;
+    font-size: 15px;
+    float: right;
+    transition: 1s all;
+}
 
-    .contato {
-        float: rigth;
-    }
+.header .contato:hover {
+    background-color: rgb(7, 138, 7);
+    border-radius: 10px;
+    color: white;
+}
+
+.header ul {
+    margin-left: 80%;
+}
+
+.header li {
+    display: inline-block;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.header .nome-site {
+    color: rgb(0, 0, 0);
 }
