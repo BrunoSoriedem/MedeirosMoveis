@@ -9,11 +9,6 @@ html {
     scroll-behavior: smooth;
 }
 
-.fundo {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(9, 56, 28) 90%, rgb(3, 65, 29) 100%);
-    min-height: 100vh;
-}
-
 html,
 body {
     height: 100%;
@@ -95,6 +90,73 @@ body {
     text-transform: uppercase;
     margin: 10px;
 }
+
+.gradiant {
+    z-index: 999;
+    padding: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%,
+            rgb(9, 56, 28) 90%, rgb(3, 65, 29) 100%);
+}
+
+.div-inicio {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-inicio img {
+    width: 50%;
+    height: 100%;
+    border-radius: 15px;
+    margin-right: 50%;
+}
+
+.infos-img {
+    display: flex;
+    flex-direction: column;
+}
+
+.infos-img p {
+    color: white;
+    margin-left: 52%;
+    margin-top: -20%;
+}
+
+
+
+
+.section-infos {
+    padding: 50%;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footer {
     background-color: black;
