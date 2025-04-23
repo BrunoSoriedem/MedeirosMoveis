@@ -70,6 +70,7 @@ body {
     padding: 15px;
     font-size: 15px;
     float: right;
+    border-radius: 10px;
     transition: 1s all;
 }
 
@@ -79,7 +80,6 @@ body {
 
 .header .contato:hover {
     background-color: rgb(7, 138, 7);
-    border-radius: 10px;
     color: white;
 }
 
@@ -118,6 +118,12 @@ body {
 .infos-img {
     display: flex;
     flex-direction: column;
+}
+
+.infos-img h2 {
+    color: white;
+    margin-left: 52%;
+    margin-top: -20%;
 }
 
 .infos-img p {
