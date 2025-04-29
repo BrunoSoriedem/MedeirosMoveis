@@ -41,6 +41,34 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    ul {
+        margin-left: 340px;
+    }
+}
+
+.efeito {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.efeito:before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 3px;
+    width: 50%;
+    background: rgb(255, 0, 0);
+    border-radius: 50px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s linear;
+}
+
+.efeito:hover:before {
+    transform: scaleX(2);
 }
 
 .header div {
@@ -106,34 +134,57 @@ body {
 .div-inicio {
     display: flex;
     flex-direction: column;
+    /* margin-left:50% ; */
+    /* margin-left: 80%; */
 }
 
 .div-inicio img {
-    width: 50%;
-    height: 100%;
+    margin-left: -30%;
+    margin-top: -10%;
+    width: 700px;
+    height: 300px;
     border-radius: 15px;
     margin-right: 50%;
 }
 
-.infos-img {
-    display: flex;
-    flex-direction: column;
-}
-
 .infos-img h2 {
     color: white;
-    margin-left: 52%;
-    margin-top: -20%;
+    margin-left: 65%;
+    margin-top: -35%;
 }
 
 .infos-img p {
     color: white;
-    margin-left: 52%;
-    margin-top: -20%;
+    margin-left: 65%;
+    /* margin-top: 2%; */
 }
 
+.main .orcamento {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(17, 172, 17);
+    padding: 15px;
+    font-size: 15px;
+    margin-left: 50px;
+    float: right;
+    border-radius: 10px;
+    transition: 1s all;
+}
 
+.main a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
 
+.main .orcamento i {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.main .orcamento:hover {
+    background-color: #126b1f
+}
 
 .section-infos {
     padding: 50%;
