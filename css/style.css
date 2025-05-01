@@ -46,8 +46,8 @@ body {
         margin-left: 200px;
 
         .contato {
-            /* display: flex; */
-            /* align-items: center; */
+            display: flex;
+            align-items: center;
             gap: 8px;
             background-color: rgb(255, 255, 255);
             border: 3px solid rgb(7, 138, 7);
@@ -56,13 +56,17 @@ body {
             /* float: right; */
             border-radius: 10px;
             transition: 1s all;
+        }
 
-            .contato:hover {
-                background-color: rgb(7, 138, 7);
-                color: white;
-            }
+        .contato:hover {
+            background-color: rgb(7, 138, 7);
+            color: white;
         }
     }
+}
+
+.nav-item.dropdown .nav-link.dropdown-toggle {
+    font-size: 18px;
 }
 
 .efeito {
@@ -192,42 +196,25 @@ body {
     background: white
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .footer {
     background-color: black;
-    padding: 5px;
+    padding: -2px;
     width: 100%;
 }
 
-.footer p {
+.footer .copyright {
     text-align: center;
     font-family: "Rajdhani", Arial, sans-serif;
-    padding: 5px;
-    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: -1px;
+    font-size: 15px;
     color: white;
 }
 
 .footer .dev {
     text-align: center;
     font-family: "Rajdhani", Arial, sans-serif;
-    font-size: 10px;
+    font-size: 13px;
+    margin-bottom: 2px;
     color: white;
 }
