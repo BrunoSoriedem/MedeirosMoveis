@@ -21,7 +21,7 @@
     <link href="images/logo-loja.png" rel="shortcut icon">
 </head>
 
-<body class="fundo">
+<body class="fundo" id="top">
     <div class="site-container">
         <header class="header">
             <nav class="nav-desktop">
@@ -42,12 +42,19 @@
                             Produtos
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Móveis</a></li>
-                            <li><a class="dropdown-item" href="#">modulados</a></li>
+                            <div class="efeito">
+                                <li><a class="dropdown-item" href="#">Móveis</a></li>
+                            </div>
+                            <div class="efeito">
+                                <li><a class="dropdown-item" href="#">modulados</a></li>
+                            </div>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Eletrodomésticos</a></li>
+                            <div class="efeito">
+                                <li><a class="dropdown-item" href="#">Eletrodomésticos</a></li>
+                            </div>
                         </ul>
                     </li>
                     <li><a href="quemSomos.html" title="Quem Somos">
@@ -94,7 +101,9 @@
                                 <p class="simbolo-mais">+</p>
                                 <div class="counter" data-target="20">0</div>
                                 <p class="escrita-mais">
-                                    Anos de experiência entregando Móveis Planejados de alta qualidade para a sua
+                                    Anos de experiência entregando Móveis Planejados de
+                                    alta qualidade para a sua
+                                    <br>
                                     Família, com integridade e confiança.
                                 </p>
                             </div>
@@ -118,6 +127,9 @@
             <p class="dev">
                 Developed by Bruno Medeiros
             </p>
+            <a href="#top" class="btn-back-to-top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
         </footer>
     </div>
 
@@ -130,6 +142,7 @@
     <script>
         AOS.init();
     </script>
+
 </body>
 
 </html>
