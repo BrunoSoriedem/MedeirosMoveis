@@ -87,47 +87,10 @@
     margin: 10px;
 }
 
-.hr-footer {
-    color: black;
-    width: 100%;
-}
-
 .footer {
-    background-color: rgb(255, 255, 255);
-    padding: 50px;
+    background-color: black;
+    padding: -2px;
     width: 100%;
-}
-
-.col {
-    margin: 100px;
-}
-
-.logo-footer {
-    margin-top: -90%;
-    margin-left: -150%;
-    height: 80px;
-    width: 200px;
-}
-
-.info-footer-endereco {
-    margin-left: -70%;
-    margin-top: -25%;
-    font-size: 17px;
-    text-align: justify;
-    font-family: "Roboto", Arial, sans-serif;
-}
-
-.redes {
-    margin-left: -160%;
-    margin-top: -5%;
-
-    a {
-        color: #000000;
-        font-size: 1.5em;
-        text-decoration: none;
-        margin: 5px;
-        padding: 15px;
-    }
 }
 
 .footer .copyright {
@@ -136,7 +99,7 @@
     margin-top: 10px;
     margin-bottom: -1px;
     font-size: 15px;
-    color: rgb(0, 0, 0);
+    color: white;
 }
 
 .footer .dev {
@@ -144,5 +107,5 @@
     font-family: "Rajdhani", Arial, sans-serif;
     font-size: 14px;
     margin-bottom: 2px;
-    color: rgb(0, 0, 0);
+    color: white;
 }
