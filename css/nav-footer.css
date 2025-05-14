@@ -99,7 +99,7 @@
 }
 
 .col {
-    margin: 100px;
+    margin: 80px;
 }
 
 .logo-footer {
@@ -129,6 +129,80 @@
         padding: 15px;
     }
 }
+
+.conteudo-atendimento {
+    /* margin-top: -50%; */
+}
+
+.ul-footer {
+    margin-top: -100px;
+
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+}
+
+.fa-solid.fa-phone-volume {
+    font-size: 30px;
+    padding: 20px 0 0 0;
+}
+
+.nome-atendimento {
+    /* margin-left: -80px;
+    margin-top: -120%; */
+    list-style: none;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.div-infos-topicos-footer {
+    margin-left: 100px;
+    margin-top: -45px;
+    text-align: justify;
+
+    .infos-topicos-footer {
+        margin-left: -65px;
+        font-weight: normal;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        font-size: 15px;
+    }
+}
+
+.fone-topicos-footer {
+    margin-left: 35px;
+}
+
+.separador-footer {
+    color: black;
+    width: 350px;
+    /* margin-left: -50px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footer .copyright {
     text-align: center;
