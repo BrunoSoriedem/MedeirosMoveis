@@ -94,48 +94,41 @@
 
 .footer {
     background-color: rgb(255, 255, 255);
-    padding: 50px;
+    padding: 20px;
     width: 100%;
 }
 
-.col {
-    margin: 80px;
+#infos-endereco-logo-redes {
+    /* margin-top: -15%; */
 }
 
-.logo-footer {
-    margin-top: -90%;
-    margin-left: -150%;
-    height: 80px;
-    width: 200px;
-}
+.grid.text-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.info-footer-endereco {
-    margin-left: -70%;
-    margin-top: -25%;
-    font-size: 17px;
-    text-align: justify;
-    font-family: "Roboto", Arial, sans-serif;
-}
-
-.redes {
-    margin-left: -160%;
-    margin-top: -5%;
-
-    a {
-        color: #000000;
-        font-size: 1.5em;
-        text-decoration: none;
-        margin: 5px;
-        padding: 15px;
+    .logo-footer {
+        height: 80px;
+        width: 200px;
     }
-}
 
-.conteudo-atendimento {
-    /* margin-top: -50%; */
-}
+    .info-footer-endereco {
+        margin-left: 25%;
+        text-align: justify;
+        font-family: "Roboto", Arial, sans-serif;
+    }
 
-.ul-footer {
-    margin-top: -100px;
+    .redes {
+        /* text-align: justify; */
+
+        a {
+            color: #000000;
+            font-size: 1.5em;
+            text-decoration: none;
+            margin: 10px;
+            padding: 15px;
+        }
+    }
 
     a {
         text-decoration: none;
@@ -144,71 +137,80 @@
 }
 
 .fa-solid.fa-phone-volume {
+    font-size: 25px;
+    padding: 20px 0 0 0;
+}
+
+.fa-brands.fa-whatsapp.fa-xs {
     font-size: 30px;
     padding: 20px 0 0 0;
 }
 
+.fa-solid.fa-at {
+    font-size: 25px;
+    padding: 20px 0 0 0;
+}
+
 .nome-atendimento {
-    /* margin-left: -80px;
-    margin-top: -120%; */
     list-style: none;
     font-weight: bold;
     text-align: justify;
 }
 
 .div-infos-topicos-footer {
-    margin-left: 100px;
-    margin-top: -45px;
-    text-align: justify;
-
-    .infos-topicos-footer {
-        margin-left: -65px;
-        font-weight: normal;
-        font-family: "Roboto", Arial, Helvetica, sans-serif;
-        font-size: 15px;
-    }
+    display: flex;
+    margin-left: 10%;
+    margin-top: -10%;
 }
 
 .fone-topicos-footer {
-    margin-left: 35px;
+    display: flex;
+    margin-left: 10%;
+    /* margin-top: -10%; */
+}
+
+.infos-topicos-footer {
+    font-weight: normal;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.nome-whatsapp {
+    list-style: none;
+    font-weight: bold;
+    text-align: justify;
+}
+
+#hora-atendimento {
+    font-weight: normal;
+}
+
+.produtos-topicos {
+    margin-top: 20%;
+    margin-left: 10%;
+}
+
+.ul-footer {
+    list-style: none;
+    font-weight: bold;
+    text-align: justify;
+
+    li {
+        font-size: 17px;
+        padding: 10px;
+    }
 }
 
 .separador-footer {
     color: black;
     width: 350px;
-    /* margin-left: -50px; */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .footer .copyright {
     text-align: center;
     font-family: "Rajdhani", Arial, sans-serif;
     margin-top: 10px;
-    margin-bottom: -1px;
+    /* margin-bottom: -1px; */
     font-size: 15px;
     color: rgb(0, 0, 0);
 }
