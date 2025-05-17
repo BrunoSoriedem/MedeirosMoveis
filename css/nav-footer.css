@@ -13,12 +13,28 @@
     height: 30px;
     width: 100%;
     top: 0;
+    overflow: hidden;
 }
 
 .escrita-top-header {
-    margin-bottom: -100px;
     color: white;
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: escrita-top-header 15s linear infinite;
 }
+
+
+@keyframes escrita-top-header {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
 
 .site-container {
     flex: 1;
@@ -222,6 +238,10 @@ a {
 
 #hora-atendimento {
     font-weight: normal;
+}
+
+.img-paulo {
+    width: 70%;
 }
 
 .produtos-topicos {
