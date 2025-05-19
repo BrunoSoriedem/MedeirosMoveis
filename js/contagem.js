@@ -1,4 +1,4 @@
-const counters = document.querySelectorAll('.counter');
+const counters = document.querySelectorAll('.elementor-counter-number');
 
 counters.forEach(counter => {
   const updateCount = () => {

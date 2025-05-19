@@ -46,38 +46,42 @@ img {
 
 .div-inicio {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* margin-top: -50px; */
+    /* height: 600px; */
 }
 
 .div-inicio img {
-    width: 70%;
-    height: 40%;
-    margin-right: 20%;
-    margin-top: -45%;
+    width: 75%;
+    height: 50%;
+    margin: auto;
     border-radius: 15px;
     z-index: 900;
 }
 
 .infos-img {
     display: flex;
-    /* margin-top: -50%; */
-    /* margin-left: 90%; */
-    /* justify-content: space-between; */
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
 }
 
 .infos-img h2 {
     color: white;
-    margin-left: 90%;
-    margin-top: -45%;
+    font-size: 2.5rem;
+    text-align: justify;
 }
 
 .infos-img p {
     color: white;
-    margin-left: 65%;
+    font-size: 1.2rem;
+    text-align: justify;
 }
 
-.main a {
+.infos-img a {
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
@@ -89,73 +93,125 @@ img {
     background-color: rgb(17, 172, 17);
     padding: 15px;
     font-size: 15px;
-    margin-left: 65%;
     margin-top: 10px;
     float: left;
     border-radius: 10px;
     transition: 1s all;
 }
 
-.main .orcamento i {
+.infos-img .orcamento i {
     font-size: 20px;
     color: rgb(255, 255, 255);
 }
 
-.main .orcamento:hover {
+.infos-img .orcamento:hover {
     background-color: #126b1f
 }
 
-.escrita-contagem {
+.elementor-counter {
     display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column-reverse;
+}
+
+.elementor-counter .elementor-counter-number-wrapper {
+    flex: 1;
+    display: flex;
+    font-size: 69px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+
+.elementor-counter .elementor-counter-number-prefix {
+    text-align: start;
+    flex-grow: var(--counter-prefix-grow, 1);
+    white-space: pre-wrap;
+}
+
+.elementor-counter-number {
+    flex-grow: var(--counter-number-grow, 0);
+}
+
+.elementor-counter .elementor-counter-number-suffix {
+    text-align: start;
+    flex-grow: var(--counter-suffix-grow, 1);
+    white-space: pre-wrap;
+}
+
+.escrita-elementor-counter {
+    /* text-align: start; */
+    flex-grow: var(--counter-suffix-grow, 0);
+    /* white-space: pre-wrap; */
+}
+
+
+/*
+
+.div-contador-experiencia {
+    display: flex;
+    flex-direction: row;
+    /* display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    /* align-items: center; 
+    /* justify-content: center; 
+    /* gap: 20px; 
+    /* margin-top: -50px; 
+    /* height: 800px; 
+}
+
+.escrita-contagem {
+    /* display: flex;
     flex-direction: column;
     float: right;
-    align-items: center;
+    align-items: center; 
 }
 
 .counter {
     font-size: 4rem;
     font-weight: bold;
     color: #ffffff;
-    margin-left: -1020px;
-    margin-top: -110px;
+    /* margin-left: -1020px; 
+    /* margin-top: -110px; 
+    display: flex;
     transition: all 0.3s ease-in-out;
 }
 
 .contador-experiencia {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
     color: white;
-    max-width: 400px;
+    max-width: 400px; 
 }
 
 .contador-experiencia .simbolo-mais {
     font-size: 60px;
-    margin-left: -1120px;
-    margin-top: -35px;
+    margin: auto;
+    text-align: justify;
+    display: flex;
 }
-
 
 .contador-experiencia .escrita-mais {
-    font-size: 16px;
-    margin-left: -355px;
-    margin-top: -75px;
+    /* font-size: 16px; 
+    display: flex;
 }
 
-.contador-experiencia .escrita-mais p {
-    justify-content: left;
+.contador-experiencia .escrita-mais {
+    text-align: justify;
 }
 
 .info-contagem {
-    margin-top: 50px;
+    /* margin-top: 50px; 
 }
 
 .escrita-contagem {
     margin-top: 7%;
     text-align: center;
     font-weight: bold;
-}
+} */
 
 .div-section-infos {
     padding: 50%;
@@ -171,8 +227,6 @@ img {
 .d-block.w-100 {
     filter: brightness(0.3);
 }
-
-
 
 /* .grid.text-center.overflow-x-auto {
     color: blueviolet;
