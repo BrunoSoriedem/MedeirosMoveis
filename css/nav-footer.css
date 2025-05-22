@@ -5,6 +5,20 @@
     font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+
+
 .top-header {
     z-index: 999;
     position: fixed;
@@ -281,3 +295,6 @@ a {
     margin-bottom: 2px;
     color: rgb(0, 0, 0);
 }
+
+
+/* Time Line  */
