@@ -112,6 +112,7 @@ h2 {
     position: relative;
 }
 
+/* esse que vou usar pra trocar os lados */
 .timeline_item {
     z-index: 2;
     grid-column-gap: 0px;
@@ -154,7 +155,7 @@ h2 {
 }
 
 .timeline_circle {
-    background-color: #fff;
+    background-color: #0c9224;
     border-radius: 100%;
     width: 15px;
     min-width: 15px;
@@ -164,12 +165,12 @@ h2 {
     max-height: 15px;
     position: sticky;
     top: 50vh;
-    box-shadow: 0 0 0 8px #0a0a0a;
+    box-shadow: 0 0 0 8px #ffffff;
 }
 
 .timeline_progress {
     z-index: -2;
-    background-color: #414141;
+    background-color: #949494;
     width: 3px;
     height: 100%;
     position: absolute;
@@ -177,18 +178,22 @@ h2 {
 
 .timeline_progress-bar {
     z-index: -1;
-    background: rgb(15, 101, 15);
+    background: rgb(0, 0, 0);
     background: -webkit-linear-gradient(to right,
-            #000000,
-            rgb(23, 129, 23));
+            #57ff8c,
+            rgb(6, 194, 6));
     background: linear-gradient(to right,
-            #000000,
-            rgb(23, 129, 23));
+            #57ff8c,
+            rgb(6, 194, 6));
     width: 3px;
     height: 50vh;
     position: fixed;
     inset: 0 auto 50vh;
 }
+
+
+
+
 
 .section-timeline {
     z-index: -3;
@@ -233,19 +238,7 @@ h2 {
     color: #ffffffa6;
 }
 
-/* .overlay-fade-top {
-    background-image: linear-gradient(#0a0a0a, #0a0a0a00);
-    height: 80px;
-    position: absolute;
-    inset: 0% 0% auto;
-}
 
-.overlay-fade-bottom {
-    background-image: linear-gradient(to top, #0a0a0a, #0a0a0a00);
-    height: 80px;
-    position: absolute;
-    inset: 0% 0% auto;
-} */
 
 .container.text-center {
     margin-bottom: 80px;

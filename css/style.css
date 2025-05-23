@@ -43,22 +43,64 @@ img {
     transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 }
 
-.div-inicio {
-    display: flex;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.div-inicio {
+     display: flex;
     margin-right: auto;
     margin-left: auto;
-    position: relative;
-}
+    position: relative; 
+}*/
 
-.div-inicio img {
-    width: 75%;
+/*.div-inicio img {
+     width: 75%;
     height: 50%;
     margin: auto;
     border-radius: 15px;
-    z-index: 900;
-}
+    z-index: 900; 
+}*/
 
-.infos-img {
+/* .infos-img {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,7 +122,7 @@ img {
 .infos-img a {
     color: rgb(255, 255, 255);
     text-decoration: none;
-}
+} */
 
 .orcamento {
     display: flex;
@@ -143,82 +185,7 @@ img {
 }
 
 
-/*
 
-.div-contador-experiencia {
-    display: flex;
-    flex-direction: row;
-    /* display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    /* align-items: center; 
-    /* justify-content: center; 
-    /* gap: 20px; 
-    /* margin-top: -50px; 
-    /* height: 800px; 
-}
-
-.escrita-contagem {
-    /* display: flex;
-    flex-direction: column;
-    float: right;
-    align-items: center; 
-}
-
-.counter {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #ffffff;
-    /* margin-left: -1020px; 
-    /* margin-top: -110px; 
-    display: flex;
-    transition: all 0.3s ease-in-out;
-}
-
-.contador-experiencia {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    max-width: 400px; 
-}
-
-.contador-experiencia .simbolo-mais {
-    font-size: 60px;
-    margin: auto;
-    text-align: justify;
-    display: flex;
-}
-
-.contador-experiencia .escrita-mais {
-    /* font-size: 16px; 
-    display: flex;
-}
-
-.contador-experiencia .escrita-mais {
-    text-align: justify;
-}
-
-.info-contagem {
-    /* margin-top: 50px; 
-}
-
-.escrita-contagem {
-    margin-top: 7%;
-    text-align: center;
-    font-weight: bold;
-} */
-
-.div-section-infos {
-    padding: 50%;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: white
-}
 
 .d-block.w-100 {
     filter: brightness(0.3);
