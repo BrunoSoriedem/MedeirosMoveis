@@ -29,6 +29,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
@@ -95,35 +96,21 @@
         </header>
 
         <main class="main">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                <div class="carousel-inner">
-                    <div id="primeiro-slide" class="carousel-item active">
-                        <img src="images/teste.jpg" class="d-block w-100" alt="...">
-                        <div class="grid text-center" style="--bs-columns: 10; --bs-gap: 1rem;">
-                            <!-- <div class="g-col-6">
-                                <img src="images/teste.jpg" class="img-primeiro-slide" alt="Imagem Slide">
-                            </div> -->
-                            <!-- <div class="g-col-4">.g-col-4</div> -->
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <img src="images/Slide1jpg.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="images/tudo-sobre-moveis-planejados-990x550-1.jpg" class="d-block w-100" alt="...">
-                    </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">Slide 4</div>
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                    <div class="swiper-slide">Slide 7</div>
+                    <div class="swiper-slide">Slide 8</div>
+                    <div class="swiper-slide">Slide 9</div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
 
             <section>
@@ -251,6 +238,8 @@
         <script src="js/aos.js"></script>
         <script src="js/contagem.js"></script>
         <script src="js/rolar.js"></script>
+        <script src="js/swiper.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
             AOS.init();
         </script>

@@ -150,11 +150,13 @@ body {
 }
 
 .hr-footer {
+    z-index: 999;
     color: black;
     width: 1008%;
 }
 
 .footer {
+    z-index: 999;
     background-color: rgb(255, 255, 255);
     /* padding: 20px; */
     width: 100%;

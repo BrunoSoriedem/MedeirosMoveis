@@ -20,12 +20,6 @@ body {
     overflow-x: hidden;
 }
 
-/*
-body {
-    display: flex;
-    flex-direction: column;
-}*/
-
 body {
     min-height: 100%;
     margin: 0;
@@ -49,11 +43,11 @@ h2 {
     font-size: 50px;
     background: rgb(15, 101, 15);
     background: -webkit-linear-gradient(to right,
-            #000000,
-            rgb(23, 129, 23));
+            #0f3707,
+            rgb(15, 200, 15));
     background: linear-gradient(to right,
-            #000000,
-            rgb(23, 129, 23));
+            #072f12,
+            rgb(21, 203, 21));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -69,6 +63,7 @@ h2 {
 }
 
 .container {
+    z-index: -10;
     width: 90vw;
     max-width: 1360px;
     margin-left: auto;
@@ -78,6 +73,7 @@ h2 {
 .margin-bottom-medium {
     margin-bottom: 32px;
 }
+
 
 .paragraph-large {
     letter-spacing: -0.02em;
@@ -132,6 +128,7 @@ h2 {
     align-items: stretch;
 }
 
+
 .timeline_centre {
     justify-content: center;
     display: flex;
@@ -169,7 +166,7 @@ h2 {
 }
 
 .timeline_progress {
-    z-index: -2;
+    z-index: 1;
     background-color: #949494;
     width: 3px;
     height: 100%;
@@ -189,6 +186,11 @@ h2 {
     height: 50vh;
     position: fixed;
     inset: 0 auto 50vh;
+}
+
+.swiper {
+    width: 600px;
+    height: 300px;
 }
 
 
@@ -265,13 +267,6 @@ h2 {
     font-size: 17px;
 }
 
-#nossa-historia {
-    font-family: "Inter", "Roboto", Arial;
-    font-size: 50px;
-    font-weight: bold;
-    padding-bottom: 50px;
-}
-
 .card {
     align-items: center;
     display: flex;
@@ -326,6 +321,35 @@ h2 {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.espaco-timeline {
+    z-index: -3;
+    background-color: #ffffff !important;
+    position: relative;
+
+}
+
+.overlay-fade-top {
+    z-index: -3;
+    background-image: linear-gradient(#ffffff, #0a0a0a00);
+    height: 80px;
+    position: absolute;
+    inset: 0% 0% auto;
+}
+
+.overlay-fade-bottom {
+    z-index: -3;
+    background-image: linear-gradient(to top, #ffffff, #0a0a0a00);
+    height: 80px;
+    position: absolute;
+    inset: auto 0% 0%;
+}
+
+.espaco-final {
+    z-index: 999 ! important;
+    background-color: #ffffff;
 }
 
 
