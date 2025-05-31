@@ -70,37 +70,47 @@
                         </a>
                         <ul class="dropdown-menu">
                             <div class="efeito">
-                                <li><a class="dropdown-item" href="#">Móveis</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Móveis
+                                    </a>
+                                </li>
                             </div>
                             <div class="efeito">
-                                <li><a class="dropdown-item" href="#">modulados</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Planejados
+                                    </a>
+                                </li>
                             </div>
 
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <div class="efeito">
-                                <li><a class="dropdown-item" href="#">Eletrodomésticos</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Eletrodomésticos
+                                    </a>
+                                </li>
                             </div>
                         </ul>
                     </li>
-                    <li><a href="sobreNos.html" title="Sobre Nós">
-                            <div class="efeito">Sobre Nós</div>
-                        </a></li>
                     <li>
-                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento!" target="_blank"
-                            rel="noopener noreferrer" title="WhatsApp">
-                            <div class="contato">
-                                <i class="fa-brands fa-whatsapp fa-xl"></i>(44) 99987-0212
+                        <a href="sobreNos.html" title="Sobre Nós">
+                            <div class="efeito">Sobre Nós</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contato.html" title="Contato">
+                            <div class="efeito">
+                                Contato
                             </div>
                         </a>
                     </li>
                 </ul>
             </nav>
         </header>
-
-
-
 
         <main>
             <section>
@@ -110,7 +120,7 @@
                             <div class="padding-vertical-xlarge">
                                 <div class="timeline-main_heading-wrapper">
                                     <div class="margin-bottom-medium">
-                                        <h2>Nossa História</h2>
+                                        <h2 class="nossa-historia">Nossa História</h2>
                                     </div>
                                     <p class="paragraph-large">
                                         A história começou a ser escrita na cidade de Araruna, interior do Paraná, em
@@ -250,26 +260,59 @@
 
             <section>
                 <div class="section-dois">
-                    <div class="row">
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">Slide 1</div>
-                                <div class="swiper-slide">Slide 2</div>
-                                <div class="swiper-slide">Slide 3</div>
-                                <div class="swiper-slide">Slide 4</div>
-                                <div class="swiper-slide">Slide 5</div>
-                                <div class="swiper-slide">Slide 6</div>
-                                <div class="swiper-slide">Slide 7</div>
-                                <div class="swiper-slide">Slide 8</div>
-                                <div class="swiper-slide">Slide 9</div>
+                    <div class="equipe">
+                        <div class="conteudo">
+                            <div class="barra-verde"></div>
+                            <div class="escrita-equipe">
+                                <h4 class="sub-escrita-equipe">Nossa Equipe</h4>
+                                <h2 class="titulo-equipe">Equipe de Profissionais Altamente Focados</h2>
+                                <p class="descricao-equipe">
+                                    Usamos toda nossa experiência de mais de <strong>20 anos</strong> para entender suas
+                                    necessidades e
+                                    oferecer soluções que realmente fazem a diferença.
+                                    <br />
+                                    Oferecemos móveis que aliam design inteligente, conforto e resistência para
+                                    valorizar cada espaço da sua casa.
+                                </p>
                             </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="carousel-wrapper">
+                        <button class="carousel-btn prev">
+                            <i class="fa-solid fa-arrow-left" id="setas"></i>
+                        </button>
+
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="card"><img src="images/pai-removebg-preview.png" alt="1" /></div>
+                                <div class="card"><img src="images/testePessoa-removebg-preview.png" alt="2" /></div>
+                                <div class="card"><img src="images/pai-removebg-preview.png" alt="3" /></div>
+                                <div class="card active"><img src="images/testePessoa-removebg-preview.png" alt="4" />
+                                </div>
+                                <div class="card"><img src="images/pai-removebg-preview.png" alt="5" /></div>
+                                <div class="card"><img src="images/testePessoa-removebg-preview.png" alt="6" /></div>
+                                <div class="card"><img src="images/pai-removebg-preview.png" alt="7" /></div>
+                            </div>
+                        </div>
+
+                        <button class="carousel-btn next">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="dots-wrapper">
+                        <span class="dot active-dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+
             </section>
+
 
             <section class="localizacao-section">
                 <h3 class="text text-center">Nossa localização</h3>
@@ -380,6 +423,12 @@
                                 </li>
 
                                 <hr class="separador-footer">
+                                <a href="https://wa.me/5544999870212?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%21"
+                                    class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+
+
                                 <li class="nome-atendimento">
                                     <a href="#" title="Atendimentos">
                                         <div class="topicos-footer">HORÁRIO DE ATENDIMENTO</div>
@@ -418,48 +467,68 @@
             <script src="js/swiper.js"></script>
             <script src="js/rolar.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-            <!-- <script src="js/invisible.js"></script> -->
+
             <script>
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 7,
-                    spaceBetween: 20,
-                    centeredSlides: false,
-                    loop: true,
-                    autoplay: {
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    },
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                    breakpoints: {
-                        0: {
-                            slidesPerView: 1.2,
-                        },
-                        480: {
-                            slidesPerView: 2.2,
-                        },
-                        768: {
-                            slidesPerView: 4,
-                        },
-                        1024: {
-                            slidesPerView: 5,
-                        },
-                        1280: {
-                            slidesPerView: 6,
-                        },
-                        1440: {
-                            slidesPerView: 7,
-                        }
+                const track = document.querySelector('.carousel-track');
+                const allCards = Array.from(track.children);
+                const dots = document.querySelectorAll('.dot');
+                let currentIndex = 3; // centralizado no 4º item
+
+                // Transição suave usando DOM diff
+                function updateCarousel() {
+                    const total = allCards.length;
+                    const displayed = [];
+
+                    for (let i = 0; i < 7; i++) {
+                        const idx = (currentIndex - 3 + i + total) % total;
+                        displayed.push(allCards[idx].innerHTML);
                     }
-                });
+
+                    const oldCards = Array.from(track.children);
+
+                    // Aplicar fade-out nas antigas
+                    oldCards.forEach(card => card.classList.remove('active'));
+                    oldCards.forEach((card, i) => {
+                        setTimeout(() => {
+                            if (track.children[i]) track.children[i].classList.add('fade-out');
+                        }, 0);
+                    });
+
+                    // Após animação, substitui o conteúdo
+                    setTimeout(() => {
+                        track.innerHTML = displayed
+                            .map((html, i) => `<div class="card ${i === 3 ? 'active' : ''}">${html}</div>`)
+                            .join('');
+
+                        dots.forEach(dot => dot.classList.remove('active-dot'));
+                        dots[currentIndex % dots.length].classList.add('active-dot');
+                    }, 300); // tempo suficiente para a animação de saída
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % allCards.length;
+                    updateCarousel();
+                }
+
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + allCards.length) % allCards.length;
+                    updateCarousel();
+                }
+
+                document.querySelector('.carousel-btn.next').addEventListener('click', nextSlide);
+                document.querySelector('.carousel-btn.prev').addEventListener('click', prevSlide);
+
+                setInterval(nextSlide, 4000);
+
+                updateCarousel();
             </script>
-            AOS.init();
+
+
+
+
+
+            <script>
+                AOS.init(); 
             </script>
 
 </body>
