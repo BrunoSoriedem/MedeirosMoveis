@@ -3,24 +3,25 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #101026;
+    background: #ffffff;
     flex-direction: column;
 }
 
 .text {
     font-size: 45px;
-    color: #f5f5f5;
+    color: #000000;
     margin-bottom: 30px;
 }
 
 .paragrafo {
-    color: #f5f5f5;
+    color: #000000;
     margin-bottom: 50px;
 }
 
 .btnobrigado {
     padding: 15px 55px;
-    background: #f5f5f5;
+    background: rgb(255, 255, 255);
+    border: 3px solid rgb(9, 139, 48);
     text-decoration: none;
     color: #101026;
     font-size: 18px;
@@ -28,5 +29,7 @@
 }
 
 .btnobrigado:hover {
-    border-radius: 16pc;
+    border-radius: 16px;
+    color: whitesmoke;
+    background: rgb(9, 139, 48)
 }
