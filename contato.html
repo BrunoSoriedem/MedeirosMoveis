@@ -120,10 +120,22 @@
                     <label>Nome</label>
                     <input type="text" name="name" placeholder="Digite seu Nome" autocomplete="off" required>
                     <label>Telefone</label>
-                    <input type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" autocomplete="off"
+                    <input type="text" id="telefone" class="telefone" name="telefone" placeholder="" autocomplete="off"
                         required>
                     <label>E-mail</label>
                     <input type="email" name="email" placeholder="Digite seu E-mail" autocomplete="off" required>
+                    <label>Como nos encontrou?</label>
+                    <select name="encontro" required>
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="Google">Google</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Indicação">Indicação</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <label>Assunto</label>
+                    <input type="text" id="assunto" name="assunto" placeholder="Orçamento, Dúvida..." autocomplete="off"
+                        required>
                     <label>Mensagem</label>
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://karnatia-world.vercel.app/obrigado.html">
@@ -257,6 +269,16 @@
         <script src="js/contagem.js"></script>
         <script src="js/swiper.js"></script>
         <script src="js/rolar.js"></script>
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
+        <script src="js/parsley.min.js"></script>
+        <script>
+            $(document).ready(function () {
+
+                $(".telefone").mask("(00)0 0000-0000")
+            });
+        </script>
+
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <!-- <script src="js/invisible.js"></script> -->
         AOS.init();

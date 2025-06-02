@@ -75,7 +75,7 @@ img {
 }
 
 .margin-bottom-medium-inverso {
-    margin-bottom: 32px;
+    /* margin-bottom: 32px; */
 }
 
 .paragraph-large {
@@ -145,10 +145,9 @@ img {
 }
 
 .timeline_left-inverso {
-    text-align: center;
+    text-align: right;
     justify-content: flex-end;
     align-items: stretch;
-    margin-left: 40%;
 }
 
 
@@ -187,7 +186,7 @@ img {
 
 .timeline_text-inverso {
     color: #000000;
-    margin: 50px 0 0;
+    margin: 50px 0 0 0;
     font-size: 20px;
     font-weight: 500;
     line-height: 1.3;
@@ -528,11 +527,11 @@ img {
 }
 
 .carousel-btn.prev {
-    left: 5%;
+    left: 2%;
 }
 
 .carousel-btn.next {
-    right: 5%;
+    right: 2%;
 }
 
 .carousel-btn:hover {
@@ -601,7 +600,7 @@ img {
     }
 
     .timeline_right-inverso {
-        grid-area: span 1 / span 1 / span 1 / span 1;
+        /* grid-area: span 1 / span 1 / span 1 / span 1; */
     }
 
     .timeline_date-text {
