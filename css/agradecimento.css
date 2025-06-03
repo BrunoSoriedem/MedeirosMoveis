@@ -1,3 +1,7 @@
+[data-aos] {
+    z-index: 0;
+}
+
 .main {
     display: flex;
     align-items: center;
