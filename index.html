@@ -109,22 +109,38 @@
         </header>
 
         <main class="main">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">Slide 1</div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
-                    <div class="swiper-slide">Slide 4</div>
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
-                    <div class="swiper-slide">Slide 7</div>
-                    <div class="swiper-slide">Slide 8</div>
-                    <div class="swiper-slide">Slide 9</div>
+            <section class="swiper-section">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+
+                        <!-- Slide 1 com conteúdo sobreposto -->
+                        <div class="swiper-slide slide-com-overlay">
+                            <img src="images/imgs loja/fogaoLenha.jpg" alt="Fogão a lenha">
+                            <div class="conteudo-sobreposto">
+                                <h1><span class="destaque">Móveis Planejados</span> com excelência nos detalhes.</h1>
+                                <p>Projetos sob medida que unem conforto, elegância e funcionalidade.</p>
+                                <a href="https://wa.me/5599999999999" target="_blank" class="botao-whatsapp">
+                                    <i class="fab fa-whatsapp"></i> Solicite um orçamento
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="images/imgs loja/colchaoGazin.jpg" alt="Colchão Gazin">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/imgs loja/mesas.jpg" alt="Mesas">
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
+            </section>
+
+
 
             <section>
                 <div>
@@ -255,6 +271,30 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
             AOS.init();
+        </script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                effect: 'slide',
+                fadeEffect: {
+                    crossFade: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                keyboard: {
+                    enabled: true,
+                }
+            });
         </script>
 
 </body>
