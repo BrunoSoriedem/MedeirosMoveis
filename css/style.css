@@ -32,7 +32,6 @@ img {
 
 main {
     width: 100%;
-    /* padding-top: 40%; */
 }
 
 .gradiant {
@@ -336,53 +335,6 @@ main {
     border: 2px solid #2ecc71;
 }
 
-
-
-
-/* a */
-
-
-
-
-/*.div-inicio {
-     display: flex;
-    margin-right: auto;
-    margin-left: auto;
-    position: relative; 
-}*/
-
-/*.div-inicio img {
-     width: 75%;
-    height: 50%;
-    margin: auto;
-    border-radius: 15px;
-    z-index: 900; 
-}*/
-
-/* .infos-img {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 20px;
-}
-
-.infos-img h2 {
-    color: white;
-    font-size: 2.5rem;
-    text-align: justify;
-}
-
-.infos-img p {
-    color: white;
-    font-size: 1.2rem;
-    text-align: justify;
-}
-
-.infos-img a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-} */
-
 .orcamento {
     display: flex;
     align-items: center;
@@ -438,20 +390,9 @@ main {
 }
 
 .escrita-elementor-counter {
-    /* text-align: start; */
     flex-grow: var(--counter-suffix-grow, 0);
-    /* white-space: pre-wrap; */
 }
-
-
-
 
 .d-block.w-100 {
     filter: brightness(0.3);
 }
-
-/* .grid.text-center.overflow-x-auto {
-    color: blueviolet;
-    background-color: black;
-    padding: 50%;
-} */
