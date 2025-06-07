@@ -32,15 +32,15 @@
 
         body {
             display: flex;
-            justify-content: center;
+            /* align-items: center; */
             justify-content: center;
             height: 100vh;
-            /* background: #252525;
-    min-height: 100%;
-    margin: 0;
-    font-size: 14px;
-    letter-spacing: 1px;
-    line-height: 1.5; */
+            /* background: #252525; */
+            /* min-height: 100%; */
+            /* margin: 0; */
+            /* font-size: 14px; */
+            /* letter-spacing: 1px; */
+            /* line-height: 1.5; */
         }
 
         main {
@@ -49,12 +49,9 @@
         }
 
         img {
-            /* vertical-align: middle; */
-            /* max-width: 100%; */
             display: block;
             width: 100%;
             height: 100%;
-            /* display: inline-block; */
         }
 
         .nossa-historia {
@@ -610,6 +607,7 @@
         }
 
         .swiper-slide {
+            background-color: red !important;
             position: relative;
             height: 500px;
             border-radius: 30px;
@@ -652,9 +650,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle closest-side,
-                    #658bd9 3px,
-                    transparent 3px);
+            background: radial-gradient(circle closest-side, #658bd9 3px, transparent 3px);
             background-size: 8px 8px;
             transition: opacity 0.2s cubic-bezier(0.86, 0, 0.07, 1);
             opacity: 0.3;
@@ -672,7 +668,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgb(35, 35, 39, 0.7);
+            background: rgba(35, 35, 39, 0.7);
             border-radius: inherit;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
@@ -1004,117 +1000,116 @@
                     </div>
                 </div>
             </div>
-    </section>
-    <section>
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="front">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <button>Leia Mais</button>
-                        </div>
-                        <div class="back">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <p>Nome e Função
-                                Nome e Função
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="front">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <button>Leia Mais</button>
-                        </div>
-                        <div class="back">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <p>Nome e Função
-                                Nome e Função
-                            </p>
+            <div class="swiper equipeSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="front">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <button>Leia Mais</button>
+                            </div>
+                            <div class="back">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <p>Nome e Função
+                                    Nome e Função
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="front">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <button>Leia Mais</button>
-                        </div>
-                        <div class="back">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <p>Nome e Função
-                                Nome e Função
-                            </p>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="front">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <button>Leia Mais</button>
+                            </div>
+                            <div class="back">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <p>Nome e Função
+                                    Nome e Função
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="front">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <button>Leia Mais</button>
-                        </div>
-                        <div class="back">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <p>Nome e Função
-                                Nome e Função
-                            </p>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="front">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <button>Leia Mais</button>
+                            </div>
+                            <div class="back">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <p>Nome e Função
+                                    Nome e Função
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="front">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <button>Leia Mais</button>
-                        </div>
-                        <div class="back">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <p>Nome e Função
-                                Nome e Função
-                            </p>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="front">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <button>Leia Mais</button>
+                            </div>
+                            <div class="back">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <p>Nome e Função
+                                    Nome e Função
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="front">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <button>Leia Mais</button>
-                        </div>
-                        <div class="back">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <p>Nome e Função
-                                Nome e Função
-                            </p>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="front">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <button>Leia Mais</button>
+                            </div>
+                            <div class="back">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <p>Nome e Função
+                                    Nome e Função
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="front">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <button>Leia Mais</button>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="front">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <button>Leia Mais</button>
+                            </div>
+                            <div class="back">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <p>Nome e Função
+                                    Nome e Função
+                                </p>
+                            </div>
                         </div>
-                        <div class="back">
-                            <img src="images/funcionarios/edcarlo.png" alt="">
-                            <p>Nome e Função
-                                Nome e Função
-                            </p>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="front">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <button>Leia Mais</button>
+                            </div>
+                            <div class="back">
+                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <p>Nome e Função
+                                    Nome e Função
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
-        </div>
     </section>
 
     <section class="localizacao-section">
@@ -1144,7 +1139,7 @@
     </section>
 
     <script>
-        var swiper = new Swiper(".Swiper", {
+        var swiper = new Swiper(".equipeSwiper", {
             initialSlide: 3,
             centeredSlides: true,
             loop: true,
@@ -1165,6 +1160,7 @@
             },
             pagination: {
                 el: ".swiper-pagination",
+                clickable: true
             },
             breakpoints: {
                 0: {
@@ -1183,13 +1179,13 @@
         const slides = document.querySelectorAll(".swiper-slide");
 
         function flipActiveSlide() {
-            const activeSlide = document.querySelector(".swiper-slide-active")
-            const button = activeSlide.querySelector("button");
+            const activeSlide = document.querySelector(".swiper-slide-active");
+            const button = activeSlide?.querySelector("button");
 
             if (button) {
                 button.addEventListener("click", (event) => {
                     event.stopPropagation();
-                    activeSlide.classList.add("flipped");
+                    activeSlide.classList.toggle("flipped");
                 });
             }
         }
@@ -1207,7 +1203,7 @@
 
         swiper.on("slideChangeTransitionStart", () => {
             slides.forEach((slide) => {
-                slide.classList.remove("flipped")
+                slide.classList.remove("flipped");
             });
             flipActiveSlide();
         });

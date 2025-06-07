@@ -250,7 +250,7 @@
 
         .swiper {
             width: 100%;
-            padding: 40px 0;
+            padding: 80px 0;
         }
 
         .card-produto {
@@ -378,94 +378,101 @@
         }
 
         #testimonials {
-            min-height: 100vh;
-            /* background-color: #f9fafb; */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 60px;
-            padding: 32px 8%;
-        }
-
-        #testimonials_header {
+            padding: 60px 20px;
+            /* background: #f5f5f5; */
             text-align: center;
         }
 
         #testimonials_header h1 {
-            font-size: 25px;
+            color: #0a9148;
+            font-size: 18px;
             font-weight: 600;
-            color: rgb(10, 161, 48);
         }
 
         #testimonials_header h2 {
-            color: #111928;
-            font-size: 40px;
+            font-size: 32px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #111;
         }
 
         #testimonials_header p {
-            color: rgb(0, 0, 0);
+            max-width: 500px;
+            margin: 0 auto 40px;
             font-size: 16px;
-            max-width: 485px;
+            color: #555;
         }
 
-        #swiper-slide-ava {
-            background-color: #fff;
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            justify-content: center;
-            box-shadow: 0px 0px 20px 0px rgba(92, 115, 160, 0.07);
-            padding: 34px;
-            border-radius: 12px;
-        }
-
-        .testimonial-rate {
-            display: flex;
-            gap: 2px;
+            align-items: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: auto;
+            height: 100%;
         }
 
         .testimonial-rate i {
-            color: #f9b707;
+            color: #f1c40f;
+            margin: 0 2px;
         }
 
         .testimonial-quote {
-            color: #637381;
+            font-style: italic;
+            color: #333;
             font-size: 16px;
+            line-height: 1.6;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 15px;
         }
 
-        .author-avatar {
+        .testimonial-author .avatar {
             width: 50px;
             height: 50px;
-            border-radius: 100%;
-            overflow: hidden;
-        }
-
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
+            border-radius: 50%;
             object-fit: cover;
         }
 
-        .author-info h3 {
+        .testimonial-author h3 {
+            font-size: 16px;
             font-weight: 600;
+            color: #111;
+            margin-bottom: 3px;
+        }
+
+        .testimonial-author p {
             font-size: 14px;
-            color: #111928;
+            color: #666;
         }
 
-        .author-info p {
-            font-size: 12px;
-            color: #8899a8;
+        /* Swiper Estilo */
+        .swiper.mySwiper-testimonials {
+            padding-bottom: 60px;
+            max-width: 100%;
         }
 
-        .swiper-pagination.active {
-            background-color: #3758f9;
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #0a9148;
+        }
+
+        .swiper-pagination-bullet {
+            background: #bbb;
+            opacity: 0.7;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #0a9148;
         }
 
 
@@ -946,22 +953,19 @@
 
     </section>
 
-    <section>
-        <div id="testimonials">
-            <div id="testimonials_header">
-                <h1>Avaliações</h1>
-                <h2>
-                    O que os clientes dizem
-                </h2>
-                <p>
-                    Quer saber o que torna a nossa marca tão especial?
-                    Confira o que nossos clientes têm a dizer!
-                </p>
-            </div>
+    <section id="testimonials">
+        <div id="testimonials_header">
+            <h1>Avaliações</h1>
+            <h2>O que os clientes dizem</h2>
+            <p>
+                Quer saber o que torna a nossa marca tão especial? Confira o que nossos clientes têm a dizer!
+            </p>
+        </div>
 
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" id="swiper-slide-ava">
+        <div class="swiper mySwiper-testimonials">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
                         <div class="testimonial-rate">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -969,107 +973,142 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-
-                        <blockquote class="testimonial-quote">
-                            "Experiência incrível! Desde o primeiro contato, fui muito bem atendido e recebi
-                            todas as informações de forma clara. Recomendo para todos!"
-                        </blockquote>
-
+                        <p class="testimonial-quote">"Atendimento excelente e entrega rápida. Super recomendo!"</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="imagens/funcionarios/nei.png" alt="Imagem de uma pessoa">
-                            </div>
-
-                            <div class="author-info">
-                                <h3>Fulano de Tal</h3>
-                                <p>Cliente desde 2020</p>
+                            <img src="imagens/avatar1.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Joana Silva</h3>
+                                <p>Cliente desde 2019</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-rate">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                        <blockquote class="testimonial-quote">
-                            "Experiência incrível! Desde o primeiro contato, fui muito bem atendido e recebi
-                            todas as informações de forma clara. Recomendo para todos!"
-                        </blockquote>
-
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="imagens/funcionarios/nei.png" alt="Imagem de uma pessoa">
-                            </div>
-
-                            <div class="author-info">
-                                <h3>Fulano de Tal</h3>
-                                <p>Cliente desde 2020</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- <div class="swiper-slide">
-                        <div class="testimonial-rate">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                        <blockquote class="testimonial-quote">
-                            "Experiência incrível! Desde o primeiro contato, fui muito bem atendido e recebi
-                            todas as informações de forma clara. Recomendo para todos!"
-                        </blockquote>
-
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="imagens/avatar3.jpg" alt="Imagem de uma pessoa">
-                            </div>
-
-                            <div class="author-info">
-                                <h3>Fulano de Tal</h3>
-                                <p>Cliente desde 2020</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-rate">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-
-                        <blockquote class="testimonial-quote">
-                            "Experiência incrível! Desde o primeiro contato, fui muito bem atendido e recebi
-                            todas as informações de forma clara. Recomendo para todos!"
-                        </blockquote>
-
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="src/images/avatar1.jpg" alt="Imagem de uma pessoa">
-                            </div>
-
-                            <div class="author-info">
-                                <h3>Fulano de Tal</h3>
-                                <p>Cliente desde 2020</p>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
-                <div class="swiper-pagination"></div>
 
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
+                        <div class="testimonial-author">
+                            <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Carlos Mendes</h3>
+                                <p>Cliente desde 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
+                        <div class="testimonial-author">
+                            <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Carlos Mendes</h3>
+                                <p>Cliente desde 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
+                        <div class="testimonial-author">
+                            <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Carlos Mendes</h3>
+                                <p>Cliente desde 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
+                        <div class="testimonial-author">
+                            <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Carlos Mendes</h3>
+                                <p>Cliente desde 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
+                        <div class="testimonial-author">
+                            <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Carlos Mendes</h3>
+                                <p>Cliente desde 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"Excelente custo-benefício e atendimento humanizado."</p>
+                        <div class="testimonial-author">
+                            <img src="imagens/avatar3.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Mariana Lopes</h3>
+                                <p>Cliente desde 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Navegação -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
