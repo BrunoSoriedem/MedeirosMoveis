@@ -9,8 +9,8 @@
 
 [data-aos] {
     z-index: 0;
+    transform: translateY(50px);
 }
-
 
 html {
     scroll-behavior: smooth;
@@ -27,12 +27,12 @@ body {
     justify-content: center;
     justify-content: center;
     height: 100vh;
-    /* background: #252525; */
-    /* min-height: 100%; */
-    /* margin: 0; */
-    /* font-size: 14px; */
-    /* letter-spacing: 1px; */
-    /* line-height: 1.5; */
+    /* background: #252525;
+    min-height: 100%;
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.5; */
 }
 
 main {

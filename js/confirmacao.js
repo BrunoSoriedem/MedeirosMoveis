@@ -19,7 +19,7 @@ form.addEventListener('submit', function (event) {
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        window.location.href = "https://medeiros-moveis.vercel.app/agradecimento.html";
+                        window.location.href = "agradecimento.html";
                     });
                 } else {
                     Swal.fire("Erro", "Tente novamente mais tarde", "error");

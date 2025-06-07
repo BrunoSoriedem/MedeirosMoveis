@@ -213,6 +213,8 @@ main {
     align-items: center;
 }
 
+.categoria-item:hover {}
+
 .categoria-item img {
     width: 100%;
     height: auto;

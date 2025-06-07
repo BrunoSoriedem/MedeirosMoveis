@@ -25,9 +25,12 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/aos.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/contato.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="css/contato.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/sobreNos.css">
+    <link rel="stylesheet" href="css/sobreNos.css"> -->
     <link rel="stylesheet" href="css/nav-footer.css">
     <link href="images/logo-loja.png" rel="shortcut icon">
 
@@ -184,9 +187,9 @@
                             <li class="nome-atendimento">
                                 <a href="#" title="Atendimentos">
                                     <div class="topicos-footer">ATENDIMENTOS</div>
-                                    <i class="fa-solid fa-phone-volume"></i>
+                                    <i class="fa-regular fa-phone-volume"></i>
                                     <div class="div-infos-topicos-footer">
-                                        <a class="infos-topicos-footer">Compre por Telefone</a>
+                                        <span class="infos-topicos-footer">Compre por Telefone</span>
                                     </div>
                                     <p class="fone-topicos-footer">(44)3569-1763</p>
                                 </a>
@@ -197,7 +200,7 @@
                                     <div class="topicos-footer2">Fale no WhatsApp</div>
                                     <i class="fa-brands fa-whatsapp fa-xs"></i>
                                     <div class="div-infos-topicos-footer">
-                                        <a class="infos-topicos-footer">Consultor (a)</a>
+                                        <span class="infos-topicos-footer">Consultor (a)</span>
                                     </div>
                                     <p class="fone-topicos-footer">(44)99987-0212</p>
                                 </a>
@@ -208,7 +211,7 @@
                                     <div class="topicos-footer">Entre em Contato</div>
                                     <i class="fa-solid fa-at"></i>
                                     <div class="div-infos-topicos-footer">
-                                        <a class="infos-topicos-footer">Nosso E-mail</a>
+                                        <span class="infos-topicos-footer">Nosso E-mail</span>
                                     </div>
                                     <p class="fone-topicos-footer">paulojuranda@hotmail.com</p>
                                 </a>
@@ -218,11 +221,11 @@
                             <li class="nome-atendimento">
                                 <a href="#" title="Atendimentos">
                                     <div class="topicos-footer">HORÁRIO DE ATENDIMENTO</div>
-                                    <a class="infos-topicos-footer" id="hora-atendimento">
+                                    <span class="infos-topicos-footer" id="hora-atendimento">
                                         Segunda à Sexta das 8h às 18h
                                         <br>
                                         Sábado das 8h às 12h
-                                    </a>
+                                    </span>
                                 </a>
                             </li>
                         </div>
@@ -248,15 +251,20 @@
             crossorigin="anonymous"></script>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/aos.js"></script>
-        <script src="js/contagem.js"></script>
-        <script src="js/rolar.js"></script>
+        <!-- <script src="js/contagem.js"></script>
+        <script src="js/rolar.js"></script> -->
         <script src="js/swiper.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="js/index.js"></script>
-        <script src="js/sobreNos.js"></script>
+        <!-- <script src="js/sobreNos.js"></script> -->
         <script>
-            AOS.init();
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: false,
+                offset: 100
+            });
         </script>
 
 
