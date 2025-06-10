@@ -1,0 +1,524 @@
+<style>
+    :root {
+        --primary-color: #2ecc71;
+        --primary-dark: #27ae60;
+        --light-gray: #f9f9f9;
+        --dark-gray: #333;
+        --transition: all 0.3s ease;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    main {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Seção Hero */
+    .hero {
+        height: 80vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('placeholder-hero.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        animation: fadeIn 1.5s ease;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: var(--transition);
+        border: 2px solid var(--primary-color);
+    }
+
+    .btn:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Seção Destaques */
+    .featured {
+        padding: 80px 20px;
+        background-color: var(--light-gray);
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--dark-gray);
+        display: inline-block;
+    }
+
+    .section-title h2::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 4px;
+        background-color: var(--primary-color);
+        margin: 15px auto;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        position: relative;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+        background-color: #ddd;
+        /* Placeholder color */
+    }
+
+    .product-info {
+        padding: 20px;
+    }
+
+    .product-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--dark-gray);
+    }
+
+    .product-info p {
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-dark);
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .tag {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    /* Seção Categorias */
+    .categories {
+        padding: 80px 20px;
+        background-color: white;
+    }
+
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .category-card {
+        position: relative;
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+    }
+
+    .category-card:hover {
+        transform: scale(1.05);
+    }
+
+    .category-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-color: #eee;
+        /* Placeholder color */
+    }
+
+    .category-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        padding: 20px;
+        color: white;
+    }
+
+    .category-overlay h3 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .category-overlay a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    /* Seção Depoimentos */
+    .testimonials {
+        padding: 80px 20px;
+        background-color: var(--light-gray);
+        text-align: center;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .testimonial-card {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        position: relative;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card::before {
+        content: '\201C';
+        font-size: 5rem;
+        color: var(--primary-color);
+        opacity: 0.2;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .testimonial-text {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+    }
+
+    .testimonial-author {
+        font-weight: bold;
+        color: var(--dark-gray);
+    }
+
+    .rating {
+        color: var(--primary-color);
+        margin-top: 10px;
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+        }
+
+        .products-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero {
+            height: 60vh;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+        }
+
+        .categories-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <main>
+        <!-- Seção Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Móveis que Transformam seu Espaço</h1>
+                <p>Descubra nossa coleção premium de móveis feitos com materiais sustentáveis e design inovador.</p>
+                <a href="#featured" class="btn">Ver Coleção</a>
+            </div>
+        </section>
+
+        <!-- Seção Destaques -->
+        <section class="featured" id="featured">
+            <div class="section-title">
+                <h2>Nossos Destaques</h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="tag">Novidade</span>
+                    <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Sofá Premium" class="product-img">
+                    <div class="product-info">
+                        <h3>Sofá Premium</h3>
+                        <p>Sofá em couro ecológico com design ergonômico para máximo conforto.</p>
+                        <span class="price">R$ 3.499,00</span>
+                        <a href="#" class="btn">Detalhes</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="tag">Mais Vendido</span>
+                    <img src="imagens/Moveis/Prateleira Escritorio.jpg" alt="Mesa de Jantar" class="product-img">
+                    <div class="product-info">
+                        <h3>Mesa de Jantar</h3>
+                        <p>Mesa em madeira de reflorestamento com acabamento premium.</p>
+                        <span class="price">R$ 2.899,00</span>
+                        <a href="#" class="btn">Detalhes</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="product3.jpg" alt="Cama King Size" class="product-img">
+                    <div class="product-info">
+                        <h3>Cama King Size</h3>
+                        <p>Estrutura sólida em carvalho com cabeceira estofada.</p>
+                        <span class="price">R$ 4.199,00</span>
+                        <a href="#" class="btn">Detalhes</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="tag">Promoção</span>
+                    <img src="product4.jpg" alt="Armário Moderno" class="product-img">
+                    <div class="product-info">
+                        <h3>Armário Moderno</h3>
+                        <p>Design minimalista com amplo espaço interno e portas de correr.</p>
+                        <span class="price">R$ 3.799,00</span>
+                        <a href="#" class="btn">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Categorias -->
+        <section class="categories">
+            <div class="section-title">
+                <h2>Nossas Categorias</h2>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="category1.jpg" alt="Sala de Estar" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Sala de Estar</h3>
+                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <img src="category2.jpg" alt="Quarto" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Quarto</h3>
+                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <img src="category3.jpg" alt="Cozinha" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Cozinha</h3>
+                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <img src="category4.jpg" alt="Escritório" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Escritório</h3>
+                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Depoimentos -->
+        <section class="testimonials">
+            <div class="section-title">
+                <h2>O que Nossos Clientes Dizem</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Comprei um sofá há 2 anos e ainda parece novo. A qualidade dos materiais é impressionante!"</p>
+                    <p class="testimonial-author">- Ana Carolina</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Atendimento excelente e os móveis chegaram antes do prazo. Super recomendo!"</p>
+                    <p class="testimonial-author">- Roberto Almeida</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Adorei o design sustentável dos produtos. Meu apartamento ficou lindo e eco-friendly."</p>
+                    <p class="testimonial-author">- Juliana Santos</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Efeito de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animação ao rolar
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.product-card, .category-card, .testimonial-card');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Configuração inicial para elementos animados
+        window.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.product-card, .category-card, .testimonial-card');
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            // Dispara uma vez após o carregamento
+            setTimeout(animateOnScroll, 300);
+        });
+
+        // Dispara durante o scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+
+</html>

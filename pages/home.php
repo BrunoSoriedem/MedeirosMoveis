@@ -450,8 +450,18 @@
             height: 100%;
         }
 
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5rem;
+            color: #2ecc71;
+            opacity: 0.2;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+        }
+
         .testimonial-rate i {
-            color: #f1c40f;
+            color: #2ecc71;
             margin: 0 2px;
         }
 
@@ -976,7 +986,6 @@
                         </div>
                         <p class="testimonial-quote">"Nossa referência em loja de móveis.
                             Atendimento de excelência e garantia de satisfação nos produtos.
-                            Os móveis da minha casa eu só compro na Medeiros Móveis"</p>
                         <div class="testimonial-author">
                             <img src="imagens/avatar1.jpg" alt="Cliente" class="avatar" />
                             <div>
@@ -996,7 +1005,8 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="testimonial-quote">"Loja com boas opções em móveis sob medida para atender melhor o cliente.
+                        <p class="testimonial-quote">"Loja com boas opções em móveis
+                            sob medida para atender melhor o cliente.
                             Bom atendimento e variedade."</p>
                         <div class="testimonial-author">
                             <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
@@ -1017,7 +1027,9 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
+                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente,
+                            os móveis da minha casa eu só compro na Medeiros Móveis.
+                            Muito satisfeita!"</p>
                         <div class="testimonial-author">
                             <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
                             <div>
@@ -1097,7 +1109,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="testimonial-quote">"Excelente custo-benefício e atendimento humanizado."</p>
+                        <p class="testimonial-quote">"Excelente custo-benefício e atendimento humanizado. <br> Muito top"</p>
                         <div class="testimonial-author">
                             <img src="imagens/avatar3.jpg" alt="Cliente" class="avatar" />
                             <div>

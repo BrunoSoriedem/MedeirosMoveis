@@ -52,6 +52,7 @@
             display: block;
             width: 100%;
             height: 100%;
+            border-radius: 15px;
         }
 
         .nossa-historia {
@@ -936,7 +937,7 @@
                             <div class="timeline_right">
                                 <div class="margin-bottom-medium">
                                     <div class="timeline_text">
-                                        Hoje, em 2024, a Medeiros Móveis completa 20 anos de uma trajetória marcada
+                                        Hoje, em 2025, a Medeiros Móveis completa 20 anos de uma trajetória marcada
                                         por crescimento, superação e muito trabalho. Desde 2008 na Avenida Paraná,
                                         em Juranda, a loja passou por diversas melhorias e consolidou-se como
                                         referência no comércio móveis. Com as vendas em alta e um futuro promissor
@@ -946,7 +947,7 @@
                                     </div>
                                 </div>
                                 <div class="timeline_image-wrapper margin-bottom-medium">
-                                    <img src="imagens/frenteLojaAntigaCerto.jpg" loading="lazy" width="480"
+                                    <img src="imagens/frenteLojacerto.jpg" loading="lazy" width="480"
                                         alt="Entrada da Loja Antigamente" />
                                 </div>
                             </div>
