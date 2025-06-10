@@ -66,7 +66,7 @@
 
         .mySwiper {
             width: 100%;
-            height: 90vh;
+            height: 85vh;
         }
 
         .swiper-slide {
@@ -78,7 +78,7 @@
 
         .swiper-slide img {
             width: 100%;
-            height: 90vh;
+            height: 85vh;
             object-fit: cover;
             border-radius: 15px;
             filter: brightness(0.85);
@@ -185,17 +185,48 @@
             filter: brightness(0.3);
         }
 
+        .img-col {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .categoria-imagem {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
         .botao-cliqueAqui {
-            z-index: 10;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: #25D366;
             color: white;
             padding: 0.8rem 1.6rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            align-items: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .botao-cliqueAqui:hover {
+            background-color: #1db954;
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .categoria-item-principal {
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .categoria-item-principal:hover .img-col {
+            transform: scale(1.05);
         }
 
         .categorias-prod {
@@ -217,32 +248,33 @@
         }
 
         .categoria-item {
-            width: 160px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-radius: 20px;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .categoria-item:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
+            width: 170px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .categoria-item img {
             width: 100%;
             height: auto;
-            max-width: 140px;
-            margin-bottom: 10px;
-            border-radius: 20px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .categoria-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .categoria-item p {
-            font-size: 1rem;
+            margin-top: 10px;
             font-weight: 500;
+            font-size: 1rem;
+            color: #333;
         }
+
+
+
+
 
         .text.text-center {
             font-weight: bold;
@@ -475,21 +507,6 @@
             background: #0a9148;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         .orcamento {
             display: flex;
             align-items: center;
@@ -558,27 +575,27 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide slide-com-overlay">
-                    <img id="fundoPrimeiro-slide" src="images/imgs loja/fogaoLenha.jpg" alt="Fogão a lenha">
+                    <img id="fundoPrimeiro-slide" src="imagens/imgs loja/fogaoLenha.jpg" alt="Fogão a lenha">
                     <div class="conteudo-sobreposto">
                         <h1><span class="destaque">Móveis Planejados</span> com excelência nos detalhes.</h1>
                         <p>Projetos sob medida que unem conforto, elegância e funcionalidade.</p>
-                        <a href="https://wa.me/5599999999999" target="_blank" class="botao-whatsapp">
+                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank" class="botao-whatsapp">
                             <i class="fab fa-whatsapp"></i> Solicite um orçamento
                         </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <img src="images/imgs loja/colchaoGazin.jpg" alt="Colchão Gazin">
+                    <img src="imagens/imgs loja/colchaoGazin.jpg" alt="Colchão Gazin">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/imgs loja/mesas.jpg" alt="Mesas">
+                    <img src="imagens/imgs loja/mesas.jpg" alt="Mesas">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/imgs loja/frenteLojaAntigaCerto.jpg" alt="Mesas">
+                    <img src="imagens/imgs loja/frenteLojaAntigaCerto.jpg" alt="Mesas">
                 </div>
                 <div class="swiper-slide">
-                    <img src="images/imgs loja/mesas.jpg" alt="Mesas">
+                    <img src="imagens/imgs loja/mesas.jpg" alt="Mesas">
                 </div>
 
             </div>
@@ -594,60 +611,44 @@
 
     <section>
         <div class="grid text-center">
-            <div class="g-col-6 g-col-md-4">
-                <img src="images/imgs loja/cadeiraEarmario.jpg" class="img-col">
-                <a class="botao-cliqueAqui">
-                    Móveis
-                </a>
+            <div class="g-col-6 g-col-md-4 categoria-item-principal">
+                <div class="categoria-imagem">
+                    <img src="imagens/imgs loja/cadeiraEarmario.jpg" class="img-col">
+                    <a class="botao-cliqueAqui">Móveis</a>
+                </div>
             </div>
-            <div class="g-col-6 g-col-md-4">
-                <img src="images/imgs loja/umPoucodeCada.jpg" class="img-col">
-                <a class="botao-cliqueAqui">
-                    Planejados
-                </a>
+            <div class="g-col-6 g-col-md-4 categoria-item-principal">
+                <div class="categoria-imagem">
+                    <img src="imagens/imgs loja/umPoucodeCada.jpg" class="img-col">
+                    <a class="botao-cliqueAqui">Planejados</a>
+                </div>
             </div>
-            <div class="g-col-6 g-col-md-4">
-                <img src="images/imgs loja/tvColchao.jpg" class="img-col">
-                <a class="botao-cliqueAqui">
-                    Elétros
-                </a>
+            <div class="g-col-6 g-col-md-4 categoria-item-principal">
+                <div class="categoria-imagem">
+                    <img src="imagens/imgs loja/tvColchao.jpg" class="img-col">
+                    <a class="botao-cliqueAqui">Elétros</a>
+                </div>
             </div>
-            <div class="g-col-6 g-col-md-4">
-                <img src="images/imgs loja/sofaMarrom.jpg" class="img-col">
-                <a class="botao-cliqueAqui">
-                    Estofados
-                </a>
+            <div class="g-col-6 g-col-md-4 categoria-item-principal">
+                <div class="categoria-imagem">
+                    <img src="imagens/imgs loja/sofaMarrom.jpg" class="img-col">
+                    <a class="botao-cliqueAqui">Estofados</a>
+                </div>
             </div>
         </div>
+
+
 
         <div class="categorias-prod">
             <h2 class="escrita-categoria">Escolha por categoria</h2>
             <div class="categorias-container">
-                <div class="categoria-item">
-                    <!-- <div data-aos="fade-up"> -->
-                    <img src="images/imgs loja/sofaMarrom.jpg" alt="Sofá de Tecido">
-                    <p>Sofá de Tecido</p>
-                    <!-- </div> -->
-                </div>
-                <div class="categoria-item">
-                    <img src="images/imgs loja/colchaoGazin.jpg" alt="Colchões">
-                    <p>Colchões</p>
-                </div>
-                <div class="categoria-item">
-                    <img src="images/imgs loja/cadeiraEarmario.jpg" alt="Cadeira">
-                    <p>Cadeira</p>
-                </div>
-                <div class="categoria-item">
-                    <img src="images/imgs loja/mesas.jpg" alt="Mesa">
-                    <p>Mesa</p>
-                </div>
-                <div class="categoria-item">
-                    <img src="images/imgs loja/mesascentrifuga.jpg" alt="Poltrona de Couro">
-                    <p>Poltrona de Couro</p>
-                </div>
-                <div class="categoria-item">
-                    <img src="images/imgs loja/sofaCinza.jpg" alt="Sofá de Couro">
-                    <p>Sofá de Couro</p>
+                <div class="row">
+                    <?php foreach ($categoriaProd as $categoria): ?>
+                        <div class="categoria-item">
+                            <img src="<?= $categoria['imagem'] ?>" alt="<?= $categoria['nome'] ?>">
+                            <p><?= $categoria['nome'] ?></p>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -662,7 +663,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -679,7 +680,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/bulleDourado.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/bulleDourado.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -701,7 +702,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto" id="card-novidades">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -731,7 +732,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/fogoes.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/fogoes.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -748,7 +749,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -765,7 +766,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/piaAzul.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/piaAzul.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -782,7 +783,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -813,7 +814,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Destaque</span>
                         </div>
@@ -830,7 +831,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/bulleDourado.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/bulleDourado.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -851,7 +852,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto" id="card-vendidos">
                         <span class="desconto">-20%</span>
-                        <img src="images/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/cadeiraEarmario.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Destaque</span>
                         </div>
@@ -878,7 +879,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/fogoes.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/fogoes.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -895,7 +896,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -912,7 +913,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/piaAzul.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/piaAzul.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -929,7 +930,7 @@
                 <div class="swiper-slide">
                     <div class="card-produto">
                         <span class="desconto">-1%</span>
-                        <img src="images/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
+                        <img src="imagens/imgs loja/tvColchao.jpg" alt="Cadeira Padova com Braços">
                         <div class="tags">
                             <span class="tag novidade">Novidade</span>
                         </div>
@@ -973,12 +974,14 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="testimonial-quote">"Atendimento excelente e entrega rápida. Super recomendo!"</p>
+                        <p class="testimonial-quote">"Nossa referência em loja de móveis.
+                            Atendimento de excelência e garantia de satisfação nos produtos.
+                            Os móveis da minha casa eu só compro na Medeiros Móveis"</p>
                         <div class="testimonial-author">
                             <img src="imagens/avatar1.jpg" alt="Cliente" class="avatar" />
                             <div>
-                                <h3>Joana Silva</h3>
-                                <p>Cliente desde 2019</p>
+                                <h3>Keila Lima Favarão</h3>
+                                <p>Cliente desde 2016</p>
                             </div>
                         </div>
                     </div>
@@ -991,7 +994,28 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"Loja com boas opções em móveis sob medida para atender melhor o cliente.
+                            Bom atendimento e variedade."</p>
+                        <div class="testimonial-author">
+                            <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
+                            <div>
+                                <h3>Alessandro de Oliveira</h3>
+                                <p>Cliente desde 2014</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
                         <div class="testimonial-author">
@@ -1011,7 +1035,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
                         <div class="testimonial-author">
@@ -1031,7 +1055,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
                         <div class="testimonial-author">
@@ -1051,27 +1075,7 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
-                        <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
-                        <div class="testimonial-author">
-                            <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
-                            <div>
-                                <h3>Carlos Mendes</h3>
-                                <p>Cliente desde 2021</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="testimonial-rate">
                             <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
                         </div>
                         <p class="testimonial-quote">"Qualidade dos móveis é surpreendente. Muito satisfeita!"</p>
                         <div class="testimonial-author">

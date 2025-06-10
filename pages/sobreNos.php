@@ -31,7 +31,7 @@
         }
 
         body {
-            display: flex;
+            /* display: flex; */
             /* align-items: center; */
             justify-content: center;
             height: 100vh;
@@ -878,25 +878,19 @@
                             <div class="timeline_right">
                                 <div class="margin-bottom-xlarge">
                                     <div class="timeline_text">
-                                        A história começou a ser escrita na cidade de Araruna, interior do
-                                        Paraná, em
-                                        1969.
-                                        Os
-                                        trabalhos em Araruna eram em um barracão de madeira com um espaço
-                                        pequeno e
-                                        simples.
+                                        Nos primeiros 11 meses, eles trabalharam dali, até que, ainda na mesma avenida,
+                                        mudaram para um espaço maior, de quase 300 m². Era o primeiro passo
+                                        de uma jornada que prometia crescimento e muito trabalho em família.
                                         <br>
-                                        Mas, no ano de 1973, aconteceu a grande virada na história da empresa:
-                                        nasceu a
-                                        A.
-                                        J.
-                                        Rorato e Cia. Ltda, com uma linha definida de produtos: armários e pias
-                                        para
-                                        cozinha.
+                                        Em 2008, a Medeiros Móveis deu mais um passo importante:
+                                        mudou-se para a Avenida Paraná, em um prédio ainda maior,
+                                        com 500 metros quadrados. O crescimento não parou por aí –
+                                        pouco depois, abriram uma filial em Ubiratã, também em um espaço amplo,
+                                        de quase 500 m².
                                     </div>
                                 </div>
                                 <div class="timeline_image-wrapper">
-                                    <img src="images/imgs loja/frenteLojaAntigaCerto.jpg" loading="lazy" width="480"
+                                    <img src="imagens/frente loja 2005.jpg" loading="lazy" width="480"
                                         alt="Entrada da Loja Antigamente" />
                                 </div>
                             </div>
@@ -912,25 +906,21 @@
                             <div class="timeline_right">
                                 <div class="margin-bottom-medium">
                                     <div class="timeline_text">
-                                        A história começou a ser escrita na cidade de Araruna, interior do
-                                        Paraná, em
-                                        1969.
-                                        Os
-                                        trabalhos em Araruna eram em um barracão de madeira com um espaço
-                                        pequeno e
-                                        simples.
+                                        Na década seguinte, a empresa consolidou sua marca, investindo em estoque
+                                        diversificado, atendimento personalizado e estratégias de vendas.
+                                        A sociedade entre os irmãos Medeiros seguia forte, mas
+                                        em 2013, decidiram seguir caminhos separados.
                                         <br>
-                                        Mas, no ano de 1973, aconteceu a grande virada na história da empresa:
-                                        nasceu a
-                                        A.
-                                        J.
-                                        Rorato e Cia. Ltda, com uma linha definida de produtos: armários e pias
-                                        para
-                                        cozinha.
+                                        A partir de 2 de janeiro de 2014,
+                                        Alcides ficou com a loja de Ubiratã, e Paulo continuou em Juranda,
+                                        liderando a matriz na Avenida Paraná.
+                                        Nos anos seguintes, mesmo com desafios do mercado, a Medeiros
+                                        Móveis manteve-se sólida, conquistando a confiança dos clientes e se
+                                        adaptando às mudanças.
                                     </div>
                                 </div>
                                 <div class="timeline_image-wrapper-inverso">
-                                    <img src="images/imgs loja/frenteLojaAntigaCerto.jpg" loading="lazy" width="480"
+                                    <img src="imagens/imgs loja/frenteLojaAntigaCerto.jpg" loading="lazy" width="480"
                                         alt="Entrada da Loja Antigamente" />
                                 </div>
                             </div>
@@ -946,25 +936,17 @@
                             <div class="timeline_right">
                                 <div class="margin-bottom-medium">
                                     <div class="timeline_text">
-                                        A história começEEEEEu a ser escrita na cidade de Araruna, interior do
-                                        Paraná, em
-                                        1969.
-                                        Os
-                                        trabalhos em Araruna eram em um barracão de madeira com um espaço
-                                        pequeno e
-                                        simples.
-                                        <br>
-                                        Mas, no ano de 1973, aconteceu a grande virada na história da empresa:
-                                        nasceu a
-                                        A.
-                                        J.
-                                        Rorato e Cia. Ltda, com uma linha definida de produtos: armários e pias
-                                        para
-                                        cozinha.
+                                        Hoje, em 2024, a Medeiros Móveis completa 20 anos de uma trajetória marcada
+                                        por crescimento, superação e muito trabalho. Desde 2008 na Avenida Paraná,
+                                        em Juranda, a loja passou por diversas melhorias e consolidou-se como
+                                        referência no comércio móveis. Com as vendas em alta e um futuro promissor
+                                        pela frente, Paulo Medeiros segue à frente do negócio, celebrando não apenas
+                                        o sucesso, mas também a história de dedicação que construiu ao longo dessas
+                                        duas décadas. Uma jornada de fé, família e perseverança!
                                     </div>
                                 </div>
                                 <div class="timeline_image-wrapper margin-bottom-medium">
-                                    <img src="images/imgs loja/frenteLojaAntigaCerto.jpg" loading="lazy" width="480"
+                                    <img src="imagens/frenteLojaAntigaCerto.jpg" loading="lazy" width="480"
                                         alt="Entrada da Loja Antigamente" />
                                 </div>
                             </div>
@@ -1006,11 +988,11 @@
                     <div class="swiper-slide">
                         <div class="card">
                             <div class="front">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <button>Leia Mais</button>
                             </div>
                             <div class="back">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <p>Nome e Função
                                     Nome e Função
                                 </p>
@@ -1021,11 +1003,11 @@
                     <div class="swiper-slide">
                         <div class="card">
                             <div class="front">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <button>Leia Mais</button>
                             </div>
                             <div class="back">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <p>Nome e Função
                                     Nome e Função
                                 </p>
@@ -1036,11 +1018,11 @@
                     <div class="swiper-slide">
                         <div class="card">
                             <div class="front">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <button>Leia Mais</button>
                             </div>
                             <div class="back">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <p>Nome e Função
                                     Nome e Função
                                 </p>
@@ -1051,11 +1033,11 @@
                     <div class="swiper-slide">
                         <div class="card">
                             <div class="front">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <button>Leia Mais</button>
                             </div>
                             <div class="back">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <p>Nome e Função
                                     Nome e Função
                                 </p>
@@ -1066,11 +1048,11 @@
                     <div class="swiper-slide">
                         <div class="card">
                             <div class="front">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <button>Leia Mais</button>
                             </div>
                             <div class="back">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <p>Nome e Função
                                     Nome e Função
                                 </p>
@@ -1081,11 +1063,11 @@
                     <div class="swiper-slide">
                         <div class="card">
                             <div class="front">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <button>Leia Mais</button>
                             </div>
                             <div class="back">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <p>Nome e Função
                                     Nome e Função
                                 </p>
@@ -1096,11 +1078,11 @@
                     <div class="swiper-slide">
                         <div class="card">
                             <div class="front">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <button>Leia Mais</button>
                             </div>
                             <div class="back">
-                                <img src="images/funcionarios/edcarlo.png" alt="">
+                                <img src="imagens/funcionarios/edcarlo.png" alt="">
                                 <p>Nome e Função
                                     Nome e Função
                                 </p>

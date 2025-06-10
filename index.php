@@ -47,78 +47,70 @@
             </div>
         </div>
         <header class="header">
-            <nav class="nav-desktop">
-                <div>
-                    <a href="home" title="logo">
+            <nav class="navbar navbar-expand-lg bg-white">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="home" title="logo">
                         <img src="images/logo-loja2.jpg" alt="Logo">
                     </a>
-                </div>
-                <ul>
-                    <li>
-                        <a href="home" title="Home">
-                            <div class="efeito">Home</div>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" title="Produtos">
-                            Produtos
-                        </a>
-                        <ul class="dropdown-menu">
-                            <div class="efeito">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Móveis
-                                    </a>
-                                </li>
-                            </div>
-                            <div class="efeito">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Planejados
-                                    </a>
-                                </li>
-                            </div>
-
-                            <li>
-                                <hr class="dropdown-divider">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="home">
+                                    <div class="efeito">
+                                        Home
+                                    </div>
+                                </a>
                             </li>
-                            <div class="efeito">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Estofados
-                                    </a>
-                                </li>
-                            </div>
-                            <div class="efeito">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Eletrodomésticos
-                                    </a>
-                                </li>
-                            </div>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="sobreNos" title="Sobre Nós">
-                            <div class="efeito">Sobre Nós</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contato" title="Contato">
-                            <div class="efeito">
-                                Contato
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="produtos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="efeito">
+                                        Produtos
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">
+                                            <div class="efeito">
+                                                Móveis
+                                            </div>
+                                        </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                            <div class="efeito">Planejados
+                                            </div>
+                                        </a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">
+                                            <div class="efeito">Estofados</div>
+                                        </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                            <div class="efeito">Eletrodomésticos</div>
+                                        </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sobreNos">
+                                    <div class="efeito">Sobre Nós</div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contato">
+                                    <div class="efeito">Contato</div>
+                                </a>
+                            </li>
+                    </div>
+                </div>
             </nav>
         </header>
 
         <main class="container">
 
             <?php
-            include "array.php";
+            include "arrays.php";
 
             $pagina = $_GET["param"] ?? "home";
 
