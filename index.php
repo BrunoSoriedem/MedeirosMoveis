@@ -132,7 +132,7 @@
         <footer class="footer">
             <div class="grid text-center">
                 <div class="g-col-6 g-col-md-4" id="infos-endereco-logo-redes">
-                    <img class="logo-footer" src="images/logo-loja2.jpg">
+                    <img class="logo-footer" src="imagens/logo-loja2.jpg">
                     <p class="info-footer-endereco">
                         Av. Paraná, 1727 - Centro
                         <br>
@@ -170,7 +170,7 @@
                 </div>
 
                 <div class="g-col-6 g-col-md-4">
-                    <img src="images/pai-removebg-preview.png" alt="teste" class="img-paulo">
+                    <img src="imagens/pai-removebg-preview.png" alt="teste" class="img-paulo">
                 </div>
 
                 <div class="g-col-6 g-col-md-4">
