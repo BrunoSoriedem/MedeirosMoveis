@@ -1,101 +1,80 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", Helvetica, sans-serif;
-}
-
-[data-aos] {
-    z-index: 0;
-}
-
-
-html {
-    scroll-behavior: smooth;
-}
-
-html,
-body {
-    height: 100%;
-    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
 }
 
 body {
-    min-height: 100%;
-    margin: 0;
-    font-size: 14px;
-    letter-spacing: 1px;
-    line-height: 1.5;
-}
-
-main {
-    width: 100%;
-    padding-top: 5%;
-}
-
-img {
-    vertical-align: middle;
-    max-width: 100%;
-    display: inline-block;
-}
-
-#section-email {
-    margin: 50px auto;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 50px;
     background: #ffffff;
-    width: 500px;
-    min-width: 600px;
-    margin-top: 150px;
-    border: 3px solid rgb(22, 162, 22);
-    box-shadow: rgb(16, 17, 16) 5px 25px 43px,
-        rgba(37, 129, 3, 0.22) 5px 25px 17px;
-    border-radius: 20px;
+    padding: 20px;
 }
 
-#section-email h2 {
-    color: #090909;
-    font-size: 28px;
-    justify-content: left;
-    margin-top: -40px;
-    padding: 50px;
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
 }
 
-#section-email form {
+.form-box,
+.info-box {
+    flex: 1 1 350px;
+}
+
+.h2-form {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+h2 {
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #2ecc71;
+    margin: 15px auto;
+}
+
+input,
+select,
+textarea {
+    padding: 15px;
+    outline: none;
+    border: 1px solid #ccc !important;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.5s;
     width: 100%;
 }
 
-#contatocomigo {
-    margin: auto;
-    padding: 15px;
-    font-size: 30px;
-}
-
-.encontro {
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-form label {
-    color: #0a0a0a;
-    font-size: 17px;
-    margin-bottom: 4px;
-}
-
-form input {
-    padding: 15px;
-    outline: none;
-    border: 10;
-    margin-bottom: 20px;
-    font-size: 15px;
-    transition: all 0.5s;
-}
-
-form input:focus {
+input:focus,
+textarea:focus,
+select:focus {
     border-radius: 16px;
     border-color: rgb(22, 162, 22);
     box-shadow: 0 0 0 3px rgba(22, 162, 22, 0.25);
@@ -103,38 +82,81 @@ form input:focus {
     outline: none;
 }
 
-form textarea {
-    padding: 10px;
-    outline: none;
-    border: 10;
-    font-size: 15px;
-    margin-bottom: 30px;
-    transition: all 0.5s;
-}
-
-form textarea:focus {
-    border-radius: 16px;
-    border-color: rgb(22, 162, 22);
-    box-shadow: 0 0 0 3px rgba(22, 162, 22, 0.25);
-    background-color: #fff;
-    outline: none;
-}
-
-form button {
-    padding: 15px;
-    cursor: pointer;
-    font-size: 16px;
+button {
     background: transparent;
-    border: 2px solid #121212;
+    border: 2px solid rgb(22, 162, 22);
     color: #0c0c0c;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
     transition: all 1s;
     margin-bottom: 20px;
 }
 
-form button:hover {
+button i {
+    margin-right: 5px;
+}
+
+button:hover {
     border-radius: 16px;
     color: whitesmoke;
     background: rgb(9, 139, 48);
-    /* background: #f5f5f5;
-    color: #101026; */
+}
+
+.info-card {
+    background-color: #f2f4f7;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card i {
+    font-size: 24px;
+    color: rgb(9, 139, 48);
+    margin-top: 5px;
+}
+
+.info-card strong {
+    font-size: 16px;
+    color: #111;
+}
+
+.info-card p,
+.info-card small {
+    font-size: 14px;
+    color: #000000;
+}
+
+.horario {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+label {
+    color: black;
+}
+
+.horario strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.horario span.fechado {
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+    }
 }

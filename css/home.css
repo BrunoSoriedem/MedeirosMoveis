@@ -225,6 +225,7 @@ main {
 
 .product-info {
     padding: 20px;
+    text-align: center;
 }
 
 .product-info h3 {
@@ -260,9 +261,6 @@ main {
 }
 
 .btn {
-    align-items: center;
-    justify-content: center;
-    margin-left: 45px;
     display: inline-block;
     padding: 12px 30px;
     background-color: var(--primary-color);
@@ -275,10 +273,11 @@ main {
 }
 
 .btn:hover {
-    background-color: transparent;
+    background-color: #fff;
     color: var(--primary-color);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
 }
 
 #h2p {

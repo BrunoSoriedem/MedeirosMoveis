@@ -474,88 +474,6 @@ h2 {
 
 
 
-/* Ajuste a altura da seção para permitir que o swiper apareça */
-.collection {
-    padding: 3rem 0;
-    background-color: #fff;
-    overflow: visible;
-}
-
-.swiper {
-    width: 100%;
-    padding: 2rem 0;
-}
-
-.swiper-wrapper {
-    align-items: center;
-    display: flex;
-}
-
-.swiper-slide {
-    width: 280px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.content {
-    background: #f9f9f9;
-    height: 28rem;
-    width: 100%;
-    border: .2rem solid rgba(0, 0, 0, .05);
-    border-radius: .7rem;
-    border-bottom: .4rem solid #2ecc71;
-    border-top: .4rem solid #2ecc71;
-    overflow: hidden;
-    padding: .2rem;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.content:hover {
-    transform: translateY(-5px);
-}
-
-.content img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom-left-radius: .6rem;
-    border-bottom-right-radius: .6rem;
-}
-
-.text-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-
-.text-content h3 {
-    font-size: 1.7rem;
-    font-weight: 500;
-}
-
-
-.text-content p {
-    max-width: 22rem;
-    font-size: .8rem;
-    font-weight: 400;
-    text-align: center;
-}
-
-
-.btn {
-    background-color: #2ecc71;
-    padding: .2rem;
-    border: 2px solid #2ecc71;
-    font-size: .8rem;
-    border-radius: .5rem;
-    margin: 1rem 0;
-    cursor: pointer;
-}
-
 
 @media screen and (max-width: 768px) {
 
@@ -593,10 +511,6 @@ h2 {
 
     .timeline_right {
         grid-area: span 1 / span 1 / span 1 / span 1;
-    }
-
-    .timeline_right-inverso {
-        /* grid-area: span 1 / span 1 / span 1 / span 1; */
     }
 
     .timeline_date-text {
