@@ -37,9 +37,12 @@
             </div>
 
             <div class="social-links" data-aos="fade-up" data-aos-delay="800">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank"
+                    rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank"
+                    rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank"
+                    rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
             </div>
 
             <a href="home" class="btn-return" data-aos="fade-up" data-aos-delay="900">

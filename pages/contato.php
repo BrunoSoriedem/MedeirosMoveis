@@ -47,6 +47,7 @@
                     <label>Mensagem</label>
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="agradecimento">
+                    <audio id="sucesso-audio" src="audio/confirmation.mp3" preload="auto"></audio>
                     <textarea name="mensagem" cols="30" rows="10" placeholder="Digite uma Mensagem" required></textarea>
                     <button type="submit" id="enviar-btn"><i class="fas fa-paper-plane"></i> Enviar Mensagem</button>
                     <input type="hidden" name="accessKey" value="5a2f7dd0-f71b-4808-8620-7d2edcf0b568">
@@ -120,6 +121,9 @@
                     })
                     .then(response => {
                         if (response.ok) {
+                            // Reproduz o som de sucesso
+                            document.getElementById('sucesso-audio').play();
+
                             Swal.fire({
                                 position: "center",
                                 icon: "success",
@@ -127,7 +131,7 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             }).then(() => {
-                                window.location.href = "agradecimento.php";
+                                window.location.href = "agradecimento";
                             });
                         } else {
                             Swal.fire("Erro", "Tente novamente mais tarde", "error");

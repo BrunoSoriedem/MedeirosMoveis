@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/sobreNos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <section>
@@ -158,6 +159,92 @@
         </div>
     </div>
 
+    <swiper-container class="mySwiper"
+        effect="coverflow"
+        grab-cursor="true"
+        centered-slides="true"
+        slides-per-view="auto"
+        loop="true"
+        coverflow-effect-rotate="0"
+        coverflow-effect-stretch="0"
+        coverflow-effect-depth="200"
+        coverflow-effect-modifier="2"
+        coverflow-effect-slide-shadows="true"
+        autoplay-delay="3000"
+        autoplay-disable-on-interaction="false"
+        autoplay='{"delay":3000,"disableOnInteraction":false}'>
+        <swiper-slide>
+            <div class="card" style="width: 18rem;">
+                <img src="imagens/funcionarios/paulo.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, inventore.</p>
+
+                </div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="card" style="width: 18rem;">
+                <img src="imagens/funcionarios/silvia.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, inventore.</p>
+
+                </div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="card" style="width: 18rem;">
+                <img src="imagens/funcionarios/nei.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, inventore.</p>
+
+                </div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="card" style="width: 18rem;">
+                <img src="imagens/funcionarios/larissa.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, inventore.</p>
+
+                </div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="card" style="width: 18rem;">
+                <img src="imagens/funcionarios/edcarlo.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lorem, ipsum dolor.Card title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, inventore.</p>
+
+                </div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="card" style="width: 18rem;">
+                <img src="imagens/funcionarios/nataly.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, inventore.</p>
+
+                </div>
+            </div>
+        </swiper-slide>
+        <swiper-slide>
+            <div class="card" style="width: 18rem;">
+                <img src="imagens/funcionarios/felipe.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lorem, ipsum dolor.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, inventore.</p>
+
+                </div>
+            </div>
+        </swiper-slide>
+    </swiper-container>
+
 
 </section>
 
@@ -194,29 +281,25 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 <script>
-    const swiper = new Swiper(".mySwiper", {
-        effect: "coverflow",
+    const swiper = new Swiper('.mySwiper', {
+        effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
         loop: true,
-        initialSlide: 0,
-        slidesPerView: "auto",
+        slidesPerView: 'auto',
         coverflowEffect: {
             rotate: 0,
             stretch: 0,
-            depth: 150,
+            depth: 100,
             modifier: 2.5,
             slideShadows: true,
         },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
         autoplay: {
-            delay: 3000,
+            delay: 2500,
             disableOnInteraction: false,
-        }
+        },
     });
 </script>
 <script>
