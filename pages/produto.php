@@ -4,206 +4,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medeiros Móveis - Produtos Premium</title>
 
-    <title>Medeiros Móveis</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Bootstrap + AOS + FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="css/produtos.css">
+
 </head>
 
 <body>
 
-    <main>
-        <!-- Seção Hero -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Móveis que Transformam seu Espaço</h1>
-                <p>Descubra nossa coleção premium de móveis feitos com materiais sustentáveis e design inovador.</p>
-                <a href="#featured" class="btn">Ver Coleção</a>
-            </div>
-        </section>
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down">Nossas Categorias de Produtos</h2>
 
-        <!-- Seção Destaques -->
-        <section class="featured" id="featured">
-            <div class="section-title">
-                <h2>Nossos Destaques</h2>
+            <div class="category-tabs" data-aos="fade-up">
+                <button class="btn-category active" onclick="showCategory('furniture')">
+                    <i class="fas fa-couch me-2"></i>Móveis
+                </button>
+                <button class="btn-category" onclick="showCategory('electronics')">
+                    <i class="fas fa-blender me-2"></i>Eletros
+                </button>
+                <button class="btn-category" onclick="showCategory('custom')">
+                    <i class="fas fa-ruler-combined me-2"></i>Planejados
+                </button>
+                <button class="btn-category" onclick="showCategory('upholstery')">
+                    <i class="fas fa-paint-roller me-2"></i>Estofados
+                </button>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <span class="tag">Novidade</span>
-                    <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Sofá Premium" class="product-img">
+
+            <div id="product-gallery" class="product-gallery" data-aos="fade-up" data-aos-delay="100">
+                <!-- Furniture Products (Default) -->
+                <div class="product-card furniture">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Sofá Premium" class="product-image">
+                    <span class="product-badge">Novo</span>
                     <div class="product-info">
-                        <h3>Sofá Premium</h3>
-                        <p>Sofá em couro ecológico com design ergonômico para máximo conforto.</p>
-                        <span class="price">R$ 3.499,00</span>
-                        <a href="#" class="btn">Detalhes</a>
+                        <h3 class="product-title">Sofá Premium 3 Lugares</h3>
+                        <p class="product-description">Sofá em couro sintético de alta resistência, estrutura em madeira maciça e enchimento em espuma D33.</p>
+                        <div class="product-price">R$ 2.499,00</div>
+                        <div class="product-meta">
+                            <span><i class="fas fa-ruler-combined me-1"></i> 2.10m x 0.90m</span>
+                            <span><i class="fas fa-palette me-1"></i> 5 cores</span>
+                        </div>
                     </div>
+                    <button class="btn-details">Ver Detalhes</button>
                 </div>
 
-                <div class="product-card">
-                    <span class="tag">Mais Vendido</span>
-                    <img src="imagens/Moveis/Prateleira Escritorio.jpg" alt="Mesa de Jantar" class="product-img">
+                <div class="product-card furniture">
+                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Mesa de Jantar" class="product-image">
                     <div class="product-info">
-                        <h3>Mesa de Jantar</h3>
-                        <p>Mesa em madeira de reflorestamento com acabamento premium.</p>
-                        <span class="price">R$ 2.899,00</span>
-                        <a href="#" class="btn">Detalhes</a>
+                        <h3 class="product-title">Mesa de Jantar 6 Lugares</h3>
+                        <p class="product-description">Mesa em madeira de demolição tratada, com tampo de 1.80m e base em metal pintado.</p>
+                        <div class="product-price">R$ 1.899,00</div>
+                        <div class="product-meta">
+                            <span><i class="fas fa-ruler-combined me-1"></i> 1.80m x 0.90m</span>
+                            <span><i class="fas fa-weight me-1"></i> 45kg</span>
+                        </div>
                     </div>
+                    <button class="btn-details">Ver Detalhes</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="product3.jpg" alt="Cama King Size" class="product-img">
+                <!-- Electronics Products (Hidden by default) -->
+                <div class="product-card electronics" style="display: none;">
+                    <img src="https://images.unsplash.com/photo-1573555209210-e1f29e01fe8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Geladeira" class="product-image">
+                    <span class="product-badge">Promoção</span>
                     <div class="product-info">
-                        <h3>Cama King Size</h3>
-                        <p>Estrutura sólida em carvalho com cabeceira estofada.</p>
-                        <span class="price">R$ 4.199,00</span>
-                        <a href="#" class="btn">Detalhes</a>
+                        <h3 class="product-title">Geladeira Frost Free 420L</h3>
+                        <p class="product-description">Geladeira duplex com freezer inferior, tecnologia inverter e classificação A++ em eficiência energética.</p>
+                        <div class="product-price">R$ 3.299,00</div>
+                        <div class="product-meta">
+                            <span><i class="fas fa-bolt me-1"></i> 127V</span>
+                            <span><i class="fas fa-box me-1"></i> 420L</span>
+                        </div>
                     </div>
+                    <button class="btn-details">Ver Detalhes</button>
                 </div>
 
-                <div class="product-card">
-                    <span class="tag">Promoção</span>
-                    <img src="product4.jpg" alt="Armário Moderno" class="product-img">
+                <!-- Custom Products (Hidden by default) -->
+                <div class="product-card custom" style="display: none;">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cozinha Planejada" class="product-image">
                     <div class="product-info">
-                        <h3>Armário Moderno</h3>
-                        <p>Design minimalista com amplo espaço interno e portas de correr.</p>
-                        <span class="price">R$ 3.799,00</span>
-                        <a href="#" class="btn">Detalhes</a>
+                        <h3 class="product-title">Cozinha Planejada Premium</h3>
+                        <p class="product-description">Solução completa em MDF lacado, com ilha central, bancada em quartzito e eletrodomésticos embutidos.</p>
+                        <div class="product-price">Sob Consulta</div>
+                        <div class="product-meta">
+                            <span><i class="fas fa-ruler me-1"></i> Personalizado</span>
+                            <span><i class="fas fa-clock me-1"></i> 30 dias</span>
+                        </div>
+                    </div>
+                    <button class="btn-details">Ver Detalhes</button>
+                </div>
+
+                <!-- Upholstery Products (Hidden by default) -->
+                <div class="product-card upholstery" style="display: none;">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Poltrona Reclinável" class="product-image">
+                    <span class="product-badge">Mais Vendido</span>
+                    <div class="product-info">
+                        <h3 class="product-title">Poltrona Reclinável Premium</h3>
+                        <p class="product-description">Poltrona em couro sintético com mecanismo de reclinação suave e apoio para copo integrado.</p>
+                        <div class="product-price">R$ 1.299,00</div>
+                        <div class="product-meta">
+                            <span><i class="fas fa-weight me-1"></i> 28kg</span>
+                            <span><i class="fas fa-palette me-1"></i> 8 cores</span>
+                        </div>
+                    </div>
+                    <button class="btn-details">Ver Detalhes</button>
+                </div>
+
+                <!-- More products would be added here following the same pattern -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <!-- /* <section class="feature-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down">Por que Escolher a Medeiros Móveis?</h2>
+            <div class="row">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Entrega Rápida</h4>
+                        <p>Entregamos em todo o Brasil em até 15 dias úteis</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Garantia Estendida</h4>
+                        <p>3 anos de garantia em todos os nossos produtos</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h4>Parcele em 12x</h4>
+                        <p>Parcele suas compras sem juros no cartão</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-couch"></i>
+                        </div>
+                        <h4>Showroom Exclusivo</h4>
+                        <p>Visite nosso showroom e experimente antes de comprar</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>*/ -->
 
-        <!-- Seção Categorias -->
-        <section class="categories">
-            <div class="section-title">
-                <h2>Nossas Categorias</h2>
-            </div>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Sala de Estar" class="category-img">
-                    <div class="category-overlay">
-                        <h3>Sala de Estar</h3>
-                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
-                    <div class="category-overlay">
-                        <h3>Quarto</h3>
-                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Cozinha" class="category-img">
-                    <div class="category-overlay">
-                        <h3>Cozinha</h3>
-                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Escritório" class="category-img">
-                    <div class="category-overlay">
-                        <h3>Escritório</h3>
-                        <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Depoimentos -->
-        <section class="testimonials">
-            <div class="section-title">
-                <h2>O que Nossos Clientes Dizem</h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Comprei um sofá há 2 anos e ainda parece novo. A qualidade dos materiais é impressionante!"</p>
-                    <p class="testimonial-author">- Ana Carolina</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Atendimento excelente e os móveis chegaram antes do prazo. Super recomendo!"</p>
-                    <p class="testimonial-author">- Roberto Almeida</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Adorei o design sustentável dos produtos. Meu apartamento ficou lindo e eco-friendly."</p>
-                    <p class="testimonial-author">- Juliana Santos</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Efeito de scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        AOS.init();
+
+        function showCategory(category) {
+            // Update active button
+            document.querySelectorAll('.btn-category').forEach(btn => {
+                btn.classList.remove('active');
             });
-        });
+            event.target.classList.add('active');
 
-        // Animação ao rolar
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.product-card, .category-card, .testimonial-card');
-
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+            // Show/hide products
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (card.classList.contains(category)) {
+                    card.style.display = 'block';
+                    card.setAttribute('data-aos', 'fade-up');
+                } else {
+                    card.style.display = 'none';
                 }
             });
-        };
 
-        // Configuração inicial para elementos animados
-        window.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.product-card, .category-card, .testimonial-card');
-            animatedElements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-
-            // Dispara uma vez após o carregamento
-            setTimeout(animateOnScroll, 300);
-        });
-
-        // Dispara durante o scroll
-        window.addEventListener('scroll', animateOnScroll);
+            // Refresh animations
+            setTimeout(() => {
+                AOS.refresh();
+            }, 50);
+        }
     </script>
 </body>
 

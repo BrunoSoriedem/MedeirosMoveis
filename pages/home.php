@@ -103,7 +103,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Sala de Estar" class="category-img">
                 <div class="category-overlay">
                     <h3>Sala de Estar</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
                 <div class="category-overlay">
                     <h3>Quarto</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -119,7 +119,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
                 <div class="category-overlay">
                     <h3>Quarto</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
                 <div class="category-overlay">
                     <h3>Quarto</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -135,7 +135,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
                 <div class="category-overlay">
                     <h3>Quarto</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -143,7 +143,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
                 <div class="category-overlay">
                     <h3>Quarto</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -152,7 +152,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Cozinha" class="category-img">
                 <div class="category-overlay">
                     <h3>Cozinha</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
@@ -160,7 +160,7 @@
                 <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Escritório" class="category-img">
                 <div class="category-overlay">
                     <h3>Escritório</h3>
-                    <a href="#">Ver Coleção <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

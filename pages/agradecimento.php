@@ -4,67 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Medeiros Móveis</title>
-    <style>
-        [data-aos] {
-            z-index: 0;
-        }
 
-        .main {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: #ffffff;
-            flex-direction: column;
-        }
-
-        .text {
-            font-size: 45px;
-            color: #000000;
-            margin-bottom: 30px;
-        }
-
-        .paragrafo {
-            color: #000000;
-            margin-bottom: 50px;
-        }
-
-        .btnobrigado {
-            padding: 15px 55px;
-            background: rgb(255, 255, 255);
-            border: 3px solid rgb(9, 139, 48);
-            text-decoration: none;
-            color: #101026;
-            font-size: 18px;
-            transition: all 0.2s;
-        }
-
-        .btnobrigado:hover {
-            border-radius: 16px;
-            color: whitesmoke;
-            background: rgb(9, 139, 48)
-        }
-    </style>
-    <link rel="stylesheet" href="css/agradecimento.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/agradecimento.css" rel="stylesheet">
 </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Obrigado</title>
-    <link href="images/fenix.png" rel="shortcut icon">
-</head>
+<body>
+    <section class="contact-container">
+        <div class="thank-you-container" data-aos="fade-up" data-aos-duration="800">
+            <div class="checkmark-circle" data-aos="zoom-in" data-aos-delay="300">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle-bg" cx="26" cy="26" r="25" fill="none" />
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                </svg>
+            </div>
 
-<body class="main">
-    <h1 class="text">A Medeiros Móveis Agradece o seu Contato !</h1>
-    <p class="paragrafo">Em breve entraremos em contato para lhe atender;
-        )</p>
-    <a href="agradecimento" class="btnobrigado">Home</a>
+            <h1 data-aos="fade-up" data-aos-delay="500">Mensagem Enviada com Sucesso!</h1>
+
+            <p data-aos="fade-up" data-aos-delay="600">
+                Obrigado por entrar em contato conosco. Sua mensagem foi recebida e nossa equipe entrará em contato
+                em breve para responder suas dúvidas ou solicitações.
+            </p>
+
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="700">
+                <p><strong>Horário de Atendimento:</strong> Segunda a Sexta: 8:00 – 18:00 | Sábado: 8:00 – 12:00</p>
+                <p><strong>Telefone:</strong> +55 (44) 9 9987-0212 |(44) 3569-1763</p>
+                <p><strong>Email:</strong> paulojuranda@hotmail.com</p>
+            </div>
+
+            <div class="social-links" data-aos="fade-up" data-aos-delay="800">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <a href="home" class="btn-return" data-aos="fade-up" data-aos-delay="900">
+                <i class="fas fa-arrow-left"></i> Voltar ao Site
+            </a>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            once: true
+        });
     </script>
 </body>
 

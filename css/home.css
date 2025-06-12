@@ -266,7 +266,7 @@ main {
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 10px;
     font-weight: bold;
     transition: var(--transition);
     border: 2px solid var(--primary-color);
@@ -275,6 +275,41 @@ main {
 .btn:hover {
     background-color: #fff;
     color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
+}
+
+/* .btn-colecao {
+    display: inline-block;
+    padding: 0px 30px;
+    background-color: transparent;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: var(--transition);
+    border: 2px solid var(--primary-color);
+    text-align: left;
+} */
+
+.btn-colecao {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: transparent;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    text-align: left;
+    width: 100%;
+}
+
+.btn-colecao:hover {
+    background-color: #fff;
+    color: var(--primary-color) !important;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--primary-color);
@@ -546,7 +581,7 @@ h2::after {
     width: 100%;
     padding: 10px;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     margin-top: 6px;
     cursor: pointer;
     font-size: 14px;
