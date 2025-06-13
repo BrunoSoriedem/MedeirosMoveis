@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/nav-footer.css">
     <link href="images/logo-loja.png" rel="shortcut icon">
 
@@ -125,7 +126,7 @@
 
         </main>
 
-        <hr class="hr-footer">
+        <!-- <hr class="hr-footer">
         <footer class="footer">
             <div class="grid text-center">
                 <div class="g-col-6 g-col-md-4" id="infos-endereco-logo-redes">
@@ -205,34 +206,73 @@
                                     <p class="fone-topicos-footer">paulojuranda@hotmail.com</p>
                                 </a>
                             </li>
-
-                            <hr class="separador-footer">
-                            <li class="nome-atendimento">
-                                <a href="#" title="Atendimentos">
-                                    <div class="topicos-footer">HORÁRIO DE ATENDIMENTO</div>
-                                    <span class="infos-topicos-footer" id="hora-atendimento">
-                                        Segunda à Sexta das 8h às 18h
-                                        <br>
-                                        Sábado das 8h às 12h
-                                    </span>
-                                </a>
-                            </li>
                         </div>
                     </ul>
                 </div>
+        </footer> -->
+        <hr class="hr-footer">
+        <footer class="footer">
+            <div class="container-footer">
+                <div class="footer-col">
+                    <img src="imagens/logo-loja2.jpg" alt="Logo Medeiros Móveis" class="footer-logo" />
+                    <p class="footer-text">
+                        Av. Paraná, 1727 - Centro<br />
+                        Juranda/PR<br />
+                        CNPJ: 21.165.079/0001-80
+                    </p>
+
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+
+                    <ul class="footer-list">
+                        <li>Móveis Estilosos</li>
+                        <li>Eletros de Qualidade</li>
+                        <li>Modulados Sob Medida</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col center-col">
+                    <img src="imagens/pai-removebg-preview.png" alt="Fundador" class="footer-img" />
+                </div>
+
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <div class="contact-box">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <p class="contact-title">Compre por Telefone</p>
+                            <p class="contact-info">(44) 3569-1763</p>
+                        </div>
+                    </div>
+                    <div class="contact-box">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <p class="contact-title">Fale no WhatsApp</p>
+                            <p class="contact-info">(44) 99987-0212</p>
+                        </div>
+                    </div>
+                    <div class="contact-box">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p class="contact-title">Nosso E-mail</p>
+                            <p class="contact-info">paulojuranda@hotmail.com</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <hr class="hr-footer">
-            <div class="footer-content">
-                <p class="copyright">
-                    <strong>
-                        Copyright © 2025 Medeiros Móveis Juranda
 
-                    </strong>
-                </p>
-                <p class="dev">
-                    Developed by Bruno Medeiros
-                </p>
-
+            <div class="footer-bottom">
+                <p>© 2025 Medeiros Móveis. Todos os direitos reservados.</p>
+                <p>Desenvolvido por Bruno Medeiros</p>
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"

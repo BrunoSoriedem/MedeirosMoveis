@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                             <div class="timeline_image-wrapper margin-bottom-medium">
-                                <img src="imagens/frenteLojacerto.jpg" loading="lazy" width="480"
+                                <img src="imagens/0046.jpg" loading="lazy" width="480"
                                     alt="Entrada da Loja Antigamente" />
                             </div>
                         </div>
@@ -160,6 +160,92 @@
     </div>
 
     <swiper-container class="mySwiper"
+        effect="coverflow"
+        grab-cursor="true"
+        centered-slides="true"
+        slides-per-view="auto"
+        loop="true"
+        coverflow-effect-rotate="50"
+        coverflow-effect-stretch="0"
+        coverflow-effect-depth="200"
+        coverflow-effect-modifier="1"
+        coverflow-effect-slide-shadows="true"
+        autoplay-delay="3000"
+        autoplay-disable-on-interaction="false">
+        <swiper-slide>
+            <div class="card-hover">
+                <img src="imagens/funcionarios/paulo.png" alt="Paulo Oliveira">
+                <div class="info-hover">
+                    <h3>Paulo Oliveira</h3>
+                    <p>Especialista em Logística. Trabalha conosco desde 2018 com foco em eficiência operacional.</p>
+                </div>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="card-hover">
+                <img src="imagens/funcionarios/paulo.png" alt="Paulo Oliveira">
+                <div class="info-hover">
+                    <h3>Paulo Oliveira</h3>
+                    <p>Especialista em Logística. Trabalha conosco desde 2018 com foco em eficiência operacional.</p>
+                </div>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="card-hover">
+                <img src="imagens/funcionarios/paulo.png" alt="Paulo Oliveira">
+                <div class="info-hover">
+                    <h3>Paulo Oliveira</h3>
+                    <p>Especialista em Logística. Trabalha conosco desde 2018 com foco em eficiência operacional.</p>
+                </div>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="card-hover">
+                <img src="imagens/funcionarios/paulo.png" alt="Paulo Oliveira">
+                <div class="info-hover">
+                    <h3>Paulo Oliveira</h3>
+                    <p>Especialista em Logística. Trabalha conosco desde 2018 com foco em eficiência operacional.</p>
+                </div>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="card-hover">
+                <img src="imagens/funcionarios/paulo.png" alt="Paulo Oliveira">
+                <div class="info-hover">
+                    <h3>Paulo Oliveira</h3>
+                    <p>Especialista em Logística. Trabalha conosco desde 2018 com foco em eficiência operacional.</p>
+                </div>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="card-hover">
+                <img src="imagens/funcionarios/paulo.png" alt="Paulo Oliveira">
+                <div class="info-hover">
+                    <h3>Paulo Oliveira</h3>
+                    <p>Especialista em Logística. Trabalha conosco desde 2018 com foco em eficiência operacional.</p>
+                </div>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="card-hover">
+                <img src="imagens/funcionarios/paulo.png" alt="Paulo Oliveira">
+                <div class="info-hover">
+                    <h3>Paulo Oliveira</h3>
+                    <p>Especialista em Logística. Trabalha conosco desde 2018 com foco em eficiência operacional.</p>
+                </div>
+            </div>
+        </swiper-slide>
+
+
+    </swiper-container>
+
+    <!-- <swiper-container class="mySwiper"
         effect="coverflow"
         grab-cursor="true"
         centered-slides="true"
@@ -243,7 +329,7 @@
                 </div>
             </div>
         </swiper-slide>
-    </swiper-container>
+    </swiper-container> -->
 
 
 </section>
@@ -283,7 +369,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 <script>
-    const swiper = new Swiper('.mySwiper', {
+    /* const swiper = new Swiper('.mySwiper', {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
@@ -300,7 +386,26 @@
             delay: 2500,
             disableOnInteraction: false,
         },
-    });
+    });*/
+
+    const swiper = new Swiper('.mySwiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        loop: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate: 0, // Efeito de pirâmide
+            stretch: 0,
+            depth: 150,
+            modifier: 2.5,
+            slideShadows: true,
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    })
 </script>
 <script>
     AOS.init({
