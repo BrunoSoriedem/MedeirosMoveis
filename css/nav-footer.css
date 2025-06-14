@@ -5,8 +5,20 @@
     font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
+[data-aos] {
+    z-index: 0;
+}
+
 html {
     height: 100%;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 body {
@@ -15,6 +27,16 @@ body {
     font-size: 14px;
     letter-spacing: 1px;
     line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 100%;
+}
+
+main {
+    width: 100%;
 }
 
 .navbar {
@@ -26,7 +48,6 @@ body {
     position: fixed;
     text-align: center;
     background-color: black;
-    height: 30px;
     width: 100%;
     top: 0;
     overflow: hidden;
@@ -51,16 +72,16 @@ body {
 }
 
 .site-container {
-    /* flex: 1;
+    flex: 1;
     display: flex;
-    flex-direction: column; */
+    flex-direction: column;
 }
 
 .header {
     padding: 0 30px !important;
     z-index: 998;
     position: fixed;
-    top: 25px;
+    top: 15px;
     left: 0;
     width: 100%;
     background: #ffffff;
@@ -121,154 +142,131 @@ body {
     margin: 10px;
 }
 
-.hr-footer {
-    z-index: 999;
-    color: black;
-    width: 1008%;
-}
+
+
+
+
+
+
+
 
 .footer {
-    z-index: 999;
-    background-color: rgb(255, 255, 255);
-    /* padding: 20px; */
-    width: 100%;
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 3rem 1rem 0;
 }
 
-/* #infos-endereco-logo-redes {
-    /* margin-top: -15%; 
-}*/
-
-.grid.text-center {
+.container-footer {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.footer-col {
+    min-width: 250px;
+}
+
+.center-col {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-/* .conteudo-atendimento {
-    /* margin-left: -20%; */
-/* margin-top: -10%; 
-} */
-
-.logo-footer {
-    height: 80px;
-    width: 200px;
-    margin-left: 10%;
+.footer-logo {
+    max-width: 160px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
 }
 
-.info-footer-endereco {
-    margin-left: 20%;
-    text-align: justify;
-    font-family: "Roboto", Arial, sans-serif;
+.footer-text {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
-.redes {
-    /* text-align: justify; */
-    /* margin-left: 5%; */
-
-    a {
-        color: #000000;
-        font-size: 1.5em;
-        text-decoration: none;
-        margin: 10px;
-        padding: 10px;
-    }
-}
-
-a {
+.footer-social a {
+    font-size: 1.3rem;
+    color: #000000;
+    margin-right: 1rem;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
     color: #000000;
 }
 
-.fa-solid.fa-phone-volume {
-    font-size: 25px;
-    padding: 20px 0 0 0;
-}
-
-.fa-brands.fa-whatsapp.fa-xs {
-    font-size: 30px;
-    padding: 20px 0 0 0;
-}
-
-.fa-solid.fa-at {
-    font-size: 25px;
-    padding: 20px 0 0 0;
-}
-
-.nome-atendimento {
+.footer-list {
     list-style: none;
-    font-weight: bold;
-    text-align: justify;
+    padding: 0;
+    margin-top: 1.2rem;
 }
 
-.div-infos-topicos-footer {
+.footer-list li {
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.footer-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #000000;
+    font-size: 1rem;
+}
+
+.footer-img {
+    max-width: 70%;
+}
+
+.footer-col h4 {
+    margin-bottom: 1rem;
+    color: #000000;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #000000;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.contact-box {
     display: flex;
-    margin-left: 10%;
-    margin-top: -10%;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
 }
 
-.fone-topicos-footer {
-    display: flex;
-    margin-left: 10%;
-    /* margin-top: -10%; */
+.contact-box i {
+    font-size: 1.5rem;
+    color: #000000 !important;
+
 }
 
-.infos-topicos-footer {
-    font-weight: normal;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    font-size: 15px;
+.contact-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
 }
 
-.nome-whatsapp {
-    list-style: none;
-    font-weight: bold;
-    text-align: justify;
+.contact-info {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #000000;
 }
 
-#hora-atendimento {
-    font-weight: normal;
-}
-
-.img-paulo {
-    width: 70%;
-}
-
-.produtos-topicos {
-    margin-top: 20%;
-    margin-left: 5%;
-}
-
-.ul-footer {
-    list-style: none;
-    font-weight: bold;
-    text-align: justify;
-
-    li {
-        font-size: 17px;
-        padding: 10px;
-    }
-}
-
-.separador-footer {
-    color: black;
-    width: 300px;
-}
-
-.footer .copyright {
+.footer-bottom {
     text-align: center;
-    font-family: "Rajdhani", Arial, sans-serif;
-    margin-top: 10px;
-    /* margin-bottom: -1px; */
-    font-size: 15px;
-    color: rgb(0, 0, 0);
+    border-top: 1px solid #000000;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #000000;
 }
 
-.footer .dev {
-    text-align: center;
-    font-family: "Rajdhani", Arial, sans-serif;
-    font-size: 14px;
-    margin-bottom: 2px;
-    color: rgb(0, 0, 0);
-}
 
 .whatsapp-float {
     position: fixed;
@@ -285,6 +283,7 @@ a {
     animation: pulse-circle 2s infinite;
     display: flex;
     justify-content: center;
+    text-decoration: none;
     align-items: center;
     z-index: 1000;
 }
@@ -304,6 +303,46 @@ a {
 }
 
 
+@media (max-width: 1200px) {
+    .container-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
 
+    .footer-col {
+        align-items: center;
+    }
 
-/* Time Line  */
+    .contact-box {
+        justify-content: center;
+    }
+
+    .whatsapp-float {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-col {
+        align-items: center;
+    }
+
+    .contact-box {
+        justify-content: center;
+    }
+
+    .whatsapp-float {
+        width: 30px;
+        height: 30px;
+    }
+}

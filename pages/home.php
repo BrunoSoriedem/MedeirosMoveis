@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/nav-footer.css">
 </head>
 
 <body>
@@ -17,25 +18,65 @@
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
 
-                <div class="swiper-slide slide-com-overlay">
+                <div class="swiper-slide slide-com-overlay" id="slide1">
                     <img id="fundoPrimeiro-slide" src="imagens\Moveis\g.r 6portas marrom.jpg" alt="Guarda Roupa">
                     <div class="conteudo-sobreposto">
                         <h1><span class="destaque">Móveis Planejados</span> com excelência nos detalhes.</h1>
                         <p>Projetos sob medida que unem conforto, elegância e funcionalidade.</p>
-                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank" class="botao-whatsapp">
+                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank" class="botao-rede">
                             <i class="fab fa-whatsapp"></i> Solicite um orçamento
                         </a>
                     </div>
                 </div>
 
-                <div class="swiper-slide">
+                <div class="swiper-slide slide-com-overlay" id="slide2">
                     <img src="imagens/moveis/Box sweet dream.jpg" alt="Colchão Gazin">
+                    <div class="conteudo-sobreposto-direito">
+                        <h1>Neste mês de <span class="destaque">Junho</span></h1>
+                        <p>
+                            A loja inteira está em clima de <span class="destaque">Festa Junina</span>! <br>
+                            Aproveite descontos de até <span class="destaque">50%</span> em todos os produtos. <br><br>
+                            É o momento perfeito para renovar sua casa com qualidade e economia. <br>
+                            Não perca! Esperamos por você com ofertas imperdíveis!
+                        </p>
+
+                    </div>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide slide-com-overlay" id="slide3">
                     <img src="imagens/planejados/cozinha clara e geladeira.jpg" alt="Mesas">
+                    <div class="conteudo-sobreposto">
+                        <h1><span class="destaque">20 anos</span> de tradição e qualidade em móveis.</h1>
+                        <p>
+                            Duas décadas transformando lares com dedicação, bom gosto e compromisso. <br>
+                            Aqui, cada móvel conta uma história — a sua.
+                        </p>
+                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento" target="_blank" class="botao-rede">
+                            <i class="fab fa-whatsapp"></i> Fale com nossa equipe
+                        </a>
+                    </div>
+
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide slide-com-overlay" id="slide4">
                     <img src="imagens/estofados/Sofa Preto 8p.jpg" alt="Mesas">
+                    <div class="conteudo-sobreposto-direito">
+                        <h1>Estamos também nas <span class="destaque">Redes Sociais</span></h1>
+                        <p>
+                            Acompanhe nossas novidades, promoções e projetos exclusivos. <br>
+                            Siga-nos e fique por dentro de tudo que acontece por aqui!
+                        </p>
+                        <div class="redes-sociais">
+                            <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank" class="botao-rede">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank" class="botao-rede">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://wa.me/554499870212?text=Olá,%20vi%20vocês%20nas%20redes%20sociais!" target="_blank" class="botao-rede">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -531,8 +572,7 @@
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="testimonial-quote">"Qualidade dos móveis é surpreendente,
-                            os móveis da minha casa eu só compro na Medeiros Móveis.
-                            Muito satisfeita!"</p>
+                            os móveis da minha casa eu só compro na Medeiros Móveis.</p>
                         <div class="testimonial-author">
                             <img src="imagens/avatar3.jpg" alt="Cliente" class="avatar" />
                             <div>
@@ -619,7 +659,8 @@
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="testimonial-quote">"Excelente custo-benefício e atendimento
-                            humanizado. <br> Muito top"</p>
+                            humanizado. <br> Muito top"
+                            humanizado. Muito top"</p>
                         <div class="testimonial-author">
                             <img src="imagens/avatar1.jpg" alt="Cliente" class="avatar" />
                             <div>

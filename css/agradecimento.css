@@ -108,19 +108,19 @@ p {
     line-height: 1.6;
 }
 
-.contact-info {
+.contact-info-agradecimento {
     background: #f2f4f7;
     border-radius: 12px;
     padding: 20px;
     margin-top: 30px;
 }
 
-.contact-info p {
+.contact-info-agradecimento p {
     margin-bottom: 10px;
     color: #000;
 }
 
-.contact-info strong {
+.contact-info-agradecimento strong {
     color: #2ecc71;
 }
 

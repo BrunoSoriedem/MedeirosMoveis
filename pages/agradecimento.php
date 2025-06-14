@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav-footer.css">
     <link href="css/agradecimento.css" rel="stylesheet">
 </head>
 
@@ -29,14 +30,13 @@
                 Obrigado por entrar em contato conosco. Sua mensagem foi recebida e nossa equipe entrará em contato
                 em breve para responder suas dúvidas ou solicitações.
             </p>
-
-            <div class="contact-info" data-aos="fade-up" data-aos-delay="700">
+            <div class="contact-info-agradecimento">
                 <p><strong>Horário de Atendimento:</strong> Segunda a Sexta: 8:00 – 18:00 | Sábado: 8:00 – 12:00</p>
                 <p><strong>Telefone:</strong> +55 (44) 9 9987-0212 |(44) 3569-1763</p>
                 <p><strong>Email:</strong> paulojuranda@hotmail.com</p>
             </div>
 
-            <div class="social-links" data-aos="fade-up" data-aos-delay="800">
+            <div class="social-links">
                 <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank"
                     rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank"
@@ -45,7 +45,7 @@
                     rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
             </div>
 
-            <a href="home" class="btn-return" data-aos="fade-up" data-aos-delay="900">
+            <a href="home" class="btn-return">
                 <i class="fas fa-arrow-left"></i> Voltar ao Site
             </a>
         </div>

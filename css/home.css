@@ -41,21 +41,9 @@ main {
     width: 100%;
 }
 
-.gradiant {
-    z-index: 999;
-    padding: 20%;
-    width: 100%;
-    height: 27.0%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    background-image: linear-gradient(140deg, #000000 0%, rgb(24, 79, 46) 70%, rgb(16, 96, 50) 100%);
-    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
-}
-
 .swiper-section {
+    /* position: relative; */
+    left: 0;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -66,6 +54,7 @@ main {
 .mySwiper {
     width: 100%;
     height: 95vh;
+    /* margin-bottom: 500px; */
 }
 
 .swiper-slide {
@@ -73,7 +62,7 @@ main {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* height: 95vh; */
+    transition: transform 1s ease-in-out;
 }
 
 .swiper-slide img {
@@ -81,12 +70,44 @@ main {
     height: 100%;
     object-fit: cover;
     border-radius: 0;
-    filter: brightness(0.85);
     transition: transform 1.5s ease;
+    display: block;
 }
 
-.swiper-slide:hover img {
-    transform: scale(1.05);
+#slide1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.1));
+    z-index: 1;
+    pointer-events: none;
+}
+
+#slide2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.1));
+    z-index: 1;
+    pointer-events: none;
+}
+
+#slide3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.1));
+    z-index: 1;
+    pointer-events: none;
+}
+
+#slide4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.1));
+    z-index: 1;
+    pointer-events: none;
 }
 
 .swiper-button-next,
@@ -106,8 +127,8 @@ main {
 
 .conteudo-sobreposto {
     position: absolute;
-    top: 40%;
-    left: 10%;
+    top: 45%;
+    left: 5%;
     transform: translateY(-50%);
     color: white;
     max-width: 600px;
@@ -130,19 +151,52 @@ main {
     margin: 1rem 0 2rem;
 }
 
-.botao-whatsapp {
-    display: inline-block;
-    background-color: #2ecc71;
+.conteudo-sobreposto-direito {
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    transform: translateY(-50%);
     color: white;
-    padding: 0.6rem 1.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background 0.3s ease;
+    max-width: 600px;
+    z-index: 10;
+    padding: 2rem;
 }
 
-.botao-whatsapp:hover {
-    background-color: #27ae60;
+.conteudo-sobreposto-direito h1 {
+    font-size: 2.8rem;
+    line-height: 1.3;
+}
+
+.conteudo-sobreposto-direito .destaque {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.conteudo-sobreposto-direito p {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+}
+
+
+
+.botao-rede {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.botao-rede:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
 }
 
 .img-col {
@@ -196,7 +250,7 @@ main {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     max-width: 1500px;
     margin: 0 auto;
@@ -271,6 +325,7 @@ main {
     transition: var(--transition);
     border: 2px solid var(--primary-color);
 }
+
 
 .btn:hover {
     background-color: #fff;
@@ -381,8 +436,11 @@ main {
 }
 
 .categoria-item {
-    width: 170px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .categoria-item img {
@@ -446,7 +504,6 @@ h2::after {
     height: 100%;
     object-fit: cover;
     background-color: #eee;
-    /* Placeholder color */
 }
 
 .category-overlay {
@@ -698,7 +755,6 @@ h2::after {
     color: #666;
 }
 
-/* Swiper Estilo */
 .swiper.mySwiper-testimonials {
     padding-bottom: 60px;
     max-width: 100%;
@@ -718,64 +774,22 @@ h2::after {
     background: #0a9148;
 }
 
-.orcamento {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: rgb(17, 172, 17);
-    padding: 15px;
-    font-size: 15px;
-    margin-top: 10px;
-    float: left;
-    border-radius: 10px;
-    transition: 1s all;
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.infos-img .orcamento i {
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-}
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
 
-.infos-img .orcamento:hover {
-    background-color: #126b1f
-}
-
-.elementor-counter {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction: column-reverse;
-}
-
-.elementor-counter .elementor-counter-number-wrapper {
-    flex: 1;
-    display: flex;
-    font-size: 69px;
-    font-weight: 600;
-    line-height: 1;
-    text-align: center;
-}
-
-.elementor-counter .elementor-counter-number-prefix {
-    text-align: start;
-    flex-grow: var(--counter-prefix-grow, 1);
-    white-space: pre-wrap;
-}
-
-.elementor-counter-number {
-    flex-grow: var(--counter-number-grow, 0);
-}
-
-.elementor-counter .elementor-counter-number-suffix {
-    text-align: start;
-    flex-grow: var(--counter-suffix-grow, 1);
-    white-space: pre-wrap;
-}
-
-.escrita-elementor-counter {
-    flex-grow: var(--counter-suffix-grow, 0);
-}
-
-.d-block.w-100 {
-    filter: brightness(0.3);
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
