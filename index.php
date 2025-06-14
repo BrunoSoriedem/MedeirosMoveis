@@ -158,7 +158,7 @@
                 </div>
 
                 <div class="footer-col center-col">
-                    <img src="imagens/pai-removebg-preview.png" alt="Fundador" class="footer-img" />
+                    <img src="imagens/img-pai-beleza.png" alt="Fundador" class="footer-img" />
                 </div>
 
                 <div class="footer-col">
@@ -211,6 +211,36 @@
                 once: false,
                 offset: 100
             });
+
+            // 1. Efeito de opacidade no scroll
+            const scrollConfig = {
+                startFade: 50,
+                maxScroll: 400,
+                minOpacity: 0.85,
+                shadowStart: 'rgba(0, 0, 0, 0.3)',
+                shadowEnd: 'rgba(0, 0, 0, 0.5)'
+            };
+
+            function updateHeader() {
+                const scrollTop = $(window).scrollTop();
+                const header = $('.header');
+                const navbar = $('.navbar');
+
+                let opacity = 1;
+                if (scrollTop > scrollConfig.startFade) {
+                    const progress = Math.min((scrollTop - scrollConfig.startFade) /
+                        (scrollConfig.maxScroll - scrollConfig.startFade), 1);
+                    opacity = 1 - (progress * (1 - scrollConfig.minOpacity));
+                }
+
+                header.css('opacity', opacity);
+
+                if (scrollTop > 50) {
+                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowEnd}`);
+                } else {
+                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowStart}`);
+                }
+            }
         </script>
 
 

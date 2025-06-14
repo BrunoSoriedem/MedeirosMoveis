@@ -1,12 +1,12 @@
 <?php
 $funcionarios = [
-    ["funcionario" => "Paulo Medeiros",    "capa" => "imagens/funcionarios/paulo.png",   "funcao" => "Diretor Executivo"], //paulo
-    ["funcionario" => "Silvia Medeiros",   "capa" => "imagens/funcionarios/silvia.png",  "funcao" => "Diretor Executivo"], //silvia
-    ["funcionario" => "Felipe Medeiros",   "capa" => "imagens/funcionarios/felipe.png",  "funcao" => "Diretor Executivo"], //felipe
-    ["funcionario" => "Nataly Carvalho",   "capa" => "imagens/funcionarios/nataly.png",  "funcao" => "Diretor Executivo"], //nataly
-    ["funcionario" => "Larissa Araújo",    "capa" => "imagens/funcionarios/larissa.png", "funcao" => "Diretor Executivo"], //larissa
-    ["funcionario" => "Claudinei Bezerra", "capa" => "imagens/funcionarios/nei.png",     "funcao" => "Diretor Executivo"], //nei
-    ["funcionario" => "Edicarlo Oliveira", "capa" => "imagens/funcionarios/edcarlo.png", "funcao" => "Diretor Executivo"]  //edicarlos
+    ["funcionario" => "Paulo Medeiros",    "capa" => "imagens/funcionarios/paulo.png",   "funcao" => "Proprietário"], //paulo
+    ["funcionario" => "Silvia Medeiros",   "capa" => "imagens/funcionarios/silvia.png",  "funcao" => "Proprietária"], //silvia
+    ["funcionario" => "Felipe Medeiros",      "capa" => "imagens/funcionarios/felipe.png",  "funcao" => "Vendedor"], //felipe
+    ["funcionario" => "Claudinei Nazário",    "capa" => "imagens/funcionarios/nei.png",     "funcao" => "Montador"], //nei
+    ["funcionario" => "Larissa Carvalho",     "capa" => "imagens/funcionarios/larissa.png", "funcao" => "Caixa"], //larissa
+    ["funcionario" => "Nataly Carvalho",      "capa" => "imagens/funcionarios/nataly.png",  "funcao" => "Vendedora"], //nataly
+    ["funcionario" => "Edcarlo Oliveira",     "capa" => "imagens/funcionarios/edcarlo.png", "funcao" => "Montador"]  //edicarlos
 ];
 ?>;
 
