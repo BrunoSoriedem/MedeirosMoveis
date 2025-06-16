@@ -1,179 +1,302 @@
-<!-- Bootstrap + AOS + FontAwesome -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link rel="stylesheet" href="css/produtos.css">
 
-
-<!-- Products Section -->
 <section id="products" class="py-5">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-down">Nossas Categorias de Produtos</h2>
+        <h2>Nossas Categorias de Produtos</h2>
 
-        <div class="category-tabs" data-aos="fade-up">
-            <button class="btn-category active" onclick="showCategory('furniture')">
-                <i class="fas fa-couch me-2"></i>Móveis
-            </button>
-            <button class="btn-category" onclick="showCategory('electronics')">
-                <i class="fas fa-blender me-2"></i>Eletros
-            </button>
-            <button class="btn-category" onclick="showCategory('custom')">
-                <i class="fas fa-ruler-combined me-2"></i>Planejados
-            </button>
-            <button class="btn-category" onclick="showCategory('upholstery')">
-                <i class="fas fa-paint-roller me-2"></i>Estofados
-            </button>
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="moveis">Móveis</button>
+            <button class="category-btn" data-category="planejados">Planejados</button>
+            <button class="category-btn" data-category="estofados">Estofados</button>
+            <button class="category-btn" data-category="eletros">Eletros</button>
         </div>
 
-        <div id="product-gallery" class="product-gallery" data-aos="fade-up" data-aos-delay="100">
-            <!-- Furniture Products (Default) -->
-            <div class="product-card furniture">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Sofá Premium" class="product-image">
-                <span class="product-badge">Novo</span>
-                <div class="product-info">
-                    <h3 class="product-title">Sofá Premium 3 Lugares</h3>
-                    <p class="product-description">Sofá em couro sintético de alta resistência, estrutura em madeira maciça e enchimento em espuma D33.</p>
-                    <div class="product-price">R$ 2.499,00</div>
-                    <div class="product-meta">
-                        <span><i class="fas fa-ruler-combined me-1"></i> 2.10m x 0.90m</span>
-                        <span><i class="fas fa-palette me-1"></i> 5 cores</span>
-                    </div>
+        <div class="products-grid" id="products-grid">
+            <!-- MÓVEIS -->
+            <div class="card-produto" id="card-novidades" data-category="moveis">
+                <span class="desconto">-1%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
+                <div class="tags">
+                    <!-- <span class="tag novidade">Novidade</span> -->
                 </div>
-                <button class="btn-details">Ver Detalhes</button>
+                <h3>Cadeira Padova com Braços</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 1.417,00</p>
+                <p class="preco-novo">R$ 1.394,00</p>
+                <p class="preco-info">10x de R$ 139,40 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
             </div>
 
-            <div class="product-card furniture">
-                <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Mesa de Jantar" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Mesa de Jantar 6 Lugares</h3>
-                    <p class="product-description">Mesa em madeira de demolição tratada, com tampo de 1.80m e base em metal pintado.</p>
-                    <div class="product-price">R$ 1.899,00</div>
-                    <div class="product-meta">
-                        <span><i class="fas fa-ruler-combined me-1"></i> 1.80m x 0.90m</span>
-                        <span><i class="fas fa-weight me-1"></i> 45kg</span>
-                    </div>
+            <div class="card-produto" id="card-novidades" data-category="moveis">
+                <span class="desconto">-1%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
+                <div class="tags">
+                    <!-- <span class="tag novidade">Novidade</span> -->
                 </div>
-                <button class="btn-details">Ver Detalhes</button>
+                <h3>Cadeira Padova com Braços</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 1.417,00</p>
+                <p class="preco-novo">R$ 1.394,00</p>
+                <p class="preco-info">10x de R$ 139,40 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
             </div>
 
-            <!-- Electronics Products (Hidden by default) -->
-            <div class="product-card electronics" style="display: none;">
-                <img src="https://images.unsplash.com/photo-1573555209210-e1f29e01fe8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Geladeira" class="product-image">
-                <span class="product-badge">Promoção</span>
-                <div class="product-info">
-                    <h3 class="product-title">Geladeira Frost Free 420L</h3>
-                    <p class="product-description">Geladeira duplex com freezer inferior, tecnologia inverter e classificação A++ em eficiência energética.</p>
-                    <div class="product-price">R$ 3.299,00</div>
-                    <div class="product-meta">
-                        <span><i class="fas fa-bolt me-1"></i> 127V</span>
-                        <span><i class="fas fa-box me-1"></i> 420L</span>
-                    </div>
+
+            <div class="card-produto" data-category="moveis">
+                <span class="desconto">-15%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Mesa para TV">
+                <div class="tags">
+                    <span class="tag novidade">Novidade</span>
                 </div>
-                <button class="btn-details">Ver Detalhes</button>
+                <h3>Mesa para TV 55"</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 599,00</p>
+                <p class="preco-novo">R$ 509,00</p>
+                <p class="preco-info">10x de R$ 50,90 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
             </div>
 
-            <!-- Custom Products (Hidden by default) -->
-            <div class="product-card custom" style="display: none;">
-                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cozinha Planejada" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Cozinha Planejada Premium</h3>
-                    <p class="product-description">Solução completa em MDF lacado, com ilha central, bancada em quartzito e eletrodomésticos embutidos.</p>
-                    <div class="product-price">Sob Consulta</div>
-                    <div class="product-meta">
-                        <span><i class="fas fa-ruler me-1"></i> Personalizado</span>
-                        <span><i class="fas fa-clock me-1"></i> 30 dias</span>
-                    </div>
+            <div class="card-produto" data-category="moveis">
+                <span class="desconto">-20%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cama Casal">
+                <div class="tags">
+                    <!-- <span class="tag novidade">Novidade</span> -->
                 </div>
-                <button class="btn-details">Ver Detalhes</button>
+                <h3>Cama Casal Box</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 1.200,00</p>
+                <p class="preco-novo">R$ 960,00</p>
+                <p class="preco-info">12x de R$ 80,00 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
             </div>
 
-            <!-- Upholstery Products (Hidden by default) -->
-            <div class="product-card upholstery" style="display: none;">
-                <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Poltrona Reclinável" class="product-image">
-                <span class="product-badge">Mais Vendido</span>
-                <div class="product-info">
-                    <h3 class="product-title">Poltrona Reclinável Premium</h3>
-                    <p class="product-description">Poltrona em couro sintético com mecanismo de reclinação suave e apoio para copo integrado.</p>
-                    <div class="product-price">R$ 1.299,00</div>
-                    <div class="product-meta">
-                        <span><i class="fas fa-weight me-1"></i> 28kg</span>
-                        <span><i class="fas fa-palette me-1"></i> 8 cores</span>
-                    </div>
+            <div class="card-produto" data-category="moveis">
+                <span class="desconto">-10%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Guarda-roupa">
+                <div class="tags">
+                    <span class="tag promocao">Promoção</span>
                 </div>
-                <button class="btn-details">Ver Detalhes</button>
+                <h3>Guarda-roupa 4 Portas</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 1.500,00</p>
+                <p class="preco-novo">R$ 1.350,00</p>
+                <p class="preco-info">12x de R$ 112,50 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
             </div>
 
-            <!-- More products would be added here following the same pattern -->
+            <!-- PLANEJADOS -->
+            <div class="card-produto" data-category="planejados">
+                <span class="desconto">-30%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cozinha Planejada">
+                <div class="tags">
+                    <span class="tag exclusivo">Exclusivo</span>
+                </div>
+                <h3>Cozinha Planejada Completa</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 12.999,00</p>
+                <p class="preco-novo">R$ 8.999,00</p>
+                <p class="preco-info">24x de R$ 374,96 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <div class="card-produto" data-category="planejados">
+                <span class="desconto">-20%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Estante Planejada">
+                <div class="tags">
+                    <!-- <span class="tag novidade">Novidade</span> -->
+                </div>
+                <h3>Estante Planejada para Sala</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 3.199,00</p>
+                <p class="preco-novo">R$ 2.559,00</p>
+                <p class="preco-info">18x de R$ 142,17 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <div class="card-produto" data-category="planejados">
+                <span class="desconto">-15%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Quarto Planejado">
+                <div class="tags">
+                    <span class="tag novidade">Novidade</span>
+                </div>
+                <h3>Quarto Planejado Casal</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 7.999,00</p>
+                <p class="preco-novo">R$ 6.799,00</p>
+                <p class="preco-info">24x de R$ 283,29 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <!-- ESTOFADOS -->
+            <div class="card-produto" data-category="estofados">
+                <span class="desconto">-25%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Sofá Retrátil">
+                <div class="tags">
+                    <span class="tag oferta">Oferta</span>
+                </div>
+                <h3>Sofá Retrátil 3 Lugares</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 2.500,00</p>
+                <p class="preco-novo">R$ 1.875,00</p>
+                <p class="preco-info">12x de R$ 156,25 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <div class="card-produto" data-category="estofados">
+                <span class="desconto">-18%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Poltrona Reclinável">
+                <div class="tags">
+                    <!-- <span class="tag novidade">Novidade</span> -->
+                </div>
+                <h3>Poltrona Reclinável</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 999,00</p>
+                <p class="preco-novo">R$ 819,00</p>
+                <p class="preco-info">10x de R$ 81,90 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <div class="card-produto" data-category="estofados">
+                <span class="desconto">-12%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Puff Decorativo">
+                <div class="tags">
+                    <span class="tag novidade">Novidade</span>
+                </div>
+                <h3>Puff Baú Decorativo</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 250,00</p>
+                <p class="preco-novo">R$ 220,00</p>
+                <p class="preco-info">6x de R$ 36,67 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <!-- ELETROS -->
+            <div class="card-produto" data-category="eletros">
+                <span class="desconto">-35%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Geladeira Duplex">
+                <div class="tags">
+                    <span class="tag super-oferta">Super Oferta</span>
+                </div>
+                <h3>Geladeira Duplex 450L</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 3.500,00</p>
+                <p class="preco-novo">R$ 2.275,00</p>
+                <p class="preco-info">18x de R$ 126,39 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <div class="card-produto" data-category="eletros">
+                <span class="desconto">-28%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Smart TV">
+                <div class="tags">
+                    <!-- <span class="tag novidade">Novidade</span> -->
+                </div>
+                <h3>Smart TV 65" 4K</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 3.000,00</p>
+                <p class="preco-novo">R$ 2.160,00</p>
+                <p class="preco-info">15x de R$ 144,00 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
+
+            <div class="card-produto" data-category="eletros">
+                <span class="desconto">-22%</span>
+                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Fogão 5 Bocas">
+                <div class="tags">
+                    <span class="tag promocao">Promoção</span>
+                </div>
+                <h3>Fogão 5 Bocas</h3>
+                <div class="avaliacao">★★★★★</div>
+                <p class="preco-antigo">R$ 1.200,00</p>
+                <p class="preco-novo">R$ 936,00</p>
+                <p class="preco-info">12x de R$ 78,00 sem juros</p>
+                <button class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Comprar no WhatsApp
+                </button>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Features Section -->
-<!-- /* <section class="feature-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-down">Por que Escolher a Medeiros Móveis?</h2>
-            <div class="row">
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <h4>Entrega Rápida</h4>
-                        <p>Entregamos em todo o Brasil em até 15 dias úteis</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Garantia Estendida</h4>
-                        <p>3 anos de garantia em todos os nossos produtos</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-credit-card"></i>
-                        </div>
-                        <h4>Parcele em 12x</h4>
-                        <p>Parcele suas compras sem juros no cartão</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-couch"></i>
-                        </div>
-                        <h4>Showroom Exclusivo</h4>
-                        <p>Visite nosso showroom e experimente antes de comprar</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>*/ -->
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    function showCategory(category) {
-        // Update active button
-        document.querySelectorAll('.btn-category').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        event.target.classList.add('active');
+    function filterProducts(category) {
+        const products = document.querySelectorAll('.card-produto');
+        const buttons = document.querySelectorAll('.category-btn');
 
-        // Show/hide products
-        document.querySelectorAll('.product-card').forEach(card => {
-            if (card.classList.contains(category)) {
-                card.style.display = 'block';
-                card.setAttribute('data-aos', 'fade-up');
-            } else {
-                card.style.display = 'none';
+        // Remove classe ativa de todos os botões
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Adiciona classe ativa ao botão clicado
+        document.querySelector(`[data-category="${category}"]`).classList.add('active');
+
+        // Esconde todos os produtos primeiro
+        products.forEach(product => {
+            product.style.display = 'none';
+        });
+
+        // Mostra apenas os produtos da categoria selecionada
+        products.forEach(product => {
+            if (product.dataset.category === category) {
+                product.style.display = 'block';
             }
         });
-
-        // Refresh animations
-        setTimeout(() => {
-            AOS.refresh();
-        }, 50);
     }
+
+    // Adiciona event listeners aos botões
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+            filterProducts(category);
+        });
+    });
+
+    // Inicializa a página mostrando apenas móveis
+    document.addEventListener('DOMContentLoaded', () => {
+        filterProducts('moveis');
+    });
 </script>
