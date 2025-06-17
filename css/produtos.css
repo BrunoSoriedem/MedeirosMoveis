@@ -99,11 +99,6 @@ h2::after {
 }
 
 
-
-
-
-
-
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -111,16 +106,15 @@ h2::after {
     margin-top: 30px;
 }
 
-
 .card-produto {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 20px;
+    margin-bottom: 25px;
     width: 260px;
     max-width: 100%;
     text-align: center;
-    position: relative;
     transition: transform 0.3s ease-in-out;
     animation: fadeInUp 0.6s ease forwards;
 }
@@ -130,9 +124,40 @@ h2::after {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #1e7e34;
+}
+
+
+
+
+
+
+
+
 .card-produto img {
     width: 100%;
-    height: auto;
+    height: 250px;
     margin-bottom: 10px;
     object-fit: cover;
 }
@@ -165,6 +190,7 @@ h2::after {
 
 .card-produto h3 {
     font-size: 16px;
+    height: 30px;
     margin: 10px 0;
 }
 

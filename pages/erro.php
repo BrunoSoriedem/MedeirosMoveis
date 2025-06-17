@@ -4,7 +4,7 @@
         padding: 2rem;
         max-width: 600px;
         animation: fadeIn 0.8s ease-out;
-        margin-top: 50px;
+        margin-top: 10px;
     }
 
     @keyframes fadeIn {
@@ -138,42 +138,7 @@
         overflow: hidden;
     }
 
-    .shape {
-        position: absolute;
-        opacity: 0.05;
-    }
-
-    .shape-1 {
-        width: 200px;
-        height: 200px;
-        background-color: #2ECC40;
-        border-radius: 50%;
-        top: -100px;
-        right: -100px;
-        animation: rotate 20s linear infinite;
-    }
-
-    .shape-2 {
-        width: 150px;
-        height: 150px;
-        background-color: #000;
-        transform: rotate(45deg);
-        bottom: -75px;
-        left: -75px;
-        animation: rotate -15s linear infinite;
-    }
-
-    .shape-3 {
-        width: 100px;
-        height: 100px;
-        background-color: #2ECC40;
-        top: 50%;
-        right: 10%;
-        transform: rotate(45deg);
-        animation: rotate 25s linear infinite;
-    }
-
-    @keyframes rotate {
+    /* @keyframes rotate {
         from {
             transform: rotate(0deg);
         }
@@ -181,7 +146,7 @@
         to {
             transform: rotate(360deg);
         }
-    }
+    } */
 
     @media (max-width: 768px) {
         .error-code {
@@ -249,18 +214,6 @@
 </div>
 
 <script>
-    // Adiciona efeito de parallax suave aos shapes
-    document.addEventListener('mousemove', (e) => {
-        const shapes = document.querySelectorAll('.shape');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-
-        shapes.forEach((shape, index) => {
-            const speed = (index + 1) * 20;
-            shape.style.transform = `translate(${x * speed}px, ${y * speed}px) rotate(${x * 360}deg)`;
-        });
-    });
-
     // Efeito de hover nos botões
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {

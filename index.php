@@ -39,7 +39,7 @@
     <div class="site-container">
         <div class="top-header">
             <div class="escrita-top-header">
-                CNPJ: 21.165.079/0001-80 - Juranda / PR
+                Avenida Paraná, 1727 - Juranda / PR
                 &nbsp;|&nbsp;
                 Medeiros Móveis: A Certeza de um Ótimo Negócio!
             </div>
