@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <link rel="stylesheet" href="css/produtos.css">
 
+<style>
+    .card-produto {
+        display: none;
+    }
+</style>
+
 <section id="products" class="py-5">
     <div class="container">
         <h2>Nossas Categorias de Produtos</h2>
@@ -14,15 +20,13 @@
         </div>
 
         <div class="products-grid" id="products-grid">
-            <!-- MÓVEIS --><?php
-                            foreach ($moveis as $item) {
-                                // Determina a categoria principal
-                                if ($item["moveis"] === "Sim") $categoria = "moveis";
-                                elseif ($item["planejados"] === "Sim") $categoria = "planejados";
-                                elseif ($item["estofados"] === "Sim") $categoria = "estofados";
-                                elseif ($item["eletros"] === "Sim") $categoria = "eletros";
-                                else $categoria = "outros";
-                            ?>
+            <?php
+            foreach ($moveis as $item) {
+                if ($item["moveis"] === "Sim") $categoria = "moveis";
+                elseif ($item["planejados"] === "Sim") $categoria = "planejados";
+                elseif ($item["estofados"] === "Sim") $categoria = "estofados";
+                elseif ($item["eletros"] === "Sim") $categoria = "eletros";
+            ?>
                 <div class="card-produto" data-category="<?= $categoria ?>">
                     <img src="<?= $item["foto"] ?>" alt="<?= htmlspecialchars($item["nome"]) ?>">
                     <div class="tags">
@@ -44,155 +48,8 @@
                     </button>
                 </div>
             <?php
-                            }
+            }
             ?>
-
-
-            <!-- PLANEJADOS
-            <div class="card-produto" data-category="planejados">
-                <span class="desconto">-30%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cozinha Planejada">
-                <div class="tags">
-                    <span class="tag exclusivo">Exclusivo</span>
-                </div>
-                <h3>Cozinha Planejada Completa</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 12.999,00</p>
-                <p class="preco-novo">R$ 8.999,00</p>
-                <p class="preco-info">24x de R$ 374,96 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="planejados">
-                <span class="desconto">-20%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Estante Planejada">
-                <div class="tags">
-                </div>
-                <h3>Estante Planejada para Sala</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 3.199,00</p>
-                <p class="preco-novo">R$ 2.559,00</p>
-                <p class="preco-info">18x de R$ 142,17 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="planejados">
-                <span class="desconto">-15%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Quarto Planejado">
-                <div class="tags">
-                </div>
-                <h3>Quarto Planejado Casal</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 7.999,00</p>
-                <p class="preco-novo">R$ 6.799,00</p>
-                <p class="preco-info">24x de R$ 283,29 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="estofados">
-                <span class="desconto">-25%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Sofá Retrátil">
-                <div class="tags">
-                </div>
-                <h3>Sofá Retrátil 3 Lugares</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 2.500,00</p>
-                <p class="preco-novo">R$ 1.875,00</p>
-                <p class="preco-info">12x de R$ 156,25 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="estofados">
-                <span class="desconto">-18%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Poltrona Reclinável">
-                <div class="tags">
-                </div>
-                <h3>Poltrona Reclinável</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 999,00</p>
-                <p class="preco-novo">R$ 819,00</p>
-                <p class="preco-info">10x de R$ 81,90 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="estofados">
-                <span class="desconto">-12%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Puff Decorativo">
-                <div class="tags">
-                </div>
-                <h3>Puff Baú Decorativo</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 250,00</p>
-                <p class="preco-novo">R$ 220,00</p>
-                <p class="preco-info">6x de R$ 36,67 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="eletros">
-                <span class="desconto">-35%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Geladeira Duplex">
-                <div class="tags">
-                </div>
-                <h3>Geladeira Duplex 450L</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 3.500,00</p>
-                <p class="preco-novo">R$ 2.275,00</p>
-                <p class="preco-info">18x de R$ 126,39 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="eletros">
-                <span class="desconto">-28%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Smart TV">
-                <div class="tags">
-                </div>
-                <h3>Smart TV 65" 4K</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 3.000,00</p>
-                <p class="preco-novo">R$ 2.160,00</p>
-                <p class="preco-info">15x de R$ 144,00 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div>
-
-            <div class="card-produto" data-category="eletros">
-                <span class="desconto">-22%</span>
-                <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Fogão 5 Bocas">
-                <div class="tags">
-                </div>
-                <h3>Fogão 5 Bocas</h3>
-                <div class="avaliacao">★★★★★</div>
-                <p class="preco-antigo">R$ 1.200,00</p>
-                <p class="preco-novo">R$ 936,00</p>
-                <p class="preco-info">12x de R$ 78,00 sem juros</p>
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Comprar no WhatsApp
-                </button>
-            </div> -->
         </div>
     </div>
 </section>
@@ -201,17 +58,101 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     const itemsPerPage = 15;
+    //     let currentPage = 1;
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     let currentCategory = urlParams.get("categoria") || "moveis";
+
+    //     const products = Array.from(document.querySelectorAll(".card-produto"));
+    //     const paginationContainer = document.createElement("div");
+    //     paginationContainer.id = "pagination";
+    //     paginationContainer.classList.add("d-flex", "justify-content-center", "mt-4", "flex-wrap", "gap-2");
+    //     document.getElementById("products-grid").after(paginationContainer);
+
+    //     const buttons = document.querySelectorAll('.category-btn');
+
+    //     function filterAndPaginate() {
+    //         const filteredProducts = products.filter(product => product.dataset.category === currentCategory);
+
+    //         const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+    //         const start = (currentPage - 1) * itemsPerPage;
+    //         const end = start + itemsPerPage;
+
+    //         products.forEach(product => {
+    //             product.style.display = 'none';
+    //         });
+
+    //         filteredProducts.forEach((product, index) => {
+    //             if (index >= start && index < end) {
+    //                 product.style.display = 'block';
+    //             }
+    //         });
+
+    //         updatePagination(totalPages);
+    //     }
+
+    //     function updatePagination(totalPages) {
+    //         paginationContainer.innerHTML = "";
+
+    //         for (let i = 1; i <= totalPages; i++) {
+    //             const btn = document.createElement("button");
+    //             btn.textContent = i;
+    //             btn.classList.add("btn", "btn-md", "me-md-2");
+    //             if (i === currentPage) btn.classList.add("btn-success");
+    //             else btn.classList.add("btn-outline-success");
+
+    //             btn.addEventListener("click", () => {
+    //                 currentPage = i;
+    //                 filterAndPaginate();
+    //                 document.getElementById("products").scrollIntoView({
+    //                     behavior: "smooth"
+    //                 });
+    //             });
+    //             paginationContainer.appendChild(btn);
+    //         }
+    //     }
+
+    //     buttons.forEach(btn => {
+    //         btn.addEventListener("click", () => {
+    //             currentCategory = btn.getAttribute("data-category");
+    //             currentPage = 1;
+
+    //             buttons.forEach(b => b.classList.remove("active"));
+    //             btn.classList.add("active");
+
+    //             filterAndPaginate();
+    //         });
+    //     });
+
+    //     filterAndPaginate();
+    // });
     document.addEventListener("DOMContentLoaded", function() {
         const itemsPerPage = 15;
         let currentPage = 1;
-        let currentCategory = "moveis"; // Categoria padrão ao carregar
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentCategory = urlParams.get("categoria") || "moveis";
 
         const products = Array.from(document.querySelectorAll(".card-produto"));
         const paginationContainer = document.createElement("div");
         paginationContainer.id = "pagination";
+        paginationContainer.classList.add("d-flex", "justify-content-center", "mt-4", "flex-wrap", "gap-2");
         document.getElementById("products-grid").after(paginationContainer);
 
         const buttons = document.querySelectorAll('.category-btn');
+
+        // Função para ativar o botão correto baseado na categoria atual
+        function setActiveButton() {
+            buttons.forEach(btn => {
+                btn.classList.remove("active");
+                if (btn.getAttribute("data-category") === currentCategory) {
+                    btn.classList.add("active");
+                }
+            });
+        }
+
+        // Ativa o botão correto quando a página carrega
+        setActiveButton();
 
         function filterAndPaginate() {
             const filteredProducts = products.filter(product => product.dataset.category === currentCategory);
@@ -220,19 +161,16 @@
             const start = (currentPage - 1) * itemsPerPage;
             const end = start + itemsPerPage;
 
-            // Oculta todos
             products.forEach(product => {
                 product.style.display = 'none';
             });
 
-            // Mostra apenas os produtos filtrados e paginados
             filteredProducts.forEach((product, index) => {
                 if (index >= start && index < end) {
                     product.style.display = 'block';
                 }
             });
 
-            // Atualiza a paginação
             updatePagination(totalPages);
         }
 
@@ -242,15 +180,17 @@
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement("button");
                 btn.textContent = i;
-                btn.classList.add("btn", "btn-sm", "mx-1");
-                if (i === currentPage) btn.classList.add("btn-primary");
-                else btn.classList.add("btn-outline-primary");
+                btn.classList.add("btn", "btn-md", "me-md-2");
+                if (i === currentPage) btn.classList.add("btn-success");
+                else btn.classList.add("btn-outline-success");
 
                 btn.addEventListener("click", () => {
                     currentPage = i;
                     filterAndPaginate();
+                    document.getElementById("products").scrollIntoView({
+                        behavior: "smooth"
+                    });
                 });
-
                 paginationContainer.appendChild(btn);
             }
         }
@@ -260,52 +200,16 @@
                 currentCategory = btn.getAttribute("data-category");
                 currentPage = 1;
 
-                // Ativa botão atual
-                buttons.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
+                // Atualiza a URL sem recarregar a página
+                history.pushState(null, null, `?categoria=${currentCategory}`);
+
+                // Ativa o botão correto
+                setActiveButton();
 
                 filterAndPaginate();
             });
         });
 
-        // Inicializa
         filterAndPaginate();
-    });
-</script>
-<script>
-    function filterProducts(category) {
-        const products = document.querySelectorAll('.card-produto');
-        const buttons = document.querySelectorAll('.category-btn');
-
-        // Remove classe ativa de todos os botões
-        buttons.forEach(btn => btn.classList.remove('active'));
-
-        // Adiciona classe ativa ao botão clicado
-        document.querySelector(`[data-category="${category}"]`).classList.add('active');
-
-        // Esconde todos os produtos primeiro
-        products.forEach(product => {
-            product.style.display = 'none';
-        });
-
-        // Mostra apenas os produtos da categoria selecionada
-        products.forEach(product => {
-            if (product.dataset.category === category) {
-                product.style.display = 'block';
-            }
-        });
-    }
-
-    // Adiciona event listeners aos botões
-    document.querySelectorAll('.category-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category');
-            filterProducts(category);
-        });
-    });
-
-    // Inicializa a página mostrando apenas móveis
-    document.addEventListener('DOMContentLoaded', () => {
-        filterProducts('moveis');
     });
 </script>

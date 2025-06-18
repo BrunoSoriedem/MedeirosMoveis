@@ -75,17 +75,17 @@
                                                 Móveis
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="#">
+                                    <li><a class="dropdown-item" href="produto?categoria=planejados">
                                             <div class="efeito">Planejados
                                             </div>
                                         </a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#">
+                                    <li><a class="dropdown-item" href="produto?categoria=estofados">
                                             <div class="efeito">Estofados</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="#">
+                                    <li><a class="dropdown-item" href="produto?categoria=eletros">
                                             <div class="efeito">Eletrodomésticos</div>
                                         </a></li>
                                 </ul>
@@ -242,6 +242,37 @@
             }
         </script>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const produtosDropdown = document.querySelector('.nav-item.dropdown');
+                const produtosLink = produtosDropdown.querySelector('.dropdown-toggle');
+
+                const currentPage = window.location.pathname.split('/').pop();
+                const isProdutoPage = currentPage === 'produto' || currentPage.includes('produto?');
+
+                produtosLink.addEventListener('click', function(e) {
+                    if (isProdutoPage) {
+                        e.preventDefault();
+                        const dropdownMenu = this.nextElementSibling;
+                        dropdownMenu.classList.toggle('show');
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!produtosDropdown.contains(e.target)) {
+                        const dropdownMenu = produtosDropdown.querySelector('.dropdown-menu');
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
+
+                const dropdownItems = produtosDropdown.querySelectorAll('.dropdown-item');
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
+                });
+            });
+        </script>
 
 
 </body>
