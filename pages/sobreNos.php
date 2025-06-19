@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="timeline_image-wrapper margin-bottom-medium">
-                                <img src="imagens/0046.jpg" loading="lazy" width="480"
+                                <img src="imagens/frenteLojaFotografo.jpg" loading="lazy" width="480"
                                     alt="Entrada da Loja Antigamente" />
                             </div>
                         </div>

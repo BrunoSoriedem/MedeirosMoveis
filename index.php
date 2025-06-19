@@ -44,62 +44,65 @@
                 Medeiros Móveis: A Certeza de um Ótimo Negócio!
             </div>
         </div>
-        <header class="header">
+        <header class="header" data-aos="fade-down">
             <nav class="navbar navbar-expand-lg bg-white">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="home" title="logo">
+                    <a class="navbar-brand" href="home" title="logo" data-aos="fade-right">
                         <img src="imagens/logo-loja2.jpg" alt="Logo">
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
+                            <li class="nav-item" data-aos="fade-up" data-aos-delay="100">
                                 <a class="nav-link active" aria-current="page" href="home">
-                                    <div class="efeito">
-                                        Home
-                                    </div>
+                                    <div class="efeito">Home</div>
                                 </a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="efeito">
-                                        Produtos
-                                    </div>
+                            <li class="nav-item dropdown" data-aos="fade-up" data-aos-delay="200">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <div class="efeito">Produtos</div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="produto">
-                                            <div class="efeito">
-                                                Móveis
-                                            </div>
-                                        </a></li>
-                                    <li><a class="dropdown-item" href="produto?categoria=planejados">
-                                            <div class="efeito">Planejados
-                                            </div>
-                                        </a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
+                                    <li data-aos="fade-left" data-aos-delay="300">
+                                        <a class="dropdown-item" href="produto?categoria=moveis">
+                                            <div class="efeito">Móveis</div>
+                                        </a>
                                     </li>
-                                    <li><a class="dropdown-item" href="produto?categoria=estofados">
+                                    <li data-aos="fade-left" data-aos-delay="400">
+                                        <a class="dropdown-item" href="produto?categoria=planejados">
+                                            <div class="efeito">Planejados</div>
+                                        </a>
+                                    </li>
+                                    <li data-aos="fade-left" data-aos-delay="500">
+                                        <a class="dropdown-item" href="produto?categoria=estofados">
                                             <div class="efeito">Estofados</div>
-                                        </a></li>
-                                    <li><a class="dropdown-item" href="produto?categoria=eletros">
+                                        </a>
+                                    </li>
+                                    <li data-aos="fade-left" data-aos-delay="600">
+                                        <a class="dropdown-item" href="produto?categoria=eletros">
                                             <div class="efeito">Eletrodomésticos</div>
-                                        </a></li>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
+
+                            <li class="nav-item" data-aos="fade-up" data-aos-delay="300">
                                 <a class="nav-link" href="sobreNos">
                                     <div class="efeito">Sobre Nós</div>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" data-aos="fade-up" data-aos-delay="400">
                                 <a class="nav-link" href="contato">
                                     <div class="efeito">Contato</div>
                                 </a>
                             </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -125,7 +128,8 @@
         </main>
 
         <hr class="hr-footer">
-        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" class="whatsapp-float"
+            target="_blank" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
         <footer class="footer">
@@ -145,7 +149,8 @@
                         <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank" title="WhatsApp">
+                        <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank"
+                            title="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -193,8 +198,8 @@
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-            crossorigin="anonymous"></script>
+            integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+        </script>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/aos.js"></script>
         <!-- <script src="js/contagem.js"></script>
@@ -204,74 +209,74 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="js/index.js"></script>
         <script>
-            AOS.init({
-                duration: 1000,
-                easing: 'ease-in-out',
-                once: false,
-                offset: 100
-            });
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: false,
+            offset: 100
+        });
 
-            // 1. Efeito de opacidade no scroll
-            const scrollConfig = {
-                startFade: 50,
-                maxScroll: 400,
-                minOpacity: 0.85,
-                shadowStart: 'rgba(0, 0, 0, 0.3)',
-                shadowEnd: 'rgba(0, 0, 0, 0.5)'
-            };
+        // 1. Efeito de opacidade no scroll
+        const scrollConfig = {
+            startFade: 50,
+            maxScroll: 400,
+            minOpacity: 0.85,
+            shadowStart: 'rgba(0, 0, 0, 0.3)',
+            shadowEnd: 'rgba(0, 0, 0, 0.5)'
+        };
 
-            function updateHeader() {
-                const scrollTop = $(window).scrollTop();
-                const header = $('.header');
-                const navbar = $('.navbar');
+        function updateHeader() {
+            const scrollTop = $(window).scrollTop();
+            const header = $('.header');
+            const navbar = $('.navbar');
 
-                let opacity = 1;
-                if (scrollTop > scrollConfig.startFade) {
-                    const progress = Math.min((scrollTop - scrollConfig.startFade) /
-                        (scrollConfig.maxScroll - scrollConfig.startFade), 1);
-                    opacity = 1 - (progress * (1 - scrollConfig.minOpacity));
-                }
-
-                header.css('opacity', opacity);
-
-                if (scrollTop > 50) {
-                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowEnd}`);
-                } else {
-                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowStart}`);
-                }
+            let opacity = 1;
+            if (scrollTop > scrollConfig.startFade) {
+                const progress = Math.min((scrollTop - scrollConfig.startFade) /
+                    (scrollConfig.maxScroll - scrollConfig.startFade), 1);
+                opacity = 1 - (progress * (1 - scrollConfig.minOpacity));
             }
+
+            header.css('opacity', opacity);
+
+            if (scrollTop > 50) {
+                navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowEnd}`);
+            } else {
+                navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowStart}`);
+            }
+        }
         </script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const produtosDropdown = document.querySelector('.nav-item.dropdown');
-                const produtosLink = produtosDropdown.querySelector('.dropdown-toggle');
+        document.addEventListener('DOMContentLoaded', function() {
+            const produtosDropdown = document.querySelector('.nav-item.dropdown');
+            const produtosLink = produtosDropdown.querySelector('.dropdown-toggle');
 
-                const currentPage = window.location.pathname.split('/').pop();
-                const isProdutoPage = currentPage === 'produto' || currentPage.includes('produto?');
+            const currentPage = window.location.pathname.split('/').pop();
+            const isProdutoPage = currentPage === 'produto' || currentPage.includes('produto?');
 
-                produtosLink.addEventListener('click', function(e) {
-                    if (isProdutoPage) {
-                        e.preventDefault();
-                        const dropdownMenu = this.nextElementSibling;
-                        dropdownMenu.classList.toggle('show');
-                    }
-                });
+            produtosLink.addEventListener('click', function(e) {
+                if (isProdutoPage) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    dropdownMenu.classList.toggle('show');
+                }
+            });
 
-                document.addEventListener('click', function(e) {
-                    if (!produtosDropdown.contains(e.target)) {
-                        const dropdownMenu = produtosDropdown.querySelector('.dropdown-menu');
-                        dropdownMenu.classList.remove('show');
-                    }
-                });
+            document.addEventListener('click', function(e) {
+                if (!produtosDropdown.contains(e.target)) {
+                    const dropdownMenu = produtosDropdown.querySelector('.dropdown-menu');
+                    dropdownMenu.classList.remove('show');
+                }
+            });
 
-                const dropdownItems = produtosDropdown.querySelectorAll('.dropdown-item');
-                dropdownItems.forEach(item => {
-                    item.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                    });
+            const dropdownItems = produtosDropdown.querySelectorAll('.dropdown-item');
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
                 });
             });
+        });
         </script>
 
 

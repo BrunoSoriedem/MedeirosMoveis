@@ -30,9 +30,6 @@
                 <div class="card-produto" data-category="<?= $categoria ?>">
                     <img src="<?= $item["foto"] ?>" alt="<?= htmlspecialchars($item["nome"]) ?>">
                     <div class="tags">
-                        <?php if ($item["novidade"] === "Sim"): ?>
-                            <span class="tag novidade">Novidade</span>
-                        <?php endif; ?>
                         <?php if ($item["maisVendido"] === "Sim"): ?>
                             <span class="tag destaque">Mais Vendido</span>
                         <?php endif; ?>

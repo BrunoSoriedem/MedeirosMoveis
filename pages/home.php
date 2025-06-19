@@ -6,18 +6,19 @@
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide slide-com-overlay" id="slide1">
-                <img id="fundoPrimeiro-slide" src="imagens\Moveis\g.r 6portas marrom.jpg" alt="Guarda Roupa">
+                <img id="fundoPrimeiro-slide" src="imagens/frenteLojaFotografo.jpg" alt="Guarda Roupa">
                 <div class="conteudo-sobreposto">
                     <h1><span class="destaque">Móveis Planejados</span> com excelência nos detalhes.</h1>
                     <p>Projetos sob medida que unem conforto, elegância e funcionalidade.</p>
-                    <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank" class="botao-rede">
+                    <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank"
+                        class="botao-rede">
                         <i class="fab fa-whatsapp"></i> Solicite um orçamento
                     </a>
                 </div>
             </div>
 
             <div class="swiper-slide slide-com-overlay" id="slide2">
-                <img src="imagens/moveis/Box sweet dream.jpg" alt="Colchão Gazin">
+                <img src="imagens/planejados/cozinha clara e geladeira.jpg" alt="Colchão Gazin">
                 <div class="conteudo-sobreposto-direito">
                     <h1>Neste mês de <span class="destaque">Junho</span></h1>
                     <p>
@@ -30,14 +31,15 @@
                 </div>
             </div>
             <div class="swiper-slide slide-com-overlay" id="slide3">
-                <img src="imagens/planejados/cozinha clara e geladeira.jpg" alt="Mesas">
+                <img src="imagens/eletros/geladeira 3 portas.jpg" alt="Mesas">
                 <div class="conteudo-sobreposto">
                     <h1><span class="destaque">20 anos</span> de tradição e qualidade em móveis.</h1>
                     <p>
                         Duas décadas transformando lares com dedicação, bom gosto e compromisso. <br>
                         Aqui, cada móvel conta uma história — a sua.
                     </p>
-                    <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento" target="_blank" class="botao-rede">
+                    <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento"
+                        target="_blank" class="botao-rede">
                         <i class="fab fa-whatsapp"></i> Fale com nossa equipe
                     </a>
                 </div>
@@ -58,7 +60,8 @@
                         <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank" class="botao-rede">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://wa.me/554499870212?text=Olá,%20vi%20vocês%20nas%20redes%20sociais!" target="_blank" class="botao-rede">
+                        <a href="https://wa.me/554499870212?text=Olá,%20vi%20vocês%20nas%20redes%20sociais!"
+                            target="_blank" class="botao-rede">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -77,48 +80,21 @@
 
 <section class="featured" id="featured">
     <div class="section-title">
-        <h2 class="text text-center">Nossos Destaques</h2>
+        <h2 class="text text-center fade-up">Nossos Destaques</h2>
     </div>
     <div class="products-grid">
-        <div class="product-card">
-            <span class="tag"></span>
-            <img src="imagens/moveis/g.r 6 portas cinza escuro.jpg" alt="Sofá Premium" class="product-img">
-            <div class="product-info">
-                <h2 class="text text-center" id="h2p">Móveis</h2>
-                <span class="price"></span>
-                <a href="#" class="btn">Saiba Mais</a>
+        <?php
+        foreach ($nomeClasseProd as $item): ?>
+            <div class="product-card fade-up">
+                <span class="tag"></span>
+                <img src="<?= $item["imagem"] ?>" alt="<?= htmlspecialchars($item["nome"]) ?>" class="product-img">
+                <div class="product-info">
+                    <h2 class="text text-center" id="h2p"><?= htmlspecialchars($item["nome"]) ?></h2>
+                    <span class="price"></span>
+                    <a href="<?= $item["href"] ?>" class="btn">Saiba Mais</a>
+                </div>
             </div>
-        </div>
-
-        <div class="product-card">
-            <span class="tag"></span>
-            <img src="imagens/planejados/cozinha planejada cinza clara.jpg" alt="Mesa de Jantar" class="product-img">
-            <div class="product-info">
-                <h2 class="text text-center" id="h2s">Planejados</h2>
-                <span class="price"></span>
-                <a href="#" class="btn">Saiba Mais</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <span class="tag"></span>
-            <img src="imagens\estofados\sofa preto 4p.jpg" alt="Cama King Size" class="product-img">
-            <div class="product-info">
-                <h2 class="text text-center" id="h2t">Estofados</h2>
-                <span class="price"></span>
-                <a href="#" class="btn">Saiba Mais</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <span class="tag"></span>
-            <img src="imagens\eletros\geladeira 3 portas.jpg" alt="Armário Moderno" class="product-img">
-            <div class="product-info">
-                <h2 class="text text-center" id="h2q">Eletros</h2>
-                <span class="price"></span>
-                <a href="#" class="btn">Saiba Mais</a>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </section>
 
@@ -199,10 +175,9 @@
 
     <div class="swiper produtosSwiper">
         <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
+            <div class="swiper-slide slideInUp">
                 <div class="card-produto">
-                    <span class="desconto">-1%</span>
+                    <span class="desconto">-1%</span>,
                     <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
                     <div class="tags">
                         <span class="tag novidade">Novidade</span>
@@ -216,6 +191,7 @@
                     <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
                 </div>
             </div>
+
 
             <div class="swiper-slide">
                 <div class="card-produto">
@@ -337,8 +313,6 @@
                 </div>
             </div>
 
-
-
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -352,7 +326,7 @@
         <div class="swiper-wrapper">
 
             <div class="swiper-slide">
-                <div class="card-produto">
+                <div class="card-produto reveal">
                     <span class="desconto">-1%</span>
                     <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
                     <div class="tags">
@@ -369,7 +343,7 @@
             </div>
 
             <div class="swiper-slide">
-                <div class="card-produto">
+                <div class="card-produto reveal">
                     <span class="desconto">-1%</span>
                     <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
                     <div class="tags">
@@ -668,3 +642,125 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Função para animar os elementos
+        function animateElements() {
+            const elements = document.querySelectorAll('.fade-up');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach((element, index) => {
+                // Aplica delay progressivo baseado no índice
+                element.style.transitionDelay = `${index * 0.1}s`;
+
+                const elementPosition = element.getBoundingClientRect().top;
+                const elementVisible = 150; // Quantos pixels do elemento precisam estar visíveis
+
+                if (elementPosition < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Executa quando a página carrega
+        animateElements();
+
+        // Executa quando o usuário faz scroll
+        window.addEventListener('scroll', animateElements);
+    });
+</script>
+<!-- function resetAnimation() {
+const card = document.getElementById('product-card');
+card.classList.remove('exit');
+card.style.animation = 'none';
+
+// Força o reflow
+card.offsetHeight;
+
+// Reaplica a animação
+card.style.animation = 'slideInUp 0.8s ease-out';
+
+// Reaplica animações dos elementos filhos
+const elements = card.querySelectorAll('*');
+elements.forEach((el, index) => {
+el.style.animation = 'none';
+el.offsetHeight;
+
+// Reaplica animações específicas baseadas no elemento
+if (el.classList.contains('desconto')) {
+el.style.animation = 'bounceIn 0.6s ease-out 0.4s both';
+} else if (el.tagName === 'IMG') {
+el.style.animation = 'fadeInScale 0.8s ease-out 0.2s both';
+} else if (el.classList.contains('tags')) {
+el.style.animation = 'slideInLeft 0.6s ease-out 0.3s both';
+} else if (el.tagName === 'H3') {
+el.style.animation = 'slideInUp 0.6s ease-out 0.4s both';
+} else if (el.classList.contains('avaliacao')) {
+el.style.animation = 'slideInRight 0.6s ease-out 0.5s both';
+} else if (el.classList.contains('preco-antigo')) {
+el.style.animation = 'slideInLeft 0.6s ease-out 0.6s both';
+} else if (el.classList.contains('preco-novo')) {
+el.style.animation = 'fadeInScale 0.6s ease-out 0.7s both';
+} else if (el.classList.contains('preco-info')) {
+el.style.animation = 'slideInUp 0.6s ease-out 0.8s both';
+} else if (el.classList.contains('btn-verde')) {
+el.style.animation = 'slideInUp 0.6s ease-out 0.9s both';
+} else if (el.classList.contains('btn-whatsapp')) {
+el.style.animation = 'slideInUp 0.6s ease-out 1s both';
+}
+});
+}
+
+function triggerExit() {
+const card = document.getElementById('product-card');
+card.classList.add('exit');
+
+// Remove o card após a animação e o reinsere
+setTimeout(() => {
+card.style.display = 'none';
+setTimeout(() => {
+card.style.display = 'block';
+resetAnimation();
+}, 500);
+}, 500);
+}
+
+// Adiciona efeitos sonoros visuais aos botões
+document.querySelectorAll('.btn-verde, .btn-whatsapp').forEach(btn => {
+btn.addEventListener('click', function(e) {
+// Cria efeito ripple
+const ripple = document.createElement('span');
+const rect = this.getBoundingClientRect();
+const size = Math.max(rect.width, rect.height);
+const x = e.clientX - rect.left - size / 2;
+const y = e.clientY - rect.top - size / 2;
+
+ripple.style.width = ripple.style.height = size + 'px';
+ripple.style.left = x + 'px';
+ripple.style.top = y + 'px';
+ripple.style.position = 'absolute';
+ripple.style.borderRadius = '50%';
+ripple.style.background = 'rgba(255,255,255,0.6)';
+ripple.style.transform = 'scale(0)';
+ripple.style.animation = 'ripple 0.6s linear';
+ripple.style.pointerEvents = 'none';
+
+this.appendChild(ripple);
+
+setTimeout(() => {
+ripple.remove();
+}, 600);
+});
+});
+
+// CSS para o efeito ripple
+const style = document.createElement('style');
+style.textContent = `
+@keyframes ripple {
+to {
+transform: scale(4);
+opacity: 0;
+}
+}
+`;
+document.head.appendChild(style);*/ -->
