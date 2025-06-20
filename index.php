@@ -22,14 +22,14 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/aos.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/nav-footer.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/aos.css">
     <link href="images/logo-loja.png" rel="shortcut icon">
 
     <base href="http://localhost/Medeiros-Moveis/">
@@ -157,13 +157,14 @@
 
                     <ul class="footer-list">
                         <li>Móveis Estilosos</li>
+                        <li>Planejados Sob Medida</li>
+                        <li>Estofados Confortáveis</li>
                         <li>Eletros de Qualidade</li>
-                        <li>Modulados Sob Medida</li>
                     </ul>
                 </div>
 
                 <div class="footer-col center-col">
-                    <img src="imagens/img-pai-beleza.png" alt="Fundador" class="footer-img" />
+                    <img src="imagens/img-pai-beleza.png" alt="Proprietario" class="footer-img" />
                 </div>
 
                 <div class="footer-col">
@@ -194,7 +195,10 @@
 
             <div class="footer-bottom">
                 <p>© 2025 Medeiros Móveis. Todos os direitos reservados.</p>
-                <p>Desenvolvido por Bruno Medeiros</p>
+                <p>
+                    <a href="https://www.instagram.com/brunormedeiros_/" target="_blank"
+                        title="Clique e saiba mais sobre mim">Desenvolvido por Bruno Medeiros</a>
+                </p>
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
@@ -209,74 +213,74 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="js/index.js"></script>
         <script>
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: false,
-            offset: 100
-        });
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: false,
+                offset: 100
+            });
 
-        // 1. Efeito de opacidade no scroll
-        const scrollConfig = {
-            startFade: 50,
-            maxScroll: 400,
-            minOpacity: 0.85,
-            shadowStart: 'rgba(0, 0, 0, 0.3)',
-            shadowEnd: 'rgba(0, 0, 0, 0.5)'
-        };
+            // 1. Efeito de opacidade no scroll
+            const scrollConfig = {
+                startFade: 50,
+                maxScroll: 400,
+                minOpacity: 0.85,
+                shadowStart: 'rgba(0, 0, 0, 0.3)',
+                shadowEnd: 'rgba(0, 0, 0, 0.5)'
+            };
 
-        function updateHeader() {
-            const scrollTop = $(window).scrollTop();
-            const header = $('.header');
-            const navbar = $('.navbar');
+            function updateHeader() {
+                const scrollTop = $(window).scrollTop();
+                const header = $('.header');
+                const navbar = $('.navbar');
 
-            let opacity = 1;
-            if (scrollTop > scrollConfig.startFade) {
-                const progress = Math.min((scrollTop - scrollConfig.startFade) /
-                    (scrollConfig.maxScroll - scrollConfig.startFade), 1);
-                opacity = 1 - (progress * (1 - scrollConfig.minOpacity));
+                let opacity = 1;
+                if (scrollTop > scrollConfig.startFade) {
+                    const progress = Math.min((scrollTop - scrollConfig.startFade) /
+                        (scrollConfig.maxScroll - scrollConfig.startFade), 1);
+                    opacity = 1 - (progress * (1 - scrollConfig.minOpacity));
+                }
+
+                header.css('opacity', opacity);
+
+                if (scrollTop > 50) {
+                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowEnd}`);
+                } else {
+                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowStart}`);
+                }
             }
-
-            header.css('opacity', opacity);
-
-            if (scrollTop > 50) {
-                navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowEnd}`);
-            } else {
-                navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowStart}`);
-            }
-        }
         </script>
 
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const produtosDropdown = document.querySelector('.nav-item.dropdown');
-            const produtosLink = produtosDropdown.querySelector('.dropdown-toggle');
+            document.addEventListener('DOMContentLoaded', function() {
+                const produtosDropdown = document.querySelector('.nav-item.dropdown');
+                const produtosLink = produtosDropdown.querySelector('.dropdown-toggle');
 
-            const currentPage = window.location.pathname.split('/').pop();
-            const isProdutoPage = currentPage === 'produto' || currentPage.includes('produto?');
+                const currentPage = window.location.pathname.split('/').pop();
+                const isProdutoPage = currentPage === 'produto' || currentPage.includes('produto?');
 
-            produtosLink.addEventListener('click', function(e) {
-                if (isProdutoPage) {
-                    e.preventDefault();
-                    const dropdownMenu = this.nextElementSibling;
-                    dropdownMenu.classList.toggle('show');
-                }
-            });
+                produtosLink.addEventListener('click', function(e) {
+                    if (isProdutoPage) {
+                        e.preventDefault();
+                        const dropdownMenu = this.nextElementSibling;
+                        dropdownMenu.classList.toggle('show');
+                    }
+                });
 
-            document.addEventListener('click', function(e) {
-                if (!produtosDropdown.contains(e.target)) {
-                    const dropdownMenu = produtosDropdown.querySelector('.dropdown-menu');
-                    dropdownMenu.classList.remove('show');
-                }
-            });
+                document.addEventListener('click', function(e) {
+                    if (!produtosDropdown.contains(e.target)) {
+                        const dropdownMenu = produtosDropdown.querySelector('.dropdown-menu');
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
 
-            const dropdownItems = produtosDropdown.querySelectorAll('.dropdown-item');
-            dropdownItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.stopPropagation();
+                const dropdownItems = produtosDropdown.querySelectorAll('.dropdown-item');
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
                 });
             });
-        });
         </script>
 
 

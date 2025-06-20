@@ -36,9 +36,9 @@ main {
 }
 
 img {
-    display: block;
-    width: 100%;
-    height: 100%;
+    /* display: block; */
+    max-width: 100%;
+    /* height: 100%; */
     border-radius: 15px;
 }
 
@@ -116,31 +116,11 @@ img {
     position: relative;
 }
 
-.timeline_item-inverso {
-    /* z-index: 2;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    grid-template-rows: auto;
-    /* grid-template-columns: 1fr -180px 1fr; */
-    /* grid-auto-columns: 1fr; */
-    /* padding-top: 80px;
-    padding-bottom: 80px;
-    display: grid;
-    position: relative; */
-}
-
 .timeline_left {
     text-align: right;
     justify-content: flex-end;
     align-items: stretch;
 }
-
-.timeline_left-inverso {
-    text-align: right;
-    justify-content: flex-end;
-    align-items: stretch;
-}
-
 
 .timeline_centre {
     justify-content: center;

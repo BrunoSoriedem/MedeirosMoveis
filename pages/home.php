@@ -175,143 +175,33 @@
 
     <div class="swiper produtosSwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide slideInUp">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>,
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
+
+            <?php foreach ($moveis as $novidade): ?>
+                <?php if ($novidade["novidade"] === "Sim"): ?>
+                    <div class="swiper-slide slideInUp">
+                        <div class="card-produto">
+                            <!-- <span class="desconto">-1%</span> -->
+                            <img src="<?= $novidade["foto"] ?>" alt="<?= htmlspecialchars($novidade["nome"]) ?>">
+                            <div class="tags">
+                                <span class="tag novidade">Novidade</span>
+                            </div>
+                            <h3><?= htmlspecialchars($novidade["nome"]) ?></h3>
+                            <div class="avaliacao">★★★★★</div>
+                            <?php if (!empty($novidade["valorAnt"])): ?>
+                                <p class="preco-antigo"><?= $novidade["valorAnt"] ?></p>
+                            <?php endif; ?>
+                            <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
+                            <p class="preco-info"><?= $novidade["valorAP"] ?></p>
+                            <button class="btn-verde">Ver produto</button>
+                            <button class="btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                Comprar no WhatsApp
+                            </button>
+                        </div>
                     </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
 
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-
-
-
-
-
-            <div class="swiper-slide">
-                <div class="card-produto" id="card-novidades">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp">
-                        </i>
-                        Comprar no WhatsApp
-
-                    </button>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
 
         </div>
         <div class="swiper-button-next"></div>
@@ -644,17 +534,15 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Função para animar os elementos
         function animateElements() {
             const elements = document.querySelectorAll('.fade-up');
             const windowHeight = window.innerHeight;
 
             elements.forEach((element, index) => {
-                // Aplica delay progressivo baseado no índice
                 element.style.transitionDelay = `${index * 0.1}s`;
 
                 const elementPosition = element.getBoundingClientRect().top;
-                const elementVisible = 150; // Quantos pixels do elemento precisam estar visíveis
+                const elementVisible = 150;
 
                 if (elementPosition < windowHeight - elementVisible) {
                     element.classList.add('active');
@@ -662,11 +550,30 @@
             });
         }
 
-        // Executa quando a página carrega
         animateElements();
 
-        // Executa quando o usuário faz scroll
         window.addEventListener('scroll', animateElements);
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
+
+        whatsappButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.card-produto');
+                const productName = card.querySelector('h3').textContent.trim();
+                const productPrice = card.querySelector('.preco-novo').textContent.trim();
+
+                const message =
+                    `Olá, gostaria de comprar o produto:%0A%0A*Produto:* ${productName}%0A*Preço:* ${productPrice}%0A%0APoderia me ajudar?`;
+
+                const whatsappUrl =
+                    `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+                window.open(whatsappUrl, '_blank');
+            });
+        });
     });
 </script>
 <!-- function resetAnimation() {

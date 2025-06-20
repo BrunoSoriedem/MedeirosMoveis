@@ -551,23 +551,26 @@ h2::after {
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 20px;
+    margin-bottom: 25px;
     width: 260px;
     max-width: 100%;
     text-align: center;
-    position: relative;
+    /* position: relative; */
     transition: transform 0.3s ease-in-out;
 }
 
 .card-produto:hover {
     transform: translateY(-20px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1.5px solid #000000;
 }
 
 .card-produto img {
     width: 100%;
-    height: auto;
+    height: 250px;
     margin-bottom: 10px;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 .desconto {
@@ -598,6 +601,7 @@ h2::after {
 
 .card-produto h3 {
     font-size: 16px;
+    height: 30px;
     margin: 10px 0;
 }
 
@@ -610,6 +614,8 @@ h2::after {
     text-decoration: line-through;
     color: #888;
     font-size: 14px;
+    height: 10px;
+    padding-top: 5px;
 }
 
 .preco-novo {
