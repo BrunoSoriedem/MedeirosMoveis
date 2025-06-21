@@ -80,40 +80,17 @@
 
 <section>
     <div class="container">
-        <!-- Seção de Estatísticas -->
 
         <h2 class="main-title">O que você evita sendo um cliente Medeiros Móveis?</h2>
 
         <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon"></div>
-                <h3 class="benefit-title">Medidas Erradas</h3>
-                <p class="benefit-description">
-                    Aqui temos um sistema de dupla conferência após a definição do projeto
-                </p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon"></div>
-                <h3 class="benefit-title">Atrasos na Entrega</h3>
-                <p class="benefit-description">
-                    A fábrica tem todo processo de produção automatizado garantindo a entrega no prazo
-                </p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon"></div>
-                <h3 class="benefit-title">Móveis Sujos</h3>
-                <p class="benefit-description">
-                    Aqui todas as peças são limpas o processo de fabricação
-                </p>
-            </div>
 
             <div class="benefit-card">
                 <div class="benefit-icon"></div>
                 <h3 class="benefit-title">Atrasos na Montagem</h3>
                 <p class="benefit-description">
-                    Temos várias equipes de montagem para atender conforme a necessidade dos clientes
+                    Nossa equipe de montadores/entregadores estão sempre a disposição,
+                    para atender conforme a necessidade dos clientes.
                 </p>
             </div>
 
@@ -121,8 +98,8 @@
                 <div class="benefit-icon"></div>
                 <h3 class="benefit-title">Itens Avariados</h3>
                 <p class="benefit-description">
-                    As nossas embalagens são reforçadas com papelão, plástico bolha e plástico stretch evitando que o
-                    volume fique em movimento no transporte.
+                    Os itens dos nossos fornecedores e fabricantes chegam até nós devidamente protegidos com papelão,
+                    plástico bolha e plástico stretch, garantindo sua integridade até o momento da entrega.
                 </p>
             </div>
 
@@ -130,7 +107,8 @@
                 <div class="benefit-icon"></div>
                 <h3 class="benefit-title">Móveis Caros</h3>
                 <p class="benefit-description">
-                    Trabalhamos com uma política de preços justos e condições diferenciadas, por sermos fábrica
+                    Trabalhamos com uma política de preços justos e condições diferenciadas, para contribuir
+                    com nossos clientes
                 </p>
             </div>
         </div>
@@ -140,20 +118,23 @@
                 <div class="stat-card">
                     <div class="stat-number" id="counter1">0</div>
                     <div class="stat-description">
-                        anos no Ramo da Marcenaria entregando Móveis Planejados de Qualidade com Integridade, confiança
-                        e agilidade.
+                        anos no Ramo dos Móveis entregando Planejados, Eletros, Estofados, e tudo que o cliente precisa,
+                        com Qualidade, Integridade, Confiança e Agilidade.
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="counter2">0</div>
                     <div class="stat-description">
-                        Famílias satisfeitas com os móveis da nossa fábrica.
+                        Famílias e Clientes satisfeitos com os móveis, e atendimento de nossa empresa.
+                        <br>
+                        Sempre lhe oferecendo a Certeza de um Ótimo Negócio.
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="counter3">0</div>
                     <div class="stat-description">
-                        Negócios gerados mensalmente beneficiando milhares de Famílias.
+                        Premiações em nosso munícipio, entre eles, melhor loja,
+                        melhor empesário e melhores vendedores.
                     </div>
                 </div>
             </div>
@@ -266,7 +247,7 @@
         <h1>Avaliações</h1>
         <h2 class="text text-center">O que os clientes dizem</h2>
         <p>
-            Quer saber o que torna a nossa marca tão especial? Confira o que nossos clientes
+            Quer saber o que torna a nossa empresa tão especial? Confira o que nossos clientes
             têm a dizer!
         </p>
     </div>
@@ -346,14 +327,13 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"Loja com boas opções em móveis
-                        sob medida para atender melhor o cliente.
-                        Bom atendimento e variedade."</p>
+                    <p class="testimonial-quote">"Encontrei ótimas opções de móveis planejados, com atendimento
+                        excelente e variedade para todos os gostos."</p>
                     <div class="testimonial-author">
-                        <img src="imagens/avatar1.jpg" alt="Cliente" class="avatar" />
+                        <img src="imagens/avatar4.png" alt="Cliente" class="avatar" />
                         <div>
-                            <h3>Carlos Mendes</h3>
-                            <p>Cliente desde 2021</p>
+                            <h3>Paulo Sérgio</h3>
+                            <p>Cliente desde 2013</p>
                         </div>
                     </div>
                 </div>
@@ -368,14 +348,13 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"Loja com boas opções em móveis
-                        sob medida para atender melhor o cliente.
-                        Bom atendimento e variedade."</p>
+                    <p class="testimonial-quote">"Gostei bastante! Atendimento ótimo e muita variedade de produtos
+                        pra escolher."</p>
                     <div class="testimonial-author">
-                        <img src="imagens/avatar2.jpg" alt="Cliente" class="avatar" />
+                        <img src="imagens/avatar5.jpg" alt="Cliente" class="avatar" />
                         <div>
-                            <h3>Carlos Mendes</h3>
-                            <p>Cliente desde 2021</p>
+                            <h3>Henrique Pedro</h3>
+                            <p>Cliente desde 2019</p>
                         </div>
                     </div>
                 </div>
@@ -390,14 +369,13 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"Loja com boas opções em móveis
-                        sob medida para atender melhor o cliente.
-                        Bom atendimento e variedade."</p>
+                    <p class="testimonial-quote">"Atendimento nota 10 e muitos modelos de móveis que se
+                        adaptaram ao que eu precisava."</p>
                     <div class="testimonial-author">
-                        <img src="imagens/avatar3.jpg" alt="Cliente" class="avatar" />
+                        <img src="imagens/avatar6.jpg" alt="Cliente" class="avatar" />
                         <div>
-                            <h3>Carlos Mendes</h3>
-                            <p>Cliente desde 2021</p>
+                            <h3>Silvia Figueiredo</h3>
+                            <p>Cliente desde 2011</p>
                         </div>
                     </div>
                 </div>
@@ -412,21 +390,19 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"Excelente custo-benefício e atendimento
-                        humanizado. <br> Muito top"
-                        humanizado. Muito top"</p>
+                    <p class="testimonial-quote">"A loja tem várias opções de móveis e eletros, tudo muito bonito e do
+                        jeitinho que eu precisava."</p>
                     <div class="testimonial-author">
-                        <img src="imagens/avatar1.jpg" alt="Cliente" class="avatar" />
+                        <img src="imagens/avatar7.jpg" alt="Cliente" class="avatar" />
                         <div>
-                            <h3>Mariana Lopes</h3>
-                            <p>Cliente desde 2022</p>
+                            <h3>Ana Isabela</h3>
+                            <p>Cliente desde 2020</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Navegação -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
@@ -562,63 +538,35 @@
     });
 </script>
 <script>
-    // Função para animar contadores
-    function animateCounter(elementId, targetValue, duration) {
-        const element = document.getElementById(elementId);
-        const startValue = 0;
+    function animateCounter(element, targetValue, duration) {
+        let start = 0;
         const increment = targetValue / (duration / 16);
-        let currentValue = startValue;
 
         const timer = setInterval(() => {
-            currentValue += increment;
-            if (currentValue >= targetValue) {
-                currentValue = targetValue;
+            start += increment;
+            if (start >= targetValue) {
+                element.textContent = targetValue;
                 clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start);
             }
-            element.textContent = Math.floor(currentValue);
         }, 16);
     }
 
-    // Função para verificar se elemento está visível
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    // Iniciar animações quando elementos ficarem visíveis
-    let countersAnimated = false;
-
-    function checkAndAnimateCounters() {
-        const counter1 = document.getElementById('counter1');
-
-        if (isElementInViewport(counter1) && !countersAnimated) {
-            countersAnimated = true;
-
-            setTimeout(() => animateCounter('counter1', 20, 2000), 200);
-            setTimeout(() => animateCounter('counter2', 3000, 2500), 400);
-            setTimeout(() => animateCounter('counter3', 1100, 2200), 600);
-        }
-    }
-
-    // Event listeners
-    window.addEventListener('scroll', checkAndAnimateCounters);
-    window.addEventListener('load', checkAndAnimateCounters);
-
-    // Adicionar efeito de paralaxe suave
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const cards = document.querySelectorAll('.stat-card, .benefit-card');
-
-        cards.forEach((card, index) => {
-            const speed = 0.1 + (index * 0.05);
-            card.style.transform += ` translateY(${scrolled * speed}px)`;
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(document.getElementById('counter1'), 20, 1000);
+                animateCounter(document.getElementById('counter2'), 9500, 1000);
+                animateCounter(document.getElementById('counter3'), 15, 1000);
+                observer.disconnect();
+            }
         });
+    }, {
+        threshold: 0.5
     });
+
+    observer.observe(document.querySelector('.stats-section'));
 </script>
 <!-- function resetAnimation() {
 const card = document.getElementById('product-card');
