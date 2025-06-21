@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="css/sobreNos.css">
 <link rel="stylesheet" href="css/nav-footer.css">
 
-
 <section>
     <div class="page-wrapper">
         <div class="section-timeline-heading">

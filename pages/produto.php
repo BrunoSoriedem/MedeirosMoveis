@@ -1,6 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/produtos.css">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> -->
+
 <style>
     .card-produto {
         display: none;
@@ -65,7 +65,6 @@
 
         const buttons = document.querySelectorAll('.category-btn');
 
-        // Função para ativar o botão correto baseado na categoria atual
         function setActiveButton() {
             buttons.forEach(btn => {
                 btn.classList.remove("active");

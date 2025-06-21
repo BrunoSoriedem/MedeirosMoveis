@@ -78,7 +78,7 @@
     </div>
 </section>
 
-<section>
+<section class="section-2">
     <div class="container">
 
         <h2 class="main-title">O que você evita sendo um cliente Medeiros Móveis?</h2>
@@ -185,8 +185,8 @@
                             <?php endif; ?>
                             <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
                             <p class="preco-info"><?= $novidade["valorAP"] ?></p>
-                            <button class="btn-verde">Ver produto</button>
-                            <button class="btn-whatsapp">
+                            <!-- <button class="btn-verde">Ver produto</button> -->
+                            <button class="btn-whatsapp" data-phone="5544999870212">
                                 <i class="fa-brands fa-whatsapp"></i>
                                 Comprar no WhatsApp
                             </button>
@@ -208,10 +208,6 @@
     <div class="swiper produtosSwiper">
         <div class="swiper-wrapper">
 
-            <div class="swiper-slide">
-
-            </div>
-
             <?php foreach ($moveis as $novidade): ?>
                 <?php if ($novidade["maisVendido"] === "Sim"): ?>
                     <div class="swiper-slide slideInUp">
@@ -224,8 +220,8 @@
                             <?php endif; ?>
                             <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
                             <p class="preco-info"><?= $novidade["valorAP"] ?></p>
-                            <button class="btn-verde">Ver produto</button>
-                            <button class="btn-whatsapp">
+                            <!-- <button class="btn-verde">Ver produto</button> -->
+                            <button class="btn-whatsapp" data-phone="5544999870212">
                                 <i class="fa-brands fa-whatsapp"></i>
                                 Comprar no WhatsApp
                             </button>
@@ -567,6 +563,27 @@
     });
 
     observer.observe(document.querySelector('.stats-section'));
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
+
+        whatsappButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const phoneNumber = this.getAttribute('data-phone'); // Pega o número do atributo
+                const card = this.closest('.card-produto');
+                const productName = card.querySelector('h3').textContent.trim();
+                const productPrice = card.querySelector('.preco-novo').textContent.trim();
+
+                const message =
+                    `Olá, gostaria de comprar o produto:%0A%0A*Produto:* ${productName}%0A*Preço:* ${productPrice}%0A%0APoderia me ajudar?`;
+                const whatsappUrl =
+                    `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+    });
 </script>
 <!-- function resetAnimation() {
 const card = document.getElementById('product-card');

@@ -12,9 +12,7 @@
     --transition: all 0.3s ease;
 }
 
-*,
-*::before,
-*::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,8 +23,6 @@
     z-index: 0;
     transform: translateY(50px);
 }
-
-
 
 html {
     scroll-behavior: smooth;
@@ -236,21 +232,19 @@ h2::after {
     color: white;
 }
 
-.btn-verde:hover {
-    background-color: rgb(7, 114, 51);
-    transform: translateY(-5px);
-}
-
 .btn-whatsapp {
-    background-color: #fff;
-    color: #2ecc71;
+    background-color: #2ecc71;
+    color: white;
     transition: all 0.2s ease-in-out;
     border: 2px solid #2ecc71;
 }
 
 .btn-whatsapp:hover {
+    background-color: #fff;
+    color: var(--primary-color);
     transform: translateY(-5px);
-    background-color: whitesmoke;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
 }
 
 #card-novidades:hover {

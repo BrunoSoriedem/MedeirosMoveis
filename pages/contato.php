@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="css/contato.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
 <section id="section-email" data-aos="fade-up">
     <div class="contact-container">
@@ -43,7 +45,7 @@
             </form>
         </div>
         <div class="info-box">
-            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-card">
                 <i class="fas fa-envelope"></i>
                 <div>
                     <strong>Email</strong>
@@ -51,7 +53,7 @@
                     <small>Resposta em até 24 horas</small>
                 </div>
             </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="info-card">
                 <i class="fas fa-phone"></i>
                 <div>
                     <strong>Telefone</strong>
@@ -59,7 +61,7 @@
                     <small>(44) 3569-1763</small>
                 </div>
             </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="info-card">
                 <i class="fa-solid fa-clock"></i>
                 <div>
                     <strong>Horário de Atendimento</strong>
@@ -76,7 +78,6 @@
                     <small>Juranda, PR – Brasil</small>
                 </div>
             </div>
-            <!-- <div class="info-card"> -->
             <div class="localizacao-mapa">
                 <iframe class="mapa-embed"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3632.801918696584!2d-52.84543402464318!3d-24.422948178217474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f27197e45cd78d%3A0x59b345a64ebed629!2sAv.%20Paran%C3%A1%2C%201727%20-%20Juranda%2C%20PR%2C%2087355-000!5e0!3m2!1spt-BR!2sbr!4v1747869210141!5m2!1spt-BR!2sbr"
@@ -84,13 +85,101 @@
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-            <!-- </div> -->
         </div>
     </div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form');
+        const telefoneInput = document.getElementById('telefone');
+
+        // Máscara e validação do telefone
+        telefoneInput.addEventListener('input', function(e) {
+            const value = e.target.value.replace(/\D/g, '');
+            let formattedValue = '';
+
+            if (value.length > 0) {
+                formattedValue = `(${value.substring(0, 2)}`;
+            }
+            if (value.length > 2) {
+                formattedValue += `) ${value.substring(2, 3)}`;
+            }
+            if (value.length > 3) {
+                formattedValue += ` ${value.substring(3, 7)}`;
+            }
+            if (value.length > 7) {
+                formattedValue += `-${value.substring(7, 11)}`;
+            }
+
+            e.target.value = formattedValue;
+
+            // Validação
+            if (value.length < 10 || value.length > 11) {
+                e.target.setCustomValidity('Informe um telefone válido (10 ou 11 dígitos)');
+            } else {
+                e.target.setCustomValidity('');
+            }
+        });
+
+        // Envio do formulário
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Validação adicional antes do envio
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            try {
+                const enviarBtn = document.getElementById('enviar-btn');
+                enviarBtn.disabled = true;
+                enviarBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    document.getElementById('sucesso-audio').play();
+                    await Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Mensagem enviada com sucesso!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    window.location.href = "agradecimento";
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Erro ao enviar formulário');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: error.message ||
+                        'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.',
+                    confirmButtonText: 'Entendi'
+                });
+            } finally {
+                const enviarBtn = document.getElementById('enviar-btn');
+                if (enviarBtn) {
+                    enviarBtn.disabled = false;
+                    enviarBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+                }
+            }
+        });
+    });
+</script>
+<!-- <script>
     const form = document.querySelector('form');
 
     form.addEventListener('submit', function(event) {
@@ -105,7 +194,6 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Reproduz o som de sucesso
                         document.getElementById('sucesso-audio').play();
 
                         Swal.fire({
@@ -152,4 +240,4 @@
             formatarTelefone(this);
         });
     });
-</script>
+</script> -->
