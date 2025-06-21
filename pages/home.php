@@ -18,7 +18,7 @@
             </div>
 
             <div class="swiper-slide slide-com-overlay" id="slide2">
-                <img src="imagens/planejados/cozinha clara e geladeira.jpg" alt="Colchão Gazin">
+                <img src="imagens/eletros/geladeira-3-portas.jpg" alt="Colchão Gazin">
                 <div class="conteudo-sobreposto-direito">
                     <h1>Neste mês de <span class="destaque">Junho</span></h1>
                     <p>
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="swiper-slide slide-com-overlay" id="slide3">
-                <img src="imagens/eletros/geladeira 3 portas.jpg" alt="Mesas">
+                <img src="imagens/planejados/cozinha-clara-e-geladeira.jpg" alt="Mesas">
                 <div class="conteudo-sobreposto">
                     <h1><span class="destaque">20 anos</span> de tradição e qualidade em móveis.</h1>
                     <p>
@@ -46,7 +46,7 @@
 
             </div>
             <div class="swiper-slide slide-com-overlay" id="slide4">
-                <img src="imagens/estofados/Sofa Preto 8p.jpg" alt="Mesas">
+                <img src="imagens/estofados/Sofa-Preto-8p.jpg" alt="Mesas">
                 <div class="conteudo-sobreposto-direito">
                     <h1>Estamos também nas <span class="destaque">Redes Sociais</span></h1>
                     <p>
@@ -78,14 +78,98 @@
     </div>
 </section>
 
+<section>
+    <div class="container">
+        <!-- Seção de Estatísticas -->
+
+        <h2 class="main-title">O que você evita sendo um cliente Medeiros Móveis?</h2>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Medidas Erradas</h3>
+                <p class="benefit-description">
+                    Aqui temos um sistema de dupla conferência após a definição do projeto
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Atrasos na Entrega</h3>
+                <p class="benefit-description">
+                    A fábrica tem todo processo de produção automatizado garantindo a entrega no prazo
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Móveis Sujos</h3>
+                <p class="benefit-description">
+                    Aqui todas as peças são limpas o processo de fabricação
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Atrasos na Montagem</h3>
+                <p class="benefit-description">
+                    Temos várias equipes de montagem para atender conforme a necessidade dos clientes
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Itens Avariados</h3>
+                <p class="benefit-description">
+                    As nossas embalagens são reforçadas com papelão, plástico bolha e plástico stretch evitando que o
+                    volume fique em movimento no transporte.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Móveis Caros</h3>
+                <p class="benefit-description">
+                    Trabalhamos com uma política de preços justos e condições diferenciadas, por sermos fábrica
+                </p>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="counter1">0</div>
+                    <div class="stat-description">
+                        anos no Ramo da Marcenaria entregando Móveis Planejados de Qualidade com Integridade, confiança
+                        e agilidade.
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="counter2">0</div>
+                    <div class="stat-description">
+                        Famílias satisfeitas com os móveis da nossa fábrica.
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="counter3">0</div>
+                    <div class="stat-description">
+                        Negócios gerados mensalmente beneficiando milhares de Famílias.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <section class="featured" id="featured">
     <div class="section-title">
-        <h2 class="text text-center fade-up">Nossos Destaques</h2>
+        <h2 class="text text-center fade-up">Nossas Categorias</h2>
     </div>
     <div class="products-grid">
         <?php
         foreach ($nomeClasseProd as $item): ?>
-            <div class="product-card fade-up">
+            <div class="product-card">
                 <span class="tag"></span>
                 <img src="<?= $item["imagem"] ?>" alt="<?= htmlspecialchars($item["nome"]) ?>" class="product-img">
                 <div class="product-info">
@@ -95,78 +179,6 @@
                 </div>
             </div>
         <?php endforeach; ?>
-    </div>
-</section>
-
-<section class="categories">
-    <div class="section-title">
-        <h2 class="text text-center" id="espaco-categoria">Nossas Categorias</h2>
-    </div>
-    <div class="categories-grid">
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Sala de Estar" class="category-img">
-            <div class="category-overlay">
-                <h3>Sala de Estar</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
-            <div class="category-overlay">
-                <h3>Quarto</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
-            <div class="category-overlay">
-                <h3>Quarto</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
-            <div class="category-overlay">
-                <h3>Quarto</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
-            <div class="category-overlay">
-                <h3>Quarto</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Quarto" class="category-img">
-            <div class="category-overlay">
-                <h3>Quarto</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Cozinha" class="category-img">
-            <div class="category-overlay">
-                <h3>Cozinha</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="imagens/Moveis/cristaleira alta linz.jpg" alt="Escritório" class="category-img">
-            <div class="category-overlay">
-                <h3>Escritório</h3>
-                <a href="#" class="btn-colecao">Ver Coleção <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -216,139 +228,30 @@
         <div class="swiper-wrapper">
 
             <div class="swiper-slide">
-                <div class="card-produto reveal">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Destaque</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
+
             </div>
 
-            <div class="swiper-slide">
-                <div class="card-produto reveal">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
+            <?php foreach ($moveis as $novidade): ?>
+                <?php if ($novidade["maisVendido"] === "Sim"): ?>
+                    <div class="swiper-slide slideInUp">
+                        <div class="card-produto">
+                            <img src="<?= $novidade["foto"] ?>" alt="<?= htmlspecialchars($novidade["nome"]) ?>">
+                            <h3><?= htmlspecialchars($novidade["nome"]) ?></h3>
+                            <div class="avaliacao">★★★★★</div>
+                            <?php if (!empty($novidade["valorAnt"])): ?>
+                                <p class="preco-antigo"><?= $novidade["valorAnt"] ?></p>
+                            <?php endif; ?>
+                            <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
+                            <p class="preco-info"><?= $novidade["valorAP"] ?></p>
+                            <button class="btn-verde">Ver produto</button>
+                            <button class="btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                Comprar no WhatsApp
+                            </button>
+                        </div>
                     </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-
-
-
-
-            <div class="swiper-slide">
-                <div class="card-produto" id="card-vendidos">
-                    <span class="desconto">-20%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Destaque</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp">
-                        </i>
-                        Comprar no WhatsApp
-                    </button>
-                </div>
-            </div>
-
-
-
-
-
-
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="card-produto">
-                    <span class="desconto">-1%</span>
-                    <img src="imagens/moveis/g.r 6 portas clara.jpg" alt="Cadeira Padova com Braços">
-                    <div class="tags">
-                        <span class="tag novidade">Novidade</span>
-                    </div>
-                    <h3>Cadeira Padova com Braços</h3>
-                    <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo">R$ 1.417,00</p>
-                    <p class="preco-novo">R$ 1.394,00</p>
-                    <p class="preco-info">10x de R$ 139,40 sem juros</p>
-                    <button class="btn-verde">Ver produto</button>
-                    <button class="btn-whatsapp">💬 Comprar no WhatsApp</button>
-                </div>
-            </div>
-
-
+                <?php endif; ?>
+            <?php endforeach; ?>
 
         </div>
         <div class="swiper-button-next"></div>
@@ -530,6 +433,88 @@
     </div>
 </section>
 
+<section class="categories">
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="faq-title">Perguntas Frequentes sobre Móveis</h2>
+
+            <div class="accordion accordion-flush" id="moveisFaqAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq-collapse-1" aria-expanded="false" aria-controls="faq-collapse-1">
+                            Como escolher o móvel ideal para meu espaço?
+                        </button>
+                    </h3>
+                    <div id="faq-collapse-1" class="accordion-collapse collapse" data-bs-parent="#moveisFaqAccordion">
+                        <div class="accordion-body">
+                            Para escolher o móvel ideal, primeiro <span class="highlight">meça seu espaço</span> com
+                            precisão. Considere a funcionalidade desejada, o estilo da decoração existente e o orçamento
+                            disponível. Lembre-se de deixar espaço para circulação e verifique se as portas e gavetas
+                            têm abertura livre. O móvel deve ser proporcional ao ambiente, nem muito grande nem muito
+                            pequeno.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2">
+                            Qual a diferença entre MDF, MDP e madeira maciça?
+                        </button>
+                    </h3>
+                    <div id="faq-collapse-2" class="accordion-collapse collapse" data-bs-parent="#moveisFaqAccordion">
+                        <div class="accordion-body">
+                            <span class="highlight">MDF</span> é feito de fibras de madeira prensadas, oferecendo
+                            acabamento liso e uniforme. <span class="highlight">MDP</span> utiliza partículas de
+                            madeira, sendo mais econômico mas menos resistente à umidade. <span
+                                class="highlight">Madeira maciça</span> é natural, mais durável e nobre, porém com custo
+                            superior. Cada material tem suas vantagens dependendo do uso e orçamento.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3">
+                            Como cuidar e manter meus móveis em bom estado?
+                        </button>
+                    </h3>
+                    <div id="faq-collapse-3" class="accordion-collapse collapse" data-bs-parent="#moveisFaqAccordion">
+                        <div class="accordion-body">
+                            Para manter seus móveis em perfeito estado: <span class="highlight">limpe
+                                regularmente</span> com pano seco ou levemente úmido, evite produtos químicos
+                            agressivos, proteja da luz solar direta e umidade excessiva. Use cera específica para
+                            madeira mensalmente, coloque protetores sob objetos que possam riscar e faça manutenção
+                            preventiva nas dobradiças e puxadores.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4">
+                            Móveis planejados ou móveis prontos: qual escolher?
+                        </button>
+                    </h3>
+                    <div id="faq-collapse-4" class="accordion-collapse collapse" data-bs-parent="#moveisFaqAccordion">
+                        <div class="accordion-body">
+                            <span class="highlight">Móveis planejados</span> oferecem personalização total,
+                            aproveitamento máximo do espaço e acabamento exclusivo, mas têm custo e prazo maiores. <span
+                                class="highlight">Móveis prontos</span> são mais econômicos, entrega imediata e
+                            facilidade de troca, porém com limitações de tamanho e personalização. A escolha depende do
+                            orçamento, prazo e necessidades específicas do projeto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
@@ -573,6 +558,65 @@
 
                 window.open(whatsappUrl, '_blank');
             });
+        });
+    });
+</script>
+<script>
+    // Função para animar contadores
+    function animateCounter(elementId, targetValue, duration) {
+        const element = document.getElementById(elementId);
+        const startValue = 0;
+        const increment = targetValue / (duration / 16);
+        let currentValue = startValue;
+
+        const timer = setInterval(() => {
+            currentValue += increment;
+            if (currentValue >= targetValue) {
+                currentValue = targetValue;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(currentValue);
+        }, 16);
+    }
+
+    // Função para verificar se elemento está visível
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Iniciar animações quando elementos ficarem visíveis
+    let countersAnimated = false;
+
+    function checkAndAnimateCounters() {
+        const counter1 = document.getElementById('counter1');
+
+        if (isElementInViewport(counter1) && !countersAnimated) {
+            countersAnimated = true;
+
+            setTimeout(() => animateCounter('counter1', 20, 2000), 200);
+            setTimeout(() => animateCounter('counter2', 3000, 2500), 400);
+            setTimeout(() => animateCounter('counter3', 1100, 2200), 600);
+        }
+    }
+
+    // Event listeners
+    window.addEventListener('scroll', checkAndAnimateCounters);
+    window.addEventListener('load', checkAndAnimateCounters);
+
+    // Adicionar efeito de paralaxe suave
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const cards = document.querySelectorAll('.stat-card, .benefit-card');
+
+        cards.forEach((card, index) => {
+            const speed = 0.1 + (index * 0.05);
+            card.style.transform += ` translateY(${scrolled * speed}px)`;
         });
     });
 </script>
