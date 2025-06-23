@@ -1,171 +1,159 @@
 <style>
-    .container {
-        text-align: center;
-        padding: 2rem;
-        max-width: 600px;
-        animation: fadeIn 0.8s ease-out;
-        margin-top: 10px;
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    animation: fadeIn 0.8s ease-out;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.error-icon {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
-    .error-icon {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto 2rem;
-        position: relative;
-        animation: float 3s ease-in-out infinite;
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.sofa-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1rem;
+    position: relative;
+    letter-spacing: 0.1em;
+}
+
+.error-code span {
+    display: inline-block;
+    animation: bounce 0.6s ease-out;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
-    @keyframes float {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
+    40% {
+        transform: translateY(-20px);
     }
+}
 
-    .sofa-svg {
-        width: 100%;
-        height: 100%;
-    }
+.error-message {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
 
+.error-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.btn-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #2ecc71;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: #2ecc71;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #2ecc71;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.btn-secondary:hover {
+    background-color: #000;
+    color: white;
+    transform: translateY(-5px);
+}
+
+.decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
     .error-code {
-        font-size: 6rem;
-        font-weight: bold;
-        color: #000;
-        margin-bottom: 1rem;
-        position: relative;
-        letter-spacing: 0.1em;
-    }
-
-    .error-code span {
-        display: inline-block;
-        animation: bounce 0.6s ease-out;
-        animation-delay: calc(var(--i) * 0.1s);
-    }
-
-    @keyframes bounce {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        40% {
-            transform: translateY(-20px);
-        }
+        font-size: 4rem;
     }
 
     .error-message {
-        font-size: 1.5rem;
-        color: #333;
-        margin-bottom: 1rem;
-        font-weight: 500;
+        font-size: 1.2rem;
     }
 
     .error-description {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-    }
-
-    .btn-container {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
+        font-size: 0.9rem;
     }
 
     .btn {
-        display: inline-block;
-        padding: 12px 30px;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
+        padding: 10px 25px;
+        font-size: 0.9rem;
     }
-
-    .btn-primary {
-        background-color: #2ECC40;
-        color: white;
-        border: 2px solid #2ECC40;
-    }
-
-    .btn-primary:hover {
-        background-color: #27ae34;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(46, 204, 64, 0.3);
-    }
-
-    .btn-secondary {
-        background-color: transparent;
-        color: #000;
-        border: 2px solid #000;
-    }
-
-    .btn-secondary:hover {
-        background-color: #000;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .decoration {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        overflow: hidden;
-    }
-
-    /* @keyframes rotate {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
-    } */
-
-    @media (max-width: 768px) {
-        .error-code {
-            font-size: 4rem;
-        }
-
-        .error-message {
-            font-size: 1.2rem;
-        }
-
-        .error-description {
-            font-size: 0.9rem;
-        }
-
-        .btn {
-            padding: 10px 25px;
-            font-size: 0.9rem;
-        }
-    }
+}
 </style>
 
 <div class="decoration">
@@ -177,19 +165,15 @@
 <div class="container">
     <div class="error-icon">
         <svg class="sofa-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Sofá simplificado -->
             <rect x="30" y="80" width="140" height="60" rx="10" fill="#2ECC40" />
             <rect x="30" y="100" width="140" height="40" rx="5" fill="#27ae34" />
 
-            <!-- Almofadas -->
             <rect x="40" y="70" width="50" height="35" rx="5" fill="#333" />
             <rect x="100" y="70" width="50" height="35" rx="5" fill="#333" />
 
-            <!-- Pés do sofá -->
             <rect x="40" y="140" width="10" height="20" fill="#000" />
             <rect x="150" y="140" width="10" height="20" fill="#000" />
 
-            <!-- Ponto de interrogação -->
             <text x="100" y="100" text-anchor="middle" font-size="40" font-weight="bold" fill="white">?</text>
         </svg>
     </div>
@@ -209,39 +193,6 @@
 
     <div class="btn-container">
         <a href="home" class="btn btn-primary">Voltar ao Início</a>
-        <a href="produtos#moveis" class="btn btn-secondary">Ver Produtos</a>
+        <a href="produto?categoria=moveis" class="btn btn-secondary">Ver Produtos</a>
     </div>
 </div>
-
-<script>
-    // Efeito de hover nos botões
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function(e) {
-            const ripple = document.createElement('span');
-            ripple.style.position = 'absolute';
-            ripple.style.width = '0';
-            ripple.style.height = '0';
-            ripple.style.borderRadius = '50%';
-            ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-            ripple.style.transform = 'translate(-50%, -50%)';
-            ripple.style.pointerEvents = 'none';
-            ripple.style.transition = 'width 0.5s, height 0.5s';
-
-            const rect = this.getBoundingClientRect();
-            ripple.style.left = `${e.clientX - rect.left}px`;
-            ripple.style.top = `${e.clientY - rect.top}px`;
-
-            this.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.style.width = '300px';
-                ripple.style.height = '300px';
-            }, 10);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 500);
-        });
-    });
-</script>

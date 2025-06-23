@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <link rel="stylesheet" href="css/nav-footer.css">
 <link href="css/agradecimento.css" rel="stylesheet">
 
@@ -24,10 +23,10 @@
         </div>
 
         <div class="social-links">
-            <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank"
-                rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank"
-                rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank" rel="noopener noreferrer"><i
+                    class="fab fa-instagram"></i></a>
             <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank"
                 rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>

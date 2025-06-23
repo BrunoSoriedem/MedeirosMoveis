@@ -32,7 +32,6 @@
                     </div>
                     <h3><?= htmlspecialchars($item["nome"]) ?></h3>
                     <div class="avaliacao">★★★★★</div>
-                    <p class="preco-antigo"><?= $item["valorAnt"] ?></p>
                     <p class="preco-novo"><?= $item["valorAV"] ?></p>
                     <p class="preco-info"><?= $item["valorAP"] ?></p>
                     <button class="btn-whatsapp" data-phone="5544999870212">

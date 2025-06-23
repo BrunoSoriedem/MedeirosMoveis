@@ -180,9 +180,6 @@
                             </div>
                             <h3><?= htmlspecialchars($novidade["nome"]) ?></h3>
                             <div class="avaliacao">★★★★★</div>
-                            <?php if (!empty($novidade["valorAnt"])): ?>
-                                <p class="preco-antigo"><?= $novidade["valorAnt"] ?></p>
-                            <?php endif; ?>
                             <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
                             <p class="preco-info"><?= $novidade["valorAP"] ?></p>
                             <!-- <button class="btn-verde">Ver produto</button> -->
@@ -215,9 +212,6 @@
                             <img src="<?= $novidade["foto"] ?>" alt="<?= htmlspecialchars($novidade["nome"]) ?>">
                             <h3><?= htmlspecialchars($novidade["nome"]) ?></h3>
                             <div class="avaliacao">★★★★★</div>
-                            <?php if (!empty($novidade["valorAnt"])): ?>
-                                <p class="preco-antigo"><?= $novidade["valorAnt"] ?></p>
-                            <?php endif; ?>
                             <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
                             <p class="preco-info"><?= $novidade["valorAP"] ?></p>
                             <!-- <button class="btn-verde">Ver produto</button> -->
