@@ -1,28 +1,28 @@
 <?php
 $funcionarios = [
-    ["funcionario" => "Paulo Medeiros",    "capa" => "imagens/funcionarios/paulo.png",   "funcao" => "Proprietário"], //paulo
-    ["funcionario" => "Silvia Medeiros",   "capa" => "imagens/funcionarios/silvia.png",  "funcao" => "Proprietária"], //silvia
-    ["funcionario" => "Felipe Medeiros",      "capa" => "imagens/funcionarios/felipe.png",  "funcao" => "Vendedor"], //felipe
-    ["funcionario" => "Claudinei Nazário",    "capa" => "imagens/funcionarios/nei.png",     "funcao" => "Montador"], //nei
-    ["funcionario" => "Larissa Carvalho",     "capa" => "imagens/funcionarios/larissa.png", "funcao" => "Caixa"], //larissa
-    ["funcionario" => "Nataly Carvalho",      "capa" => "imagens/funcionarios/nataly.png",  "funcao" => "Vendedora"], //nataly
-    ["funcionario" => "Edcarlo Oliveira",     "capa" => "imagens/funcionarios/edcarlo.png", "funcao" => "Montador"]  //edicarlos
+    ["funcionario" => "Paulo Medeiros",    "capa" => "/imagens/funcionarios/paulo.png",   "funcao" => "Proprietário"], //paulo
+    ["funcionario" => "Silvia Medeiros",   "capa" => "/imagens/funcionarios/silvia.png",  "funcao" => "Proprietária"], //silvia
+    ["funcionario" => "Felipe Medeiros",      "capa" => "/imagens/funcionarios/felipe.png",  "funcao" => "Vendedor"], //felipe
+    ["funcionario" => "Claudinei Nazário",    "capa" => "/imagens/funcionarios/nei.png",     "funcao" => "Montador"], //nei
+    ["funcionario" => "Larissa Carvalho",     "capa" => "/imagens/funcionarios/larissa.png", "funcao" => "Caixa"], //larissa
+    ["funcionario" => "Nataly Carvalho",      "capa" => "/imagens/funcionarios/nataly.png",  "funcao" => "Vendedora"], //nataly
+    ["funcionario" => "Edcarlo Oliveira",     "capa" => "/imagens/funcionarios/edcarlo.png", "funcao" => "Montador"]  //edicarlos
 ];
 
 $categoriaProd = [
-    ["nome" => "Cozinhas",      "imagem" => "imagens/planejados/cozinha planejada cinza clara.jpg"],
-    ["nome" => "Guarda Roupas", "imagem" => "imagens/moveis/g.r 6portas marrom.jpg"],
-    ["nome" => "Sofás",         "imagem" => "imagens/Estofados/Sofa Preto 4p.jpg"],
-    ["nome" => "Camas",         "imagem" => "imagens/moveis/box lazari.jpg"],
-    ["nome" => "Mesas",         "imagem" => "imagens/moveis/conjunto de mesa.jpg"],
-    ["nome" => "Eletros",       "imagem" => "imagens/eletros/geladeira 3 portas.jpg"]
+    ["nome" => "Cozinhas",      "imagem" => "/imagens/planejados/cozinha planejada cinza clara.jpg"],
+    ["nome" => "Guarda Roupas", "imagem" => "/imagens/moveis/g.r 6portas marrom.jpg"],
+    ["nome" => "Sofás",         "imagem" => "/imagens/Estofados/Sofa Preto 4p.jpg"],
+    ["nome" => "Camas",         "imagem" => "/imagens/moveis/box lazari.jpg"],
+    ["nome" => "Mesas",         "imagem" => "/imagens/moveis/conjunto de mesa.jpg"],
+    ["nome" => "Eletros",       "imagem" => "/imagens/eletros/geladeira 3 portas.jpg"]
 ];
 
 $nomeClasseProd = [
-    ["nome" => "Móveis",     "href" => "produto?categoria=moveis",     "imagem" => "imagens/moveis/Roupeiro-Mozate-Henn.jpg"],
-    ["nome" => "Planejados", "href" => "produto?categoria=planejados", "imagem" => "imagens/planejados/cozinha-clara-e-geladeira.jpg"],
-    ["nome" => "Estofados",  "href" => "produto?categoria=estofados",  "imagem" => "imagens/estofados/sofa-preto-4p.jpg"],
-    ["nome" => "Eletros",    "href" => "produto?categoria=eletros",    "imagem" => "imagens/eletros/geladeira-3-portas.jpg"],
+    ["nome" => "Móveis",     "href" => "/produto?categoria=moveis",     "imagem" => "/imagens/Moveis/roupeiro-Mozate-Henn.jpg"], ////
+    ["nome" => "Planejados", "href" => "/produto?categoria=planejados", "imagem" => "/imagens/planejados/cozinha-clara-e-geladeira.jpg"],
+    ["nome" => "Estofados",  "href" => "/produto?categoria=estofados",  "imagem" => "/imagens/estofados/sofa-preto-4p.jpg"], ///
+    ["nome" => "Eletros",    "href" => "/produto?categoria=eletros",    "imagem" => "/imagens/eletros/geladeira-3-portas.jpg"],
 ];
 
 $moveis = [
@@ -30,7 +30,7 @@ $moveis = [
         "nome" => "Roupeiro Capri Carraro 6 Portas Cinza",
         "valorAP" => "10x de R$344,00",
         "valorAV" => "R$3.440,00",
-        "foto" => "imagens/Moveis/Roupeiro capri-carraro-6portas.jpg",
+        "foto" => "/imagens/Moveis/Roupeiro capri-carraro-6portas.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -42,7 +42,7 @@ $moveis = [
         "nome" => "Roupeiro Cover 6 Portas",
         "valorAP" => "10x de R$1830,00",
         "valorAV" => "R$1.599,00",
-        "foto" => "imagens/Moveis/roupeiro-cover-6-portas.jpg",
+        "foto" => "/imagens/Moveis/roupeiro-cover-6-portas.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -54,7 +54,7 @@ $moveis = [
         "nome" => "Roupeiro Loop Lopas 6 Portas",
         "valorAP" => "10x de R$442,00",
         "valorAV" => "R$3.899,00",
-        "foto" => "imagens/moveis/Roupeiro-loop-lopas.jpg",
+        "foto" => "/imagens/Moveis/roupeiro-loop-lopas.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -66,7 +66,7 @@ $moveis = [
         "nome" => "Roupeiro Mozate Henn",
         "valorAP" => "10x de R$418,00",
         "valorAV" => "R$3.499,99",
-        "foto" => "imagens/moveis/Roupeiro-Mozate-Henn.jpg",
+        "foto" => "/imagens/Moveis/roupeiro-Mozate-Henn.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -78,7 +78,7 @@ $moveis = [
         "nome" => "Multiuso Londres com Chave Freijó Off White",
         "valorAP" => "10x de R$47,00",
         "valorAV" => "R$399,90",
-        "foto" => "imagens/Moveis/Multiuso-Londres-com-chave-freijó-off-white.jpg",
+        "foto" => "/imagens/Moveis/Multiuso-Londres-com-chave-freijó-off-white.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -90,7 +90,7 @@ $moveis = [
         "nome" => "Roupeiro Capelinha 4 Portas",
         "valorAP" => "10x de R$110,00",
         "valorAV" => "R$969,90",
-        "foto" => "imagens/Moveis/roupeiro-capelinha.jpg",
+        "foto" => "/imagens/Moveis/roupeiro-capelinha.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -102,7 +102,7 @@ $moveis = [
         "nome" => "Roupeiro Flora Henn",
         "valorAP" => "10x de R$214,00",
         "valorAV" => "R$1819,90",
-        "foto" => "imagens/Moveis/guarda-roupa-6p-branco.jpg",
+        "foto" => "/imagens/Moveis/guarda-roupa-6p-branco.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -114,7 +114,7 @@ $moveis = [
         "nome" => "Roupeiro Vancouver Carraro",
         "valorAP" => "10x de R$290,00",
         "valorAV" => "R$2900,00",
-        "foto" => "imagens/Moveis/g.r-6portas-marrom.jpg",
+        "foto" => "/imagens/Moveis/g.r-6portas-marrom.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -126,7 +126,7 @@ $moveis = [
         "nome" => "Roupeiro Capelinha 6 Portas",
         "valorAP" => "10x de R$123,00",
         "valorAV" => "R$999,90",
-        "foto" => "imagens/Moveis/guarda-roupas-capelinha-6p.jpg",
+        "foto" => "/imagens/Moveis/guarda-roupas-capelinha-6p.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -138,7 +138,7 @@ $moveis = [
         "nome" => "Guarda Roupas com Porta de Correr",
         "valorAP" => "10x de R$310,00",
         "valorAV" => "R$3.100,00",
-        "foto" => "imagens/Moveis/Guarda-roupa-porta-de-correr.jpg",
+        "foto" => "/imagens/Moveis/Guarda-roupa-porta-de-correr.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -150,7 +150,7 @@ $moveis = [
         "nome" => "Roupeiro Capelinha 6 Portas",
         "valorAP" => "10x de R$157,00",
         "valorAV" => "R$1.570,00",
-        "foto" => "imagens/Moveis/Roupeiro-belmont.jpg",
+        "foto" => "/imagens/Moveis/Roupeiro-belmont.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -162,7 +162,7 @@ $moveis = [
         "nome" => "Multiuso Londres com Chave Freijó Branco",
         "valorAP" => "10x de R$47,00",
         "valorAV" => "R$399,90",
-        "foto" => "imagens/Moveis/Multiuso-Londres-com-chave-freijó-branco.jpg",
+        "foto" => "/imagens/Moveis/Multiuso-Londres-com-chave-freijó-branco.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -174,7 +174,7 @@ $moveis = [
         "nome" => "Cristaleira Alta Linz",
         "valorAP" => "10x de R$263,00",
         "valorAV" => "R$2.630,00",
-        "foto" => "imagens/Moveis/cristaleira-alta-linz.jpg",
+        "foto" => "/imagens/Moveis/cristaleira-alta-linz.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -186,7 +186,7 @@ $moveis = [
         "nome" => "Cristaleira Baixa Linz",
         "valorAP" => "10x de R$172,00",
         "valorAV" => "R$1.720,00",
-        "foto" => "imagens/Moveis/cristaleria-baixa-Linz.jpg",
+        "foto" => "/imagens/Moveis/cristaleria-baixa-Linz.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -198,7 +198,7 @@ $moveis = [
         "nome" => "estante organizadora",
         "valorAP" => "10x de R$65,00",
         "valorAV" => "R$650,00",
-        "foto" => "imagens/Moveis/Prateleira-Escritorio.jpg",
+        "foto" => "/imagens/Moveis/Prateleira-Escritorio.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -211,7 +211,7 @@ $moveis = [
         "valorAP" => "10x de R$47,00",
         "valorAV" => "R$399,90",
 
-        "foto" => "imagens/Moveis/novidade-Multiuso-fiorello.jpg",
+        "foto" => "/imagens/Moveis/novidade-Multiuso-fiorello.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -223,7 +223,7 @@ $moveis = [
         "nome" => "Guarda Roupa Dubai Preto.jpg",
         "valorAP" => "10x de R$349,99",
         "valorAV" => "R$3499,99",
-        "foto" => "imagens/Moveis/guarda-roupa-dubai-preto.jpg",
+        "foto" => "/imagens/Moveis/guarda-roupa-dubai-preto.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -236,7 +236,7 @@ $moveis = [
         "nome" => "Box Lázari",
         "valorAP" => "10x de R$399,99",
         "valorAV" => "R$4.740,00",
-        "foto" => "imagens/Moveis/box-lazari.jpg",
+        "foto" => "/imagens/Moveis/box-lazari.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -248,7 +248,7 @@ $moveis = [
         "nome" => "Box Sweet Dreams",
         "valorAP" => "10x de R$279,90",
         "valorAV" => "R$3.440,00",
-        "foto" => "imagens/Moveis/Box-sweet-dream.jpg",
+        "foto" => "/imagens/Moveis/Box-sweet-dream.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -260,7 +260,7 @@ $moveis = [
         "nome" => "Box Opala",
         "valorAP" => "10x de R$210,00",
         "valorAV" => "R$1.999,00",
-        "foto" => "imagens/Moveis/box-opala.jpg",
+        "foto" => "/imagens/Moveis/box-opala.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -272,7 +272,7 @@ $moveis = [
         "nome" => "Cabeceira Milao",
         "valorAP" => "10x de R$89,00",
         "valorAV" => "R$890,00",
-        "foto" => "imagens/Moveis/cabeceira-milao.jpg",
+        "foto" => "/imagens/Moveis/cabeceira-milao.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -284,7 +284,7 @@ $moveis = [
         "nome" => "Colchão Gazin",
         "valorAP" => "10x de R$89,00",
         "valorAV" => "R$890,00",
-        "foto" => "imagens/Moveis/colchaoGazin.jpg",
+        "foto" => "/imagens/Moveis/colchaoGazin.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -296,7 +296,7 @@ $moveis = [
         "nome" => "Conjunto de Mesa Adriana",
         "valorAP" => "10x de R$629,00",
         "valorAV" => "R$4.999,90",
-        "foto" => "imagens/Moveis/conjunto-adriana.jpg",
+        "foto" => "/imagens/Moveis/conjunto-adriana.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -308,7 +308,7 @@ $moveis = [
         "nome" => "Conjunto de Mesa Solana",
         "valorAP" => "10x de R$609,00",
         "valorAV" => "R$4.899,90",
-        "foto" => "imagens/Moveis/mesa-solana.jpg",
+        "foto" => "/imagens/Moveis/mesa-solana.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -320,7 +320,7 @@ $moveis = [
         "nome" => "Jogo de Mesa Branco 6 Cadeiras",
         "valorAP" => "10x de R$400,00",
         "valorAV" => "R$3.099,00",
-        "foto" => "imagens/Moveis/conjunto_de-mesa.jpg",
+        "foto" => "/imagens/Moveis/conjunto_de-mesa.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -332,7 +332,7 @@ $moveis = [
         "nome" => "Conjunto de Mesa Vértice",
         "valorAP" => "10x de R$150,00",
         "valorAV" => "R$1.300,00",
-        "foto" => "imagens/Moveis/conjunto-de-mesa-vertice.jpg",
+        "foto" => "/imagens/Moveis/conjunto-de-mesa-vertice.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -344,7 +344,7 @@ $moveis = [
         "nome" => "Conjunto de Mesa Mavi",
         "valorAP" => "10x de R$170,00",
         "valorAV" => "R$1.500,00",
-        "foto" => "imagens/Moveis/mesa-mavi.jpg",
+        "foto" => "/imagens/Moveis/mesa-mavi.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -356,7 +356,7 @@ $moveis = [
         "nome" => "Conjunto de Mesa Larissa",
         "valorAP" => "10x de R$595,00",
         "valorAV" => "R$5.400,00",
-        "foto" => "imagens/Moveis/mesa-larissa.jpg",
+        "foto" => "/imagens/Moveis/mesa-larissa.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -368,7 +368,7 @@ $moveis = [
         "nome" => "Balcão 120 Silmar",
         "valorAP" => "10x de R$76,00",
         "valorAV" => "R$760,00",
-        "foto" => "imagens/Moveis/balcao-120-silmar.jpg",
+        "foto" => "/imagens/Moveis/balcao-120-silmar.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -380,7 +380,7 @@ $moveis = [
         "nome" => "Buffet Oásis",
         "valorAP" => "10x de R$66,00",
         "valorAV" => "R$599,90",
-        "foto" => "imagens/Moveis/buffet-oasis.jpg",
+        "foto" => "/imagens/Moveis/buffet-oasis.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -392,7 +392,7 @@ $moveis = [
         "nome" => "Buffet Eiffel",
         "valorAP" => "10x de R$88,00",
         "valorAV" => "R$759,90",
-        "foto" => "imagens/Moveis/buffet-eiffel.jpg",
+        "foto" => "/imagens/Moveis/buffet-eiffel.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -404,7 +404,7 @@ $moveis = [
         "nome" => "Buffet Opala",
         "valorAP" => "10x de R$110,00",
         "valorAV" => "R$899,90",
-        "foto" => "imagens/Moveis/Buffet-Opala.jpg",
+        "foto" => "/imagens/Moveis/Buffet-Opala.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -417,7 +417,7 @@ $moveis = [
         "nome" => "Painel Presence",
         "valorAP" => "10x de R$139,00",
         "valorAV" => "R$1.109,90",
-        "foto" => "imagens/Moveis/painel-com-gaveta-branca.jpg",
+        "foto" => "/imagens/Moveis/painel-com-gaveta-branca.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -429,7 +429,7 @@ $moveis = [
         "nome" => "Painel Marrom com led",
         "valorAP" => "10x de R$139',00",
         "valorAV" => "R$1.109,90",
-        "foto" => "imagens/Moveis/painel-marrom-com-led.jpg",
+        "foto" => "/imagens/Moveis/painel-marrom-com-led.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -441,7 +441,7 @@ $moveis = [
         "nome" => "Painel Thor Preto",
         "valorAP" => "10x de R$110,00",
         "valorAV" => "R$899,90",
-        "foto" => "imagens/Moveis/Painel-thor.jpg",
+        "foto" => "/imagens/Moveis/Painel-thor.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -454,7 +454,7 @@ $moveis = [
         "valorAP" => "10x de R$110,00",
         "valorAV" => "R$899,90",
 
-        "foto" => "imagens/Moveis/Armario-espelho-banheiro.jpg",
+        "foto" => "/imagens/Moveis/Armario-espelho-banheiro.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -470,7 +470,7 @@ $moveis = [
         "valorAP" => "10x de R$389,00",
         "valorAV" => "R$3.890,00",
 
-        "foto" => "imagens/planejados/cozinha-clara-e-geladeira.jpg",
+        "foto" => "/imagens/planejados/cozinha-clara-e-geladeira.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -484,7 +484,7 @@ $moveis = [
         "valorAP" => "10x de R$699,00",
         "valorAV" => "R$6.990,00",
 
-        "foto" => "imagens/planejados/Cozinha-Planejada-Clara.jpg",
+        "foto" => "/imagens/planejados/Cozinha-Planejada-Clara.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -498,7 +498,7 @@ $moveis = [
         "valorAP" => "10x de R$799,00",
         "valorAV" => "R$7.990,00",
 
-        "foto" => "imagens/planejados/cozinha-bertolini.png",
+        "foto" => "/imagens/planejados/cozinha-bertolini.png",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -513,7 +513,7 @@ $moveis = [
         "valorAP" => "10x de R$920,00",
         "valorAV" => "R$8.900,00",
 
-        "foto" => "imagens/planejados/Cozinha-planejada-silmar.jpg",
+        "foto" => "/imagens/planejados/Cozinha-planejada-silmar.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -527,7 +527,7 @@ $moveis = [
         "valorAP" => "10x de R$540,00",
         "valorAV" => "R$5.400,00",
 
-        "foto" => "imagens/planejados/cozinha-planejada-cinzaEscuro.jpg",
+        "foto" => "/imagens/planejados/cozinha-planejada-cinzaEscuro.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -541,7 +541,7 @@ $moveis = [
         "valorAP" => "10x de R$789,00",
         "valorAV" => "R$7.890,00",
 
-        "foto" => "imagens/planejados/Cozinha-planejada-comelli.jpg",
+        "foto" => "/imagens/planejados/Cozinha-planejada-comelli.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -555,7 +555,7 @@ $moveis = [
         "valorAP" => "10x de R$540,00",
         "valorAV" => "R$5.400,00",
 
-        "foto" => "imagens/planejados/cozinha-planejada-cinzaEscuro.jpg",
+        "foto" => "/imagens/planejados/cozinha-planejada-cinzaEscuro.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -569,7 +569,7 @@ $moveis = [
         "valorAP" => "10x de R$890,00",
         "valorAV" => "R$8.900,00",
 
-        "foto" => "imagens/planejados/cozinha-planejada-detalhes-vidro.jpg",
+        "foto" => "/imagens/planejados/cozinha-planejada-detalhes-vidro.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -587,7 +587,7 @@ $moveis = [
         "valorAP" => "10x de R$569,00",
         "valorAV" => "R$5.690,00",
 
-        "foto" => "imagens/planejados/Painel-planejado.jpg",
+        "foto" => "/imagens/planejados/Painel-planejado.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -601,7 +601,7 @@ $moveis = [
         "valorAP" => "10x de R$890,00",
         "valorAV" => "R$8.900,00",
 
-        "foto" => "imagens/planejados/Painel-planejado-azul.jpg",
+        "foto" => "/imagens/planejados/Painel-planejado-azul.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -615,7 +615,7 @@ $moveis = [
         "valorAP" => "10x de R$198,00",
         "valorAV" => "R$1.980,00",
 
-        "foto" => "imagens/planejados/Balcão-banheiro-planejado.jpg",
+        "foto" => "/imagens/planejados/Balcão-banheiro-planejado.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -629,7 +629,7 @@ $moveis = [
         "valorAP" => "10x de R$890,00",
         "valorAV" => "R$8.900,00",
 
-        "foto" => "imagens/planejados/Banheiro-planejado.jpg",
+        "foto" => "/imagens/planejados/Banheiro-planejado.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -643,7 +643,7 @@ $moveis = [
         "valorAP" => "10x de R$649,00",
         "valorAV" => "R$6.490,00",
 
-        "foto" => "imagens/planejados/cozinha-planejada-cinza-clara.jpg",
+        "foto" => "/imagens/planejados/cozinha-planejada-cinza-clara.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -657,7 +657,7 @@ $moveis = [
         "valorAP" => "10x de R$390,00",
         "valorAV" => "R$3.900,00",
 
-        "foto" => "imagens/planejados/cozinha-planejada-azul.jpg",
+        "foto" => "/imagens/planejados/cozinha-planejada-azul.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -671,7 +671,7 @@ $moveis = [
         "valorAP" => "10x de R$389,00",
         "valorAV" => "R$3.199,90",
 
-        "foto" => "imagens/planejados/cozinha-luciane-isis.jpg",
+        "foto" => "/imagens/planejados/cozinha-luciane-isis.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -685,7 +685,7 @@ $moveis = [
         "valorAP" => "10x de R$199,00",
         "valorAV" => "R$1.660,00",
 
-        "foto" => "imagens/planejados/cozinha-compacta10-portas-demobile.jpg",
+        "foto" => "/imagens/planejados/cozinha-compacta10-portas-demobile.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -699,7 +699,7 @@ $moveis = [
         "valorAP" => "10x de R$899,00",
         "valorAV" => "R$8.990,00",
 
-        "foto" => "imagens/planejados/cozinha-cinza.jpg",
+        "foto" => "/imagens/planejados/cozinha-cinza.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -713,7 +713,7 @@ $moveis = [
         "valorAP" => "10x de R$779,90",
         "valorAV" => "R$7.790,00",
 
-        "foto" => "imagens/planejados/cozinha-cinza-clara.jpg",
+        "foto" => "/imagens/planejados/cozinha-cinza-clara.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -727,7 +727,7 @@ $moveis = [
         "valorAP" => "10x de R$890,00",
         "valorAV" => "R$6.699,90",
 
-        "foto" => "imagens/planejados/cozinha-bertoline-evidence.jpg",
+        "foto" => "/imagens/planejados/cozinha-bertoline-evidence.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -741,7 +741,7 @@ $moveis = [
         "valorAP" => "10x de R$400,00",
         "valorAV" => "R$3.399,90",
 
-        "foto" => "imagens/planejados/cozinha-bertoline-estilo.jpg",
+        "foto" => "/imagens/planejados/cozinha-bertoline-estilo.jpg",
         "moveis" => "Não",
         "planejados" => "Sim",
         "estofados" => "Não",
@@ -756,7 +756,7 @@ $moveis = [
         "valorAP" => "10x de R$561,00",
         "valorAV" => "R$5.610,00",
 
-        "foto" => "imagens/estofados/sofaMarrom.jpg",
+        "foto" => "/imagens/estofados/sofaMarrom.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -770,7 +770,7 @@ $moveis = [
         "valorAP" => "10x de R$800,00",
         "valorAV" => "R$6.370,00",
 
-        "foto" => "imagens/estofados/Sofa-Preto-8p.jpg",
+        "foto" => "/imagens/estofados/Sofa-Preto-8p.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -787,7 +787,7 @@ $moveis = [
         "valorAP" => "10x de R$400,00",
         "valorAV" => "R$4.000,00",
 
-        "foto" => "imagens/estofados/sofa_bau_retratil.jpg",
+        "foto" => "/imagens/estofados/sofa_bau_retratil.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -801,7 +801,7 @@ $moveis = [
         "valorAP" => "10x de R$220,00",
         "valorAV" => "R$2.200,00",
 
-        "foto" => "imagens/estofados/Sofá-Bahia-Modular-4-Lugares.jpg",
+        "foto" => "/imagens/estofados/Sofá-Bahia-Modular-4-Lugares.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -814,7 +814,7 @@ $moveis = [
         "nome" => "Sofá 5 Lugares Retrátil Splendore",
         "valorAP" => "10x de R$569,00",
         "valorAV" => "R$5.690,00",
-        "foto" => "imagens/estofados/Sofá-5-Lugares-Retrátil-Splendore.webp",
+        "foto" => "/imagens/estofados/Sofá-5-Lugares-Retrátil-Splendore.webp",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -827,7 +827,7 @@ $moveis = [
         "nome" => "Sofá Unne 3 Lugares",
         "valorAP" => "10x de R$220,00",
         "valorAV" => "R$2.200,00",
-        "foto" => "imagens/estofados/Sofá-Unne-3-Lugares.webp",
+        "foto" => "/imagens/estofados/Sofá-Unne-3-Lugares.webp",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -841,7 +841,7 @@ $moveis = [
         "valorAP" => "10x de R$350,00",
         "valorAV" => "R$3.500,00",
 
-        "foto" => "imagens/estofados/Sofá-de-Canto-Retrátil-Fofao.webp",
+        "foto" => "/imagens/estofados/Sofá-de-Canto-Retrátil-Fofao.webp",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -855,7 +855,7 @@ $moveis = [
         "valorAP" => "10x de R$500,00",
         "valorAV" => "R$4.499,00",
 
-        "foto" => "imagens/estofados/sofaCinza.jpg",
+        "foto" => "/imagens/estofados/sofaCinza.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -869,7 +869,7 @@ $moveis = [
         "valorAP" => "10x de R$499,00",
         "valorAV" => "R$4.000,00",
 
-        "foto" => "imagens/estofados/Sofa-Preto-4p.jpg",
+        "foto" => "/imagens/estofados/Sofa-Preto-4p.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -883,7 +883,7 @@ $moveis = [
         "valorAP" => "10x de R$561,00",
         "valorAV" => "R$5.610,00",
 
-        "foto" => "imagens/estofados/Sofa-Azul.jpg",
+        "foto" => "/imagens/estofados/Sofa-Azul.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -897,7 +897,7 @@ $moveis = [
         "valorAP" => "10x de R$389,00",
         "valorAV" => "R$3.890,00",
 
-        "foto" => "imagens/estofados/estofado-napolis.jpg",
+        "foto" => "/imagens/estofados/estofado-napolis.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -911,7 +911,7 @@ $moveis = [
         "valorAP" => "10x de R$379,00",
         "valorAV" => "R$3.790,00",
 
-        "foto" => "imagens/estofados/Estofado-Belaggio.jpg",
+        "foto" => "/imagens/estofados/Estofado-Belaggio.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -925,7 +925,7 @@ $moveis = [
         "valorAP" => "10x de R$679,00",
         "valorAV" => "R$6.790,00",
 
-        "foto" => "imagens/estofados/estofado-retratil-Madri.jpg",
+        "foto" => "/imagens/estofados/estofado-retratil-Madri.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -939,7 +939,7 @@ $moveis = [
         "valorAP" => "10x de R$410,00",
         "valorAV" => "R$4.100,00",
 
-        "foto" => "imagens/estofados/Estofado-retratil-Messina.jpg",
+        "foto" => "/imagens/estofados/Estofado-retratil-Messina.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -954,7 +954,7 @@ $moveis = [
         "valorAP" => "10x de R$349,00",
         "valorAV" => "R$3.490,00",
 
-        "foto" => "imagens/estofados/Estofado-retrátil-Giovana.jpg",
+        "foto" => "/imagens/estofados/Estofado-retrátil-Giovana.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -968,7 +968,7 @@ $moveis = [
         "valorAP" => "10x de R$401,00",
         "valorAV" => "R$4.010,00",
 
-        "foto" => "imagens/estofados/Estofado-retrátil-Bariloche.jpg",
+        "foto" => "/imagens/estofados/Estofado-retrátil-Bariloche.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -982,7 +982,7 @@ $moveis = [
         "valorAP" => "10x de R$279,00",
         "valorAV" => "R$2.790,00",
 
-        "foto" => "imagens/estofados/Estofado-2-e-3-lugares-Milão.jpg",
+        "foto" => "/imagens/estofados/Estofado-2-e-3-lugares-Milão.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -996,7 +996,7 @@ $moveis = [
         "valorAP" => "10x de R$429,90",
         "valorAV" => "R$3.169,00",
 
-        "foto" => "imagens/estofados/sofa_de_canto_retratil-virginia.jpg",
+        "foto" => "/imagens/estofados/sofa_de_canto_retratil-virginia.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -1010,7 +1010,7 @@ $moveis = [
         "valorAP" => "10x de R$89,00",
         "valorAV" => "R$890,00",
 
-        "foto" => "imagens/estofados/poltrona.jpg",
+        "foto" => "/imagens/estofados/poltrona.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -1024,7 +1024,7 @@ $moveis = [
         "valorAP" => "10x de R$58,00",
         "valorAV" => "R$580,00",
 
-        "foto" => "imagens/estofados/poltrona-angelica.jpg",
+        "foto" => "/imagens/estofados/poltrona-angelica.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Sim",
@@ -1039,7 +1039,7 @@ $moveis = [
         "valorAP" => "10x de R$178,00",
         "valorAV" => "R$1.780,00",
 
-        "foto" => "imagens/eletros/Tv-32-TCL.jpg",
+        "foto" => "/imagens/eletros/Tv-32-TCL.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1053,7 +1053,7 @@ $moveis = [
         "valorAP" => "10x de R$160,00",
         "valorAV" => "R$1.600,00",
 
-        "foto" => "imagens/eletros/tv-aoc-roku.jpg",
+        "foto" => "/imagens/eletros/tv-aoc-roku.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1067,7 +1067,7 @@ $moveis = [
         "valorAP" => "10x de R$185,00",
         "valorAV" => "R$1.850,00",
 
-        "foto" => "imagens/eletros/tv-32-polegadas-HQ.jpg",
+        "foto" => "/imagens/eletros/tv-32-polegadas-HQ.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1081,7 +1081,7 @@ $moveis = [
         "valorAP" => "10x de R$259,00",
         "valorAV" => "R$2.590,00",
 
-        "foto" => "imagens/eletros/geladeira-3-portas.jpg",
+        "foto" => "/imagens/eletros/geladeira-3-portas.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1095,7 +1095,7 @@ $moveis = [
         "valorAP" => "10x de R$190,00",
         "valorAV" => "R$1.900,00",
 
-        "foto" => "imagens/eletros/Fogão-Dako-5-bocas.jpg",
+        "foto" => "/imagens/eletros/Fogão-Dako-5-bocas.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1109,7 +1109,7 @@ $moveis = [
         "valorAP" => "10x de R$510,00",
         "valorAV" => "R$5.100,00",
 
-        "foto" => "imagens/eletros/geladeira-midea.jpg",
+        "foto" => "/imagens/eletros/geladeira-midea.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1123,7 +1123,7 @@ $moveis = [
         "valorAP" => "10x de R$658,00",
         "valorAV" => "R$6.580,00",
 
-        "foto" => "imagens/eletros/Geladeira-inox-375L-Brastemp.jpg",
+        "foto" => "/imagens/eletros/Geladeira-inox-375L-Brastemp.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1137,7 +1137,7 @@ $moveis = [
         "valorAP" => "10x de R$580,00",
         "valorAV" => "R$5.800,00",
 
-        "foto" => "imagens/eletros/Geladeira-Brastemp-400 litros.webp",
+        "foto" => "/imagens/eletros/Geladeira-Brastemp-400 litros.webp",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1151,7 +1151,7 @@ $moveis = [
         "valorAP" => "10x de R$170,00",
         "valorAV" => "R$1.700,00",
 
-        "foto" => "imagens/eletros/Fogão-Dako-4-bocas.jpg",
+        "foto" => "/imagens/eletros/Fogão-Dako-4-bocas.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1165,7 +1165,7 @@ $moveis = [
         "valorAP" => "10x de R$185,00",
         "valorAV" => "R$1.8500,00",
 
-        "foto" => "imagens/eletros/cooktop-5-bocas.jpg",
+        "foto" => "/imagens/eletros/cooktop-5-bocas.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1179,7 +1179,7 @@ $moveis = [
         "valorAP" => "10x de R$190,00",
         "valorAV" => "R$1.900,00",
 
-        "foto" => "imagens/eletros/Cooktop-dako-supreme.jpg",
+        "foto" => "/imagens/eletros/Cooktop-dako-supreme.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1193,7 +1193,7 @@ $moveis = [
         "valorAP" => "10x de R$165,00",
         "valorAV" => "R$1.650,00",
 
-        "foto" => "imagens/eletros/cooktop-electrolux.jpg",
+        "foto" => "/imagens/eletros/cooktop-electrolux.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1207,7 +1207,7 @@ $moveis = [
         "valorAP" => "10x de R$190,00",
         "valorAV" => "R$1.900,00",
 
-        "foto" => "imagens/eletros/fogoes.jpg",
+        "foto" => "/imagens/eletros/fogoes.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1221,7 +1221,7 @@ $moveis = [
         "valorAP" => "10x de R$55,00",
         "valorAV" => "R$550,00",
 
-        "foto" => "imagens/eletros/microondas-brastemp-branco.jpg",
+        "foto" => "/imagens/eletros/microondas-brastemp-branco.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1235,7 +1235,7 @@ $moveis = [
         "valorAP" => "10x de R$79,00",
         "valorAV" => "R$790,00",
 
-        "foto" => "imagens/eletros/air-fryer-mondial.jpg",
+        "foto" => "/imagens/eletros/air-fryer-mondial.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1249,7 +1249,7 @@ $moveis = [
         "valorAP" => "10x de R$76,00",
         "valorAV" => "R$760,00",
 
-        "foto" => "imagens/eletros/air-fryer-Philips.jpg",
+        "foto" => "/imagens/eletros/air-fryer-Philips.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1263,7 +1263,7 @@ $moveis = [
         "valorAP" => "10x de R$76,00",
         "valorAV" => "R$7.800,00",
 
-        "foto" => "imagens/eletros/Micro-ondas-Brastemp-32.webp",
+        "foto" => "/imagens/eletros/Micro-ondas-Brastemp-32.webp",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1277,7 +1277,7 @@ $moveis = [
         "valorAP" => "10x de R$16,00",
         "valorAV" => "R$140,00",
 
-        "foto" => "imagens/eletros/batedeira-preta_mondial.jpg",
+        "foto" => "/imagens/eletros/batedeira-preta_mondial.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1291,7 +1291,7 @@ $moveis = [
         "valorAP" => "10x de R$16,00",
         "valorAV" => "R$140,00",
 
-        "foto" => "imagens/eletros/batedeira-preta-britania.jpg",
+        "foto" => "/imagens/eletros/batedeira-preta-britania.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",
@@ -1305,7 +1305,7 @@ $moveis = [
         "valorAP" => "10x de R$190,00",
         "valorAV" => "R$1.900,00",
 
-        "foto" => "imagens/eletros/ferro-vermelho-arno.jpg",
+        "foto" => "/imagens/eletros/ferro-vermelho-arno.jpg",
         "moveis" => "Não",
         "planejados" => "Não",
         "estofados" => "Não",

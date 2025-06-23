@@ -152,7 +152,7 @@
         foreach ($nomeClasseProd as $item): ?>
             <div class="product-card">
                 <span class="tag"></span>
-                <img src="<?= $item["imagem"] ?>" alt="<?= htmlspecialchars($item["nome"]) ?>" class="product-img">
+                <img src="<?= $item["imagem"] ?? "" ?>" alt="<?= htmlspecialchars($item["nome"]) ?>" class="product-img">
                 <div class="product-info">
                     <h2 class="text text-center" id="h2p"><?= htmlspecialchars($item["nome"]) ?></h2>
                     <span class="price"></span>
