@@ -195,9 +195,9 @@ $moveis = [
         "novidade" => "Não",
     ],
     [
-        "nome" => "estante organizadora",
-        "valorAP" => "10x de R$65,00",
-        "valorAV" => "R$650,00",
+        "nome" => "Estante organizadora",
+        "valorAP" => "10x de R$99,90",
+        "valorAV" => "R$999,00",
         "foto" => "/imagens/Moveis/Prateleira-Escritorio.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",
@@ -318,8 +318,8 @@ $moveis = [
     ],
     [
         "nome" => "Jogo de Mesa Branco 6 Cadeiras",
-        "valorAP" => "10x de R$400,00",
-        "valorAV" => "R$3.099,00",
+        "valorAP" => "10x de R$595,00",
+        "valorAV" => "R$4.759,00",
         "foto" => "/imagens/Moveis/conjunto_de-mesa.jpg",
         "moveis" => "Sim",
         "planejados" => "Não",

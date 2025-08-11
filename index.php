@@ -103,6 +103,11 @@ $base = "https://{$_SERVER['SERVER_NAME']}";
                                     <div class="efeito">Contato</div>
                                 </a>
                             </li>
+                            <li class="nav-item" data-aos="fade-up" data-aos-delay="500">
+                                <a class="nav-link" href="/entrar">
+                                    <div class="efeito">Entre ou Cadastre-se</div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
