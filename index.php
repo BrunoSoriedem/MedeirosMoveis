@@ -1,5 +1,5 @@
 <?php
-$base = "https://{$_SERVER['SERVER_NAME']}";
+$base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $base = "https://{$_SERVER['SERVER_NAME']}";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medeiros Móveis</title>
-    <base href="<?= $base ?>/">
+    <base href="<?= $base ?>">
 
     <link href="images/logo-loja.png" rel="shortcut icon">
 
@@ -59,7 +59,7 @@ $base = "https://{$_SERVER['SERVER_NAME']}";
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item" data-aos="fade-up" data-aos-delay="100">
-                                <a class="nav-link active" aria-current="page" href="/home">
+                                <a class="nav-link active" aria-current="page" href="home">
                                     <div class="efeito">Home</div>
                                 </a>
                             </li>
@@ -94,19 +94,25 @@ $base = "https://{$_SERVER['SERVER_NAME']}";
                             </li>
 
                             <li class="nav-item" data-aos="fade-up" data-aos-delay="300">
-                                <a class="nav-link" href="/sobreNos">
+                                <a class="nav-link" href="sobreNos">
                                     <div class="efeito">Sobre Nós</div>
                                 </a>
                             </li>
                             <li class="nav-item" data-aos="fade-up" data-aos-delay="400">
-                                <a class="nav-link" href="/contato">
+                                <a class="nav-link" href="contato">
                                     <div class="efeito">Contato</div>
                                 </a>
                             </li>
-                            <li class="nav-item" data-aos="fade-up" data-aos-delay="500">
-                                <a class="nav-link" href="/entrar">
-                                    <div class="efeito">Entre ou Cadastre-se</div>
-                                </a>
+                            <li class="nav-item" data-aos="fade-up" data-aos-delay="500"
+                                style="display:flex; align-items:center;">
+                                <i class="fa-solid fa-user" id="icon-user"></i>
+                                <span class="escrita-enter">
+                                    <span class="entrar-ou">
+                                        <a href="entrar" class="cadastrar-strong">Entre</a>
+                                        <span class="escrita-ou">ou</span>
+                                    </span>
+                                    <a href="cadastrar" class="cadastrar-strong cadastrar-baixo">Cadastre-se</a>
+                                </span>
                             </li>
                         </ul>
                     </div>

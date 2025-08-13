@@ -20,11 +20,11 @@
             <div class="swiper-slide slide-com-overlay" id="slide2">
                 <img src="imagens/eletros/geladeira-3-portas.jpg" alt="Colchão Gazin">
                 <div class="conteudo-sobreposto-direito">
-                    <h1>Neste mês de <span class="destaque">Junho</span></h1>
+                    <h1>Neste mês de <span class="destaque">Agosto</span></h1>
                     <p>
-                        A loja inteira está em clima de <span class="destaque">Festa Junina</span>! <br>
+                        A loja inteira está em promoção para o <span class="destaque">Dia dos Pais</span>! <br>
                         Aproveite descontos de até <span class="destaque">50%</span> em todos os produtos. <br><br>
-                        É o momento perfeito para renovar sua casa com qualidade e economia. <br>
+                        É o momento perfeito para presentear aquela pessoa especial. <br>
                         Não perca! Esperamos por você com ofertas imperdíveis!
                     </p>
 

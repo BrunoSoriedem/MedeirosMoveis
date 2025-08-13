@@ -1,89 +1,281 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/produtos.css">
+<link rel="stylesheet" href="css/nav-footer.css">
+<link rel="stylesheet" href="css/contato.css">
 
-<section id="section-email" data-aos="fade-up">
-    <div class="contact-container">
-        <div class="form-box">
-            <h2 class="h2-form">Entre em Contato Conosco</h2>
-            <form id="contact-form" action="https://formsubmit.co/brunorafamed.com@gmail.com" method="post">
-                <div class="input-group">
-                    <label>Nome</label>
-                    <input type="text" name="Nome" placeholder="Digite seu Nome" autocomplete="off" required>
-                    <label>Telefone</label>
-                    <input type="text" id="telefone" class="telefone" name="Telefone" placeholder="(XX)X XXXX-XXXX"
-                        autocomplete="off" required>
-                    <label>E-mail</label>
-                    <input type="email" name="Email" placeholder="Digite seu E-mail" autocomplete="off" required>
-                    <label>Cidade</label>
-                    <input type="text" name="Cidade" placeholder="Digite o nome da sua cidade" autocomplete="off"
-                        required>
-                </div>
-                <label>Como nos encontrou?</label>
-                <select name="Categoria" required>
-                    <option value="" disabled selected>Selecione uma opção</option>
-                    <option value="google">Google / Pesquisa Online</option>
-                    <option value="instagram">Instagram</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="whatsapp">WhatsApp</option>
-                    <option value="indicacao">Indicação</option>
-                    <option value="anuncio">Anúncios</option>
-                    <option value="passando">Cliente Fiel</option>
-                    <option value="outros">Outros</option>
-                </select>
-                <label>Assunto</label>
-                <input type="text" id="assunto" name="Assunto" placeholder="Orçamento, Dúvida..." autocomplete="off"
-                    required>
-                <label>Mensagem</label>
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="agradecimento">
-                <audio id="sucesso-audio" src="audio/confirmation.mp3" preload="auto"></audio>
-                <textarea name="Mensagem" cols="30" rows="10" placeholder="Digite uma Mensagem" required></textarea>
-                <button type="submit" id="enviar-btn"><i class="fas fa-paper-plane"></i> Enviar Mensagem</button>
-                <input type="hidden" name="accessKey" value="5a2f7dd0-f71b-4808-8620-7d2edcf0b568">
-
-            </form>
+<body>
+    <div class="login-container">
+        <div class="header">
+            <div class="logo">🏡</div>
+            <h1>LuxHome Design</h1>
+            <p>Móveis de luxo para espaços únicos</p>
         </div>
-        <div class="info-box">
-            <div class="info-card">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <strong>Email</strong>
-                    <p>paulojuranda@hotmail.com</p>
-                    <small>Resposta em até 24 horas</small>
+
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                ✅ Conta criada com sucesso! Faça login para acessar sua área exclusiva.
+            </div>
+
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab('login')">Fazer Login</button>
+                <button class="tab-button" onclick="switchTab('register')">Criar Conta</button>
+            </div>
+
+            <!-- Formulário de Login -->
+            <div id="loginForm" class="form-section active">
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Endereço de E-mail</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="loginEmail" required placeholder="exemplo@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Senha</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="loginPassword" required placeholder="Digite sua senha">
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('loginPassword', this)" title="Mostrar/Ocultar senha">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-button" id="loginBtn">
+                        Acessar Minha Conta
+                    </button>
+                </form>
+
+                <div class="forgot-password">
+                    <a href="#" onclick="handleForgotPassword()">Esqueci minha senha</a>
                 </div>
             </div>
-            <div class="info-card">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <strong>Telefone</strong>
-                    <p>+55 (44) 9 9987-0212</p>
-                    <small>(44) 3569-1763</small>
-                </div>
-            </div>
-            <div class="info-card">
-                <i class="fa-solid fa-clock"></i>
-                <div>
-                    <strong>Horário de Atendimento</strong>
-                    <p>Segunda a Sexta: <span>8:00 – 18:00</span><br>
-                        Sábado: <span>8:00 – 12:00</span><br>
-                        Domingo: <span class="fechado">Fechado</span>
-                </div>
-            </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="700">
-                <i class="fa-solid fa-location-dot"></i>
-                <div>
-                    <strong>Localização</strong>
-                    <p>Avenida Paraná, 1727</p>
-                    <small>Juranda, PR – Brasil</small>
-                </div>
-            </div>
-            <div class="localizacao-mapa">
-                <iframe class="mapa-embed"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3632.801918696584!2d-52.84543402464318!3d-24.422948178217474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f27197e45cd78d%3A0x59b345a64ebed629!2sAv.%20Paran%C3%A1%2C%201727%20-%20Juranda%2C%20PR%2C%2087355-000!5e0!3m2!1spt-BR!2sbr!4v1747869210141!5m2!1spt-BR!2sbr"
-                    width="100%" height="395" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+
+            <!-- Formulário de Cadastro -->
+            <div id="registerForm" class="form-section">
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="registerName">Nome Completo</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="registerName" required placeholder="Seu nome completo">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Endereço de E-mail</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="registerEmail" required placeholder="exemplo@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Senha</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="registerPassword" required placeholder="Mínimo 8 caracteres"
+                                minlength="8">
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('registerPassword', this)" title="Mostrar/Ocultar senha">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Senha</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirmPassword" required placeholder="Digite a senha novamente">
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('confirmPassword', this)" title="Mostrar/Ocultar senha">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="termsAccept" required>
+                        <label for="termsAccept">Concordo com os <strong>Termos de Uso</strong> e <strong>Política de
+                                Privacidade</strong> da LuxHome Design</label>
+                    </div>
+
+                    <button type="submit" class="login-button" id="registerBtn">
+                        Criar Minha Conta
+                    </button>
+                </form>
             </div>
         </div>
     </div>
-</section>
+</body>
+
+
+<script>
+    function switchTab(tab) {
+        // Remover loading de todos os botões
+        document.querySelectorAll('.login-button').forEach(btn => {
+            btn.disabled = false;
+            btn.innerHTML = btn.id === 'loginBtn' ? 'Acessar Minha Conta' : 'Criar Minha Conta';
+        });
+
+        // Remover classe active dos botões
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+
+        // Remover classe active dos formulários
+        document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
+
+        // Adicionar classe active no botão clicado
+        event.target.classList.add('active');
+
+        // Mostrar formulário correspondente
+        if (tab === 'login') {
+            document.getElementById('loginForm').classList.add('active');
+        } else {
+            document.getElementById('registerForm').classList.add('active');
+        }
+    }
+
+    function togglePassword(inputId, button) {
+        const input = document.getElementById(inputId);
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            button.textContent = '🙈';
+            button.title = 'Ocultar senha';
+        } else {
+            input.type = 'password';
+            button.textContent = '👁️';
+            button.title = 'Mostrar senha';
+        }
+    }
+
+    function setButtonLoading(buttonId, isLoading) {
+        const button = document.getElementById(buttonId);
+        if (isLoading) {
+            button.disabled = true;
+            button.innerHTML = '<span class="loading"></span> Processando...';
+        } else {
+            button.disabled = false;
+            button.innerHTML = buttonId === 'loginBtn' ? 'Acessar Minha Conta' : 'Criar Minha Conta';
+        }
+    }
+
+    async function handleLogin(event) {
+        event.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+
+        setButtonLoading('loginBtn', true);
+
+        // Simular delay de autenticação
+        await new Promise(resolve => setTimeout(resolve, 1500));
+
+        if (email && password) {
+            // Simular sucesso
+            document.querySelector('.login-container').style.transform = 'scale(0.95)';
+            document.querySelector('.login-container').style.opacity = '0.8';
+
+            setTimeout(() => {
+                alert(`🎉 Bem-vindo(a) à LuxHome Design!\n\nRedirecionando para sua área exclusiva...`);
+            }, 300);
+        }
+
+        setButtonLoading('loginBtn', false);
+    }
+
+    async function handleRegister(event) {
+        event.preventDefault();
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+            alert('⚠️ As senhas não coincidem! Verifique e tente novamente.');
+            return;
+        }
+
+        setButtonLoading('registerBtn', true);
+
+        // Simular delay de cadastro
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        if (name && email && password) {
+            document.getElementById('successMessage').style.display = 'block';
+            switchTabProgrammatically('login');
+            document.getElementById('registerForm').reset();
+
+            // Esconder mensagem após 8 segundos
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 8000);
+        }
+
+        setButtonLoading('registerBtn', false);
+    }
+
+    function switchTabProgrammatically(tab) {
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
+
+        if (tab === 'login') {
+            document.querySelector('.tab-button').classList.add('active');
+            document.getElementById('loginForm').classList.add('active');
+        } else {
+            document.querySelectorAll('.tab-button')[1].classList.add('active');
+            document.getElementById('registerForm').classList.add('active');
+        }
+    }
+
+    function handleForgotPassword() {
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                animation: fadeIn 0.3s ease;
+            `;
+
+        modal.innerHTML = `
+                <div style="background: white; padding: 32px; border-radius: 16px; max-width: 400px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+                    <h3 style="margin-bottom: 16px; color: var(--text-primary);">Recuperar Senha</h3>
+                    <p style="margin-bottom: 24px; color: var(--text-secondary); line-height: 1.5;">Em breve você receberá instruções detalhadas para redefinir sua senha no e-mail cadastrado.</p>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: var(--primary-gold); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 500;">Entendi</button>
+                </div>
+            `;
+
+        document.body.appendChild(modal);
+    }
+
+    // Efeitos de micro-interação
+    document.addEventListener('DOMContentLoaded', function() {
+        // Efeito de hover nos inputs
+        document.querySelectorAll('.input-wrapper').forEach(wrapper => {
+            const input = wrapper.querySelector('input');
+
+            wrapper.addEventListener('mouseenter', function() {
+                if (!input.matches(':focus')) {
+                    this.style.transform = 'translateY(-1px)';
+                }
+            });
+
+            wrapper.addEventListener('mouseleave', function() {
+                if (!input.matches(':focus')) {
+                    this.style.transform = 'translateY(0)';
+                }
+            });
+
+            input.addEventListener('focus', function() {
+                wrapper.style.transform = 'translateY(-2px)';
+            });
+
+            input.addEventListener('blur', function() {
+                wrapper.style.transform = 'translateY(0)';
+            });
+        });
+    });
+</script>
