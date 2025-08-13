@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/contato.css">
+<link rel="stylesheet" href="css/nav-footer.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 
 <section id="section-email" data-aos="fade-up">
     <div class="contact-container">

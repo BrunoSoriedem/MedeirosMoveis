@@ -107,6 +107,60 @@ main {
     transform: scaleX(2);
 }
 
+#icon-user {
+    margin-left: 15px;
+    font-size: 16px;
+    color: #000;
+}
+
+.escrita-enter {
+    font-family: "Inter", Helvetica, sans-serif;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    text-align: left;
+    user-select: none;
+}
+
+.entrar-ou {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.escrita-enter .cadastrar-strong {
+    font-weight: 600;
+    color: #2ecc71;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.escrita-enter .cadastrar-strong:hover {
+    color: rgb(7, 138, 7);
+}
+
+.escrita-ou {
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+}
+
+.cadastrar-baixo {
+    font-size: 14px;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+
+.escrita-enter span {
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
+}
+
 .dropdown-divider {
     color: black;
     padding: 0 0 0 160px;
