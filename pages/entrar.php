@@ -45,7 +45,7 @@
                     </button>
 
                     <div class="forgot-password">
-                        <a href="#" onclick="handleForgotPassword()">Esqueci minha senha</a>
+                        <!-- <a href="#" onclick="handleForgotPassword()">Esqueci minha senha</a> -->
                     </div>
                 </form>
             </div>
@@ -54,11 +54,11 @@
                 <div class="divider">
                     <span>Ainda não tem conta?</span>
                 </div>
-                <p>Crie sua conta e tenha acesso a todos os recursos exclusivos</p>
-                <button class="register-button">
-                    <i class="fas fa-user-plus" style="margin-right: 8px;" href="cadastrar"></i>
+                <p class="p-registerLink">Crie sua conta e tenha acesso a todos os recursos exclusivos</p>
+                <a class="register-button" href="cadastrar">
+                    <i class="fas fa-user-plus" style="margin-right: 8px;"></i>
                     Criar Nova Conta
-                </button>
+                </a>
             </div>
         </div>
 
