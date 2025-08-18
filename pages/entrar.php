@@ -16,7 +16,7 @@
                     ✅ Login realizado com sucesso! Redirecionando...
                 </div>
 
-                <form onsubmit="handleLogin(event)">
+                <form onsubmit="handleLogin(event)" post="">
                     <div class="form-group">
                         <label for="loginEmail">Endereço de E-mail</label>
                         <div class="input-wrapper">
@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="loginPassword">Senha</label>
                         <div class="input-wrapper">
-                            <input type="password" id="loginPassword" class="form-control" required
+                            <input type="password" id="loginPassword" name="password" class="form-control" required
                                 placeholder="Digite sua senha">
                             <button type="button" class="password-toggle"
                                 onclick="togglePassword('loginPassword', this)" title="Mostrar/Ocultar senha">

@@ -167,44 +167,6 @@ h2::after {
     outline: none;
 }
 
-.input-wrapper {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    width: 100%;
-}
-
-.input-group {
-    position: relative;
-    flex: 1;
-}
-
-.form-controlNome {
-    width: 100%;
-    padding: 12px 40px 12px 12px;
-    border: 1.5px solid #ccc !important;
-    border-radius: 8px;
-    font-size: 15px;
-    background: var(--white);
-    color: var(--text-primary);
-    font-weight: 400;
-    transition: all 0.3s ease-in-out;
-}
-
-.form-controlNome::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.8;
-}
-
-.form-controlNome:focus {
-    border-radius: 16px !important;
-    border: 0;
-    border-color: rgb(22, 162, 22);
-    box-shadow: 0 0 0 3px rgba(22, 162, 22, 0.25);
-    background-color: #fff;
-    outline: none;
-}
-
 .input-icon {
     position: absolute;
     right: 18px;
@@ -218,27 +180,7 @@ h2::after {
 
 .input-icon-user {
     position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #888;
-    font-size: 16px;
-    pointer-events: none;
-}
-
-.input-icon-user2 {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #888;
-    font-size: 16px;
-    pointer-events: none;
-}
-
-.input-icon-user {
-    position: absolute;
-    /* right: 0px; */
+    right: 18px;
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-secondary);
@@ -249,13 +191,12 @@ h2::after {
 
 .password-toggle {
     position: absolute;
-    right: 16px;
+    right: 18px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
     color: var(--text-secondary);
     transition: all 0.3s ease;
     border-radius: 8px;
