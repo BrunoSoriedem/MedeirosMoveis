@@ -1,4 +1,5 @@
 <?php
+session_start();
 $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
 ?>
 
