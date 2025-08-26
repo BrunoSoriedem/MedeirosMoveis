@@ -40,7 +40,7 @@ $moveis = [
     ],
     [
         "nome" => "Roupeiro Cover 6 Portas",
-        "valorAP" => "10x de R$1830,00",
+        "valorAP" => "10x de R$183,00",
         "valorAV" => "R$1.599,00",
         "foto" => "/imagens/Moveis/roupeiro-cover-6-portas.jpg",
         "moveis" => "Sim",

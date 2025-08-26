@@ -55,17 +55,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($validator->validate()) {
         if ($senha === $confirmSenha) {
-            $data_cadastro = new \DateTime();
+            $em = \App\Core\Database::getEntityManager();
+            $repo = $em->getRepository(ContasCadastradas::class);
+            $usuarioExistente = $repo->findOneBy(['email' => $email]);
 
-            $contasCadastradas = new ContasCadastradas(
-                $nome,
-                $email,
-                $senhaHash = password_hash($senha, PASSWORD_DEFAULT),
-                $data_cadastro
-            );
-            $contasCadastradas->save();
+            if ($usuarioExistente) {
+                $erros[] = "E-mail já existente, caso seja você mesmo, tente acessar sua conta.";
+            } else {
+                $data_cadastro = new \DateTime();
 
-            $sucesso = "Cadastro realizado com sucesso!";
+                $contasCadastradas = new ContasCadastradas(
+                    $nome,
+                    $email,
+                    password_hash($senha, PASSWORD_DEFAULT),
+                    $data_cadastro
+                );
+                $contasCadastradas->save();
+
+                $sucesso = "Cadastro realizado com sucesso!";
+            }
         } else {
             $erros[] = "A confirmação da senha não confere.";
         }
