@@ -42,7 +42,7 @@ class Database
         $dbParams = [
             'driver'   => 'pdo_mysql',
             'user'     => 'root',
-            'password' => '',
+            'password' => 'dados-medeirosMoveis',
             'dbname'   => 'dados-medeirosmoveis',
             'host'     => '127.0.0.1'
         ];
