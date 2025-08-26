@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['usuario_id']   = $usuario['id'];
             $_SESSION['usuario_nome'] = $usuario['name'];
 
-            echo "<script>window.location.href='home';</script>";
+            echo "<script>window.location.href='bemvindoEntrar';</script>";
             exit;
         } else {
             $_SESSION['erro_login'] = "E-mail ou senha inválidos.";

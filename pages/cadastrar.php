@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
                 $contasCadastradas->save();
 
-                $sucesso = "Cadastro realizado com sucesso!";
+                echo "<script>window.location.href='entrar';</script>";
             }
         } else {
             $erros[] = "A confirmação da senha não confere.";
