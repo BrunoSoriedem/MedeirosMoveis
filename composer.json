@@ -1,5 +1,26 @@
 {
+    "name": "bruno/medeiros-moveis",
+    "description": "Projeto Medeiros Moveis",
+    "type": "project",
     "require": {
-        "doctrine/orm": "^3.5"
+        "doctrine/orm": "^3.5",
+        "doctrine/dbal": "^4.3",
+        "symfony/cache": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bruno Rafael medeiros",
+            "email": "brunorafamed.com@gmail.com"
+        }
+    ],
+    "scripts": {
+        "create-db": "php bin/doctrine orm:schema-tool:create",
+        "update-db": "php bin/doctrine orm:schema-tool:update --force",
+        "start": "php -S localhost:8000 -t public"
     }
 }
