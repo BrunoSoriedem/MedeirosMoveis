@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\Id;
 
 #[Entity]
 
-class ContasCadastradas
+class funcionarios
 {
     #[Column, Id, GeneratedValue]
     private int $id;
@@ -20,20 +20,16 @@ class ContasCadastradas
     private string $name;
 
     #[Column]
-    private string $email;
+    private string $funcao;
 
     #[Column]
-    private string $senha;
+    private string $diretorio_imagem;
 
-    #[Column]
-    private DateTime $data_cadastro;
-
-    public function __construct(string $name, string $email, string $senha, DateTime $data_cadastro)
+    public function __construct(string $name, string $funcao, string $diretorio_imagem)
     {
         $this->name = $name;
-        $this->email = $email;
-        $this->senha = $senha;
-        $this->data_cadastro = $data_cadastro;
+        $this->funcao = $funcao;
+        $this->diretorio_imagem = $diretorio_imagem;
     }
 
     public function getId(): int
@@ -46,19 +42,14 @@ class ContasCadastradas
         return $this->name;
     }
 
-    public function getEmail(): string
+    public function getFuncao(): string
     {
-        return $this->email;
+        return $this->funcao;
     }
 
-    public function getSenha(): string
+    public function getDiretorioImagem(): string
     {
-        return $this->senha;
-    }
-
-    public function getDataCadastro(): DateTime
-    {
-        return $this->data_cadastro;
+        return $this->diretorio_imagem;
     }
 
     public function save(): void
