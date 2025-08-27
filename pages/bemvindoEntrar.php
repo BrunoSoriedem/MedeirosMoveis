@@ -17,7 +17,7 @@ $nomeUsuario = $usuario ? $usuario['name'] : "Usuário";
 ?>
 
 <link rel="stylesheet" href="css/nav-footer.css">
-<link rel="stylesheet" href="css/bemvindo.css">
+
 
 <div class=bemvindo-container>
     <div class="bemvindo-box">

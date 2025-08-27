@@ -141,4 +141,11 @@ class Produtos
         $em->persist($this);
         $em->flush();
     }
+
+    public static function findAll(): array
+    {
+        $em = Database::getEntityManager();
+        $repository = $em->getRepository(Produtos::class);
+        return $repository->findAll();
+    }
 }
