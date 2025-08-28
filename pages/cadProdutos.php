@@ -39,9 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
-<link rel="stylesheet" href="css/cadprod.css">
 <link rel="stylesheet" href="css/nav-footer.css">
+<link rel="stylesheet" href="css/cadprod.css">
+
 <h2 style="text-align:center;">Cadastro de Produtos</h2>
 
 <form method="post">

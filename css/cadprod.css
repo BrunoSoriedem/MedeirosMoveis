@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #2ecc71;
+    --primary-dark: #27ae60;
+    --light-gray: #f9f9f9;
+    --dark-gray: #333;
+    --transition: all 0.3s ease;
+}
 
 * {
     margin: 0;
@@ -18,10 +25,7 @@ body {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    width: 150vw;
+    padding-top: 130px;
 }
 
 form {
@@ -39,6 +43,20 @@ label {
     font-weight: bold;
 }
 
+h2 {
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #2ecc71;
+    margin: 15px auto;
+}
+
 input,
 select {
     width: 100%;
@@ -49,16 +67,25 @@ select {
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px;
-    width: 100%;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: white !important;
+    padding: 15px 30px;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
     cursor: pointer;
+    margin-bottom: 20px;
+    transition: var(--transition);
 }
 
 button:hover {
-    background: #45a049;
+    background-color: #fff;
+    color: var(--primary-color) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
 }
