@@ -44,7 +44,7 @@ class Database
             'user'     => 'root',
             'password' => 'dados-medeirosMoveis',
             'dbname'   => 'dados-medeirosmoveis',
-            'host'     => '127.0.0.1'
+            'host'     => '10.10.6.176'
         ];
 
         $config = self::getConfig();

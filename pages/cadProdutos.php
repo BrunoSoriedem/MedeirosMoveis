@@ -39,72 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", Helvetica, sans-serif;
-}
 
-[data-aos] {
-    z-index: 0;
-}
-
-html,
-body {
-    height: 100%;
-    overflow-x: hidden;
-    position: relative;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    width: 150vw;
-}
-
-form {
-    background: #fff;
-    margin-top: 50%;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: auto;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    margin-top: 15px;
-    padding: 10px;
-    width: 100%;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #45a049;
-}
-</style>
-
+<link rel="stylesheet" href="css/cadprod.css">
 <link rel="stylesheet" href="css/nav-footer.css">
 <h2 style="text-align:center;">Cadastro de Produtos</h2>
 
