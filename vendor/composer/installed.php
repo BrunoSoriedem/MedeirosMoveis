@@ -3,7 +3,11 @@
         'name' => 'bruno/medeiros-moveis',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
+<<<<<<< HEAD
         'reference' => '8b30553aa582018c833d4d03a67b256cb4e9a707',
+=======
+        'reference' => '79aef18eaa9fce4011c8d12b304144a066ffed25',
+>>>>>>> 70326dc2dabc858b9c238499d3f09ab809385bae
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +17,11 @@
         'bruno/medeiros-moveis' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
+<<<<<<< HEAD
             'reference' => '8b30553aa582018c833d4d03a67b256cb4e9a707',
+=======
+            'reference' => '79aef18eaa9fce4011c8d12b304144a066ffed25',
+>>>>>>> 70326dc2dabc858b9c238499d3f09ab809385bae
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
