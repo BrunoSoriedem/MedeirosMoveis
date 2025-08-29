@@ -1,3 +1,29 @@
+<?php
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->query("SELECT * FROM produtos");
+    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro no banco: " . $e->getMessage());
+}
+
+$categorias = ['moveis' => [], 'planejados' => [], 'estofados' => [], 'eletros' => []];
+$novidades = [];
+$maisVendidos = [];
+
+foreach ($produtos as $p) {
+    foreach ($categorias as $cat => $_) {
+        if (strtolower($p[$cat]) === 'sim') {
+            $categorias[$cat][] = $p;
+        }
+    }
+    if (strtolower($p['novidade']) === 'sim') $novidades[] = $p;
+    if (strtolower($p['maisVendido']) === 'sim') $maisVendidos[] = $p;
+}
+?>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <link rel="stylesheet" href="css/home.css">
 <link rel="stylesheet" href="css/nav-footer.css">
@@ -145,91 +171,73 @@
 
 <section class="featured" id="featured">
     <div class="section-title">
-        <h2 class="text text-center fade-up">Nossas Categorias</h2>
+        <h2 class="text text-center">Nossas Categorias</h2>
     </div>
     <div class="products-grid">
-        <?php
-        foreach ($nomeClasseProd as $item): ?>
-            <div class="product-card">
-                <span class="tag"></span>
-                <img src="<?= $item["imagem"] ?? "" ?>" alt="<?= htmlspecialchars($item["nome"]) ?>" class="product-img">
-                <div class="product-info">
-                    <h2 class="text text-center" id="h2p"><?= htmlspecialchars($item["nome"]) ?></h2>
-                    <span class="price"></span>
-                    <a href="<?= $item["href"] ?>" class="btn">Saiba Mais</a>
+        <?php foreach ($categorias as $cat => $produtosCat): ?>
+            <?php if (!empty($produtosCat)): ?>
+                <div class="product-card">
+                    <img src="<?= htmlspecialchars($produtosCat[0]['diretorio_imagem']) ?>"
+                        alt="<?= htmlspecialchars($produtosCat[0]['descricao']) ?>" class="product-img">
+                    <div class="product-info">
+                        <h2 class="text text-center"><?= ucfirst($cat) ?></h2>
+                        <a href="produto.php?categoria=<?= $cat ?>" class="btn">Saiba Mais</a>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 </section>
 
 <section class="section-produtos-novidades">
     <h2 class="text text-center">Conheça as novidades</h2>
-
-    <div class="swiper produtosSwiper">
+    <div class="swiper novidadesSwiper">
         <div class="swiper-wrapper">
-
-            <?php foreach ($moveis as $novidade): ?>
-                <?php if ($novidade["novidade"] === "Sim"): ?>
-                    <div class="swiper-slide slideInUp">
-                        <div class="card-produto">
-                            <!-- <span class="desconto">-1%</span> -->
-                            <img src="<?= $novidade["foto"] ?>" alt="<?= htmlspecialchars($novidade["nome"]) ?>">
-                            <div class="tags">
-                                <span class="tag novidade">Novidade</span>
-                            </div>
-                            <h3><?= htmlspecialchars($novidade["nome"]) ?></h3>
-                            <div class="avaliacao">★★★★★</div>
-                            <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
-                            <p class="preco-info"><?= $novidade["valorAP"] ?></p>
-                            <!-- <button class="btn-verde">Ver produto</button> -->
-                            <button class="btn-whatsapp" data-phone="5544999870212">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                Comprar no WhatsApp
-                            </button>
-                        </div>
+            <?php foreach ($novidades as $item): ?>
+                <div class="swiper-slide">
+                    <div class="card-produto">
+                        <img src="<?= htmlspecialchars($item['diretorio_imagem']) ?>"
+                            alt="<?= htmlspecialchars($item['descricao']) ?>">
+                        <div class="tags"><span class="tag novidade">Novidade</span></div>
+                        <h3><?= htmlspecialchars($item['descricao']) ?></h3>
+                        <div class="avaliacao">★★★★★</div>
+                        <p class="preco-novo">R$ <?= number_format($item['precoAV'], 2, ',', '.') ?></p>
+                        <p class="preco-info">R$ <?= number_format($item['precoAP'], 2, ',', '.') ?></p>
+                        <button class="btn-whatsapp" data-phone="5544999870212">
+                            <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
+                        </button>
                     </div>
-                <?php endif; ?>
+                </div>
             <?php endforeach; ?>
-
-
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
 
-
-    <h2 class="text text-center" id="escrita-vendidos">Os mais Vendidos</h2>
-
-    <div class="swiper produtosSwiper">
+    <h2 class="text text-center">Os mais Vendidos</h2>
+    <div class="swiper maisVendidosSwiper">
         <div class="swiper-wrapper">
-
-            <?php foreach ($moveis as $novidade): ?>
-                <?php if ($novidade["maisVendido"] === "Sim"): ?>
-                    <div class="swiper-slide slideInUp">
-                        <div class="card-produto">
-                            <img src="<?= $novidade["foto"] ?>" alt="<?= htmlspecialchars($novidade["nome"]) ?>">
-                            <h3><?= htmlspecialchars($novidade["nome"]) ?></h3>
-                            <div class="avaliacao">★★★★★</div>
-                            <p class="preco-novo"><?= $novidade["valorAV"] ?></p>
-                            <p class="preco-info"><?= $novidade["valorAP"] ?></p>
-                            <!-- <button class="btn-verde">Ver produto</button> -->
-                            <button class="btn-whatsapp" data-phone="5544999870212">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                Comprar no WhatsApp
-                            </button>
-                        </div>
+            <?php foreach ($maisVendidos as $item): ?>
+                <div class="swiper-slide">
+                    <div class="card-produto">
+                        <img src="<?= htmlspecialchars($item['diretorio_imagem']) ?>"
+                            alt="<?= htmlspecialchars($item['descricao']) ?>">
+                        <h3><?= htmlspecialchars($item['descricao']) ?></h3>
+                        <div class="avaliacao">★★★★★</div>
+                        <p class="preco-novo">R$ <?= number_format($item['precoAV'], 2, ',', '.') ?></p>
+                        <p class="preco-info">R$ <?= number_format($item['precoAP'], 2, ',', '.') ?></p>
+                        <button class="btn-whatsapp" data-phone="5544999870212">
+                            <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
+                        </button>
                     </div>
-                <?php endif; ?>
+                </div>
             <?php endforeach; ?>
-
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
-
 </section>
 
 <section id="testimonials">

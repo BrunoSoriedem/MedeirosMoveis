@@ -1,4 +1,17 @@
+<?php
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->query("SELECT * FROM produtos");
+    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro no banco: " . $e->getMessage());
+}
+?>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/nav-footer.css">
 <link rel="stylesheet" href="css/produtos.css">
 
 <style>
@@ -19,34 +32,35 @@
         </div>
 
         <div class="products-grid" id="products-grid">
-            <?php
-            foreach ($moveis as $item) {
-                if ($item["moveis"] === "Sim") $categoria = "moveis";
-                elseif ($item["planejados"] === "Sim") $categoria = "planejados";
-                elseif ($item["estofados"] === "Sim") $categoria = "estofados";
-                elseif ($item["eletros"] === "Sim") $categoria = "eletros";
+            <?php foreach ($produtos as $item):
+                if ($item["moveis"] === "sim") {
+                    $categoria = "moveis";
+                } elseif ($item["planejados"] === "sim") {
+                    $categoria = "planejados";
+                } elseif ($item["estofados"] === "sim") {
+                    $categoria = "estofados";
+                } elseif ($item["eletros"] === "sim") {
+                    $categoria = "eletros";
+                } else {
+                    continue;
+                }
             ?>
                 <div class="card-produto" data-category="<?= $categoria ?>">
-                    <img src="<?= $item["foto"] ?>" alt="<?= htmlspecialchars($item["nome"]) ?>">
-                    <div class="tags">
-                    </div>
-                    <h3><?= htmlspecialchars($item["nome"]) ?></h3>
+                    <img src="<?= htmlspecialchars($item["diretorio_imagem"]) ?>"
+                        alt="<?= htmlspecialchars($item["descricao"]) ?>">
+                    <h3><?= htmlspecialchars($item["descricao"]) ?></h3>
                     <div class="avaliacao">★★★★★</div>
-                    <p class="preco-novo"><?= $item["valorAV"] ?></p>
-                    <p class="preco-info"><?= $item["valorAP"] ?></p>
+                    <p class="preco-novo">R$ <?= number_format($item["precoAV"], 2, ',', '.') ?></p>
+                    <p class="preco-info">R$ <?= number_format($item["precoAP"], 2, ',', '.') ?></p>
                     <button class="btn-whatsapp" data-phone="5544999870212">
                         <i class="fa-brands fa-whatsapp"></i>
                         Comprar no WhatsApp
                     </button>
                 </div>
-            <?php
-            }
-            ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -73,7 +87,6 @@
             });
         }
 
-        // Ativa o botão correto quando a página carrega
         setActiveButton();
 
         function filterAndPaginate() {
@@ -122,10 +135,9 @@
                 currentCategory = btn.getAttribute("data-category");
                 currentPage = 1;
 
-                // Atualiza a URL sem recarregar a página
-                history.pushState(null, null, `?categoria=${currentCategory}`);
+                // history.pushState(null, null, `?categoria=${currentCategory}`);
+                history.pushState(null, null, `produto.php?categoria=${currentCategory}`);
 
-                // Ativa o botão correto
                 setActiveButton();
 
                 filterAndPaginate();
@@ -141,7 +153,7 @@
 
         whatsappButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const phoneNumber = this.getAttribute('data-phone'); // Pega o número do atributo
+                const phoneNumber = this.getAttribute('data-phone');
                 const card = this.closest('.card-produto');
                 const productName = card.querySelector('h3').textContent.trim();
                 const productPrice = card.querySelector('.preco-novo').textContent.trim();

@@ -72,22 +72,22 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li data-aos="fade-left" data-aos-delay="300">
-                                        <a class="dropdown-item" href="/produto?categoria=moveis">
+                                        <a class="dropdown-item" href="/Medeiros-Moveis/produto?categoria=moveis">
                                             <div class="efeito">Móveis</div>
                                         </a>
                                     </li>
                                     <li data-aos="fade-left" data-aos-delay="400">
-                                        <a class="dropdown-item" href="/produto?categoria=planejados">
+                                        <a class="dropdown-item" href="/Medeiros-Moveis/produto?categoria=planejados">
                                             <div class="efeito">Planejados</div>
                                         </a>
                                     </li>
                                     <li data-aos="fade-left" data-aos-delay="500">
-                                        <a class="dropdown-item" href="/produto?categoria=estofados">
+                                        <a class="dropdown-item" href="/Medeiros-Moveis/produto?categoria=estofados">
                                             <div class="efeito">Estofados</div>
                                         </a>
                                     </li>
                                     <li data-aos="fade-left" data-aos-delay="600">
-                                        <a class="dropdown-item" href="/produto?categoria=eletros">
+                                        <a class="dropdown-item" href="/Medeiros-Moveis/produto?categoria=eletros">
                                             <div class="efeito">Eletrodomésticos</div>
                                         </a>
                                     </li>
@@ -219,8 +219,6 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
         </script>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/aos.js"></script>
-        <!-- <script src="js/contagem.js"></script>
-        <script src="js/rolar.js"></script> -->
         <script src="js/swiper.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -233,7 +231,6 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
                 offset: 100
             });
 
-            // 1. Efeito de opacidade no scroll
             const scrollConfig = {
                 startFade: 50,
                 maxScroll: 400,
