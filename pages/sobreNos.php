@@ -1,3 +1,15 @@
+<?php
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->query("SELECT id, name, funcao, diretorio_imagem FROM funcionarios ORDER BY id ASC");
+    $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro no banco: " . $e->getMessage());
+}
+?>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
 <link rel="stylesheet" href="css/sobreNos.css">
 <link rel="stylesheet" href="css/nav-footer.css">
@@ -149,56 +161,56 @@
     </div>
 
     <div class="team-grid">
-        <!-- Primeira fileira - 3 funcionários -->
+        <!-- Primeira fileira - até 3 funcionários -->
         <div class="team-row">
             <?php
-            for ($i = 0; $i < 3; $i++) {
+            for ($i = 0; $i < 3 && $i < count($funcionarios); $i++) {
                 $f = $funcionarios[$i];
                 echo '
-            <div class="team-member">
-                <div class="member-photo">
-                    <img src="' . $f["capa"] . '">
+        <div class="team-member">
+            <div class="member-photo">
+                <img src="' . $f["diretorio_imagem"] . '">
+            </div>
+            <div class="member-info">
+                <div class="info-header">
+                    <p class="info-name">' . $f["funcao"] . '</p>
                 </div>
-                <div class="member-info">
-                    <div class="info-header">
-                        <p class="info-name">' . $f["funcao"] . '</p>
-                    </div>
-                    <div class="info-details">
-                        <div class="info-item">
-                            <div class="info-text">
-                                <span class="info-value">' . $f["funcionario"] . '</span>
-                            </div>
+                <div class="info-details">
+                    <div class="info-item">
+                        <div class="info-text">
+                            <span class="info-value">' . $f["name"] . '</span>
                         </div>
                     </div>
                 </div>
-            </div>';
+            </div>
+        </div>';
             }
             ?>
         </div>
-        <!-- Segunda fileira - 4 funcionários -->
 
+        <!-- Segunda fileira - do 4º ao 7º -->
         <div class="team-row">
             <?php
-            for ($i = 3; $i < 7; $i++) {
+            for ($i = 3; $i < 7 && $i < count($funcionarios); $i++) {
                 $f = $funcionarios[$i];
                 echo '
-            <div class="team-member">
-                <div class="member-photo">
-                    <img src="' . $f["capa"] . '">
-                </div>
-                <div class="member-info">
-                    <div class="info-header">
-                        <p class="info-name">' . $f["funcao"] . '</p>
-                    </div>
-                    <div class="info-details">
-                        <div class="info-item">
-                            <div class="info-text">
-                                <span class="info-value">' . $f["funcionario"] . '</span>
-                            </div>
-                        </div>
+        <div class="team-member">
+            <div class="member-photo">
+                <img src="' . $f["diretorio_imagem"] . '">
+        </div>
+        <div class="member-info">
+            <div class="info-header">
+                <p class="info-name">' . $f["funcao"] . '</p>
+            </div>
+            <div class="info-details">
+                <div class="info-item">
+                    <div class="info-text">
+                        <span class="info-value">' . $f["name"] . '</span>
                     </div>
                 </div>
-            </div>';
+            </div>
+        </div>
+    </div>';
             }
             ?>
         </div>
