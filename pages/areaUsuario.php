@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario_id'])) {
 if ($logado) {
     try {
         $pdo = new PDO(
-            "mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8",
+            "mysql:host=10.10.8.82;dbname=dados-medeirosmoveis;charset=utf8",
             "root",
             "dados-medeirosMoveis",
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
