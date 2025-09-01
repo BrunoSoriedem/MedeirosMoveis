@@ -28,12 +28,16 @@ class ContasCadastradas
     #[Column]
     private DateTime $data_cadastro;
 
-    public function __construct(string $name, string $email, string $senha, DateTime $data_cadastro)
+    #[Column]
+    private string $perfil_Acesso;
+
+    public function __construct(string $name, string $email, string $senha, DateTime $data_cadastro, string $perfil_Acesso)
     {
         $this->name = $name;
         $this->email = $email;
         $this->senha = $senha;
         $this->data_cadastro = $data_cadastro;
+        $this->perfil_Acesso = $perfil_Acesso;
     }
 
     public function getId(): int
@@ -59,6 +63,11 @@ class ContasCadastradas
     public function getDataCadastro(): DateTime
     {
         return $this->data_cadastro;
+    }
+
+    public function getPerfil(): string
+    {
+        return $this->perfil_Acesso;
     }
 
     public function save(): void

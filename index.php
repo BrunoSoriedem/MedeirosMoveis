@@ -104,16 +104,26 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
                                     <div class="efeito">Contato</div>
                                 </a>
                             </li>
-                            <li class="nav-item" data-aos="fade-up" data-aos-delay="500"
+                            <li class="nav-item user-dropdown" data-aos="fade-up" data-aos-delay="500"
                                 style="display:flex; align-items:center;">
-                                <i class="fa-solid fa-user" id="icon-user"></i>
                                 <span class="escrita-enter">
-                                    <span class="entrar-ou">
-                                        <a href="entrar" class="cadastrar-strong">Entre</a>
-                                        <span class="escrita-ou">ou</span>
-                                    </span>
-                                    <a href="cadastrar" class="cadastrar-strong cadastrar-baixo">Cadastre-se</a>
+                                    <i class="fa-solid fa-circle-user" id="icon-user">
+                                    </i>
                                 </span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="entrar">
+                                            <div class="efeito">Entrar</div>
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="cadastrar">
+                                            <div class="efeito">Cadastrar</div>
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="areaUsuario">
+                                            <div class="efeito">Área do Cliente</div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -214,86 +224,99 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
                 </p>
             </div>
         </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
-        </script>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/swiper.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="js/index.js"></script>
-        <script>
-            AOS.init({
-                duration: 1000,
-                easing: 'ease-in-out',
-                once: false,
-                offset: 100
-            });
-
-            const scrollConfig = {
-                startFade: 50,
-                maxScroll: 400,
-                minOpacity: 0.85,
-                shadowStart: 'rgba(0, 0, 0, 0.3)',
-                shadowEnd: 'rgba(0, 0, 0, 0.5)'
-            };
-
-            function updateHeader() {
-                const scrollTop = $(window).scrollTop();
-                const header = $('.header');
-                const navbar = $('.navbar');
-
-                let opacity = 1;
-                if (scrollTop > scrollConfig.startFade) {
-                    const progress = Math.min((scrollTop - scrollConfig.startFade) /
-                        (scrollConfig.maxScroll - scrollConfig.startFade), 1);
-                    opacity = 1 - (progress * (1 - scrollConfig.minOpacity));
-                }
-
-                header.css('opacity', opacity);
-
-                if (scrollTop > 50) {
-                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowEnd}`);
-                } else {
-                    navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowStart}`);
-                }
-            }
-        </script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const produtosDropdown = document.querySelector('.nav-item.dropdown');
-                const produtosLink = produtosDropdown.querySelector('.dropdown-toggle');
-
-                const currentPage = window.location.pathname.split('/').pop();
-                const isProdutoPage = currentPage === 'produto' || currentPage.includes('produto?');
-
-                produtosLink.addEventListener('click', function(e) {
-                    if (isProdutoPage) {
-                        e.preventDefault();
-                        const dropdownMenu = this.nextElementSibling;
-                        dropdownMenu.classList.toggle('show');
-                    }
-                });
-
-                document.addEventListener('click', function(e) {
-                    if (!produtosDropdown.contains(e.target)) {
-                        const dropdownMenu = produtosDropdown.querySelector('.dropdown-menu');
-                        dropdownMenu.classList.remove('show');
-                    }
-                });
-
-                const dropdownItems = produtosDropdown.querySelectorAll('.dropdown-item');
-                dropdownItems.forEach(item => {
-                    item.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                    });
-                });
-            });
-        </script>
-
-
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+</script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/swiper.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/index.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: false,
+        offset: 100
+    });
 
-</html>
+    const scrollConfig = {
+        startFade: 50,
+        maxScroll: 400,
+        minOpacity: 0.85,
+        shadowStart: 'rgba(0, 0, 0, 0.3)',
+        shadowEnd: 'rgba(0, 0, 0, 0.5)'
+    };
+
+    function updateHeader() {
+        const scrollTop = $(window).scrollTop();
+        const header = $('.header');
+        const navbar = $('.navbar');
+
+        let opacity = 1;
+        if (scrollTop > scrollConfig.startFade) {
+            const progress = Math.min((scrollTop - scrollConfig.startFade) /
+                (scrollConfig.maxScroll - scrollConfig.startFade), 1);
+            opacity = 1 - (progress * (1 - scrollConfig.minOpacity));
+        }
+
+        header.css('opacity', opacity);
+
+        if (scrollTop > 50) {
+            navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowEnd}`);
+        } else {
+            navbar.css('box-shadow', `0 2px 20px ${scrollConfig.shadowStart}`);
+        }
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const produtosDropdown = document.querySelector('.nav-item.dropdown');
+        const produtosLink = produtosDropdown.querySelector('.dropdown-toggle');
+
+        const currentPage = window.location.pathname.split('/').pop();
+        const isProdutoPage = currentPage === 'produto' || currentPage.includes('produto?');
+
+        produtosLink.addEventListener('click', function(e) {
+            if (isProdutoPage) {
+                e.preventDefault();
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('show');
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!produtosDropdown.contains(e.target)) {
+                const dropdownMenu = produtosDropdown.querySelector('.dropdown-menu');
+                dropdownMenu.classList.remove('show');
+            }
+        });
+
+        const dropdownItems = produtosDropdown.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const userDropdown = document.querySelector('.user-dropdown');
+        const dropdownMenu = userDropdown.querySelector('.dropdown-menu');
+
+        userDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.style.display =
+                dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function() {
+            dropdownMenu.style.display = 'none';
+        });
+    });
+</script>

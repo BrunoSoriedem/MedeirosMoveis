@@ -175,17 +175,21 @@ foreach ($produtos as $p) {
     </div>
     <div class="products-grid">
         <?php foreach ($categorias as $cat => $produtosCat): ?>
-            <?php if (!empty($produtosCat)): ?>
-                <div class="product-card">
+            <div class="product-card">
+
+                <?php if (!empty($produtosCat)): ?>
+
                     <img src="<?= htmlspecialchars($produtosCat[0]['diretorio_imagem']) ?>"
                         alt="<?= htmlspecialchars($produtosCat[0]['descricao']) ?>" class="product-img">
                     <div class="product-info">
                         <h2 class="text text-center"><?= ucfirst($cat) ?></h2>
                         <a href="produto.php?categoria=<?= $cat ?>" class="btn">Saiba Mais</a>
                     </div>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
+
         <?php endforeach; ?>
+
     </div>
 </section>
 
@@ -194,7 +198,7 @@ foreach ($produtos as $p) {
     <div class="swiper novidadesSwiper">
         <div class="swiper-wrapper">
             <?php foreach ($novidades as $item): ?>
-                <div class="swiper-slide">
+                <div class="swiper-slide slideInUp">
                     <div class="card-produto">
                         <img src="<?= htmlspecialchars($item['diretorio_imagem']) ?>"
                             alt="<?= htmlspecialchars($item['descricao']) ?>">
@@ -219,7 +223,7 @@ foreach ($produtos as $p) {
     <div class="swiper maisVendidosSwiper">
         <div class="swiper-wrapper">
             <?php foreach ($maisVendidos as $item): ?>
-                <div class="swiper-slide">
+                <div class="swiper-slide slideInUp">
                     <div class="card-produto">
                         <img src="<?= htmlspecialchars($item['diretorio_imagem']) ?>"
                             alt="<?= htmlspecialchars($item['descricao']) ?>">
@@ -489,90 +493,73 @@ foreach ($produtos as $p) {
     </section>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        function animateElements() {
-            const elements = document.querySelectorAll('.fade-up');
-            const windowHeight = window.innerHeight;
-
-            elements.forEach((element, index) => {
-                element.style.transitionDelay = `${index * 0.1}s`;
-
-                const elementPosition = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-
-                if (elementPosition < windowHeight - elementVisible) {
-                    element.classList.add('active');
+        var novidadesSwiper = new Swiper(".novidadesSwiper", {
+            slidesPerView: 5,
+            spaceBetween: 15,
+            loop: true,
+            navigation: {
+                nextEl: ".novidadesSwiper .swiper-button-next",
+                prevEl: ".novidadesSwiper .swiper-button-prev",
+            },
+            pagination: {
+                el: ".novidadesSwiper .swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1
+                },
+                640: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 5
                 }
-            });
-        }
-
-        animateElements();
-
-        window.addEventListener('scroll', animateElements);
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
-
-        whatsappButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const card = this.closest('.card-produto');
-                const productName = card.querySelector('h3').textContent.trim();
-                const productPrice = card.querySelector('.preco-novo').textContent.trim();
-
-                const message =
-                    `Olá, gostaria de comprar o produto:%0A%0A*Produto:* ${productName}%0A*Preço:* ${productPrice}%0A%0APoderia me ajudar?`;
-
-                const whatsappUrl =
-                    `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
-
-                window.open(whatsappUrl, '_blank');
-            });
-        });
-    });
-</script>
-<script>
-    function animateCounter(element, targetValue, duration) {
-        let start = 0;
-        const increment = targetValue / (duration / 16);
-
-        const timer = setInterval(() => {
-            start += increment;
-            if (start >= targetValue) {
-                element.textContent = targetValue;
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(start);
-            }
-        }, 16);
-    }
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(document.getElementById('counter1'), 20, 1000);
-                animateCounter(document.getElementById('counter2'), 9500, 1000);
-                animateCounter(document.getElementById('counter3'), 15, 1000);
-                observer.disconnect();
             }
         });
-    }, {
-        threshold: 0.5
-    });
 
-    observer.observe(document.querySelector('.stats-section'));
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+        var maisVendidosSwiper = new Swiper(".maisVendidosSwiper", {
+            slidesPerView: 5,
+            spaceBetween: 15,
+            loop: true,
+            navigation: {
+                nextEl: ".maisVendidosSwiper .swiper-button-next",
+                prevEl: ".maisVendidosSwiper .swiper-button-prev",
+            },
+            pagination: {
+                el: ".maisVendidosSwiper .swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1
+                },
+                640: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 5
+                }
+            }
+        });
+
+        // Botão do WhatsApp
         const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
-
         whatsappButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const phoneNumber = this.getAttribute('data-phone'); // Pega o número do atributo
+                const phoneNumber = this.getAttribute('data-phone');
                 const card = this.closest('.card-produto');
                 const productName = card.querySelector('h3').textContent.trim();
                 const productPrice = card.querySelector('.preco-novo').textContent.trim();
@@ -587,98 +574,3 @@ foreach ($produtos as $p) {
         });
     });
 </script>
-<!-- function resetAnimation() {
-const card = document.getElementById('product-card');
-card.classList.remove('exit');
-card.style.animation = 'none';
-
-// Força o reflow
-card.offsetHeight;
-
-// Reaplica a animação
-card.style.animation = 'slideInUp 0.8s ease-out';
-
-// Reaplica animações dos elementos filhos
-const elements = card.querySelectorAll('*');
-elements.forEach((el, index) => {
-el.style.animation = 'none';
-el.offsetHeight;
-
-// Reaplica animações específicas baseadas no elemento
-if (el.classList.contains('desconto')) {
-el.style.animation = 'bounceIn 0.6s ease-out 0.4s both';
-} else if (el.tagName === 'IMG') {
-el.style.animation = 'fadeInScale 0.8s ease-out 0.2s both';
-} else if (el.classList.contains('tags')) {
-el.style.animation = 'slideInLeft 0.6s ease-out 0.3s both';
-} else if (el.tagName === 'H3') {
-el.style.animation = 'slideInUp 0.6s ease-out 0.4s both';
-} else if (el.classList.contains('avaliacao')) {
-el.style.animation = 'slideInRight 0.6s ease-out 0.5s both';
-} else if (el.classList.contains('preco-antigo')) {
-el.style.animation = 'slideInLeft 0.6s ease-out 0.6s both';
-} else if (el.classList.contains('preco-novo')) {
-el.style.animation = 'fadeInScale 0.6s ease-out 0.7s both';
-} else if (el.classList.contains('preco-info')) {
-el.style.animation = 'slideInUp 0.6s ease-out 0.8s both';
-} else if (el.classList.contains('btn-verde')) {
-el.style.animation = 'slideInUp 0.6s ease-out 0.9s both';
-} else if (el.classList.contains('btn-whatsapp')) {
-el.style.animation = 'slideInUp 0.6s ease-out 1s both';
-}
-});
-}
-
-function triggerExit() {
-const card = document.getElementById('product-card');
-card.classList.add('exit');
-
-// Remove o card após a animação e o reinsere
-setTimeout(() => {
-card.style.display = 'none';
-setTimeout(() => {
-card.style.display = 'block';
-resetAnimation();
-}, 500);
-}, 500);
-}
-
-// Adiciona efeitos sonoros visuais aos botões
-document.querySelectorAll('.btn-verde, .btn-whatsapp').forEach(btn => {
-btn.addEventListener('click', function(e) {
-// Cria efeito ripple
-const ripple = document.createElement('span');
-const rect = this.getBoundingClientRect();
-const size = Math.max(rect.width, rect.height);
-const x = e.clientX - rect.left - size / 2;
-const y = e.clientY - rect.top - size / 2;
-
-ripple.style.width = ripple.style.height = size + 'px';
-ripple.style.left = x + 'px';
-ripple.style.top = y + 'px';
-ripple.style.position = 'absolute';
-ripple.style.borderRadius = '50%';
-ripple.style.background = 'rgba(255,255,255,0.6)';
-ripple.style.transform = 'scale(0)';
-ripple.style.animation = 'ripple 0.6s linear';
-ripple.style.pointerEvents = 'none';
-
-this.appendChild(ripple);
-
-setTimeout(() => {
-ripple.remove();
-}, 600);
-});
-});
-
-// CSS para o efeito ripple
-const style = document.createElement('style');
-style.textContent = `
-@keyframes ripple {
-to {
-transform: scale(4);
-opacity: 0;
-}
-}
-`;
-document.head.appendChild(style);*/ -->
