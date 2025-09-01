@@ -214,6 +214,32 @@ try {
             }
             ?>
         </div>
+
+        <div class="team-row">
+            <?php
+            for ($i = 7; $i < 11 && $i < count($funcionarios); $i++) {
+                $f = $funcionarios[$i];
+                echo '
+        <div class="team-member">
+            <div class="member-photo">
+                <img src="' . $f["diretorio_imagem"] . '">
+        </div>
+        <div class="member-info">
+            <div class="info-header">
+                <p class="info-name">' . $f["funcao"] . '</p>
+            </div>
+            <div class="info-details">
+                <div class="info-item">
+                    <div class="info-text">
+                        <span class="info-value">' . $f["name"] . '</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>';
+            }
+            ?>
+        </div>
     </div>
 
 
