@@ -43,12 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="login-form">
                 <?php if (isset($_SESSION['erro_login'])): ?>
-                <div class="alert alert-danger">
-                    <?php
+                    <div class="alert alert-danger">
+                        <?php
                         echo $_SESSION['erro_login'];
                         unset($_SESSION['erro_login']);
                         ?>
-                </div>
+                    </div>
                 <?php endif; ?>
 
                 <form method="post" action="">
@@ -96,16 +96,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <script>
-function togglePassword(inputId, button) {
-    const input = document.getElementById(inputId);
-    if (input.type === "password") {
-        input.type = "text";
-        button.innerHTML = '<i class="fas fa-eye-slash"></i>';
-    } else {
-        input.type = "password";
-        button.innerHTML = '<i class="fas fa-eye"></i>';
+    function togglePassword(inputId, button) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+            input.type = "text";
+            button.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+            input.type = "password";
+            button.innerHTML = '<i class="fas fa-eye"></i>';
+        }
     }
-}
 </script>
 </body>
 
