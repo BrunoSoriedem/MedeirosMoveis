@@ -11,7 +11,7 @@ $logado = isset($_SESSION['usuario_id']);
 if ($logado) {
     try {
         $pdo = new PDO(
-            "mysql:host=10.10.8.82;dbname=dados-medeirosmoveis;charset=utf8",
+            "mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8",
             "root",
             "dados-medeirosMoveis",
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
@@ -108,8 +108,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
         <?php if (!$logado): ?>
             <div class="aviso">Você precisa estar logado para acessar a área do cliente.</div>
             <div class="btn-container">
-                <a href="entrar" class="btn-entrar">Entrar</a>
-                <a href="cadastrar" class="btn-cadastrar">Cadastrar</a>
+                <a href="entrar" class="btn">Entrar</a>
+                <a href="cadastrar" class="btn" id="cadastrar-btn">Cadastrar</a>
             </div>
         <?php else: ?>
             <div class="avatar"><?= $iniciais ?></div>

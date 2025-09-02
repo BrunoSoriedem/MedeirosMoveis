@@ -3,6 +3,35 @@ session_start();
 $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
 ?>
 
+<?php
+
+try {
+    $pdo = new PDO(
+        "mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8",
+        "root",
+        "dados-medeirosMoveis"
+    );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $id_usuario = $_SESSION['usuario_id'] ?? null;
+    $perfil = null;
+
+    if ($id_usuario) {
+        $stmt = $pdo->prepare("SELECT perfil_acesso FROM contascadastradas WHERE id = ?");
+        $stmt->execute([$id_usuario]);
+        $perfil = $stmt->fetchColumn();
+    }
+} catch (PDOException $e) {
+    die("Erro no banco: " . $e->getMessage());
+}
+
+$perfil = strtolower(trim($perfil));
+
+$temAcessoCadastro = ($perfil === 'master');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -104,6 +133,28 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
                                     <div class="efeito">Contato</div>
                                 </a>
                             </li>
+
+                            <?php if ($temAcessoCadastro): ?>
+                                <li class="nav-item dropdown" data-aos="fade-up" data-aos-delay="200">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <div class="efeito">Cadastros</div>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li data-aos="fade-left" data-aos-delay="300">
+                                            <a class="dropdown-item" href="cadFuncionarios">
+                                                <div class="efeito">Funcionários</div>
+                                            </a>
+                                        </li>
+                                        <li data-aos="fade-left" data-aos-delay="600">
+                                            <a class="dropdown-item" href="cadProdutos">
+                                                <div class="efeito">Produtos</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
+
                             <li class="nav-item user-dropdown" data-aos="fade-up" data-aos-delay="500"
                                 style="display:flex; align-items:center;">
                                 <span class="escrita-enter">
@@ -125,6 +176,7 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
                                     </li>
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
                 </div>
