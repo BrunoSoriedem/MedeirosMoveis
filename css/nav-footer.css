@@ -212,10 +212,6 @@ main {
     z-index: 1000;
 }
 
-.user-dropdown .dropdown-menu li {
-    border-bottom: 1px solid #eee;
-}
-
 .user-dropdown .dropdown-menu li:last-child {
     border-bottom: none;
 }
