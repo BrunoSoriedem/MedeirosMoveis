@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/sessao.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
 function senhaValida($senha)
@@ -97,8 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 }
 ?>
 
-
-
 <link rel="stylesheet" href="css/nav-footer.css">
 <link rel="stylesheet" href="css/areaUsuario.css">
 
@@ -123,7 +122,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
             </div>
 
             <div class="alterar-senha">
-                <button id="btnToggleForm" class="btn-trocasenha">Alterar Senha</button>
+                <div class="btn-container">
+                    <a class="btn-trocasenha" id="trocasenha-btn">Alterar Senha</a>
+                    <a class="btn-sairConta">Sair da Conta</a>
+                </div>
 
                 <form id="formSenha" class="alterar-senha-form login-form" method="POST" action=""
                     style="display: <?= !empty($msgSenha) ? 'block' : 'none' ?>;">
@@ -182,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 </div>
 
 <script>
-    document.getElementById("btnToggleForm").addEventListener("click", function() {
+    document.getElementById("trocasenha-btn").addEventListener("click", function() {
         const form = document.getElementById("formSenha");
         form.style.display = (form.style.display === "none" || form.style.display === "") ? "block" : "none";
     });
@@ -199,4 +201,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
             button.innerHTML = '<i class="fas fa-eye"></i>';
         }
     }
+</script>
+
+<script>
+    document.querySelector(".btn-sairConta").addEventListener("click", function(e) {
+        e.preventDefault();
+        if (confirm("Tem certeza que deseja sair da conta?")) {
+            window.location.href = "logout";
+        }
+    });
 </script>
