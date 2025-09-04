@@ -54,7 +54,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 180px;
+    padding: 120px;
 }
 
 .cliente-box {
@@ -176,21 +176,56 @@ h2::after {
     transform: translateY(-5px);
 }
 
+.btn-sairConta {
+    padding: 14px 15px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid rgb(222, 8, 8);
+    background: rgb(222, 8, 8);
+    color: var(--white);
+    box-shadow: var(--shadow-medium);
+    text-decoration: none;
+}
+
+.btn-sairConta:hover {
+    padding: 14px 15px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid rgb(222, 8, 8);
+    background: var(--white);
+    color: rgb(222, 8, 8);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
 .btn-trocasenha {
     padding: 14px 15px;
-    border-radius: 12px;
     font-weight: bold;
+    border-radius: 12px;
     cursor: pointer;
     transition: var(--transition);
     border: 2px solid var(--primary-gold);
-}
-
-
-.btn-trocasenha {
-    width: 50%;
     background: var(--primary-gold);
     color: var(--white);
+    text-decoration: none;
     box-shadow: var(--shadow-medium);
+}
+
+.btn-trocasenha:hover {
+    padding: 14px 15px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    background-color: #fff;
+    color: #2ecc71;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #2ecc71;
 }
 
 .alterar-senha button:hover {

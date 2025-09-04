@@ -1,3 +1,37 @@
+<?php
+require_once __DIR__ . '/../config/sessao.php';
+
+use App\Model\EmailEnviados;
+use App\Model\Database;
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['Nome'] ?? '';
+    $telefone = $_POST['Telefone'] ?? '';
+    $email = $_POST['Email'] ?? '';
+    $cidade = $_POST['Cidade'] ?? '';
+    $formaEncontro = $_POST['categoria'] ?? '';
+    $assunto = $_POST['Assunto'] ?? '';
+    $mensagem = $_POST['mensagem'] ?? '';
+    $data_envio = new \DateTime();
+
+
+    $emailEnviado = new emailEnviado(
+        $name,
+        $telefone,
+        $email,
+        $cidade,
+        $formaEncontro,
+        $assunto,
+        $mensagem,
+        $data_envio
+    );
+
+    $emailEnviado->save();
+}
+?>
+
 <link rel="stylesheet" href="css/contato.css">
 <link rel="stylesheet" href="css/nav-footer.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../config/sessao.php';
+?>
+
 <link rel="stylesheet" href="css/nav-footer.css">
 
 <style>
