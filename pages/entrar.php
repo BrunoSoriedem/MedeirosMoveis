@@ -1,4 +1,7 @@
 <?php
+
+use App\Model\ContasCadastradas;
+
 require_once __DIR__ . '/../config/sessao.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['loginEmail'] ?? '';
@@ -11,6 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("SELECT id, name, email, senha FROM contasCadastradas WHERE email = ?");
         $stmt->execute([$email]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+        $usuario = ContasCadastradas::findByEmail($email);
+
+        $isValid = $usuario->login();
 
         if ($usuario && password_verify($senha, $usuario['senha'])) {
             $_SESSION['usuario_id']   = $usuario['id'];
@@ -43,12 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="login-form">
                 <?php if (isset($_SESSION['erro_login'])): ?>
-                <div class="alert alert-danger">
-                    <?php
+                    <div class="alert alert-danger">
+                        <?php
                         echo $_SESSION['erro_login'];
                         unset($_SESSION['erro_login']);
                         ?>
-                </div>
+                    </div>
                 <?php endif; ?>
 
                 <form method="post" action="">
@@ -96,16 +104,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <script>
-function togglePassword(inputId, button) {
-    const input = document.getElementById(inputId);
-    if (input.type === "password") {
-        input.type = "text";
-        button.innerHTML = '<i class="fas fa-eye-slash"></i>';
-    } else {
-        input.type = "password";
-        button.innerHTML = '<i class="fas fa-eye"></i>';
+    function togglePassword(inputId, button) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+            input.type = "text";
+            button.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+            input.type = "password";
+            button.innerHTML = '<i class="fas fa-eye"></i>';
+        }
     }
-}
 </script>
 </body>
 
