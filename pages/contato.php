@@ -1,23 +1,26 @@
 <?php
 require_once __DIR__ . '/../config/sessao.php';
 
-use App\Model\EmailEnviados;
-use App\Model\Database;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['Nome'] ?? '';
-    $telefone = $_POST['Telefone'] ?? '';
-    $email = $_POST['Email'] ?? '';
-    $cidade = $_POST['Cidade'] ?? '';
-    $formaEncontro = $_POST['categoria'] ?? '';
-    $assunto = $_POST['Assunto'] ?? '';
-    $mensagem = $_POST['mensagem'] ?? '';
-    $data_envio = new \DateTime();
+use App\Model\EmailEnviados;
+use App\Model\Database;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use App\Model\User;
 
+if ($_POST) {
+    $name           = $_POST['Nome'] ?? '';
+    $telefone       = $_POST['Telefone'] ?? '';
+    $email          = $_POST['Email'] ?? '';
+    $cidade         = $_POST['Cidade'] ?? '';
+    $formaEncontro  = $_POST['Categoria'] ?? '';
+    $assunto        = $_POST['Assunto'] ?? '';
+    $mensagem       = $_POST['Mensagem'] ?? '';
+    $data_envio     = new \DateTime();
 
-    $emailEnviado = new emailEnviado(
+    $emailEnviados = new EmailEnviados(
         $name,
         $telefone,
         $email,
@@ -28,7 +31,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data_envio
     );
 
-    $emailEnviado->save();
+    try {
+        $emailEnviados->save();
+    } catch (\Exception $e) {
+        echo json_encode(['success' => false, 'message' => 'Erro ao salvar no banco: ' . $e->getMessage()]);
+        exit;
+    }
+
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'brunorafamed.com@gmail.com';
+        $mail->Password   = 'erixzfvbavlbkbjg';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        $mail->setFrom('brunorafamed.com@gmail.com', 'Site - Contato');
+
+        $mail->addAddress('brunorafamed.com@gmail.com', 'Responsável');
+
+        $mail->addReplyTo($email, $name);
+
+        $mail->isHTML(true);
+        $mail->Subject = "Novo contato: $assunto";
+        $mail->Body    = "
+        Olá, este email foi enviado pelo site da Medeiros Móveis. <br>
+        <strong>Nome:</strong> {$name}<br>
+        <strong>Telefone:</strong> {$telefone}<br>
+        <strong>Email:</strong> {$email}<br>
+        <strong>Cidade:</strong> {$cidade}<br>
+        <strong>Como nos encontrou:</strong> {$formaEncontro}<br>
+        <strong>Mensagem:</strong><br>" . nl2br($mensagem);
+
+        $mail->send();
+
+        echo json_encode(['success' => true]);
+    } catch (\Exception $e) {
+        echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+    }
+    exit;
 }
 ?>
 
@@ -40,7 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="contact-container">
         <div class="form-box">
             <h2 class="h2-form">Entre em Contato Conosco</h2>
-            <form id="contact-form" action="https://formsubmit.co/brunorafamed.com@gmail.com" method="post">
+            <!-- <form id="contact-form" action="https://formsubmit.co/brunorafamed.com@gmail.com" method="POST"> -->
+            <form id="contact-form" method="POST">
                 <div class="input-group">
                     <label>Nome</label>
                     <input type="text" name="Nome" placeholder="Digite seu Nome" autocomplete="off" required>
@@ -157,11 +203,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         });
 
-        // Envio do formulário
         form.addEventListener('submit', async function(event) {
             event.preventDefault();
 
-            // Validação adicional antes do envio
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
@@ -175,10 +219,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 const response = await fetch(form.action, {
                     method: 'POST',
                     body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
                 });
+
+                // const response = await fetch(form.action, {
+                //     method: 'POST',
+                //     body: new FormData(form),
+                //     headers: {
+                //         'Accept': 'application/json'
+                //     }
+                // });
 
                 if (response.ok) {
                     document.getElementById('sucesso-audio').play();

@@ -115,7 +115,7 @@ class EmailEnviados
     public static function findAll(): array
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(ContasCadastradas::class);
+        $repository = $em->getRepository(EmailEnviados::class);
         return $repository->findAll();
     }
 }
