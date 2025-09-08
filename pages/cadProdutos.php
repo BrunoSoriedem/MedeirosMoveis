@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/sessao.php';
 
 use App\Model\Produtos;
 use App\Model\Database;

@@ -1,6 +1,11 @@
 <?php
+require_once __DIR__ . '/../config/sessao.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 891fed5aa0f9e48a01e0f83338c5b394da45d7c3
 $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
