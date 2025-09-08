@@ -1,9 +1,11 @@
 <?php
+require_once __DIR__ . '/../config/sessao.php';
 
 use App\Model\ContasCadastradas;
 use App\Model\User;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
 
 class PasswordValidator
 {
@@ -50,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email        = $_POST['loginEmail'] ?? '';
     $senha        = $_POST['loginPassword'] ?? '';
     $confirmSenha = $_POST['confirmPassword'] ?? '';
+    $perfilAcesso = $_POST['perfilAcesso'] ?? '';
 
     $validator = new PasswordValidator($senha);
 
@@ -68,7 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $nome,
                     $email,
                     password_hash($senha, PASSWORD_DEFAULT),
-                    $data_cadastro
+                    $data_cadastro,
+                    'Cliente'
                 );
                 $contasCadastradas->save();
 

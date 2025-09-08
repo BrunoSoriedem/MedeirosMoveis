@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../config/sessao.php';
+
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -571,6 +573,58 @@ foreach ($produtos as $p) {
 
                 window.open(whatsappUrl, '_blank');
             });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = [{
+                id: "counter1",
+                target: 20
+            },
+            {
+                id: "counter2",
+                target: 9500
+            },
+            {
+                id: "counter3",
+                target: 15
+            }
+        ];
+
+        const options = {
+            threshold: 0.5
+        };
+
+        const animateCount = (el, target) => {
+            let current = 0;
+            const increment = Math.ceil(target / 25);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = current;
+            }, 30);
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counterConfig = counters.find(c => c.id === entry.target.id);
+                    if (counterConfig) {
+                        animateCount(entry.target, counterConfig.target);
+                        obs.unobserve(entry.target);
+                    }
+                }
+            });
+        }, options);
+
+        counters.forEach(c => {
+            const el = document.getElementById(c.id);
+            if (el) observer.observe(el);
         });
     });
 </script>
