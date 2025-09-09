@@ -13,41 +13,44 @@ use Doctrine\ORM\Mapping\Id;
 
 class Produtos
 {
-    #[Column, Id, GeneratedValue]
+    #[Id]
+    #[Column(type: "integer")]
+    #[GeneratedValue(strategy: "AUTO")]
     private int $id;
 
-    #[Column]
+    #[Column(type: "string", length: 255)]
     private string $descricao;
 
-    #[Column]
+    #[Column(type: "decimal", precision: 10, scale: 2)]
     private float $precoAV;
 
-    #[Column]
+    #[Column(type: "decimal", precision: 10, scale: 2)]
     private float $precoAP;
 
-    #[Column]
+    #[Column(type: "string", length: 150)]
     private string $moveis;
 
-    #[Column]
+    #[Column(type: "string", length: 150)]
     private string $planejados;
 
-    #[Column]
+    #[Column(type: "string", length: 150)]
     private string $estofados;
 
-    #[Column]
+    #[Column(type: "string", length: 150)]
     private string $eletros;
 
-    #[Column]
+    #[Column(type: "string", length: 150)]
     private string $maisVendido;
 
-    #[Column]
+    #[Column(type: "string", length: 150)]
     private string $novidade;
 
-    #[Column]
+    #[Column(type: "blob")]
     private string $diretorio_imagem;
 
-    #[Column]
+    #[Column(type: "datetime")]
     private DateTime $data_cadastro;
+
 
     public function __construct(
         string $descricao,

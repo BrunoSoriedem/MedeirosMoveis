@@ -13,31 +13,33 @@ use Doctrine\ORM\Mapping\Id;
 
 class EmailEnviados
 {
-    #[Column, Id, GeneratedValue]
+    #[Id]
+    #[Column(type: "integer")]
+    #[GeneratedValue(strategy: "AUTO")]
     private int $id;
 
-    #[Column]
+    #[Column(type: "string", length: 100)]
     private string $name;
 
-    #[Column]
+    #[Column(type: "string", length: 20)]
     private string $telefone;
 
-    #[Column]
+    #[Column(type: "string", length: 150, unique: true)]
     private string $email;
 
-    #[Column]
+    #[Column(type: "string", length: 100)]
     private string $cidade;
 
-    #[Column]
+    #[Column(type: "string", length: 100)]
     private string $formaEncontro;
 
-    #[Column]
+    #[Column(type: "string", length: 100)]
     private string $assunto;
 
-    #[Column]
+    #[Column(type: "text")]
     private string $mensagem;
 
-    #[Column]
+    #[Column(type: "datetime")]
     private DateTime $data_envio;
 
     public function __construct(
