@@ -1,10 +1,10 @@
 <?php
 session_start();
+require_once __DIR__ . '/config/sessao.php';
 $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
 ?>
 
 <?php
-
 try {
     $pdo = new PDO(
         "mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8",
@@ -30,7 +30,6 @@ $perfil = strtolower(trim($perfil));
 $temAcessoCadastro = ($perfil === 'master');
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -135,7 +134,7 @@ $temAcessoCadastro = ($perfil === 'master');
                             </li>
 
                             <?php if ($temAcessoCadastro): ?>
-                                <li class="nav-item dropdown" data-aos="fade-up" data-aos-delay="200">
+                                <li class="nav-item dropdown" data-aos="fade-up" data-aos-delay="500">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         <div class="efeito">Cadastros</div>
@@ -155,7 +154,7 @@ $temAcessoCadastro = ($perfil === 'master');
                                 </li>
                             <?php endif; ?>
 
-                            <li class="nav-item user-dropdown" data-aos="fade-up" data-aos-delay="500"
+                            <li class="nav-item user-dropdown" data-aos="fade-up" data-aos-delay="600"
                                 style="display:flex; align-items:center;">
                                 <span class="escrita-enter">
                                     <i class="fa-solid fa-circle-user" id="icon-user">

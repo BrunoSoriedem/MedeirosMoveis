@@ -4,6 +4,7 @@ namespace App\Model;
 
 use App\Core\Database;
 use DateTime;
+use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -31,8 +32,10 @@ class ContasCadastradas
     #[Column]
     private string $perfil_Acesso;
 
+
     public function __construct(string $name, string $email, string $senha, DateTime $data_cadastro, string $perfil_Acesso)
     {
+        $em = Database::getEntityManager();
         $this->name = $name;
         $this->email = $email;
         $this->senha = $senha;
@@ -80,7 +83,16 @@ class ContasCadastradas
     public static function findAll(): array
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(ContasCadastradas::class);
+        $repository = $em->getRepository(CContasCadastradas::class);
         return $repository->findAll();
     }
+
+    public static function findByEmail(string $email): ContasCadastradas
+    {
+        $em = Database::getEntityManager();
+        $repository = $em->getRepository(CContasCadastradas::class);
+        return $repository->findBy(['email' => $email]);
+    }
+
+    public function login(): void {}
 }
