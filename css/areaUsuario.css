@@ -350,3 +350,106 @@ h2::after {
     border: 1px solid #FCA5A5;
     text-align: center;
 }
+
+@media (max-width: 1024px) {
+    .contact-container {
+        padding: 30px;
+        padding-left: 8%;
+        margin: 60px auto;
+    }
+
+    .cliente-container {
+        padding: 60px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 25px;
+        padding-left: 25px;
+        margin: 40px auto;
+    }
+
+    .cliente-container {
+        padding: 40px 20px;
+    }
+
+    .cliente-box {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+
+    .btn,
+    .login-button {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 150px;
+    }
+
+    .contact-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .cliente-container {
+        padding: 20px 10px;
+    }
+
+    .cliente-box {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .subtitulo {
+        font-size: 13px;
+    }
+
+    .info-card {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .btn,
+    .login-button {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+
+    .form-control {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    #cadastrar-btn {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}

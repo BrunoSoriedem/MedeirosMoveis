@@ -14,22 +14,24 @@ use Doctrine\ORM\Mapping\Id;
 
 class ContasCadastradas
 {
-    #[Column, Id, GeneratedValue]
+    #[Id]
+    #[Column(type: "integer")]
+    #[GeneratedValue(strategy: "AUTO")]
     private int $id;
 
-    #[Column]
+    #[Column(type: "string", length: 100)]
     private string $name;
 
-    #[Column]
+    #[Column(type: "string", length: 150, unique: true)]
     private string $email;
 
-    #[Column]
+    #[Column(length: 255)]
     private string $senha;
 
-    #[Column]
+    #[Column(type: "datetime")]
     private DateTime $data_cadastro;
 
-    #[Column]
+    #[Column(length: 50)]
     private string $perfil_Acesso;
 
 
@@ -83,16 +85,19 @@ class ContasCadastradas
     public static function findAll(): array
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(CContasCadastradas::class);
+        $repository = $em->getRepository(ContasCadastradas::class);
         return $repository->findAll();
     }
 
-    public static function findByEmail(string $email): ContasCadastradas
+    public static function findByEmail(string $email): ?ContasCadastradas
     {
         $em = Database::getEntityManager();
-        $repository = $em->getRepository(CContasCadastradas::class);
-        return $repository->findBy(['email' => $email]);
+        $repository = $em->getRepository(ContasCadastradas::class);
+        return $repository->findOneBy(['email' => $email]);
     }
 
-    public function login(): void {}
+    public function login(string $senhaDigitada): bool
+    {
+        return password_verify($senhaDigitada, $this->senha);
+    }
 }

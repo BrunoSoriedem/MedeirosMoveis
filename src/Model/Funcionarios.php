@@ -13,16 +13,18 @@ use Doctrine\ORM\Mapping\Id;
 
 class funcionarios
 {
-    #[Column, Id, GeneratedValue]
+    #[Id]
+    #[Column(type: "integer")]
+    #[GeneratedValue(strategy: "AUTO")]
     private int $id;
 
-    #[Column]
+    #[Column(type: "string", length: 100)]
     private string $name;
 
-    #[Column]
+    #[Column(type: "string", length: 30)]
     private string $funcao;
 
-    #[Column]
+    #[Column(type: "blob")]
     private string $diretorio_imagem;
 
     public function __construct(string $name, string $funcao, string $diretorio_imagem)

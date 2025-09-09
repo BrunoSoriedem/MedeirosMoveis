@@ -404,4 +404,8 @@ h2::after {
     .register-link {
         padding: 20px 24px;
     }
+
+    .register-button {
+        padding-bottom: 10px;
+    }
 }

@@ -1,36 +1,28 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../config/sessao.php';
+
 use App\Model\ContasCadastradas;
 
-require_once __DIR__ . '/../config/sessao.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['loginEmail'] ?? '';
     $senha = $_POST['loginPassword'] ?? '';
 
     try {
-        $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = $pdo->prepare("SELECT id, name, email, senha FROM contasCadastradas WHERE email = ?");
-        $stmt->execute([$email]);
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
         $usuario = ContasCadastradas::findByEmail($email);
 
-        $isValid = $usuario->login();
-
-        if ($usuario && password_verify($senha, $usuario['senha'])) {
-            $_SESSION['usuario_id']   = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['name'];
+        if ($usuario && $usuario->login($senha)) {
+            $_SESSION['usuario_id']   = $usuario->getId();
+            $_SESSION['usuario_nome'] = $usuario->getName();
 
             echo "<script>window.location.href='bemvindoEntrar';</script>";
             exit;
         } else {
             $_SESSION['erro_login'] = "E-mail ou senha inválidos.";
         }
-    } catch (PDOException $e) {
-        $_SESSION['erro_login'] = "Erro no banco: " . $e->getMessage();
+    } catch (Exception $e) {
+        $_SESSION['erro_login'] = "Erro no login: " . $e->getMessage();
     }
 }
 ?>

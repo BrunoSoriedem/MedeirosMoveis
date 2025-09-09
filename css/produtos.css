@@ -291,6 +291,10 @@ h2::after {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
     }
+
+    .preco-novo {
+        font-size: 19px;
+    }
 }
 
 @media (max-width: 480px) {
