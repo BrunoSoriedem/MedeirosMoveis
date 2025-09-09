@@ -36,6 +36,7 @@ class ComposerStaticInite406ee0a0c70aeefe2b9fcd9a91a65ee
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'D' => 
         array (
@@ -111,6 +112,10 @@ class ComposerStaticInite406ee0a0c70aeefe2b9fcd9a91a65ee
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Doctrine\\Persistence\\' => 
         array (

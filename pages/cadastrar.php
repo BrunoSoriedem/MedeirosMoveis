@@ -1,9 +1,11 @@
 <?php
+require_once __DIR__ . '/../config/sessao.php';
 
 use App\Model\ContasCadastradas;
 use App\Model\User;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
 
 class PasswordValidator
 {
