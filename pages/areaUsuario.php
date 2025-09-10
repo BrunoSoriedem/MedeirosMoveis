@@ -72,30 +72,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha'])) {
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
-    $email = $_POST['loginEmail'] ?? '';
-    $senha = $_POST['loginPassword'] ?? '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha']) && $logado) {
+    $senhaAtual   = $_POST['senha_atual'] ?? '';
+    $novaSenha    = $_POST['nova_senha'] ?? '';
+    $confirmaNova = $_POST['confirmar_senha'] ?? '';
 
-    try {
-        $pdo = new PDO("mysql:host=10.10.1.84;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if ($novaSenha !== $confirmaNova) {
+        $msgSenha = "As senhas não conferem.";
+    } elseif (!senhaValida($novaSenha)) {
+        $msgSenha = "A nova senha deve ter 8-16 caracteres, com maiúscula, minúscula, número e símbolo.";
+    } else {
+        $stmt = $pdo->prepare("SELECT senha FROM contasCadastradas WHERE id = ?");
+        $stmt->execute([$_SESSION['usuario_id']]);
+        $usuarioCheck = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $stmt = $pdo->prepare("SELECT id, name, email, senha FROM contasCadastradas WHERE email = ?");
-        $stmt->execute([$email]);
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($usuario && password_verify($senha, $usuario['senha'])) {
-            $_SESSION['usuario_id']   = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['name'];
-            echo "<script>window.location.href='bemvindoEntrar';</script>";
-            exit;
+        if (!$usuarioCheck) {
+            $msgSenha = "Usuário não encontrado.";
+        } elseif (!password_verify($senhaAtual, $usuarioCheck['senha'])) {
+            $msgSenha = "Senha atual incorreta.";
         } else {
-            $_SESSION['erro_login'] = "E-mail ou senha inválidos.";
+            $hash = password_hash($novaSenha, PASSWORD_DEFAULT);
+            $stmt = $pdo->prepare("UPDATE contasCadastradas SET senha = ? WHERE id = ?");
+            $stmt->execute([$hash, $_SESSION['usuario_id']]);
+            $_SESSION['msg_sucesso'] = "Senha alterada com sucesso!";
+            echo "<script>window.location.href = 'bemvindoEntrar';</script>";
+            exit;
         }
-    } catch (PDOException $e) {
-        $_SESSION['erro_login'] = "Erro no banco: " . $e->getMessage();
     }
 }
+
 ?>
 
 <link rel="stylesheet" href="css/nav-footer.css">
@@ -129,14 +134,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
                 <form id="formSenha" class="alterar-senha-form login-form" method="POST" action=""
                     style="display: <?= !empty($msgSenha) ? 'block' : 'none' ?>;">
-
-                    <div class="form-group">
-                        <label for="email">Endereço de E-mail</label>
-                        <div class="input-wrapper">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="exemplo@email.com"
-                                required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label for="senhaAtual">Senha atual</label>

@@ -8,6 +8,9 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
+use App\Model\ContasCadastradas;
 
 #[Entity]
 
@@ -42,7 +45,12 @@ class EmailEnviados
     #[Column(type: "datetime")]
     private DateTime $data_envio;
 
+    #[ManyToOne(targetEntity: ContasCadastradas::class)]
+    #[JoinColumn(name: "conta_id", referencedColumnName: "id", nullable: true)]
+    private ContasCadastradas $conta;
+
     public function __construct(
+        ContasCadastradas $conta,
         string $name,
         string $telefone,
         string $email,
@@ -52,6 +60,7 @@ class EmailEnviados
         string $mensagem,
         DateTime $data_envio
     ) {
+        $this->conta = $conta;
         $this->name = $name;
         $this->telefone = $telefone;
         $this->email = $email;
@@ -105,6 +114,11 @@ class EmailEnviados
     public function getDataEnvio(): DateTime
     {
         return $this->data_envio;
+    }
+
+    public function getConta(): ContasCadastradas
+    {
+        return $this->conta;
     }
 
     public function save(): void

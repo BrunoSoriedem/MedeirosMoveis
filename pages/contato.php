@@ -1,14 +1,29 @@
 <?php
+
 require_once __DIR__ . '/../config/sessao.php';
-
-
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use App\Core\Database;
 use App\Model\EmailEnviados;
-use App\Model\Database;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use App\Model\User;
+
+$logado = isset($_SESSION['usuario_id']);
+$conta = null;
+
+if ($logado) {
+    try {
+        $em = Database::getEntityManager();
+        $conta = $em->getRepository(\App\Model\ContasCadastradas::class)
+            ->find($_SESSION['usuario_id']);
+    } catch (\Exception $e) {
+        echo "<pre>";
+        var_dump($e);
+        echo "</pre>";
+        exit;
+    }
+}
 
 if ($_POST) {
     $name           = $_POST['Nome'] ?? '';
@@ -18,9 +33,10 @@ if ($_POST) {
     $formaEncontro  = $_POST['Categoria'] ?? '';
     $assunto        = $_POST['Assunto'] ?? '';
     $mensagem       = $_POST['Mensagem'] ?? '';
-    $data_envio     = new \DateTime();
+    $data_envio = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
 
     $emailEnviados = new EmailEnviados(
+        $conta ?? null,
         $name,
         $telefone,
         $email,
@@ -32,11 +48,13 @@ if ($_POST) {
     );
 
     try {
-        $emailEnviados->save();
+        $result = $emailEnviados->save();
+        echo json_encode(['success' => true, 'db' => $result]);
     } catch (\Exception $e) {
         echo json_encode(['success' => false, 'message' => 'Erro ao salvar no banco: ' . $e->getMessage()]);
         exit;
     }
+
 
     $mail = new PHPMailer(true);
 
@@ -86,7 +104,7 @@ if ($_POST) {
         <div class="form-box">
             <h2 class="h2-form">Entre em Contato Conosco</h2>
             <!-- <form id="contact-form" action="https://formsubmit.co/brunorafamed.com@gmail.com" method="POST"> -->
-            <form id="contact-form" method="POST">
+            <form id="contact-form" method="POST" action="">
                 <div class="input-group">
                     <label>Nome</label>
                     <input type="text" name="Nome" placeholder="Digite seu Nome" autocomplete="off" required>

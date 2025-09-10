@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $novidade = $_POST['novidade'] ?? 'nao';
     $diretorio_imagem = $_POST['diretorio_imagem'] ?? '';
 
-    $data_cadastro = new DateTime();
+    $data_cadastro = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
 
     $produto = new Produtos(
         $descricao,

@@ -34,7 +34,6 @@ class ContasCadastradas
     #[Column(length: 50)]
     private string $perfil_Acesso;
 
-
     public function __construct(string $name, string $email, string $senha, DateTime $data_cadastro, string $perfil_Acesso)
     {
         $em = Database::getEntityManager();
@@ -80,6 +79,17 @@ class ContasCadastradas
         $em = Database::getEntityManager();
         $em->persist($this);
         $em->flush();
+    }
+
+    public static function verificarSenha(string $email, string $senha): ?ContasCadastradas
+    {
+        $em = Database::getEntityManager();
+        $repository = $em->getRepository(ContasCadastradas::class);
+        $usuario = $repository->findOneBy(['email' => $email]);
+        if ($usuario && password_verify($senha, $usuario->getSenha())) {
+            return $usuario;
+        }
+        return null;
     }
 
     public static function findAll(): array
