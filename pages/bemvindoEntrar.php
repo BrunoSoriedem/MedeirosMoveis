@@ -2,20 +2,20 @@
 require_once __DIR__ . '/../config/sessao.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+use App\Model\ContasCadastradas;
+use App\Model\VerificaUsuario;
 
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: login.php");
+$usuario = VerificaUsuario::usuarioLogado();
+$logado = $usuario !== null;
+
+if (!$logado) {
+    echo "<script>window.location.href='bemvindoEntrar';</script>";
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT name FROM contasCadastradas WHERE id = ?");
-$stmt->execute([$_SESSION['usuario_id']]);
-$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-$nomeUsuario = $usuario ? $usuario['name'] : "Usuário";
+$nomeUsuario = htmlspecialchars($usuario->getName());
 ?>
+
 
 <link rel="stylesheet" href="css/nav-footer.css">
 <link rel="stylesheet" href="css/bemvindo.css">
@@ -23,7 +23,7 @@ $nomeUsuario = $usuario ? $usuario['name'] : "Usuário";
 <div class=bemvindo-container>
     <div class="bemvindo-box">
 
-        <h2 class="nome-bemVindo">Olá, <strong class="nome-usuario"><?= htmlspecialchars($nomeUsuario) ?></strong></h2>
+        <h2 class="nome-bemVindo"> Olá, <strong class="nome-usuario"><?= $nomeUsuario ?></strong></h2>
 
         <div class="div-bemvindo">
 
