@@ -10,18 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['loginPassword'] ?? '';
 
     try {
-        $usuario = ContasCadastradas::findByEmail($email);
-
-        if ($usuario && $usuario->login($senha)) {
-            $_SESSION['usuario_id']   = $usuario->getId();
+        $usuario = ContasCadastradas::verificarSenha($email, $senha);
+        if ($usuario) {
+            $_SESSION['usuario_id'] = $usuario->getId();
             $_SESSION['usuario_nome'] = $usuario->getName();
-
-            echo "<script>window.location.href='bemvindoEntrar';</script>";
+            echo "<script>window.location.href='bemvindoentrar'</script>";
             exit;
         } else {
             $_SESSION['erro_login'] = "E-mail ou senha inválidos.";
         }
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         $_SESSION['erro_login'] = "Erro no login: " . $e->getMessage();
     }
 }

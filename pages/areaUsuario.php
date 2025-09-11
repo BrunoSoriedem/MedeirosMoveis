@@ -2,102 +2,33 @@
 require_once __DIR__ . '/../config/sessao.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-function senhaValida($senha)
-{
-    return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/', $senha);
-}
+use App\Model\ContasCadastradas;
+use App\Model\verificaUsuario;
 
-$logado = isset($_SESSION['usuario_id']);
+$usuario = VerificaUsuario::usuarioLogado();
+$logado = $usuario !== null;
 
 if ($logado) {
-    try {
-        $pdo = new PDO(
-            "mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8",
-            "root",
-            "dados-medeirosMoveis",
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-        );
-
-        $stmt = $pdo->prepare("SELECT id, name, email, perfil_acesso, senha FROM contasCadastradas WHERE id = ?");
-        $stmt->execute([$_SESSION['usuario_id']]);
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$usuario) $logado = false;
-        else {
-            $nomeUsuario   = htmlspecialchars($usuario['name']);
-            $emailUsuario  = htmlspecialchars($usuario['email']);
-            $perfilUsuario = htmlspecialchars($usuario['perfil_acesso']);
-            $iniciais      = strtoupper(substr($nomeUsuario, 0, 1));
-        }
-    } catch (PDOException $e) {
-        die("Erro: " . $e->getMessage());
-    }
+    $nomeUsuario   = htmlspecialchars($usuario->getName());
+    $emailUsuario  = htmlspecialchars($usuario->getEmail());
+    $perfilUsuario = htmlspecialchars($usuario->getPerfil());
+    $iniciais      = strtoupper(substr($nomeUsuario, 0, 1));
 }
 
 $msgSenha = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha'])) {
-    $email        = trim($_POST['email'] ?? '');
-    $senhaAtual   = $_POST['senha_atual'] ?? '';
-    $novaSenha    = $_POST['nova_senha'] ?? '';
-    $confirmaNova = $_POST['confirmar_senha'] ?? '';
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $msgSenha = "Email inválido.";
-    } elseif ($novaSenha !== $confirmaNova) {
-        $msgSenha = "As senhas não conferem.";
-    } elseif (!senhaValida($novaSenha)) {
-        $msgSenha = "A nova senha deve ter 8-16 caracteres, pelo menos 1 letra maiúscula, 1 minúscula, 1 número e 1 caractere especial.";
-    } else {
-        $stmt = $pdo->prepare("SELECT id, senha FROM contasCadastradas WHERE email = ?");
-        $stmt->execute([$email]);
-        $usuarioCheck = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$usuarioCheck) {
-            $msgSenha = "Usuário não encontrado.";
-        } elseif (!password_verify($senhaAtual, $usuarioCheck['senha'])) {
-            $msgSenha = "Senha atual incorreta.";
-        } else {
-            $hash = password_hash($novaSenha, PASSWORD_DEFAULT);
-            $stmt = $pdo->prepare("UPDATE contasCadastradas SET senha = ? WHERE id = ?");
-            $stmt->execute([$hash, $usuarioCheck['id']]);
-            $msgSenha = "Senha alterada com sucesso!";
-
-            echo "<script>
-                setTimeout(function(){
-                    window.location.href = 'areaUsuario.php';
-                }, 2000);
-            </script>";
-        }
-    }
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha']) && $logado) {
-    $senhaAtual   = $_POST['senha_atual'] ?? '';
-    $novaSenha    = $_POST['nova_senha'] ?? '';
-    $confirmaNova = $_POST['confirmar_senha'] ?? '';
+    $msgSenha = VerificaUsuario::alterarSenha(
+        $usuario,
+        $_POST['senha_atual'],
+        $_POST['nova_senha'],
+        $_POST['confirmar_senha']
+    );
 
-    if ($novaSenha !== $confirmaNova) {
-        $msgSenha = "As senhas não conferem.";
-    } elseif (!senhaValida($novaSenha)) {
-        $msgSenha = "A nova senha deve ter 8-16 caracteres, com maiúscula, minúscula, número e símbolo.";
-    } else {
-        $stmt = $pdo->prepare("SELECT senha FROM contasCadastradas WHERE id = ?");
-        $stmt->execute([$_SESSION['usuario_id']]);
-        $usuarioCheck = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$usuarioCheck) {
-            $msgSenha = "Usuário não encontrado.";
-        } elseif (!password_verify($senhaAtual, $usuarioCheck['senha'])) {
-            $msgSenha = "Senha atual incorreta.";
-        } else {
-            $hash = password_hash($novaSenha, PASSWORD_DEFAULT);
-            $stmt = $pdo->prepare("UPDATE contasCadastradas SET senha = ? WHERE id = ?");
-            $stmt->execute([$hash, $_SESSION['usuario_id']]);
-            $_SESSION['msg_sucesso'] = "Senha alterada com sucesso!";
-            echo "<script>window.location.href = 'bemvindoEntrar';</script>";
-            exit;
-        }
+    if ($msgSenha === '') {
+        $_SESSION['msg_sucesso'] = "Senha alterada com sucesso!";
+        echo "<script>window.location.href='bemvindoEntrar';</script>";
+        exit;
     }
 }
 

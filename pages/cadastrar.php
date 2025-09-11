@@ -1,92 +1,40 @@
 <?php
+
 require_once __DIR__ . '/../config/sessao.php';
-
-use App\Model\ContasCadastradas;
-use App\Model\User;
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
-
-class PasswordValidator
-{
-    private string $password;
-    private array $errors = [];
-
-    public function __construct(string $password)
-    {
-        $this->password = $password;
-    }
-
-    public function validate(): bool
-    {
-        if (strlen($this->password) < 8 || strlen($this->password) > 16) {
-            $this->errors[] = "A senha deve ter entre 8 e 16 caracteres.";
-        }
-        if (!preg_match('/[A-Z]/', $this->password)) {
-            $this->errors[] = "A senha deve conter ao menos uma letra maiúscula.";
-        }
-        if (!preg_match('/[a-z]/', $this->password)) {
-            $this->errors[] = "A senha deve conter ao menos uma letra minúscula.";
-        }
-        if (!preg_match('/[0-9]/', $this->password)) {
-            $this->errors[] = "A senha deve conter ao menos um número.";
-        }
-        if (!preg_match('/[\W_]/', $this->password)) {
-            $this->errors[] = "A senha deve conter ao menos um caractere especial.";
-        }
-
-        return empty($this->errors);
-    }
-
-    public function getErrors(): array
-    {
-        return $this->errors;
-    }
-}
+use App\Services\UserService;
+use App\Services\ValidarSenhaEspecifica;
 
 $erros = [];
 $sucesso = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome         = $_POST['nomePessoa'] ?? '';
-    $email        = $_POST['loginEmail'] ?? '';
-    $senha        = $_POST['loginPassword'] ?? '';
+    $nome = $_POST['nomePessoa'] ?? '';
+    $email = $_POST['loginEmail'] ?? '';
+    $senha = $_POST['loginPassword'] ?? '';
     $confirmSenha = $_POST['confirmPassword'] ?? '';
-    $perfilAcesso = $_POST['perfilAcesso'] ?? '';
 
-    $validator = new PasswordValidator($senha);
+    $validator = new ValidarSenhaEspecifica($senha);
 
-    if ($validator->validate()) {
-        if ($senha === $confirmSenha) {
-            $em = \App\Core\Database::getEntityManager();
-            $repo = $em->getRepository(ContasCadastradas::class);
-            $usuarioExistente = $repo->findOneBy(['email' => $email]);
-
-            if ($usuarioExistente) {
-                $erros[] = "E-mail já existente, caso seja você mesmo, tente acessar sua conta.";
-            } else {
-                $data_cadastro = new \DateTime();
-
-                $contasCadastradas = new ContasCadastradas(
-                    $nome,
-                    $email,
-                    password_hash($senha, PASSWORD_DEFAULT),
-                    $data_cadastro,
-                    'Cliente'
-                );
-                $contasCadastradas->save();
-
-                echo "<script>window.location.href='entrar';</script>";
-            }
-        } else {
-            $erros[] = "A confirmação da senha não confere.";
-        }
-    } else {
+    if (!$validator->validate()) {
         $erros = $validator->getErrors();
+    } elseif ($senha !== $confirmSenha) {
+        $erros[] = "A confirmação da senha não confere.";
+    } else {
+        $usuarioService = new UserService();
+        $erros = $usuarioService->cadastrar($nome, $email, $senha);
+
+        if (empty($erros)) {
+            $sucesso = "Cadastro realizado com sucesso! Redirecionando...";
+            echo "<script>
+                    setTimeout(() => { window.location.href='Entrar'; }, 2000);
+                    </script>";
+        }
     }
 }
-
 ?>
+
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/nav-footer.css">
