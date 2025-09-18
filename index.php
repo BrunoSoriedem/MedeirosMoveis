@@ -1,7 +1,13 @@
 <?php
 session_start();
+
 require_once __DIR__ . '/config/sessao.php';
+require_once __DIR__ . "/vendor/autoload.php";
+
+use App\Core\Database;
+
 $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
+
 ?>
 
 <?php

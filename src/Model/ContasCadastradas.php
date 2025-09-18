@@ -89,21 +89,27 @@ class ContasCadastradas
         $em->flush();
     }
 
-    public static function verificarSenha(string $email, string $senha): ?self
+    public static function verificarSenha($email, $senhaInformada)
     {
         $em = Database::getEntityManager();
-        $usuario = $em->getRepository(self::class)->findOneBy(['email' => $email]);
+        $usuario = $em->getRepository(self::class)
+            ->createQueryBuilder('u')
+            ->where('LOWER(u.email) = :email')
+            ->setParameter('email', strtolower($email))
+            ->getQuery()
+            ->getOneOrNullResult();
 
         if (!$usuario) {
-            return null;
+            return false;
         }
 
-        if (password_verify($senha, $usuario->getSenha())) {
+        if (password_verify($senhaInformada, $usuario->getSenha())) {
             return $usuario;
         }
 
-        return null;
+        return false;
     }
+
 
     public static function findAll(): array
     {
