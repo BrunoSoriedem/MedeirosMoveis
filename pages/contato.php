@@ -4,10 +4,10 @@ require_once __DIR__ . '/../config/sessao.php';
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\Core\Database;
+use App\services\MailerService;
 use App\Model\EmailEnviados;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use App\Model\User;
 
 $logado = isset($_SESSION['usuario_id']);
 $conta = null;
@@ -15,17 +15,16 @@ $conta = null;
 if ($logado) {
     try {
         $em = Database::getEntityManager();
-        $conta = $em->getRepository(\App\Model\ContasCadastradas::class)
-            ->find($_SESSION['usuario_id']);
+        $conta = $em->getRepository(\App\Model\ContasCadastradas::class)->find($_SESSION['usuario_id']);
     } catch (\Exception $e) {
-        echo "<pre>";
-        var_dump($e);
-        echo "</pre>";
+        error_log("Erro de banco de dados: " . $e->getMessage());
+        http_response_code(500);
+        echo json_encode(['success' => false, 'message' => 'Ocorreu um erro interno.']);
         exit;
     }
 }
 
-if ($_POST) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name           = $_POST['Nome'] ?? '';
     $telefone       = $_POST['Telefone'] ?? '';
     $email          = $_POST['Email'] ?? '';
@@ -33,66 +32,60 @@ if ($_POST) {
     $formaEncontro  = $_POST['Categoria'] ?? '';
     $assunto        = $_POST['Assunto'] ?? '';
     $mensagem       = $_POST['Mensagem'] ?? '';
-    $data_envio = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
-
-    $emailEnviados = new EmailEnviados(
-        $conta ?? null,
-        $name,
-        $telefone,
-        $email,
-        $cidade,
-        $formaEncontro,
-        $assunto,
-        $mensagem,
-        $data_envio
-    );
+    $data_envio     = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
 
     try {
-        $result = $emailEnviados->save();
-        echo json_encode(['success' => true, 'db' => $result]);
+        $em = Database::getEntityManager();
+        $emailEnviados = new EmailEnviados(
+            $conta ?? null,
+            $name,
+            $telefone,
+            $email,
+            $cidade,
+            $formaEncontro,
+            $assunto,
+            $mensagem,
+            $data_envio
+        );
+
+        $em->persist($emailEnviados);
+        $em->flush();
+
+        $mailer = new MailerService();
+        $body = "
+            Olá, este email foi enviado pelo site da Medeiros Móveis. <br>
+            <strong>Nome:</strong> {$name}<br>
+            <strong>Telefone:</strong> {$telefone}<br>
+            <strong>Email:</strong> {$email}<br>
+            <strong>Cidade:</strong> {$cidade}<br>
+            <strong>Como nos encontrou:</strong> {$formaEncontro}<br>
+            <strong>Mensagem:</strong><br>" . nl2br($mensagem);
+
+        $mailer->sendMail(
+            $email,
+            $name,
+            'brunorafamed.com@gmail.com',
+            'Responsável',
+            "Novo contato: $assunto",
+            $body
+        );
+
+        echo json_encode([
+            'success' => true,
+            'message' => 'Mensagem salva e enviada com sucesso'
+        ]);
+        exit;
     } catch (\Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Erro ao salvar no banco: ' . $e->getMessage()]);
+        error_log("Erro ao enviar email ou salvar no banco: " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine());
+        http_response_code(500);
+        echo json_encode([
+            'success' => false,
+            'message' => 'Ocorreu um erro ao processar sua mensagem. Por favor, tente novamente.'
+        ]);
         exit;
     }
-
-
-    $mail = new PHPMailer(true);
-
-    try {
-        $mail->isSMTP();
-
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'brunorafamed.com@gmail.com';
-        $mail->Password   = 'erixzfvbavlbkbjg';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-
-        $mail->setFrom('brunorafamed.com@gmail.com', 'Site - Contato');
-
-        $mail->addAddress('brunorafamed.com@gmail.com', 'Responsável');
-
-        $mail->addReplyTo($email, $name);
-
-        $mail->isHTML(true);
-        $mail->Subject = "Novo contato: $assunto";
-        $mail->Body    = "
-        Olá, este email foi enviado pelo site da Medeiros Móveis. <br>
-        <strong>Nome:</strong> {$name}<br>
-        <strong>Telefone:</strong> {$telefone}<br>
-        <strong>Email:</strong> {$email}<br>
-        <strong>Cidade:</strong> {$cidade}<br>
-        <strong>Como nos encontrou:</strong> {$formaEncontro}<br>
-        <strong>Mensagem:</strong><br>" . nl2br($mensagem);
-
-        $mail->send();
-
-        echo json_encode(['success' => true]);
-    } catch (\Exception $e) {
-        echo json_encode(['success' => false, 'message' => $e->getMessage()]);
-    }
-    exit;
 }
+
 ?>
 
 <link rel="stylesheet" href="css/contato.css">
@@ -193,7 +186,6 @@ if ($_POST) {
         const form = document.getElementById('contact-form');
         const telefoneInput = document.getElementById('telefone');
 
-        // Máscara e validação do telefone
         telefoneInput.addEventListener('input', function(e) {
             const value = e.target.value.replace(/\D/g, '');
             let formattedValue = '';
@@ -210,10 +202,7 @@ if ($_POST) {
             if (value.length > 7) {
                 formattedValue += `-${value.substring(7, 11)}`;
             }
-
             e.target.value = formattedValue;
-
-            // Validação
             if (value.length < 10 || value.length > 11) {
                 e.target.setCustomValidity('Informe um telefone válido (10 ou 11 dígitos)');
             } else {
@@ -239,14 +228,6 @@ if ($_POST) {
                     body: new FormData(form),
                 });
 
-                // const response = await fetch(form.action, {
-                //     method: 'POST',
-                //     body: new FormData(form),
-                //     headers: {
-                //         'Accept': 'application/json'
-                //     }
-                // });
-
                 if (response.ok) {
                     document.getElementById('sucesso-audio').play();
                     await Swal.fire({
@@ -255,8 +236,9 @@ if ($_POST) {
                         title: "Mensagem enviada com sucesso!",
                         showConfirmButton: false,
                         timer: 1500
+                    }).then(() => {
+                        window.location.href = "agradecimento";
                     });
-                    window.location.href = "agradecimento";
                 } else {
                     const errorData = await response.json();
                     throw new Error(errorData.message || 'Erro ao enviar formulário');
@@ -280,65 +262,3 @@ if ($_POST) {
         });
     });
 </script>
-<!-- <script>
-    const form = document.querySelector('form');
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        if (form.checkValidity()) {
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (response.ok) {
-                        document.getElementById('sucesso-audio').play();
-
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "E-mail enviado com sucesso!",
-                            showConfirmButton: false,
-                            timer: 1500
-                        }).then(() => {
-                            window.location.href = "agradecimento";
-                        });
-                    } else {
-                        Swal.fire("Erro", "Tente novamente mais tarde", "error");
-                    }
-                })
-                .catch(error => {
-                    Swal.fire("Erro", "Erro ao enviar formulário", "error");
-                });
-        } else {
-            form.reportValidity();
-        }
-    });
-
-    // Validação e formatação do telefone
-    function formatarTelefone(input) {
-        const telefone = input.value.replace(/\D/g, '');
-
-        if (telefone.length < 10 || telefone.length > 12) {
-            input.setCustomValidity("Informe um número de telefone válido.");
-        } else {
-            input.setCustomValidity("");
-        }
-
-        if (telefone.length === 11) {
-            input.value = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-        } else if (telefone.length === 10) {
-            input.value = telefone.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const telefoneInput = document.getElementById('telefone');
-        telefoneInput.addEventListener('input', function() {
-            formatarTelefone(this);
-        });
-    });
-</script> -->

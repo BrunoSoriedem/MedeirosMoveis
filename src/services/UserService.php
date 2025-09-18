@@ -23,8 +23,8 @@ class UserService
 
         $conta = new ContasCadastradas();
         $conta->setNome($nome);
-        $conta->setEmail($email);
-        $conta->setSenha(password_hash($senha, PASSWORD_DEFAULT));
+        $conta->setEmail(strtolower($email));
+        $conta->setSenha($senha);
         $conta->setPerfil('Cliente');
         $conta->setDataCadastro(new \DateTime());
 

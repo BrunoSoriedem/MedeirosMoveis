@@ -27,7 +27,7 @@ class EmailEnviados
     #[Column(type: "string", length: 20)]
     private string $telefone;
 
-    #[Column(type: "string", length: 150, unique: true)]
+    #[Column(type: "string", length: 150, unique: false)]
     private string $email;
 
     #[Column(type: "string", length: 100)]
@@ -47,10 +47,10 @@ class EmailEnviados
 
     #[ManyToOne(targetEntity: ContasCadastradas::class)]
     #[JoinColumn(name: "conta_id", referencedColumnName: "id", nullable: true)]
-    private ContasCadastradas $conta;
+    private ?ContasCadastradas $conta;
 
     public function __construct(
-        ContasCadastradas $conta,
+        ?ContasCadastradas $conta,
         string $name,
         string $telefone,
         string $email,
@@ -116,7 +116,7 @@ class EmailEnviados
         return $this->data_envio;
     }
 
-    public function getConta(): ContasCadastradas
+    public function getConta(): ?ContasCadastradas
     {
         return $this->conta;
     }

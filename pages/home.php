@@ -185,7 +185,7 @@ foreach ($produtos as $p) {
                         alt="<?= htmlspecialchars($produtosCat[0]['descricao']) ?>" class="product-img">
                     <div class="product-info">
                         <h2 class="text text-center"><?= ucfirst($cat) ?></h2>
-                        <a href="produto.php?categoria=<?= $cat ?>" class="btn">Saiba Mais</a>
+                        <a href="produto?categoria=<?= $cat ?>" class="btn">Saiba Mais</a>
                     </div>
                 <?php endif; ?>
             </div>
