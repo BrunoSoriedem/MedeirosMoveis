@@ -51,23 +51,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="login-form">
                 <?php if (!empty($erros)): ?>
-                <div class="alert alert-danger" id="errorMessages">
-                    <?php foreach ($erros as $erro): ?>
-                    <p><?= htmlspecialchars($erro) ?></p>
-                    <?php endforeach; ?>
-                </div>
-                <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    const senhaInput = document.getElementById('loginPassword');
-                    if (senhaInput) senhaInput.focus();
-                });
-                </script>
+                    <div class="alert alert-danger" id="errorMessages">
+                        <?php foreach ($erros as $erro): ?>
+                            <p><?= htmlspecialchars($erro) ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const senhaInput = document.getElementById('loginPassword');
+                            if (senhaInput) senhaInput.focus();
+                        });
+                    </script>
                 <?php endif; ?>
 
                 <?php if ($sucesso): ?>
-                <div class="alert alert-success">
-                    <p><?= htmlspecialchars($sucesso) ?></p>
-                </div>
+                    <div class="alert alert-success">
+                        <p><?= htmlspecialchars($sucesso) ?></p>
+                    </div>
                 <?php endif; ?>
 
                 <form method="POST" action="">
@@ -133,18 +133,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <script>
-function togglePassword(inputId, button) {
-    const input = document.getElementById(inputId);
-    const icon = button.querySelector('i');
+    function togglePassword(inputId, button) {
+        const input = document.getElementById(inputId);
+        const icon = button.querySelector('i');
 
-    if (input.type === 'password') {
-        input.type = 'text';
-        icon.className = 'fas fa-eye-slash';
-        button.title = 'Ocultar senha';
-    } else {
-        input.type = 'password';
-        icon.className = 'fas fa-eye';
-        button.title = 'Mostrar senha';
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.className = 'fas fa-eye-slash';
+            button.title = 'Ocultar senha';
+        } else {
+            input.type = 'password';
+            icon.className = 'fas fa-eye';
+            button.title = 'Mostrar senha';
+        }
     }
-}
 </script>
