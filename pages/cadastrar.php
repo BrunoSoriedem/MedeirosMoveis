@@ -4,6 +4,7 @@ require_once __DIR__ . '/../config/sessao.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\services\UserService;
+use App\core\Database;
 use App\services\ValidarSenhaEspecifica;
 
 $erros = [];

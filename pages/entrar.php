@@ -1,16 +1,15 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../config/sessao.php';
+use App\Services\UserService;
 
-use App\Model\ContasCadastradas;
+$userService = new UserService();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['loginEmail'] ?? '';
     $senha = $_POST['loginPassword'] ?? '';
 
     try {
-        $usuario = ContasCadastradas::verificarSenha($email, $senha);
+        $usuario = $userService->login($email, $senha);
         if ($usuario) {
             $_SESSION['usuario_id'] = $usuario->getId();
             $_SESSION['usuario_nome'] = $usuario->getName();
