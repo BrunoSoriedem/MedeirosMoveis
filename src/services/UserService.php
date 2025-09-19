@@ -4,46 +4,56 @@ namespace App\Services;
 
 use App\Model\ContasCadastradas;
 use App\Core\Database;
+use DateTime;
+use DateTimeZone;
 
 class UserService
 {
-    public function cadastrar(string $nome, string $email, string $senha, string $perfil = 'Cliente'): array
+    private $db;
+    private $repo;
+
+    public function __construct()
+    {
+        $this->db = Database::getEntityManager();
+        $this->repo = $this->db->getRepository(ContasCadastradas::class);
+
+        date_default_timezone_set('America/Sao_Paulo');
+    }
+
+    public function cadastrar(string $nome, string $email, string $senha): array
     {
         $erros = [];
 
-        $entityManager = Database::getEntityManager();
-
-        $existing = $entityManager->getRepository(ContasCadastradas::class)
-            ->findOneBy(['email' => $email]);
-
-        if ($existing) {
-            $erros[] = "E-mail já existente.";
+        if ($this->repo->findOneBy(['email' => $email])) {
+            $erros[] = "Este e-mail já está em uso.";
             return $erros;
         }
 
-        $conta = new ContasCadastradas();
-        $conta->setNome($nome);
-        $conta->setEmail(strtolower($email));
-        $conta->setSenha($senha);
-        $conta->setPerfil('Cliente');
-        $conta->setDataCadastro(new \DateTime());
+        $usuario = new ContasCadastradas();
+        $usuario->setNome($nome);
+        $usuario->setEmail($email);
+        $usuario->setSenha($senha);
+        $usuario->setPerfil("cliente");
 
-        $entityManager->persist($conta);
-        $entityManager->flush();
+        $usuario->setDataCadastro(new DateTime('now', new DateTimeZone('America/Sao_Paulo')));
+
+        $this->db->persist($usuario);
+        $this->db->flush();
 
         return $erros;
     }
 
-    public function login(string $email, string $senha): ?ContasCadastradas
+    public function login(string $email, string $senha)
     {
-        $entityManager = Database::getEntityManager();
-        $conta = $entityManager->getRepository(ContasCadastradas::class)
-            ->findOneBy(['email' => $email]);
-
-        if ($conta && password_verify($senha, $conta->getSenha())) {
-            return $conta;
+        $usuario = $this->repo->findOneBy(['email' => $email]);
+        if (!$usuario) {
+            return false;
         }
 
-        return null;
+        if (password_verify($senha, $usuario->getSenha())) {
+            return $usuario;
+        }
+
+        return false;
     }
 }
