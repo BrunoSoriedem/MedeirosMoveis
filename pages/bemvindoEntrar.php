@@ -16,7 +16,6 @@ if (!$logado) {
 $nomeUsuario = htmlspecialchars($usuario->getName());
 ?>
 
-
 <link rel="stylesheet" href="css/nav-footer.css">
 <link rel="stylesheet" href="css/bemvindo.css">
 
@@ -28,7 +27,7 @@ $nomeUsuario = htmlspecialchars($usuario->getName());
         <div class="div-bemvindo">
 
             <p class="msg-bemvindo">
-                Que bom que você está conosco novamente. Estamos felizes em ter você conosco!
+                Que bom que você está conosco. Estamos felizes em ter você como um cliente Medeiros Móveis!
             </p>
 
             <div class="btn-container">

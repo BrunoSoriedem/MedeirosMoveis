@@ -45,12 +45,11 @@ class Produtos
     #[Column(type: "string", length: 150)]
     private string $novidade;
 
-    #[Column(type: "blob")]
+    #[Column(type: "string", length: 255)]
     private string $diretorio_imagem;
 
     #[Column(type: "datetime")]
     private DateTime $data_cadastro;
-
 
     public function __construct(
         string $descricao,

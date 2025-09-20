@@ -140,7 +140,7 @@ $temAcessoCadastro = ($perfil === 'master');
                             </li>
 
                             <?php if ($temAcessoCadastro): ?>
-                                <li class="nav-item dropdown" data-aos="fade-up" data-aos-delay="500">
+                                <li class="nav-item master-dropdown" data-aos="fade-up" data-aos-delay="500">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         <div class="efeito">Cadastros</div>
@@ -364,6 +364,22 @@ $temAcessoCadastro = ($perfil === 'master');
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const userDropdown = document.querySelector('.user-dropdown');
+        const dropdownMenu = userDropdown.querySelector('.dropdown-menu');
+
+        userDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.style.display =
+                dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function() {
+            dropdownMenu.style.display = 'none';
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const userDropdown = document.querySelector('.master-dropdown');
         const dropdownMenu = userDropdown.querySelector('.dropdown-menu');
 
         userDropdown.addEventListener('click', function(e) {
