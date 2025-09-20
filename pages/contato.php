@@ -1,91 +1,25 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
 
-require_once __DIR__ . '/../config/sessao.php';
-require_once __DIR__ . "/../vendor/autoload.php";
-
+use App\Controller\EmailController;
 use App\Core\Database;
-use App\services\MailerService;
-use App\Model\EmailEnviados;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 $logado = isset($_SESSION['usuario_id']);
 $conta = null;
 
 if ($logado) {
-    try {
-        $em = Database::getEntityManager();
-        $conta = $em->getRepository(\App\Model\ContasCadastradas::class)->find($_SESSION['usuario_id']);
-    } catch (\Exception $e) {
-        error_log("Erro de banco de dados: " . $e->getMessage());
-        http_response_code(500);
-        echo json_encode(['success' => false, 'message' => 'Ocorreu um erro interno.']);
-        exit;
-    }
+    $em = Database::getEntityManager();
+    $conta = $em->getRepository(\App\Model\ContasCadastradas::class)->find($_SESSION['usuario_id']);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name           = $_POST['Nome'] ?? '';
-    $telefone       = $_POST['Telefone'] ?? '';
-    $email          = $_POST['Email'] ?? '';
-    $cidade         = $_POST['Cidade'] ?? '';
-    $formaEncontro  = $_POST['Categoria'] ?? '';
-    $assunto        = $_POST['Assunto'] ?? '';
-    $mensagem       = $_POST['Mensagem'] ?? '';
-    $data_envio     = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
+    $controller = new EmailController();
+    $resultado = $controller->salvar($_POST, $conta);
 
-    try {
-        $em = Database::getEntityManager();
-        $emailEnviados = new EmailEnviados(
-            $conta ?? null,
-            $name,
-            $telefone,
-            $email,
-            $cidade,
-            $formaEncontro,
-            $assunto,
-            $mensagem,
-            $data_envio
-        );
-
-        $em->persist($emailEnviados);
-        $em->flush();
-
-        $mailer = new MailerService();
-        $body = "
-            Olá, este email foi enviado pelo site da Medeiros Móveis. <br>
-            <strong>Nome:</strong> {$name}<br>
-            <strong>Telefone:</strong> {$telefone}<br>
-            <strong>Email:</strong> {$email}<br>
-            <strong>Cidade:</strong> {$cidade}<br>
-            <strong>Como nos encontrou:</strong> {$formaEncontro}<br>
-            <strong>Mensagem:</strong><br>" . nl2br($mensagem);
-
-        $mailer->sendMail(
-            $email,
-            $name,
-            'brunorafamed.com@gmail.com',
-            'Responsável',
-            "Novo contato: $assunto",
-            $body
-        );
-
-        echo json_encode([
-            'success' => true,
-            'message' => 'Mensagem salva e enviada com sucesso'
-        ]);
-        exit;
-    } catch (\Exception $e) {
-        error_log("Erro ao enviar email ou salvar no banco: " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine());
-        http_response_code(500);
-        echo json_encode([
-            'success' => false,
-            'message' => 'Ocorreu um erro ao processar sua mensagem. Por favor, tente novamente.'
-        ]);
-        exit;
-    }
+    header('Content-Type: application/json');
+    echo json_encode($resultado);
+    exit;
 }
-
 ?>
 
 <link rel="stylesheet" href="css/contato.css">

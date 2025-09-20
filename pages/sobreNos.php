@@ -1,14 +1,10 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/sessao.php';
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->query("SELECT id, name, funcao, diretorio_imagem FROM funcionarios ORDER BY id ASC");
-    $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erro no banco: " . $e->getMessage());
-}
+use App\Model\Funcionarios;
+
+$funcionarios = App\Model\Funcionarios::findAll();
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
@@ -162,91 +158,25 @@ try {
     </div>
 
     <div class="team-grid">
-        <!-- Primeira fileira - até 3 funcionários -->
-        <div class="team-row">
-            <?php
-            for ($i = 0; $i < 3 && $i < count($funcionarios); $i++) {
-                $f = $funcionarios[$i];
-                echo '
-        <div class="team-member">
-            <div class="member-photo">
-                <img src="' . $f["diretorio_imagem"] . '">
-            </div>
-            <div class="member-info">
-                <div class="info-header">
-                    <p class="info-name">' . $f["funcao"] . '</p>
-                </div>
-                <div class="info-details">
-                    <div class="info-item">
-                        <div class="info-text">
-                            <span class="info-value">' . $f["name"] . '</span>
+        <?php foreach (array_chunk($funcionarios, 3) as $row): ?>
+            <div class="team-row">
+                <?php foreach ($row as $f): ?>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="<?= htmlspecialchars($f->getDiretorioImagem(), ENT_QUOTES) ?>"
+                                alt="<?= htmlspecialchars($f->getName(), ENT_QUOTES) ?>">
+                        </div>
+                        <div class="member-info">
+                            <p class="info-name"><?= htmlspecialchars($f->getFuncao(), ENT_QUOTES) ?></p>
+                            <span class="info-value"><?= htmlspecialchars($f->getName(), ENT_QUOTES) ?></span>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-        </div>';
-            }
-            ?>
-        </div>
-
-        <!-- Segunda fileira - do 4º ao 7º -->
-        <div class="team-row">
-            <?php
-            for ($i = 3; $i < 7 && $i < count($funcionarios); $i++) {
-                $f = $funcionarios[$i];
-                echo '
-        <div class="team-member">
-            <div class="member-photo">
-                <img src="' . $f["diretorio_imagem"] . '">
-        </div>
-        <div class="member-info">
-            <div class="info-header">
-                <p class="info-name">' . $f["funcao"] . '</p>
-            </div>
-            <div class="info-details">
-                <div class="info-item">
-                    <div class="info-text">
-                        <span class="info-value">' . $f["name"] . '</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>';
-            }
-            ?>
-        </div>
-
-        <div class="team-row">
-            <?php
-            for ($i = 7; $i < 11 && $i < count($funcionarios); $i++) {
-                $f = $funcionarios[$i];
-                echo '
-        <div class="team-member">
-            <div class="member-photo">
-                <img src="' . $f["diretorio_imagem"] . '">
-        </div>
-        <div class="member-info">
-            <div class="info-header">
-                <p class="info-name">' . $f["funcao"] . '</p>
-            </div>
-            <div class="info-details">
-                <div class="info-item">
-                    <div class="info-text">
-                        <span class="info-value">' . $f["name"] . '</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>';
-            }
-            ?>
-        </div>
+        <?php endforeach; ?>
     </div>
 
-
 </section>
-
-
 
 <section class="localizacao-section">
     <h2 class="text text-center">Nossa localização</h2>

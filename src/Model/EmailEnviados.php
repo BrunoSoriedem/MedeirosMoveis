@@ -2,55 +2,42 @@
 
 namespace App\Model;
 
-use App\Core\Database;
 use DateTime;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\JoinColumn;
-use App\Model\ContasCadastradas;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
-
+#[ORM\Entity]
 class EmailEnviados
 {
-    #[Id]
-    #[Column(type: "integer")]
-    #[GeneratedValue(strategy: "AUTO")]
+    #[ORM\Id]
+    #[ORM\Column(type: "integer")]
+    #[ORM\GeneratedValue]
     private int $id;
 
-    #[Column(type: "string", length: 100)]
+    #[ORM\Column(type: "string", length: 100)]
     private string $name;
 
-    #[Column(type: "string", length: 20)]
+    #[ORM\Column(type: "string", length: 20)]
     private string $telefone;
 
-    #[Column(type: "string", length: 150, unique: false)]
+    #[ORM\Column(type: "string", length: 150)]
     private string $email;
 
-    #[Column(type: "string", length: 100)]
+    #[ORM\Column(type: "string", length: 100)]
     private string $cidade;
 
-    #[Column(type: "string", length: 100)]
+    #[ORM\Column(type: "string", length: 100)]
     private string $formaEncontro;
 
-    #[Column(type: "string", length: 100)]
+    #[ORM\Column(type: "string", length: 100)]
     private string $assunto;
 
-    #[Column(type: "text")]
+    #[ORM\Column(type: "text")]
     private string $mensagem;
 
-    #[Column(type: "datetime")]
+    #[ORM\Column(type: "datetime")]
     private DateTime $data_envio;
 
-    #[ManyToOne(targetEntity: ContasCadastradas::class)]
-    #[JoinColumn(name: "conta_id", referencedColumnName: "id", nullable: true)]
-    private ?ContasCadastradas $conta;
-
     public function __construct(
-        ?ContasCadastradas $conta,
         string $name,
         string $telefone,
         string $email,
@@ -60,7 +47,6 @@ class EmailEnviados
         string $mensagem,
         DateTime $data_envio
     ) {
-        $this->conta = $conta;
         $this->name = $name;
         $this->telefone = $telefone;
         $this->email = $email;
@@ -75,63 +61,36 @@ class EmailEnviados
     {
         return $this->id;
     }
-
     public function getName(): string
     {
         return $this->name;
     }
-
     public function getTelefone(): string
     {
         return $this->telefone;
     }
-
     public function getEmail(): string
     {
         return $this->email;
     }
-
     public function getCidade(): string
     {
         return $this->cidade;
     }
-
     public function getFormaEncontro(): string
     {
         return $this->formaEncontro;
     }
-
     public function getAssunto(): string
     {
         return $this->assunto;
     }
-
     public function getMensagem(): string
     {
         return $this->mensagem;
     }
-
     public function getDataEnvio(): DateTime
     {
         return $this->data_envio;
-    }
-
-    public function getConta(): ?ContasCadastradas
-    {
-        return $this->conta;
-    }
-
-    public function save(): void
-    {
-        $em = Database::getEntityManager();
-        $em->persist($this);
-        $em->flush();
-    }
-
-    public static function findAll(): array
-    {
-        $em = Database::getEntityManager();
-        $repository = $em->getRepository(EmailEnviados::class);
-        return $repository->findAll();
     }
 }
