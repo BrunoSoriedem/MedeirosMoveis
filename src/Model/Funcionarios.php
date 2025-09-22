@@ -23,6 +23,14 @@ class Funcionarios
     #[ORM\Column(type: "string", length: 255)]
     private string $diretorio_imagem;
 
+    public function __construct(string $name, string $funcao, string $diretorio_imagem)
+    {
+        $this->name = $name;
+        $this->funcao = $funcao;
+        $this->diretorio_imagem = $diretorio_imagem;
+    }
+
+
     public function getId(): int
     {
         return $this->id;
@@ -38,6 +46,13 @@ class Funcionarios
     public function getDiretorioImagem(): string
     {
         return $this->diretorio_imagem;
+    }
+
+    public function save(): void
+    {
+        $em = Database::getEntityManager();
+        $em->persist($this);
+        $em->flush();
     }
 
     public static function findAll(): array

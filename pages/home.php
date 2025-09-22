@@ -1,28 +1,39 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/sessao.php';
 
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8", "root", "dados-medeirosMoveis");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+use App\Model\Produtos;
 
-    $stmt = $pdo->query("SELECT * FROM produtos");
-    $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erro no banco: " . $e->getMessage());
-}
+$produtos = Produtos::findAll();
 
-$categorias = ['moveis' => [], 'planejados' => [], 'estofados' => [], 'eletros' => []];
+$categorias = [
+    'moveis' => [],
+    'planejados' => [],
+    'estofados' => [],
+    'eletros' => []
+];
 $novidades = [];
 $maisVendidos = [];
 
 foreach ($produtos as $p) {
-    foreach ($categorias as $cat => $_) {
-        if (strtolower($p[$cat]) === 'sim') {
-            $categorias[$cat][] = $p;
-        }
+    if (strtolower($p->getMoveis()) === 'sim') {
+        $categorias['moveis'][] = $p;
     }
-    if (strtolower($p['novidade']) === 'sim') $novidades[] = $p;
-    if (strtolower($p['maisVendido']) === 'sim') $maisVendidos[] = $p;
+    if (strtolower($p->getPlanejados()) === 'sim') {
+        $categorias['planejados'][] = $p;
+    }
+    if (strtolower($p->getEstofados()) === 'sim') {
+        $categorias['estofados'][] = $p;
+    }
+    if (strtolower($p->getEletros()) === 'sim') {
+        $categorias['eletros'][] = $p;
+    }
+    if (strtolower($p->getNovidade()) === 'sim') {
+        $novidades[] = $p;
+    }
+    if (strtolower($p->getMaisVendido()) === 'sim') {
+        $maisVendidos[] = $p;
+    }
 }
 ?>
 
@@ -44,130 +55,49 @@ foreach ($produtos as $p) {
                     </a>
                 </div>
             </div>
-
             <div class="swiper-slide slide-com-overlay" id="slide2">
                 <img src="imagens/eletros/geladeira-3-portas.jpg" alt="Colchão Gazin">
                 <div class="conteudo-sobreposto-direito">
                     <h1>Neste mês de <span class="destaque">Setembro</span></h1>
-                    <p>
-                        A loja inteira está em promoção para o <span class="destaque">nosso fecha mês</span>! <br>
-                        Aproveite descontos de até <span class="destaque">50%</span> em todos os produtos. <br><br>
-                        É o momento perfeito para planejar toda sua casa. <br>
+                    <p>A loja inteira está em promoção para o <span class="destaque">nosso fecha mês</span>!<br>
+                        Aproveite descontos de até <span class="destaque">50%</span> em todos os produtos.<br><br>
+                        É o momento perfeito para planejar toda sua casa.<br>
                         Não perca! Esperamos por você com ofertas imperdíveis!
                     </p>
-
                 </div>
             </div>
             <div class="swiper-slide slide-com-overlay" id="slide3">
                 <img src="imagens/planejados/cozinha-clara-e-geladeira.jpg" alt="Mesas">
                 <div class="conteudo-sobreposto">
                     <h1><span class="destaque">20 anos</span> de tradição e qualidade em móveis.</h1>
-                    <p>
-                        Duas décadas transformando lares com dedicação, bom gosto e compromisso. <br>
-                        Aqui, cada móvel conta uma história — a sua.
-                    </p>
+                    <p>Duas décadas transformando lares com dedicação, bom gosto e compromisso.<br>
+                        Aqui, cada móvel conta uma história — a sua.</p>
                     <a href="https://wa.me/554499870212?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento"
                         target="_blank" class="botao-rede">
                         <i class="fab fa-whatsapp"></i> Fale com nossa equipe
                     </a>
                 </div>
-
             </div>
             <div class="swiper-slide slide-com-overlay" id="slide4">
                 <img src="imagens/estofados/Sofa-Preto-8p.jpg" alt="Mesas">
                 <div class="conteudo-sobreposto-direito">
                     <h1>Estamos também nas <span class="destaque">Redes Sociais</span></h1>
-                    <p>
-                        Acompanhe nossas novidades, promoções e projetos exclusivos. <br>
-                        Siga-nos e fique por dentro de tudo que acontece por aqui!
-                    </p>
+                    <p>Acompanhe nossas novidades, promoções e projetos exclusivos.<br>
+                        Siga-nos e fique por dentro de tudo que acontece por aqui!</p>
                     <div class="redes-sociais">
-                        <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank" class="botao-rede">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank" class="botao-rede">
-                            <i class="fab fa-facebook"></i>
-                        </a>
+                        <a href="https://www.instagram.com/medeirosmoveisjuranda/" target="_blank" class="botao-rede"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/medeirosmoveis.juranda" target="_blank" class="botao-rede"><i
+                                class="fab fa-facebook"></i></a>
                         <a href="https://wa.me/554499870212?text=Olá,%20vi%20vocês%20nas%20redes%20sociais!"
-                            target="_blank" class="botao-rede">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                            target="_blank" class="botao-rede"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
-
-    </div>
-</section>
-
-<section class="section-2">
-    <div class="container">
-
-        <h2 class="main-title">O que você evita sendo um cliente Medeiros Móveis?</h2>
-
-        <div class="benefits-grid">
-
-            <div class="benefit-card">
-                <div class="benefit-icon"></div>
-                <h3 class="benefit-title">Atrasos na Montagem</h3>
-                <p class="benefit-description">
-                    Nossa equipe de montadores/entregadores estão sempre a disposição,
-                    para atender conforme a necessidade dos clientes.
-                </p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon"></div>
-                <h3 class="benefit-title">Itens Avariados</h3>
-                <p class="benefit-description">
-                    Os itens dos nossos fornecedores e fabricantes chegam até nós devidamente protegidos com papelão,
-                    plástico bolha e plástico stretch, garantindo sua integridade até o momento da entrega.
-                </p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon"></div>
-                <h3 class="benefit-title">Móveis Caros</h3>
-                <p class="benefit-description">
-                    Trabalhamos com uma política de preços justos e condições diferenciadas, para contribuir
-                    com nossos clientes
-                </p>
-            </div>
-        </div>
-
-        <div class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="counter1">0</div>
-                    <div class="stat-description">
-                        anos no Ramo dos Móveis entregando Planejados, Eletros, Estofados, e tudo que o cliente precisa,
-                        com Qualidade, Integridade, Confiança e Agilidade.
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="counter2">0</div>
-                    <div class="stat-description">
-                        Famílias e Clientes satisfeitos com os móveis, e atendimento de nossa empresa.
-                        <br>
-                        Sempre lhe oferecendo a Certeza de um Ótimo Negócio.
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="counter3">0</div>
-                    <div class="stat-description">
-                        Premiações em nosso munícipio, entre eles, melhor loja,
-                        melhor empesário e melhores vendedores.
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 
@@ -178,20 +108,16 @@ foreach ($produtos as $p) {
     <div class="products-grid">
         <?php foreach ($categorias as $cat => $produtosCat): ?>
             <div class="product-card">
-
                 <?php if (!empty($produtosCat)): ?>
-
-                    <img src="<?= htmlspecialchars($produtosCat[0]['diretorio_imagem']) ?>"
-                        alt="<?= htmlspecialchars($produtosCat[0]['descricao']) ?>" class="product-img">
+                    <img src="<?= htmlspecialchars($produtosCat[0]->getDiretorioImagem()) ?>"
+                        alt="<?= htmlspecialchars($produtosCat[0]->getDescricao()) ?>" class="product-img">
                     <div class="product-info">
                         <h2 class="text text-center"><?= ucfirst($cat) ?></h2>
-                        <a href="produto?categoria=<?= $cat ?>" class="btn">Saiba Mais</a>
+                        <a href="produto?categoria=<?= urlencode($cat) ?>" class="btn">Saiba Mais</a>
                     </div>
                 <?php endif; ?>
             </div>
-
         <?php endforeach; ?>
-
     </div>
 </section>
 
@@ -202,13 +128,13 @@ foreach ($produtos as $p) {
             <?php foreach ($novidades as $item): ?>
                 <div class="swiper-slide slideInUp">
                     <div class="card-produto">
-                        <img src="<?= htmlspecialchars($item['diretorio_imagem']) ?>"
-                            alt="<?= htmlspecialchars($item['descricao']) ?>">
+                        <img src="<?= htmlspecialchars($item->getDiretorioImagem()) ?>"
+                            alt="<?= htmlspecialchars($item->getDescricao()) ?>">
                         <div class="tags"><span class="tag novidade">Novidade</span></div>
-                        <h3><?= htmlspecialchars($item['descricao']) ?></h3>
+                        <h3><?= htmlspecialchars($item->getDescricao()) ?></h3>
                         <div class="avaliacao">★★★★★</div>
-                        <p class="preco-novo">R$ <?= number_format($item['precoAV'], 2, ',', '.') ?></p>
-                        <p class="preco-info">R$ <?= number_format($item['precoAP'], 2, ',', '.') ?></p>
+                        <p class="preco-novo">R$ <?= number_format($item->getPrecoAV(), 2, ',', '.') ?></p>
+                        <p class="preco-info">R$ <?= number_format($item->getPrecoAP(), 2, ',', '.') ?></p>
                         <button class="btn-whatsapp" data-phone="5544999870212">
                             <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
                         </button>
@@ -227,12 +153,12 @@ foreach ($produtos as $p) {
             <?php foreach ($maisVendidos as $item): ?>
                 <div class="swiper-slide slideInUp">
                     <div class="card-produto">
-                        <img src="<?= htmlspecialchars($item['diretorio_imagem']) ?>"
-                            alt="<?= htmlspecialchars($item['descricao']) ?>">
-                        <h3><?= htmlspecialchars($item['descricao']) ?></h3>
+                        <img src="<?= htmlspecialchars($item->getDiretorioImagem()) ?>"
+                            alt="<?= htmlspecialchars($item->getDescricao()) ?>">
+                        <h3><?= htmlspecialchars($item->getDescricao()) ?></h3>
                         <div class="avaliacao">★★★★★</div>
-                        <p class="preco-novo">R$ <?= number_format($item['precoAV'], 2, ',', '.') ?></p>
-                        <p class="preco-info">R$ <?= number_format($item['precoAP'], 2, ',', '.') ?></p>
+                        <p class="preco-novo">R$ <?= number_format($item->getPrecoAV(), 2, ',', '.') ?></p>
+                        <p class="preco-info">R$ <?= number_format($item->getPrecoAP(), 2, ',', '.') ?></p>
                         <button class="btn-whatsapp" data-phone="5544999870212">
                             <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
                         </button>
@@ -412,6 +338,7 @@ foreach ($produtos as $p) {
         <div class="swiper-pagination"></div>
     </div>
 </section>
+
 
 <section class="categories">
     <section class="faq-section">

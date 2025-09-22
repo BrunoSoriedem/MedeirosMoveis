@@ -2,36 +2,17 @@
 require_once __DIR__ . '/../config/sessao.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Model\ContasCadastradas;
-use App\Model\verificaUsuario;
+use App\Controller\UsuarioController;
 
-$usuario = VerificaUsuario::usuarioLogado();
-$logado = $usuario !== null;
+$controller = new UsuarioController();
+$dados = $controller->areaUsuario();
 
-if ($logado) {
-    $nomeUsuario   = htmlspecialchars($usuario->getName());
-    $emailUsuario  = htmlspecialchars($usuario->getEmail());
-    $perfilUsuario = htmlspecialchars($usuario->getPerfil());
-    $iniciais      = strtoupper(substr($nomeUsuario, 0, 1));
-}
-
-$msgSenha = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha']) && $logado) {
-    $msgSenha = VerificaUsuario::alterarSenha(
-        $usuario,
-        $_POST['senha_atual'],
-        $_POST['nova_senha'],
-        $_POST['confirmar_senha']
-    );
-
-    if ($msgSenha === '') {
-        $_SESSION['msg_sucesso'] = "Senha alterada com sucesso!";
-        echo "<script>window.location.href='bemvindoEntrar';</script>";
-        exit;
-    }
-}
-
+$logado        = $dados['logado'];
+$msgSenha      = $dados['msgSenha'];
+$nomeUsuario   = $dados['nomeUsuario'];
+$emailUsuario  = $dados['emailUsuario'];
+$perfilUsuario = $dados['perfilUsuario'];
+$iniciais      = $dados['iniciais'];
 ?>
 
 <link rel="stylesheet" href="css/nav-footer.css">
@@ -39,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha']) && $
 
 <div class="cliente-container">
     <div class="cliente-box">
-
         <?php if (!$logado): ?>
             <div class="aviso">Você precisa estar logado para acessar a área do cliente.</div>
             <div class="btn-container">
@@ -107,7 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha']) && $
                 <?php endif; ?>
             </div>
         <?php endif; ?>
-
     </div>
 </div>
 
@@ -116,9 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha']) && $
         const form = document.getElementById("formSenha");
         form.style.display = (form.style.display === "none" || form.style.display === "") ? "block" : "none";
     });
-</script>
 
-<script>
     function togglePassword(inputId, button) {
         const input = document.getElementById(inputId);
         if (input.type === "password") {
@@ -129,9 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha']) && $
             button.innerHTML = '<i class="fas fa-eye"></i>';
         }
     }
-</script>
 
-<script>
     document.querySelector(".btn-sairConta").addEventListener("click", function(e) {
         e.preventDefault();
         if (confirm("Tem certeza que deseja sair da conta?")) {

@@ -11,6 +11,7 @@ $base = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['SCRIPT_NAME'];
 ?>
 
 <?php
+
 try {
     $pdo = new PDO(
         "mysql:host=localhost;dbname=dados-medeirosmoveis;charset=utf8",
