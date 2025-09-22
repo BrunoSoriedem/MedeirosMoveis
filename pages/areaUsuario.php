@@ -61,7 +61,6 @@ if ($msgSenha === '') {
                     </div>
                 <?php endif; ?>
 
-
                 <?php if (!empty($msgSenha)): ?>
                     <div class="msg-senha erro"><?= $msgSenha ?></div>
                 <?php endif; ?>
