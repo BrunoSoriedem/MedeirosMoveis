@@ -4,6 +4,9 @@ namespace App\Model;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use App\Model\EmailEnviados;
 
 #[ORM\Entity(repositoryClass: "App\Repository\ContasCadastradasRepository")]
 class ContasCadastradas
@@ -28,9 +31,13 @@ class ContasCadastradas
     #[ORM\Column(length: 50)]
     private string $perfil_Acesso;
 
+    #[ORM\OneToMany(mappedBy: "conta", targetEntity: EmailEnviados::class, cascade: ["persist", "remove"], orphanRemoval: true)]
+    private Collection $emails;
+
     public function __construct()
     {
         $this->data_cadastro = new DateTime();
+        $this->emails = new ArrayCollection();
     }
 
     public function getId(): int
@@ -42,6 +49,7 @@ class ContasCadastradas
     {
         return $this->name;
     }
+
     public function setNome(string $nome): void
     {
         $this->name = $nome;
@@ -51,6 +59,7 @@ class ContasCadastradas
     {
         return $this->email;
     }
+
     public function setEmail(string $email): void
     {
         $this->email = $email;
@@ -60,6 +69,7 @@ class ContasCadastradas
     {
         return $this->senha;
     }
+
     public function setSenha(string $senha): void
     {
         $this->senha = password_hash($senha, PASSWORD_DEFAULT);
@@ -69,6 +79,7 @@ class ContasCadastradas
     {
         return $this->data_cadastro;
     }
+
     public function setDataCadastro(DateTime $data): void
     {
         $this->data_cadastro = $data;
@@ -78,6 +89,7 @@ class ContasCadastradas
     {
         return $this->perfil_Acesso;
     }
+
     public function setPerfil(string $perfil): void
     {
         $this->perfil_Acesso = $perfil;
@@ -100,5 +112,25 @@ class ContasCadastradas
         }
         $this->senha = password_hash($novaSenha, PASSWORD_DEFAULT);
         return true;
+    }
+
+    public function getEmails(): Collection
+    {
+        return $this->emails;
+    }
+
+    public function addEmail(EmailEnviados $email): void
+    {
+        if (!$this->emails->contains($email)) {
+            $this->emails->add($email);
+            $email->setConta($this);
+        }
+    }
+
+    public function removeEmail(EmailEnviados $email): void
+    {
+        if ($this->emails->removeElement($email)) {
+            $email->setConta(null);
+        }
     }
 }

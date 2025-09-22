@@ -34,6 +34,10 @@ class EmailController
                 new DateTime('now', new \DateTimeZone('America/Sao_Paulo'))
             );
 
+            if ($conta !== null) {
+                $emailEnviado->setConta($conta);
+            }
+
             $this->repository->save($emailEnviado);
 
             $body = "
