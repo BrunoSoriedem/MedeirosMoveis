@@ -9,13 +9,12 @@ $dados = $controller->areaUsuario();
 
 $logado        = $dados['logado'];
 $msgSenha      = $dados['msgSenha'];
-$msgSucesso    = ''; // inicializa a mensagem de sucesso
+$msgSucesso    = '';
 $nomeUsuario   = $dados['nomeUsuario'];
 $emailUsuario  = $dados['emailUsuario'];
 $perfilUsuario = $dados['perfilUsuario'];
 $iniciais      = $dados['iniciais'];
 
-// Define msgSucesso se a senha foi alterada corretamente
 if ($msgSenha === '') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha'])) {
         $msgSucesso = "Senha alterada com sucesso!";

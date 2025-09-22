@@ -37,6 +37,10 @@ class EmailEnviados
     #[ORM\Column(type: "datetime")]
     private DateTime $data_envio;
 
+    #[ORM\ManyToOne(targetEntity: ContasCadastradas::class, inversedBy: "emails")]
+    #[ORM\JoinColumn(name: "conta_id", referencedColumnName: "id", nullable: true, onDelete: "SET NULL")]
+    private ?ContasCadastradas $conta = null;
+
     public function __construct(
         string $name,
         string $telefone,
@@ -92,5 +96,15 @@ class EmailEnviados
     public function getDataEnvio(): DateTime
     {
         return $this->data_envio;
+    }
+
+    public function setConta(?ContasCadastradas $conta): void
+    {
+        $this->conta = $conta;
+    }
+
+    public function getConta(): ?ContasCadastradas
+    {
+        return $this->conta;
     }
 }

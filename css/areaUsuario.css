@@ -116,8 +116,6 @@ h2::after {
     margin-bottom: 25px;
 }
 
-.sucesso {}
-
 .info-card {
     background: var(--background-light);
     border-left: 5px solid var(--primary-gold);
