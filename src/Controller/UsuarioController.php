@@ -36,9 +36,7 @@ class UsuarioController
             );
 
             if ($dados['msgSenha'] === '') {
-                $_SESSION['msg_sucesso'] = "Senha alterada com sucesso!";
-                header('Location: bemvindoEntrar');
-                exit;
+                $dados['msgSucesso'] = "Senha alterada com sucesso!";
             }
         }
 

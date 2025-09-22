@@ -9,10 +9,18 @@ $dados = $controller->areaUsuario();
 
 $logado        = $dados['logado'];
 $msgSenha      = $dados['msgSenha'];
+$msgSucesso    = ''; // inicializa a mensagem de sucesso
 $nomeUsuario   = $dados['nomeUsuario'];
 $emailUsuario  = $dados['emailUsuario'];
 $perfilUsuario = $dados['perfilUsuario'];
 $iniciais      = $dados['iniciais'];
+
+// Define msgSucesso se a senha foi alterada corretamente
+if ($msgSenha === '') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alterar_senha'])) {
+        $msgSucesso = "Senha alterada com sucesso!";
+    }
+}
 ?>
 
 <link rel="stylesheet" href="css/nav-footer.css">
@@ -43,8 +51,23 @@ $iniciais      = $dados['iniciais'];
                     <a class="btn-sairConta">Sair da Conta</a>
                 </div>
 
+                <?php if (!empty($msgSucesso)): ?>
+                    <div class="msg-senha sucesso" style="
+                    background-color: var(--primary-gold);
+                    color: white;
+                    border-color: var(--primary-gold);
+                    text-align: center;">
+                        <?= $msgSucesso ?>
+                    </div>
+                <?php endif; ?>
+
+
+                <?php if (!empty($msgSenha)): ?>
+                    <div class="msg-senha erro"><?= $msgSenha ?></div>
+                <?php endif; ?>
+
                 <form id="formSenha" class="alterar-senha-form login-form" method="POST" action=""
-                    style="display: <?= !empty($msgSenha) ? 'block' : 'none' ?>;">
+                    style="display: <?= (!empty($msgSenha) || !empty($msgSucesso)) ? 'block' : 'none' ?>;">
 
                     <div class="form-group">
                         <label for="senhaAtual">Senha atual</label>
@@ -81,10 +104,6 @@ $iniciais      = $dados['iniciais'];
 
                     <button type="submit" class="login-button" name="alterar_senha">Salvar Nova Senha</button>
                 </form>
-
-                <?php if (!empty($msgSenha)): ?>
-                    <div class="msg-senha"><?= $msgSenha ?></div>
-                <?php endif; ?>
             </div>
         <?php endif; ?>
     </div>
