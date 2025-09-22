@@ -1,42 +1,13 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/sessao.php';
 
-use App\Model\Produtos;
-use App\Model\Database;
+use App\Controller\CadProdutosController;
 
-require_once __DIR__ . "/../vendor/autoload.php";
-
+$mensagem = '';
+$controller = new CadProdutosController();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $descricao = $_POST['descricao'] ?? '';
-    $precoAV = (float)($_POST['precoAV'] ?? 0);
-    $precoAP = (float)($_POST['precoAP'] ?? 0);
-    $moveis = $_POST['moveis'] ?? 'nao';
-    $planejados = $_POST['planejados'] ?? 'nao';
-    $estofados = $_POST['estofados'] ?? 'nao';
-    $eletros = $_POST['eletros'] ?? 'nao';
-    $maisVendido = $_POST['maisVendido'] ?? 'nao';
-    $novidade = $_POST['novidade'] ?? 'nao';
-    $diretorio_imagem = $_POST['diretorio_imagem'] ?? '';
-
-    $data_cadastro = new \DateTime('now', new \DateTimeZone('America/Sao_Paulo'));
-
-    $produto = new Produtos(
-        $descricao,
-        $precoAV,
-        $precoAP,
-        $moveis,
-        $planejados,
-        $estofados,
-        $eletros,
-        $maisVendido,
-        $novidade,
-        $diretorio_imagem,
-        $data_cadastro
-    );
-
-    $produto->save();
-
-    echo "<p style='color:green;'>✅ Produto cadastrado com sucesso!</p>";
+    $mensagem = $controller->cadastrar();
 }
 ?>
 
@@ -44,6 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link rel="stylesheet" href="css/cadprod.css">
 
 <h2 style="text-align:center;">Cadastro de Produtos</h2>
+
+<?php if (!empty($mensagem)): ?>
+<p style="color: green; text-align: center;"><?= htmlspecialchars($mensagem) ?></p>
+<?php endif; ?>
 
 <form method="post">
     <label>Descrição:</label>
