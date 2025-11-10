@@ -183,6 +183,12 @@ $temAcessoCadastro = ($perfil === 'master');
                                 </ul>
                             </li>
 
+                            <li class="nav-item" data-aos="fade-up" data-aos-delay="700">
+                                <a class="nav-link" href="carrinho">
+                                    <i class="fa-solid fa-cart-shopping" id="shop-car"></i>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h2 style="text-align:center;">Cadastro de Produtos</h2>
 
 <?php if (!empty($mensagem)): ?>
-<p style="color: green; text-align: center;"><?= htmlspecialchars($mensagem) ?></p>
+    <p style="color: green; text-align: center;"><?= htmlspecialchars($mensagem) ?></p>
 <?php endif; ?>
 
 <form method="post">
@@ -29,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <label>Preço à Prazo:</label>
     <input type="number" step="0.01" name="precoAP" required>
+
+    <label>Quantidade Disponível:</label>
+    <input type="number" step="1" name="qtdeDisp" required>
 
     <label>Móveis:</label>
     <select name="moveis">

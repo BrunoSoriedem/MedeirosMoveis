@@ -12,6 +12,7 @@ class CadProdutosController
             $descricao = $_POST['descricao'] ?? '';
             $precoAV = (float)($_POST['precoAV'] ?? 0);
             $precoAP = (float)($_POST['precoAP'] ?? 0);
+            $qtdeDisp = (float)($_POST['qtdeDisp'] ?? 0);
             $moveis = $_POST['moveis'] ?? 'nao';
             $planejados = $_POST['planejados'] ?? 'nao';
             $estofados = $_POST['estofados'] ?? 'nao';
@@ -26,6 +27,7 @@ class CadProdutosController
                 $descricao,
                 $precoAV,
                 $precoAP,
+                $qtdeDisp,
                 $moveis,
                 $planejados,
                 $estofados,

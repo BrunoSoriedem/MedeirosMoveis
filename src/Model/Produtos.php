@@ -27,6 +27,9 @@ class Produtos
     #[Column(type: "decimal", precision: 10, scale: 2)]
     private float $precoAP;
 
+    #[Column(type: "decimal", precision: 10, scale: 2)]
+    private float $qtdeDisp;
+
     #[Column(type: "string", length: 150)]
     private string $moveis;
 
@@ -51,10 +54,14 @@ class Produtos
     #[Column(type: "datetime")]
     private DateTime $data_cadastro;
 
+    #[ORM\OneToMany(mappedBy: "conta", targetEntity: Carrinho::class, cascade: ["persist", "remove"], orphanRemoval: true)]
+    private Collection $carrinhos;
+
     public function __construct(
         string $descricao,
         float $precoAV,
         float $precoAP,
+        float $qtdeDisp,
         string $moveis,
         string $planejados,
         string $estofados,
@@ -67,6 +74,7 @@ class Produtos
         $this->descricao = $descricao;
         $this->precoAV = $precoAV;
         $this->precoAP = $precoAP;
+        $this->qtdeDisp = $qtdeDisp;
         $this->moveis = $moveis;
         $this->planejados = $planejados;
         $this->estofados = $estofados;
@@ -95,6 +103,11 @@ class Produtos
     public function getPrecoAP(): float
     {
         return $this->precoAP;
+    }
+
+    public function getqtdeDisp(): float
+    {
+        return $this->qtdeDisp;
     }
 
     public function getMoveis(): string
@@ -135,6 +148,82 @@ class Produtos
     public function getDataCadastro(): DateTime
     {
         return $this->data_cadastro;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function setDescricao(string $descricao): void
+    {
+        $this->descricao = $descricao;
+    }
+
+    public function setPrecoAV(float $precoAV): void
+    {
+        $this->precoAV = $precoAV;
+    }
+
+    public function setPrecoAP(float $precoAP): void
+    {
+        $this->precoAP = $precoAP;
+    }
+
+    public function setQtdeDisp(float $qtdeDisp): void
+    {
+        $this->qtdeDisp = $qtdeDisp;
+    }
+
+    public function setMoveis(string $moveis): void
+    {
+        $this->moveis = $moveis;
+    }
+
+    public function setPlanejados(string $planejados): void
+    {
+        $this->planejados = $planejados;
+    }
+
+    public function setEstofados(string $estofados): void
+    {
+        $this->estofados = $estofados;
+    }
+
+    public function setEletros(string $eletros): void
+    {
+        $this->eletros = $eletros;
+    }
+
+    public function setMaisVendido(string $maisVendido): void
+    {
+        $this->maisVendido = $maisVendido;
+    }
+
+    public function setNovidade(string $novidade): void
+    {
+        $this->novidade = $novidade;
+    }
+
+    public function setDiretorioImagem(string $diretorio_imagem): void
+    {
+        $this->diretorio_imagem = $diretorio_imagem;
+    }
+
+    public function setDataCadastro(DateTime $data_cadastro): void
+    {
+        $this->data_cadastro = $data_cadastro;
+    }
+
+    public function setCarrinhos(Collection $carrinhos): void
+    {
+        $this->carrinhos = $carrinhos;
+    }
+
+    public static function findById($id): ?self
+    {
+        $em = Database::getEntityManager();
+        return $em->find(self::class, $id);
     }
 
     public function save(): void

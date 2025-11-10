@@ -34,6 +34,9 @@ class ContasCadastradas
     #[ORM\OneToMany(mappedBy: "conta", targetEntity: EmailEnviados::class, cascade: ["persist", "remove"], orphanRemoval: true)]
     private Collection $emails;
 
+    #[ORM\OneToMany(mappedBy: "produto", targetEntity: ItensCarrinho::class, cascade: ["persist", "remove"], orphanRemoval: true)]
+    private Collection $carrinhos;
+
     public function __construct()
     {
         $this->data_cadastro = new DateTime();

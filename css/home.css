@@ -568,14 +568,23 @@ h2::after {
     width: 260px;
     max-width: 100%;
     text-align: center;
-    /* position: relative; */
-    transition: transform 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        border 0.3s ease-in-out,
+        max-height 0.4s ease-in-out,
+        padding-bottom 0.3s ease-in-out;
+    max-height: 510px;
 }
 
 .card-produto:hover {
-    transform: translateY(-20px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-20px) scale(1.00);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     border: 1.5px solid #000000;
+    max-height: 560px;
+    padding-bottom: 30px;
 }
 
 .card-produto img {
@@ -644,7 +653,8 @@ h2::after {
 }
 
 .btn-verde,
-.btn-whatsapp {
+.btn-whatsapp,
+.btn-carrinho {
     width: 100%;
     padding: 10px;
     border: none;
@@ -678,6 +688,30 @@ h2::after {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--primary-color);
+}
+
+.card-produto:hover .btn-carrinho {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.btn-carrinho {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.btn-carrinho:hover {
+    background-color: #000;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
 }
 
 #card-novidades:hover {

@@ -31,10 +31,16 @@ class Database
         $paths = [__DIR__ . '/../Model'];
         $isDevMode = false;
 
-        return ORMSetup::createAttributeMetadataConfiguration(
+        $config = ORMSetup::createAttributeMetadataConfiguration(
             $paths,
             $isDevMode
         );
+
+        $config->setProxyDir(__DIR__ . '/../../var/proxies');
+        $config->setProxyNamespace('App\\Proxies');
+        $config->setAutoGenerateProxyClasses(true);
+
+        return $config;
     }
 
     private static function getConnection(): Connection
@@ -49,9 +55,6 @@ class Database
 
         $config = self::getConfig();
 
-        return DriverManager::getConnection(
-            $dbParams,
-            $config
-        );
+        return DriverManager::getConnection($dbParams, $config);
     }
 }

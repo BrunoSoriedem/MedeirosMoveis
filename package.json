@@ -2,5 +2,24 @@
   "dependencies": {
     "prompt-sync": "^4.2.0",
     "swiper": "^11.2.7"
-  }
+  },
+  "name": "medeiros-moveis",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoSoriedem/MedeirosMoveis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoSoriedem/MedeirosMoveis/issues"
+  },
+  "homepage": "https://github.com/BrunoSoriedem/MedeirosMoveis#readme",
+  "description": ""
 }

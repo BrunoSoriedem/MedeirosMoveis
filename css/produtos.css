@@ -109,18 +109,55 @@ h2::after {
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 20px;
+    width: 260px;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-produto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid #000000;
+
+}
+
+.card-produto:hover img {
+    transform: scale(1.05);
+}
+
+/* .card-produto {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
     margin-bottom: 25px;
     width: 260px;
     max-width: 100%;
     text-align: center;
-    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        border 0.3s ease-in-out,
+        max-height 0.4s ease-in-out,
+        padding-bottom 0.3s ease-in-out;
+    max-height: 570px;
 }
 
 .card-produto:hover {
-    transform: translateY(-20px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-20px) scale(1.00);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     border: 1.5px solid #000000;
-}
+    max-height: 620px;
+    padding-bottom: 30px;
+} */
 
 .pagination button {
     padding: 20px 12px;
@@ -134,10 +171,6 @@ h2::after {
 .pagination button.active {
     background-color: #1e7e34;
 }
-
-
-
-
 
 .fade-up {
     opacity: 0;
@@ -156,6 +189,7 @@ h2::after {
     margin-bottom: 10px;
     object-fit: cover;
     border-radius: 15px;
+    transition: transform 0.4s ease;
 }
 
 .desconto {
@@ -186,7 +220,7 @@ h2::after {
 
 .card-produto h3 {
     font-size: 16px;
-    height: 30px;
+    min-height: 40px;
     margin: 10px 0;
 }
 
@@ -218,15 +252,15 @@ h2::after {
 }
 
 .btn-verde,
-.btn-whatsapp {
+.btn-whatsapp,
+.btn-carrinho {
     width: 100%;
     padding: 10px;
-    border: none;
     border-radius: 10px;
     margin-top: 6px;
     cursor: pointer;
     font-size: 14px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease;
 }
 
 .btn-verde {
@@ -244,9 +278,46 @@ h2::after {
 .btn-whatsapp:hover {
     background-color: #fff;
     color: var(--primary-color);
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border: 2px solid var(--primary-color);
+}
+
+.btn-carrinho {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+.card-produto:hover .btn-carrinho {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* .card-produto:hover .btn-carrinho {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.btn-carrinho {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+} */
+
+.btn-carrinho:hover {
+    background-color: #000;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 #card-novidades:hover {

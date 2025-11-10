@@ -135,14 +135,19 @@ foreach ($produtos as $p) {
                         <div class="avaliacao">★★★★★</div>
                         <p class="preco-novo">R$ <?= number_format($item->getPrecoAV(), 2, ',', '.') ?></p>
                         <p class="preco-info">R$ <?= number_format($item->getPrecoAP(), 2, ',', '.') ?></p>
+                        <p class="qtdeDisp">Estoque: <?= ($item->getqtdeDisp()) ?></p>
                         <button class="btn-whatsapp" data-phone="5544999870212">
                             <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
+                        </button>
+                        <button class="btn-carrinho">
+                            <i class=" fa-solid fa-cart-shopping"></i> Adicionar ao Carrinho
                         </button>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
-        <div class="swiper-button-next"></div>
+        <div class=" swiper-button-next">
+        </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
@@ -159,8 +164,12 @@ foreach ($produtos as $p) {
                         <div class="avaliacao">★★★★★</div>
                         <p class="preco-novo">R$ <?= number_format($item->getPrecoAV(), 2, ',', '.') ?></p>
                         <p class="preco-info">R$ <?= number_format($item->getPrecoAP(), 2, ',', '.') ?></p>
+                        <p class="qtdeDisp">Estoque: <?= ($item->getqtdeDisp()) ?></p>
                         <button class="btn-whatsapp" data-phone="5544999870212">
                             <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
+                        </button>
+                        <button class="btn-carrinho">
+                            <i class="fa-solid fa-cart-shopping"></i> Adicionar ao Carrinho
                         </button>
                     </div>
                 </div>
@@ -484,7 +493,6 @@ foreach ($produtos as $p) {
             }
         });
 
-        // Botão do WhatsApp
         const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
         whatsappButtons.forEach(button => {
             button.addEventListener('click', function() {

@@ -107,6 +107,18 @@ main {
     transform: scaleX(2);
 }
 
+#shop-car {
+    margin-left: 15px;
+    font-size: 25px;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+#shop-car:hover {
+    color: #2ecc71;
+    cursor: pointer;
+}
+
 #icon-user {
     margin-left: 15px;
     font-size: 35px;
