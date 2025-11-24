@@ -22,7 +22,6 @@ class Produtos extends \App\Model\Produtos implements \Doctrine\ORM\Proxy\Intern
     
 
     private const LAZY_OBJECT_PROPERTY_SCOPES = [
-        "\0".parent::class."\0".'carrinhos' => [parent::class, 'carrinhos', null, 16],
         "\0".parent::class."\0".'data_cadastro' => [parent::class, 'data_cadastro', null, 16],
         "\0".parent::class."\0".'descricao' => [parent::class, 'descricao', null, 16],
         "\0".parent::class."\0".'diretorio_imagem' => [parent::class, 'diretorio_imagem', null, 16],
@@ -36,7 +35,6 @@ class Produtos extends \App\Model\Produtos implements \Doctrine\ORM\Proxy\Intern
         "\0".parent::class."\0".'precoAP' => [parent::class, 'precoAP', null, 16],
         "\0".parent::class."\0".'precoAV' => [parent::class, 'precoAV', null, 16],
         "\0".parent::class."\0".'qtdeDisp' => [parent::class, 'qtdeDisp', null, 16],
-        'carrinhos' => [parent::class, 'carrinhos', null, 16],
         'data_cadastro' => [parent::class, 'data_cadastro', null, 16],
         'descricao' => [parent::class, 'descricao', null, 16],
         'diretorio_imagem' => [parent::class, 'diretorio_imagem', null, 16],

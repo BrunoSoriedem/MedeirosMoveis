@@ -8,9 +8,11 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
 
+#[ORM\Entity(repositoryClass: \App\Repository\ProdutoRepository::class)]
+#[ORM\Table(name: "produtos")]
 class Produtos
 {
     #[Id]
@@ -54,8 +56,8 @@ class Produtos
     #[Column(type: "datetime")]
     private DateTime $data_cadastro;
 
-    #[ORM\OneToMany(mappedBy: "conta", targetEntity: Carrinho::class, cascade: ["persist", "remove"], orphanRemoval: true)]
-    private Collection $carrinhos;
+    // #[ORM\OneToMany(mappedBy: "conta", targetEntity: Carrinho::class, cascade: ["persist", "remove"], orphanRemoval: true)]
+    // private Collection $carrinhos;
 
     public function __construct(
         string $descricao,

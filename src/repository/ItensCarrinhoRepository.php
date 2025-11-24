@@ -50,4 +50,17 @@ class ItensCarrinhoRepository extends EntityRepository
 
         return (float) $result;
     }
+
+    public function deleteByProduto(int $contaId, int $produtoId): void
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+
+        $qb->delete(\App\Model\ItensCarrinho::class, 'c')
+            ->where('c.conta = :conta')
+            ->andWhere('c.produto = :produto')
+            ->setParameter('conta', $contaId)
+            ->setParameter('produto', $produtoId)
+            ->getQuery()
+            ->execute();
+    }
 }

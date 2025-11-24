@@ -2,7 +2,15 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/sessao.php';
 
+use App\Model\VerificaUsuario;
 use App\Model\Produtos;
+use App\Repository\ItensCarrinhoRepository;
+
+$usuario = \App\Model\VerificaUsuario::usuarioLogado();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $produtos = Produtos::findAll();
 
@@ -35,6 +43,7 @@ foreach ($produtos as $p) {
         $maisVendidos[] = $p;
     }
 }
+
 ?>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -60,7 +69,8 @@ foreach ($produtos as $p) {
                 <div class="conteudo-sobreposto-direito">
                     <h1>Neste mês de <span class="destaque">Setembro</span></h1>
                     <p>A loja inteira está em promoção para o <span class="destaque">nosso fecha mês</span>!<br>
-                        Aproveite descontos de até <span class="destaque">50%</span> em todos os produtos.<br><br>
+                        Aproveite descontos de até <span class="destaque">50%</span> em todos os
+                        produtos.<br><br>
                         É o momento perfeito para planejar toda sua casa.<br>
                         Não perca! Esperamos por você com ofertas imperdíveis!
                     </p>
@@ -122,12 +132,12 @@ foreach ($produtos as $p) {
 </section>
 
 <section class="section-produtos-novidades">
-    <h2 class="text text-center">Conheça as novidades</h2>
+    <h2 class="text text-center">Conheça as Novidades</h2>
     <div class="swiper novidadesSwiper">
         <div class="swiper-wrapper">
             <?php foreach ($novidades as $item): ?>
                 <div class="swiper-slide slideInUp">
-                    <div class="card-produto">
+                    <div class="card-produto" data-id="<?= $item->getId() ?>">
                         <img src="<?= htmlspecialchars($item->getDiretorioImagem()) ?>"
                             alt="<?= htmlspecialchars($item->getDescricao()) ?>">
                         <div class="tags"><span class="tag novidade">Novidade</span></div>
@@ -135,36 +145,7 @@ foreach ($produtos as $p) {
                         <div class="avaliacao">★★★★★</div>
                         <p class="preco-novo">R$ <?= number_format($item->getPrecoAV(), 2, ',', '.') ?></p>
                         <p class="preco-info">R$ <?= number_format($item->getPrecoAP(), 2, ',', '.') ?></p>
-                        <p class="qtdeDisp">Estoque: <?= ($item->getqtdeDisp()) ?></p>
-                        <button class="btn-whatsapp" data-phone="5544999870212">
-                            <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
-                        </button>
-                        <button class="btn-carrinho">
-                            <i class=" fa-solid fa-cart-shopping"></i> Adicionar ao Carrinho
-                        </button>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-        <div class=" swiper-button-next">
-        </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-
-    <h2 class="text text-center">Os mais Vendidos</h2>
-    <div class="swiper maisVendidosSwiper">
-        <div class="swiper-wrapper">
-            <?php foreach ($maisVendidos as $item): ?>
-                <div class="swiper-slide slideInUp">
-                    <div class="card-produto">
-                        <img src="<?= htmlspecialchars($item->getDiretorioImagem()) ?>"
-                            alt="<?= htmlspecialchars($item->getDescricao()) ?>">
-                        <h3><?= htmlspecialchars($item->getDescricao()) ?></h3>
-                        <div class="avaliacao">★★★★★</div>
-                        <p class="preco-novo">R$ <?= number_format($item->getPrecoAV(), 2, ',', '.') ?></p>
-                        <p class="preco-info">R$ <?= number_format($item->getPrecoAP(), 2, ',', '.') ?></p>
-                        <p class="qtdeDisp">Estoque: <?= ($item->getqtdeDisp()) ?></p>
+                        <p class="qtdeDisp">Estoque: <?= htmlspecialchars($item->getqtdeDisp()) ?></p>
                         <button class="btn-whatsapp" data-phone="5544999870212">
                             <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
                         </button>
@@ -175,6 +156,36 @@ foreach ($produtos as $p) {
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <h2 class="text text-center">Os Mais Vendidos</h2>
+    <div class="swiper maisVendidosSwiper">
+        <div class="swiper-wrapper">
+            <?php foreach ($maisVendidos as $item): ?>
+                <div class="swiper-slide slideInUp">
+                    <div class="card-produto" data-id="<?= $item->getId() ?>">
+                        <img src="<?= htmlspecialchars($item->getDiretorioImagem()) ?>"
+                            alt="<?= htmlspecialchars($item->getDescricao()) ?>">
+                        <h3><?= htmlspecialchars($item->getDescricao()) ?></h3>
+                        <div class="avaliacao">★★★★★</div>
+                        <p class="preco-novo">R$ <?= number_format($item->getPrecoAV(), 2, ',', '.') ?></p>
+                        <p class="preco-info">R$ <?= number_format($item->getPrecoAP(), 2, ',', '.') ?></p>
+                        <p class="qtdeDisp">Estoque: <?= htmlspecialchars($item->getqtdeDisp()) ?></p>
+                        <button class="btn-whatsapp" data-phone="5544999870212">
+                            <i class="fa-brands fa-whatsapp"></i> Comprar no WhatsApp
+                        </button>
+                        <button class="btn-carrinho">
+                            <i class="fa-solid fa-cart-shopping"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
@@ -287,7 +298,8 @@ foreach ($produtos as $p) {
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"Gostei bastante! Atendimento ótimo e muita variedade de produtos
+                    <p class="testimonial-quote">"Gostei bastante! Atendimento ótimo e muita variedade de
+                        produtos
                         pra escolher."</p>
                     <div class="testimonial-author">
                         <img src="imagens/avatar5.jpg" alt="Cliente" class="avatar" />
@@ -329,12 +341,14 @@ foreach ($produtos as $p) {
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"A loja tem várias opções de móveis e eletros, tudo muito bonito e do
+                    <p class="testimonial-quote">"A loja tem várias opções de móveis e eletros, tudo muito
+                        bonito e
+                        do
                         jeitinho que eu precisava."</p>
                     <div class="testimonial-author">
                         <img src="imagens/avatar7.jpg" alt="Cliente" class="avatar" />
                         <div>
-                            <h3>Ana Isabela</h3>
+                            <h3>Ana Paula</h3>
                             <p>Cliente desde 2020</p>
                         </div>
                     </div>
@@ -347,7 +361,6 @@ foreach ($produtos as $p) {
         <div class="swiper-pagination"></div>
     </div>
 </section>
-
 
 <section class="categories">
     <section class="faq-section">
@@ -364,10 +377,14 @@ foreach ($produtos as $p) {
                     </h3>
                     <div id="faq-collapse-1" class="accordion-collapse collapse" data-bs-parent="#moveisFaqAccordion">
                         <div class="accordion-body">
-                            Para escolher o móvel ideal, primeiro <span class="highlight">meça seu espaço</span> com
-                            precisão. Considere a funcionalidade desejada, o estilo da decoração existente e o orçamento
-                            disponível. Lembre-se de deixar espaço para circulação e verifique se as portas e gavetas
-                            têm abertura livre. O móvel deve ser proporcional ao ambiente, nem muito grande nem muito
+                            Para escolher o móvel ideal, primeiro <span class="highlight">meça seu espaço</span>
+                            com
+                            precisão. Considere a funcionalidade desejada, o estilo da decoração existente e o
+                            orçamento
+                            disponível. Lembre-se de deixar espaço para circulação e verifique se as portas e
+                            gavetas
+                            têm abertura livre. O móvel deve ser proporcional ao ambiente, nem muito grande nem
+                            muito
                             pequeno.
                         </div>
                     </div>
@@ -382,10 +399,13 @@ foreach ($produtos as $p) {
                     </h3>
                     <div id="faq-collapse-2" class="accordion-collapse collapse" data-bs-parent="#moveisFaqAccordion">
                         <div class="accordion-body">
-                            <span class="highlight">MDF</span> é feito de fibras de madeira prensadas, oferecendo
+                            <span class="highlight">MDF</span> é feito de fibras de madeira prensadas,
+                            oferecendo
                             acabamento liso e uniforme. <span class="highlight">MDP</span> utiliza partículas de
                             madeira, sendo mais econômico mas menos resistente à umidade. <span
-                                class="highlight">Madeira maciça</span> é natural, mais durável e nobre, porém com custo
+                                class="highlight">Madeira maciça</span> é natural, mais durável e nobre, porém
+                            com
+                            custo
                             superior. Cada material tem suas vantagens dependendo do uso e orçamento.
                         </div>
                     </div>
@@ -402,8 +422,10 @@ foreach ($produtos as $p) {
                         <div class="accordion-body">
                             Para manter seus móveis em perfeito estado: <span class="highlight">limpe
                                 regularmente</span> com pano seco ou levemente úmido, evite produtos químicos
-                            agressivos, proteja da luz solar direta e umidade excessiva. Use cera específica para
-                            madeira mensalmente, coloque protetores sob objetos que possam riscar e faça manutenção
+                            agressivos, proteja da luz solar direta e umidade excessiva. Use cera específica
+                            para
+                            madeira mensalmente, coloque protetores sob objetos que possam riscar e faça
+                            manutenção
                             preventiva nas dobradiças e puxadores.
                         </div>
                     </div>
@@ -419,9 +441,13 @@ foreach ($produtos as $p) {
                     <div id="faq-collapse-4" class="accordion-collapse collapse" data-bs-parent="#moveisFaqAccordion">
                         <div class="accordion-body">
                             <span class="highlight">Móveis planejados</span> oferecem personalização total,
-                            aproveitamento máximo do espaço e acabamento exclusivo, mas têm custo e prazo maiores. <span
-                                class="highlight">Móveis prontos</span> são mais econômicos, entrega imediata e
-                            facilidade de troca, porém com limitações de tamanho e personalização. A escolha depende do
+                            aproveitamento máximo do espaço e acabamento exclusivo, mas têm custo e prazo
+                            maiores.
+                            <span class="highlight">Móveis prontos</span> são mais econômicos, entrega imediata
+                            e
+                            facilidade de troca, porém com limitações de tamanho e personalização. A escolha
+                            depende
+                            do
                             orçamento, prazo e necessidades específicas do projeto.
                         </div>
                     </div>
@@ -432,6 +458,8 @@ foreach ($produtos as $p) {
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -507,6 +535,72 @@ foreach ($produtos as $p) {
                     `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
 
                 window.open(whatsappUrl, '_blank');
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.btn-carrinho').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const card = btn.closest('.card-produto');
+                const id = card.getAttribute('data-id');
+
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Adicionando...';
+
+                try {
+                    const response = await fetch(
+                        'src/Controller/carrinho.php?action=adicionar', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `id=${encodeURIComponent(id)}`,
+                            credentials: 'include'
+                        });
+
+                    const data = await response.json();
+
+                    if (data.sucesso) {
+                        const estoqueElemento = card.querySelector('.qtdeDisp');
+                        // if (estoqueElemento) {
+                        //     const numero = estoqueElemento.textContent.replace(/\D/g, '');
+                        //     let estoqueAtual = parseInt(numero, 10);
+                        //     if (!isNaN(estoqueAtual) && estoqueAtual > 0) {
+                        //         estoqueAtual--;
+                        //         estoqueElemento.textContent = `Estoque: ${estoqueAtual}`;
+                        //     }
+                        // }
+
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Produto adicionado ao carrinho!',
+                            text: 'Você pode continuar comprando ou acessar seu carrinho.',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            backdrop: false
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Aviso',
+                            text: data.erro || 'Erro ao adicionar o produto.'
+                        });
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro',
+                        text: 'Falha na requisição.'
+                    });
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML =
+                        '<i class="fa-solid fa-cart-shopping"></i> Adicionar ao Carrinho';
+                }
             });
         });
     });

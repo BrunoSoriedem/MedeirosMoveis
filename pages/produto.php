@@ -51,7 +51,7 @@ $produtos = Produtos::findAll();
                 }
             ?>
 
-            <div class="card-produto" data-id="<?= $item->getId() ?>">
+            <div class="card-produto" data-category="<?= $categoria ?>" data-id="<?= $item->getId() ?>">
                 <img src="<?= htmlspecialchars($item->getDiretorioImagem()) ?>"
                     alt="<?= htmlspecialchars($item->getDescricao()) ?>">
                 <h3><?= htmlspecialchars($item->getDescricao()) ?></h3>
@@ -179,52 +179,62 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const carrinhoButtons = document.querySelectorAll(".btn-carrinho");
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.btn-carrinho').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const card = btn.closest('.card-produto');
+            const id = card.getAttribute('data-id');
 
-    carrinhoButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            const card = this.closest(".card-produto");
-            const produtoId = card.getAttribute("data-id");
-
-            fetch("src/Controller/carrinho.php?action=adicionar", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        id_produto: produtoId,
-                        quantidade: 1
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === "success") {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Adicionado!",
-                            text: "Produto adicionado ao carrinho com sucesso.",
-                            timer: 1500,
-                            showConfirmButton: false
-                        });
-                    } else {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Erro",
-                            text: data.message ||
-                                "Não foi possível adicionar ao carrinho."
-                        });
-                    }
-                })
-                .catch(error => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Erro de conexão",
-                        text: "Não foi possível comunicar com o servidor."
+            try {
+                const response = await fetch(
+                    'src/Controller/carrinho.php?action=adicionar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: `id=${id}`,
+                        credentials: 'include'
                     });
+
+                const data = await response.json();
+
+                if (data.sucesso) {
+
+                    const estoqueElemento = card.querySelector('.qtdeDisp');
+                    if (estoqueElemento) {
+                        const texto = estoqueElemento.textContent.replace(/\D/g, '');
+                        const estoqueAtual = parseInt(texto, 10);
+
+                        // if (!isNaN(estoqueAtual) && estoqueAtual > 0) {
+                        //     estoqueElemento.textContent = `Estoque: ${estoqueAtual - 1}`;
+                        // }
+                    }
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Produto adicionado ao carrinho!',
+                        text: 'Você pode continuar comprando ou acessar seu carrinho.',
+                        confirmButtonText: 'Ok',
+                        confirmButtonColor: '#28a745',
+                        backdrop: true,
+                        allowOutsideClick: false,
+                        timer: 1800,
+                        showConfirmButton: false
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Aviso',
+                        text: data.erro || 'Erro ao adicionar o produto.'
+                    });
+                }
+            } catch (e) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Falha na requisição.'
                 });
+            }
         });
     });
 });

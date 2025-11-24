@@ -368,6 +368,7 @@ $temAcessoCadastro = ($perfil === 'master');
         });
     });
 </script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const userDropdown = document.querySelector('.user-dropdown');
