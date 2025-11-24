@@ -43,7 +43,7 @@ class Database
         return $config;
     }
 
-    private static function getConnection(): Connection
+    public static function getConnection(): Connection
     {
         $dbParams = [
             'driver'   => 'pdo_mysql',
