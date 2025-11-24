@@ -36,8 +36,6 @@ class ItensCarrinho
         $this->data_adicionado = new DateTime();
     }
 
-    // getters / setters
-
     public function getId(): int
     {
         return $this->id;

@@ -26,37 +26,6 @@ class CarrinhoController
         exit;
     }
 
-    /**
-     * Verifica estoque e já decrementa a quantidade desejada no produto.
-     * Retorna o objeto Produto atualizado (persistido no EM), ou dispara JSON de erro.
-     *
-     * @param \Doctrine\ORM\EntityManagerInterface $em
-     * @param int $idProduto
-     * @param int $quantidadeDesejada
-     * @return Produtos
-     */
-    private static function verificarEAtualizarEstoque($em, int $idProduto, int $quantidadeDesejada = 1): Produtos
-    {
-        $produtoRepo = $em->getRepository(Produtos::class);
-        $produto = $produtoRepo->find($idProduto);
-
-        if (!$produto) {
-            self::jsonResponse(['sucesso' => false, 'erro' => 'Produto não encontrado.']);
-        }
-
-        if ($produto->getQtdeDisp() < $quantidadeDesejada) {
-            self::jsonResponse([
-                'sucesso' => false,
-                'erro' => 'Estoque insuficiente. Apenas ' . $produto->getQtdeDisp() . ' unidades disponíveis.'
-            ]);
-        }
-
-        $produto->setQtdeDisp($produto->getQtdeDisp() - $quantidadeDesejada);
-        $em->persist($produto);
-
-        return $produto;
-    }
-
     public static function adicionar()
     {
         self::iniciarSessao();
@@ -66,43 +35,47 @@ class CarrinhoController
         $idConta = $usuario ? $usuario->getId() : null;
 
         if (!$idProduto || !$idConta) {
-            self::jsonResponse(['sucesso' => false, 'erro' => 'Usuário não logado ou produto inválido.']);
+            self::jsonResponse([
+                'sucesso' => false,
+                'erro' => 'Usuário não logado ou produto inválido.'
+            ]);
         }
 
         try {
             $em = Database::getEntityManager();
 
-            $itensRepo = $em->getRepository(ItensCarrinho::class);
-            $contaRepo = $em->getRepository(ContasCadastradas::class);
+            $produto = $em->getRepository(Produtos::class)->find($idProduto);
+            if (!$produto) {
+                self::jsonResponse([
+                    'sucesso' => false,
+                    'erro' => 'Produto não encontrado.'
+                ]);
+            }
 
-            $conta = $contaRepo->find($idConta);
+            $conta = $em->getRepository(ContasCadastradas::class)->find($idConta);
             if (!$conta) {
-                self::jsonResponse(['sucesso' => false, 'erro' => 'Conta não encontrada.']);
+                self::jsonResponse([
+                    'sucesso' => false,
+                    'erro' => 'Conta não encontrada.'
+                ]);
             }
 
-            $produto = self::verificarEAtualizarEstoque($em, $idProduto, 1);
-
-            $item = null;
-            if (method_exists($itensRepo, 'findItemByContaEProduto')) {
-                $item = $itensRepo->findItemByContaEProduto($idConta, $idProduto);
-            } else {
-
-                $item = $itensRepo->createQueryBuilder('i')
-                    ->where('i.conta = :conta')
-                    ->andWhere('i.produto = :produto')
-                    ->setParameters(['conta' => $idConta, 'produto' => $idProduto])
-                    ->getQuery()
-                    ->getOneOrNullResult();
-            }
+            $item = $em->getRepository(ItensCarrinho::class)
+                ->createQueryBuilder('i')
+                ->where('i.conta = :conta AND i.produto = :produto')
+                ->setParameter('conta', $conta)
+                ->setParameter('produto', $produto)
+                ->getQuery()
+                ->getOneOrNullResult();
 
             if ($item) {
                 $item->setQuantidade($item->getQuantidade() + 1);
             } else {
                 $item = new ItensCarrinho();
-                $item->setConta($conta)
-                    ->setProduto($produto)
-                    ->setPrecoUnitario($produto->getPrecoAV())
-                    ->setQuantidade(1);
+                $item->setConta($conta);
+                $item->setProduto($produto);
+                $item->setPrecoUnitario($produto->getPrecoAV());
+                $item->setQuantidade(1);
                 $em->persist($item);
             }
 
@@ -110,7 +83,7 @@ class CarrinhoController
 
             self::jsonResponse([
                 'sucesso' => true,
-                'mensagem' => 'Produto adicionado ao carrinho!'
+                'mensagem' => 'Produto adicionado ao carrinho com sucesso!'
             ]);
         } catch (\Throwable $e) {
             self::jsonResponse([
@@ -124,43 +97,52 @@ class CarrinhoController
     {
         self::iniciarSessao();
 
-        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $idProduto = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
         $usuario = \App\Model\VerificaUsuario::usuarioLogado();
         $idConta = $usuario ? $usuario->getId() : null;
 
-        if (!$id || !$idConta) {
-            self::jsonResponse(['sucesso' => false, 'erro' => 'Usuário não logado ou ID inválido.']);
+        if (!$idProduto || !$idConta) {
+            self::jsonResponse([
+                'sucesso' => false,
+                'erro' => 'Usuário não logado ou produto inválido.'
+            ]);
         }
 
         try {
             $em = Database::getEntityManager();
-            $itensRepo = $em->getRepository(ItensCarrinho::class);
-            $item = null;
 
-            if (method_exists($itensRepo, 'findItemByContaEProduto')) {
-                $item = $itensRepo->findItemByContaEProduto($idConta, $id);
-            } else {
-                $item = $itensRepo->createQueryBuilder('i')
-                    ->where('i.conta = :conta')
-                    ->andWhere('i.produto = :produto')
-                    ->setParameters(['conta' => $idConta, 'produto' => $id])
-                    ->getQuery()
-                    ->getOneOrNullResult();
-            }
+            $item = $em->getRepository(ItensCarrinho::class)
+                ->createQueryBuilder('i')
+                ->where('i.conta = :conta AND i.produto = :produto')
+                ->setParameter('conta', $idConta)
+                ->setParameter('produto', $idProduto)
+                ->getQuery()
+                ->getOneOrNullResult();
 
             if (!$item) {
-                self::jsonResponse(['sucesso' => false, 'erro' => 'Item não encontrado.']);
+                self::jsonResponse([
+                    'sucesso' => false,
+                    'erro' => 'Item não encontrado no carrinho.'
+                ]);
             }
 
-            $produto = $item->getProduto();
+            $novaQtd = $item->getQuantidade() - 1;
 
-            $produto->setQtdeDisp($produto->getQtdeDisp() + $item->getQuantidade());
-            $em->persist($produto);
+            if ($novaQtd <= 0) {
+                $em->remove($item);
+                $msg = 'Produto removido do carrinho!';
+            } else {
+                $item->setQuantidade($novaQtd);
+                $em->persist($item);
+                $msg = 'Quantidade reduzida com sucesso!';
+            }
 
-            $em->remove($item);
             $em->flush();
 
-            self::jsonResponse(['sucesso' => true, 'mensagem' => 'Item removido do carrinho!']);
+            self::jsonResponse([
+                'sucesso' => true,
+                'mensagem' => $msg
+            ]);
         } catch (\Throwable $e) {
             self::jsonResponse([
                 'sucesso' => false,
@@ -172,6 +154,7 @@ class CarrinhoController
     public static function listar()
     {
         self::iniciarSessao();
+
         $usuario = \App\Model\VerificaUsuario::usuarioLogado();
         $idConta = $usuario ? $usuario->getId() : null;
 
@@ -180,10 +163,9 @@ class CarrinhoController
         }
 
         $em = Database::getEntityManager();
-        $itensRepo = $em->getRepository(ItensCarrinho::class);
-        $itens = $itensRepo->findBy(['conta' => $idConta]);
+        $itens = $em->getRepository(ItensCarrinho::class)->findBy(['conta' => $idConta]);
 
-        $dados = array_map(function ($item) {
+        $retorno = array_map(function ($item) {
             return [
                 'id' => $item->getProduto()->getId(),
                 'nome' => $item->getProduto()->getDescricao(),
@@ -193,28 +175,20 @@ class CarrinhoController
             ];
         }, $itens);
 
-        self::jsonResponse($dados);
-    }
-
-    public static function getCarrinho(): array
-    {
-        self::iniciarSessao();
-        return $_SESSION['carrinho'] ?? [];
+        self::jsonResponse($retorno);
     }
 
     public static function listarRetorno(): array
     {
         self::iniciarSessao();
+
         $usuario = \App\Model\VerificaUsuario::usuarioLogado();
         $idConta = $usuario ? $usuario->getId() : null;
 
-        if (!$idConta) {
-            return [];
-        }
+        if (!$idConta) return [];
 
         $em = Database::getEntityManager();
-        $itensRepo = $em->getRepository(ItensCarrinho::class);
-        $itens = $itensRepo->findBy(['conta' => $idConta]);
+        $itens = $em->getRepository(ItensCarrinho::class)->findBy(['conta' => $idConta]);
 
         return array_map(function ($item) {
             return [
