@@ -21,14 +21,13 @@ if ($logado) {
 <section id="section-email" data-aos="fade-up">
     <div class="contact-container">
         <div class="form-box">
-            <h2 class="h2-form">dashboard</h2>
-            <iframe class="mapa-embed"
-                    src="http://localhost:3000/public/dashboard/c4e0da6d-de34-44b1-8244-f1732ca32a18"
-                    width="100%" height="1000" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <h2 class="h2-form" id="dashboard">Meu Dashboard</h2>
+            <iframe class="mapa-embed" src="http://localhost:3000/public/dashboard/c4e0da6d-de34-44b1-8244-f1732ca32a18"
+                width="100%" height="1000" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
-        </div>
+    </div>
     </div>
 </section>
 

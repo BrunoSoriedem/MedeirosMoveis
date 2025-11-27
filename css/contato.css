@@ -55,6 +55,10 @@ body {
     color: #000000;
 }
 
+#dashboard {
+    font-size: 28px;
+}
+
 form {
     display: flex;
     flex-direction: column;

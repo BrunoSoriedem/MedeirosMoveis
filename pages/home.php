@@ -67,8 +67,8 @@ foreach ($produtos as $p) {
             <div class="swiper-slide slide-com-overlay" id="slide2">
                 <img src="imagens/eletros/geladeira-3-portas.jpg" alt="Colchão Gazin">
                 <div class="conteudo-sobreposto-direito">
-                    <h1>Neste mês de <span class="destaque">Setembro</span></h1>
-                    <p>A loja inteira está em promoção para o <span class="destaque">nosso fecha mês</span>!<br>
+                    <h1>Neste mês de <span class="destaque">Novembro</span></h1>
+                    <p>A loja inteira está em promoção para a <span class="destaque">nossa Black Friday</span>!<br>
                         Aproveite descontos de até <span class="destaque">50%</span> em todos os
                         produtos.<br><br>
                         É o momento perfeito para planejar toda sua casa.<br>
@@ -459,7 +459,8 @@ foreach ($produtos as $p) {
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -655,5 +656,45 @@ foreach ($produtos as $p) {
             const el = document.getElementById(c.id);
             if (el) observer.observe(el);
         });
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const produtosLink = document.querySelector('.nav-item.dropdown .dropdown-toggle');
+        if (!produtosLink) return;
+
+        if (typeof bootstrap !== 'undefined' && bootstrap.Dropdown) {
+            const bsInstance = bootstrap.Dropdown.getOrCreateInstance(produtosLink);
+
+            produtosLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                bsInstance.toggle();
+            });
+
+            document.addEventListener('click', function(evt) {
+                if (!produtosLink.closest('.nav-item.dropdown').contains(evt.target)) {
+                    const inst = bootstrap.Dropdown.getInstance(produtosLink);
+                    if (inst) inst.hide();
+                }
+            });
+
+            const itens = document.querySelectorAll('.nav-item.dropdown .dropdown-menu .dropdown-item');
+            itens.forEach(i => i.addEventListener('click', e => e.stopPropagation()));
+        } else {
+            const dropdownMenu = produtosLink.nextElementSibling;
+            produtosLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+            document.addEventListener('click', function(evt) {
+                if (!produtosLink.closest('.nav-item.dropdown').contains(evt.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        }
     });
 </script>
